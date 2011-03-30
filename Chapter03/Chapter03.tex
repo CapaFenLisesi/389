@@ -1,0 +1,946 @@
+\chapter{Position and Momentum}
+\section{Introduction}
+So far, we have considered {\em general} dynamical variables represented by 
+{\em general} linear
+operators acting in ket space. However, in classical mechanics the most important
+dynamical variables are those involving
+position and momentum. Let us investigate 
+the role of such  variables  in quantum mechanics. 
+
+In classical mechanics, the position $q$ and momentum $p$ 
+of some component of a dynamical  system are represented as {\em real numbers} which,
+by definition, commute.
+In quantum mechanics, these quantities are represented
+as   {\em noncommuting} linear Hermitian operators acting in a ket space
+which represents all of the possible states of the system. Our first task is
+to discover a quantum mechanical replacement for the classical result
+$q\,p-p\,q = 0$. Do the position and momentum operators commute? If not,
+what is the value of $q\,p-p\,q$? 
+
+\section{Poisson Brackets}
+Consider a dynamic system whose state at a particular time $t$ is
+fully specified 
+by $N$ independent classical  coordinates $q_i$ (where $i$ runs from 1 to $N$). 
+Associated with each generalized coordinate $q_i$ is a 
+classical canonical momentum
+$p_i$. For instance, a Cartesian coordinate  has an associated linear
+momentum, an angular coordinate has an associated angular momentum, {\em etc}.
+As is well-known, the behaviour of a classical system can be specified in terms
+of Lagrangian or Hamiltonian dynamics. For instance, in Hamiltonian dynamics,
+\begin{eqnarray}
+\frac{d q_i}{d t} &=& ~\frac{\partial H}{\partial p_i},\\[0.5ex]
+\frac{d p_i}{dt} &=& - \frac{\partial H}{\partial q_i},
+\end{eqnarray}
+where the function $H(q_i, p_i, t)$ is the energy of the system at time $t$
+expressed in terms of the 
+classical coordinates and canonical momenta. This function is
+usually referred to as the {\em Hamiltonian} of the system.
+
+We are interested in 
+finding some
+construct of classical dynamics which consists of
+{\em products} of dynamical variables. If such a construct exists we hope to 
+generalize it somehow to obtain  a
+rule describing how dynamical variables
+commute with one another in quantum mechanics. There is, indeed,
+ one well-known construct
+in classical dynamics which involves products of dynamical variables. The
+{\em Poisson bracket} of two dynamical variables $u$ and $v$ is defined
+\begin{equation}\label{e3.2}
+[u, v] = \sum_{i=1}^N \left(\frac{\partial u}{\partial q_i}\frac{\partial v}
+{\partial p_i} - \frac{\partial u}{\partial p_i}\frac{\partial v}{\partial q_i}
+\right),
+\end{equation}
+where $u$ and $v$ are regarded as functions of the coordinates 
+and momenta $q_i$ and $p_i$. It is easily demonstrated that
+\begin{eqnarray}\label{e3.3a}
+[q_i, q_j] &=& 0,\\[0.5ex]
+[p_i, p_j] &=& 0,\\[0.5ex]
+[q_i, p_j] &=& \delta_{ij}.\label{e3.3c}
+\end{eqnarray}
+ The time evolution of a dynamical variable can also
+be
+written in terms of a Poisson bracket by noting that
+\begin{eqnarray}
+\frac{du}{dt}& = &\sum_{i=1}^N \left(\frac{\partial u}{\partial q_i}\frac{d q_i}{dt}
++ \frac{\partial u}{\partial p_i}\frac{dp_i}{dt}\right)\nonumber\\[0.5ex]
+&=& \sum_{i=1}^N \left(\frac{\partial u}{\partial q_i}\frac{\partial H}{\partial p_i}
+-\frac{\partial u}{\partial p_i}\frac{\partial H}{\partial q_i}\right)\nonumber
+\\[0.5ex]
+&=& [u, H],\label{e3.4}
+\end{eqnarray}
+where use has been made of Hamilton's equations. 
+
+Can we construct a quantum mechanical Poisson bracket in which $u$ and
+$v$ are noncommuting operators, instead of functions? Well, the main properties
+of the classical Poisson bracket are as follows:
+\begin{eqnarray}\label{e3.5a}
+[u, v] &=& - [v, u],\\[0.5ex]
+[u, c] &=& 0,\\[0.5ex]
+[u_1+ u_2, v] &=& [u_1, v] + [u_2, v],\\[0.5ex]
+[u, v_1 + v_2]&=& [u, v_1] + [u, v_2]\\[0.5ex]
+[u_1\, u_2, v] &=& [u_1, v] u_2 + u_1 [u_2, v],\label{e3.5e}\\[0.5ex]
+[u, v_1 \,v_2] &=& [u, v_1] v_2 + v_1 [u, v_2],\label{e3.5f}
+\end{eqnarray}
+and
+\begin{equation}\label{e3.6}
+[u, [v, w] ]+ [v, [w, u] ] + [w, [u, v]] = 0.
+\end{equation}
+The last relation is known as the {\em Jacobi identity}. In the above,
+$u$, $v$, $w$, {\em etc.}, represent dynamical variables, and $c$ represents a number.
+Can we find some combination of noncommuting operators $u$ and $v$, {\em etc.}, 
+which satisfies all of the above relations?
+
+Well, we can evaluate the Poisson bracket $[u_1 \,u_2, v_1 \,v_2]$ in
+two different ways, since we can use either of the formulae (\ref{e3.5e}) or
+(\ref{e3.5f}) first. Thus,
+\begin{eqnarray}
+[u_1\, u_2, v_1\, v_2] &=& [u_1, v_1 \,v_2]u_2 + u_1[u_2, v_1\, v_2]\\[0.5ex]
+&=& \left\{ [u_1, v_1]v_2 + v_1[u_1, v_2]\right\} u_2 
++u_1\left\{[u_2, v_1]v_2 + v_1[u_2, v_2]\right\}\nonumber\\[0.5ex]
+&=& [u_1, v_1] v_2 \,u_2 + v_1[u_1, v_2] u_2 + u_1[u_2, v_1]v_2
++ u_1 \,v_1[u_2, v_2],\nonumber
+\end{eqnarray}
+and
+\begin{eqnarray}
+[u_1 \,u_2, v_1\, v_2] &=& [u_1 \,u_2, v_1 ]v_2 + v_1[u_1\, u_2, v_2]\\[0.5ex]
+&=& [u_1, v_1] u_2 \,v_2 + u_1[u_2, v_1] v_2 + v_1[u_1, v_2]u_2
++ v_1\, u_1[u_2, v_2].\nonumber
+\end{eqnarray}
+Note that the order of the various factors has been preserved, since they
+now represent {\em noncommuting} operators. Equating the above two results
+yields
+\begin{equation}
+[u_1, v_1] (u_2 \,v_2 - v_2 \,u_2) = (u_1 \,v_1-v_1\, u_1)[u_2, v_2].
+\end{equation}
+Since this relation must hold for $u_1$ and $v_1$ quite independent of
+$u_2$ and $v_2$, it follows that
+\begin{eqnarray}
+u_1 \,v_1 - v_1\, u_1 &=& {\rm i}\,\hbar \,[u_1, v_1],\\[0.5ex]
+u_2\, v_2 - v_2\, u_2 &=& {\rm i} \,\hbar \,[u_2, v_2],
+\end{eqnarray}
+where $\hbar$ does not depend on $u_1$, $v_1$, $u_2$, $v_2$, and also
+commutes with $(u_1\, v_1- v_1 \,u_1)$. Since $u_1$, {\em etc.}, are quite general
+operators, it follows that $\hbar$ is just a number. We want the quantum 
+mechanical Poisson
+bracket of two Hermitian operators to be an Hermitian operator itself, since
+the classical Poisson bracket of two real dynamical variables is real. This
+requirement is satisfied if $\hbar$ is a real number. Thus, the
+quantum mechanical Poisson bracket of two dynamical variables $u$ and $v$
+is given by
+\begin{equation}
+[u, v] = \frac{u\,v - v\,u}{{\rm i} \,\hbar},
+\end{equation}
+where $\hbar$ is a new universal constant of nature. Quantum mechanics agrees with
+experiments provided that  $\hbar$ takes the value $h/2\pi$, where
+\begin{equation}
+h = 6.6261 \times 10^{-34}~~{\rm J\,s}
+\end{equation}
+is {\em Planck's constant}. Somewhat confusingly, the notation
+$[u, v]$ is
+conventionally  reserved for the commutator $u\,v-v\,u$ in quantum mechanics. 
+We will use $[u, v]_{\rm quantum}$ to denote the quantum Poisson bracket. 
+Thus,
+\begin{equation}\label{e3.13}
+[u, v]_{\rm quantum} = \frac{[u, v]}{{\rm i}\, \hbar}.
+\end{equation}
+It is easily demonstrated that the quantum mechanical Poisson bracket, as defined above,
+satisfies all of the relations (\ref{e3.5a})--(\ref{e3.6}).
+
+The strong analogy we have found between the classical Poisson bracket, defined
+in Eq.~(\ref{e3.2}), and the quantum mechanical 
+Poisson bracket, defined in Eq.~(\ref{e3.13}), leads
+us to make the assumption that the quantum mechanical bracket has the same
+value as the corresponding classical bracket, at least for the simplest
+cases. In other words, we are assuming that Eqs.~(\ref{e3.3a})--(\ref{e3.3c}) hold for quantum
+mechanical as well as classical Poisson brackets. This argument yields the
+fundamental commutation relations
+\begin{eqnarray}
+[q_i, q_j] &=& 0,\label{e3.14a}\\[0.5ex]
+[p_i, p_j]&=& 0, \label{e3.14b}\\[0.5ex]
+[q_i, p_j] &=& {\rm i} \,\hbar \,\delta_{ij}.\label{e3.14c}
+\end{eqnarray}
+These results provide us with the basis for calculating commutation
+relations between general dynamical variables. For instance, if
+two dynamical variables,  $\xi$ and $\eta$,
+can both  be written as a power series in the
+ $q_i$ and $p_i$, then repeated application of Eqs.~(\ref{e3.5a})--(\ref{e3.5f})
+allows $[\xi, \eta]$ to be expressed in terms of the fundamental
+commutation relations (\ref{e3.14a})--(\ref{e3.14c}). 
+
+Equations~(\ref{e3.14a})--(\ref{e3.14c}) provide the foundation for the analogy between quantum mechanics
+and classical mechanics. Note that the classical result (that everything commutes)
+is obtained in the limit $\hbar\rightarrow 0$. Thus, {\em classical mechanics
+can be regarded as the limiting case of quantum mechanics when
+$\hbar$ goes to zero}. 
+In classical mechanics, each 
+pair of generalized coordinate and its conjugate momentum, $q_i$ and
+$p_i$, correspond to a different classical degree of freedom of the system. 
+It is clear from Eqs.~(\ref{e3.14a})--(\ref{e3.14c}) that in quantum mechanics the {\em dynamical
+variables corresponding to different degrees of freedom all commute}. 
+It is only those variables corresponding to the same degree of freedom which
+may fail to commute.
+
+\section{Wavefunctions}
+Consider a simple system with one classical degree of freedom, which corresponds to
+the Cartesian coordinate $x$. Suppose that $x$ is free to take any value ({\em e.g.},
+$x$ could be the position of a free particle). The classical dynamical variable
+$x$ is represented in quantum 
+mechanics  as a linear Hermitian operator which is also called  $x$.
+Moreover, the operator $x$ possesses eigenvalues $x'$
+lying in the {\em continuous}
+range $-\infty< x'<+\infty$ (since the eigenvalues
+correspond to all the possible results of a measurement of $x$). We can
+span ket space using the suitably normalized eigenkets of $x$.
+An eigenket corresponding to the eigenvalue $x'$ is denoted $|x'\rangle$.
+Moreover, 
+[see Eq.~(\ref{e2.77})]
+\begin{equation}\label{e3.15}
+\langle x' | x''\rangle = \delta(x'-x'').
+\end{equation}
+The eigenkets satisfy the extremely useful relation [see Eq.~(\ref{e2.78})]
+\begin{equation}\label{e3.16}
+\int_{-\infty}^{+\infty} d x' \, |x'\rangle\langle x'|= 1.
+\end{equation}
+This formula expresses the fact that the eigenkets are complete, mutually
+orthogonal, and suitably normalized.
+
+A state ket $|A\rangle$ (which represents a general  state $A$ of the system)
+can be expressed as a linear superposition of the eigenkets of the position
+operator using Eq.~(\ref{e3.16}). Thus,
+\begin{equation}\label{e3.17}
+|A\rangle = \int_{-\infty}^{+\infty} dx' \langle x'|A\rangle |x'\rangle
+\end{equation}
+The quantity $\langle x'|A\rangle$ is a complex function of the position eigenvalue
+$x'$. We can write
+\begin{equation}\label{e3.18}
+\langle x'|A\rangle = \psi_A(x').
+\end{equation}
+Here, $\psi_A(x')$ is the famous {\em wave-function} of quantum mechanics. 
+Note that state $A$ is completely specified by its wave-function $\psi_A(x')$
+[since the wave-function can be used to reconstruct the state ket $|A\rangle$
+using Eq.~(\ref{e3.17})].
+It is clear that the wave-function of state $A$ is simply the collection
+of the weights of the corresponding state ket $|A\rangle$,
+when it is expanded in terms of the eigenkets of the
+position operator. Recall, from Sect.~\ref{s2.10}, that the probability of
+a measurement of a dynamical variable $\xi$ yielding the result $\xi'$ 
+when the system is in state $A$ is given by
+$|\langle \xi'|A\rangle|^2$, assuming that
+the
+eigenvalues of $\xi$ are discrete. This result is easily generalized to dynamical
+variables possessing continuous eigenvalues. In fact, the probability of
+a measurement of $x$ yielding a result lying in the range $x'$ to $x'+dx'$
+when the system is in a state $|A\rangle$ is $|\langle x'|A\rangle|^2\,dx'$. 
+In other words, the probability of a measurement of position yielding a
+result in the range $x'$ to $x'+dx'$ when the wave-function of the system is
+$\psi_A(x')$ is
+\begin{equation}\label{e3.19}
+P(x', dx') = |\psi_A(x')|^2\, dx'.
+\end{equation}
+This formula is only valid if the state ket $|A\rangle$ is properly normalized:
+{\em i.e.}, if $\langle A|A\rangle = 1$. The corresponding normalization for
+the wave-function is
+\begin{equation}\label{e3.20}
+\int_{-\infty}^{+\infty} |\psi_A(x')|^2\,dx'= 1.
+\end{equation}
+Consider a second state $B$ represented by a state ket $|B\rangle$ and
+a wave-function $\psi_B(x')$. The inner product $\langle B| A\rangle$ 
+can be written
+\begin{equation}
+\langle B| A\rangle = \int_{-\infty}^{+\infty} dx'\,\langle B| x'\rangle
+\langle x' | A \rangle 
+ = \int_{-\infty}^{+\infty} \psi_B^\ast (x') \,\psi_A'(x')\,dx',
+\end{equation}
+where use has been made of Eqs.~(\ref{e3.16}) and (\ref{e3.18}). Thus, the inner product of two states is
+related to the overlap integral of their wave-functions. 
+
+Consider a general function $f(x)$ of the observable $x$ [{\em e.g.}, $f(x)=x^2$]. 
+If $|B\rangle = f(x)|A\rangle$ then it follows that
+\begin{eqnarray}
+\psi_B(x')& = &\langle x'| f(x) \int_{-\infty}^{+\infty} dx''\,\psi_A(x'')|x''\rangle
+\nonumber\\[0.5ex]
+&=& \int_{-\infty}^{+\infty} dx''\, f(x'')\,\psi_A(x'') \langle x'|x''\rangle,
+\end{eqnarray}
+giving
+\begin{equation}
+\psi_B(x') = f(x')\, \psi_A(x'),
+\end{equation}
+where use has been made of Eq.~(\ref{e3.15}). Here, $f(x')$ is the same function
+of the position eigenvalue $x'$ that $f(x)$ is of the position operator $x$:
+{\em i.e.}, if $f(x)=x^2$ then $f(x') = x'^{\,2}$. It follows, from the above result,
+that a general state ket $|A \rangle$ can be written
+\begin{equation}
+|A\rangle = \psi_A(x) \rangle,
+\end{equation}
+where $\psi_A(x)$ is the same function of the operator $x$ that the wave-function
+$\psi_A(x')$ is of the position eigenvalue $x'$, and the ket $\rangle$ has the
+wave-function $\psi(x') =1$. The ket $\rangle$ is termed the {\em standard ket}. 
+The dual of the standard ket is termed the {\em standard bra}, and is
+denoted $\langle$.  It is
+easily seen that
+\begin{equation}\label{e3.25}
+\langle \psi_A^\ast(x) \stackrel{\rm DC}{\longleftrightarrow} \psi_A(x)\rangle.
+\end{equation}
+Note, finally, that $\psi_A(x)\rangle$ is often shortened to $\psi_A\rangle$, leaving
+the dependence on the position operator $x$ tacitly understood. 
+
+\section{Schr\"{o}dinger's Representation - I}\label{s3.4}
+Consider the simple system described in the previous section. A general
+state ket can be written $\psi(x)\rangle$, where $\psi(x)$ is a general function of
+the position operator $x$, and $\psi(x')$ is the associated wave-function. 
+Consider the ket whose wave-function is $d\psi(x')/dx'$. This ket is
+denoted $d\psi/dx\rangle$. The new ket is clearly a linear function of
+the  original ket, so we can think of it as the result of some linear
+operator acting on $\psi\rangle$. Let us denote this operator
+$d/dx$. It follows that
+\begin{equation}
+\frac{d}{dx} \psi\rangle = \frac{d\psi}{dx}\rangle.
+\end{equation}
+
+Any linear operator which acts on ket vectors can also act on bra vectors. 
+Consider $d/dx$ acting on a general bra $\langle \phi(x)$. According to
+Eq.~(\ref{e2.32}), the bra $\langle \phi \,d/dx$ satisfies
+\begin{equation}
+\left( \langle \phi \frac{d}{dx} \right) \psi\rangle = \langle \phi\left(
+\frac{d}{dx}\psi\rangle\right).
+\end{equation}
+Making use of Eqs.~(\ref{e3.16}) and (\ref{e3.18}), we can write
+\begin{equation}
+\int_{-\infty}^{+\infty} \langle \phi \frac{d}{dx} |x'\rangle
+\,dx'\, \psi(x') = \int_{-\infty}^{+\infty} \phi(x')\, dx'\, \frac{d\psi(x')}{dx'}.
+\end{equation}
+The right-hand side can be transformed via integration by parts to give
+\begin{equation}\label{e3.29}
+\int_{-\infty}^{+\infty} \langle \phi \frac{d}{dx} |x'\rangle
+\,dx' \,\psi(x') = -\int_{-\infty}^{+\infty} \frac{d \phi(x')}{dx'}\,  dx' \,\psi(x'),
+\end{equation}
+assuming that the contributions from the limits of integration vanish. 
+It follows that
+\begin{equation}
+\langle \phi \frac{d}{dx} | x'\rangle = - \frac{d \phi(x')}{dx'},
+\end{equation}
+which implies 
+\begin{equation}\label{e3.31}
+\langle \phi \frac{d}{dx} = - \langle \frac{d\phi}{dx}.
+\end{equation}
+The neglect of contributions from the limits of integration in Eq.~(\ref{e3.29}) is
+reasonable because
+ physical wave-functions are square-integrable [see Eq.~(\ref{e3.20})].
+Note that
+\begin{equation}
+\frac{d}{dx} \psi\rangle = \frac{d\psi}{dx}\rangle \stackrel{\rm DC}{\longleftrightarrow}
+\langle \frac{d\psi^\ast}{dx} = -\langle \psi^\ast \frac{d}{dx},
+\end{equation}
+where use has been made of Eq.~(\ref{e3.31}). 
+It follows, by comparison with Eqs.~(\ref{e2.33}) and (\ref{e3.25}), that
+\begin{equation}\label{e3.33}
+\left(\frac{d}{dx}\right)^{\dag }= - \frac{d}{dx}.
+\end{equation}
+Thus, $d/dx$ is an {\em anti-Hermitian}  operator. 
+
+Let us evaluate the commutation relation between the operators $x$ and $d/dx$.
+We have
+\begin{equation}
+\frac{d}{dx} x\, \psi\rangle = \frac{d (x\,\psi)}{dx}\rangle = x\,\frac{d}{dx}\psi\rangle
++ \psi\rangle.
+\end{equation}
+Since this holds for any ket $\psi\rangle$, it follows that
+\begin{equation}\label{e3.35}
+\frac{d}{dx} x - x \frac{d}{dx} = 1.
+\end{equation}
+Let $p$ be the momentum conjugate to $x$
+ (for the simple system under consideration
+ $p$ is a straight-forward linear momentum). According to Eq.~(\ref{e3.14c}),
+$x$ and $p$ satisfy the commutation relation
+\begin{equation}\label{e3.36}
+x\,p - p\,x = {\rm i} \,\hbar.
+\end{equation}
+It can be seen, by comparison with Eq.~(\ref{e3.35}), that 
+the Hermitian operator {\em $ -{\rm i}\,\hbar \,d/dx$
+satisfies the same commutation relation with $x$ that $p$ does}. 
+The most general conclusion which may be drawn from a comparison of Eqs.~(\ref{e3.35})
+and (\ref{e3.36}) is that
+\begin{equation}\label{e3.37}
+p = -{\rm i}\,\hbar\,\frac{d}{dx} + f(x),
+\end{equation}
+since (as is easily demonstrated) a general function $f(x)$ of the position
+operator  automatically commutes with $x$. 
+
+We have chosen to normalize the eigenkets and
+eigenbras of the position operator so that they satisfy
+the normalization condition (\ref{e3.15}). However, this choice of normalization does not
+uniquely determine the eigenkets and
+eigenbras. Suppose that we transform to a new
+set of eigenbras which are related to the old set via
+\begin{equation}\label{e3.38}
+\langle x'|_{\rm new} = {\rm e}^{\,{\rm i}\,\gamma'}\langle x'|_{\rm old},
+\end{equation}
+where $\gamma'\equiv \gamma(x')$ is a real function of $x'$.
+This transformation amounts to a rearrangement of the relative
+phases of the eigenbras.  The new
+normalization condition is
+\begin{eqnarray}
+\langle x'|x''\rangle_{\rm new} &=& \langle x'| {\rm e}^{\,{\rm i}\,\gamma'}
+ {\rm e}^{-{\rm i}\,\gamma''}|x''\rangle_{\rm old} 
+= {\rm e}^{\,{\rm i}\,(\gamma'-\gamma'')}
+\langle x'|x''\rangle_{\rm old}\nonumber\\[0.5ex]
+ &=&{ \rm e}^{\,{\rm i}\,(\gamma'-\gamma'')}\delta(x'-x'')= \delta(x'-x'').
+\end{eqnarray}
+Thus, the new eigenbras satisfy the same normalization condition
+ as the old eigenbras. 
+
+
+By definition, the standard ket $\rangle$ satisfies $\langle x'|\rangle = 1$.
+It follows from Eq.~(\ref{e3.38}) that the new standard ket is related to the
+old standard ket via
+\begin{equation}\label{e3.40}
+\rangle_{\rm new} = {\rm e}^{-{\rm i}\, \gamma} \rangle_{\rm old},
+\end{equation}
+where $\gamma\equiv \gamma(x)$ is a real function of the position operator $x$. 
+The dual of the above equation yields the transformation rule for
+the standard bra,
+\begin{equation}\label{e3.41}
+\langle_{\rm new} = \langle_{\rm old} \,{\rm e}^{\,{\rm i}\, \gamma}.
+\end{equation}
+The transformation rule for a general operator $A$ follows from Eqs.~(\ref{e3.40}) and (\ref{e3.41}),
+plus the requirement that the triple product $\langle A\rangle$ remain
+invariant (this must be the case, otherwise the probability of a measurement
+yielding a certain result would depend on the choice of eigenbras). Thus,
+\begin{equation}\label{e3.42}
+A_{\rm new} = {\rm e}^{-{\rm i}\,\gamma} A_{\rm old}\,{\rm e}^{\,{\rm i}\,\gamma}.
+\end{equation}
+Of course, if $A$ commutes with $x$ then $A$ is invariant under the transformation.
+In fact, $d/dx$ is the only operator (we know of) which does not commute
+with $x$, so Eq.~(\ref{e3.42}) yields
+\begin{equation}
+\left(\frac{d}{dx}\right)_{\rm new} =  {\rm e}^{-{\rm i}\,\gamma}\frac{d}{dx}\,{\rm e}^{\,{\rm i}\,\gamma} = \frac{d}{dx} + {\rm i}\, \frac{d\gamma}{dx},
+\end{equation}
+where the subscript ``old'' is taken as read. It follows, from Eq.~(\ref{e3.37}), that
+the momentum operator $p$ can be written
+\begin{equation}
+p = -{\rm i} \,\hbar\,\left(\frac{d}{dx}\right)_{\rm new} - \hbar\,\frac{d\gamma}{dx} + f(x).
+\end{equation}
+Thus, the special choice
+\begin{equation}\label{e3.45}
+\hbar\,\gamma(x) = \int^x f(x)\,dx
+\end{equation}
+ yields
+\begin{equation}\label{e3.46}
+p =  -{\rm i} \,\hbar\,\left(\frac{d}{dx}\right)_{\rm new}.
+\end{equation}
+Equation~(\ref{e3.45}) fixes $\gamma$ to
+within an arbitrary additive constant: {\em i.e.}, the special eigenkets and eigenbras 
+for which Eq.~(\ref{e3.46}) is true are determined to within an arbitrary common phase-factor. 
+
+In conclusion, it is possible to find a set of basis eigenkets and eigenbras
+of the position operator $x$ which satisfy the normalization condition (\ref{e3.15}),
+and for which the momentum conjugate to $x$ can be represented as the operator
+\begin{equation}
+p = -{\rm i}\,\hbar\,\frac{d}{dx}.
+\end{equation}
+A general state ket is written $\psi(x)\rangle$, where the standard ket $\rangle$
+satisfies $\langle x'|\rangle = 1$, and where $\psi(x')= \langle x'|
+\psi(x)\rangle$ is the wave-function. 
+This scheme of things is known as {\em Schr\"{o}dinger's representation}, and is the
+basis of wave mechanics. 
+
+\section{Schr\"{o}dinger's Representation - II}\label{s3.5}
+In the preceding sections, we have developed Schr\"{o}dinger's representation
+for the case of a single 
+operator $x$ corresponding to a classical Cartesian coordinate. However, this scheme
+can easily be extended. Consider a system with $N$ generalized coordinates, 
+$q_1\cdots q_N$, which can all be {\em simultaneously}\/ measured. These are represented 
+as $N$ {\em  commuting}\/ operators, $q_1\cdots q_N$, each with a continuous range
+of eigenvalues, $q_1'\cdots q_N'$.
+ Ket space is conveniently spanned  by  the simultaneous
+eigenkets of $q_1\cdots q_N$, which are denoted $|q_1'\cdots q_N'\rangle$. These 
+eigenkets must form a complete set, otherwise the $q_1\cdots q_N$ would not be 
+simultaneously observable. 
+
+The orthogonality condition for the eigenkets [{\em i.e.}, the generalization of
+Eq.~(\ref{e3.15})] is
+\begin{equation}
+\langle q_1'\cdots q_N'| q_1''\cdots q_N''\rangle = \delta(q_1'-q_1'')\,\delta(q_2'-q_2'')\cdots
+\delta(q_N'-q_N'').
+\end{equation}
+The completeness condition [{\em i.e.}, the generalization of Eq.~(\ref{e3.16})] is
+\begin{equation}
+\int_{-\infty}^{+\infty} \cdots\int_{-\infty}^{+\infty} dq_1' \cdots dq_N'\,
+|q_1'\cdots q_N'\rangle \langle q_1'\cdots q_N'| = 1.
+\end{equation}
+The standard ket $\rangle$ is defined such that
+\begin{equation}\label{e3.50}
+\langle q_1'\cdots q_N'|\rangle = 1.
+\end{equation}
+The standard bra $\langle$ is the dual of the standard ket. A general state 
+ket is written
+\begin{equation}
+\psi(q_1\cdots q_N)\rangle.
+\end{equation}
+The associated wave-function is
+\begin{equation}
+\psi(q_1'\cdots q_N') = \langle q_1'\cdots q_N'|\psi\rangle.
+\end{equation}
+Likewise, a general state bra is written
+\begin{equation}
+\langle \phi(q_1\cdots q_N),
+\end{equation}
+where
+\begin{equation}
+\phi(q_1'\cdots q_N') = \langle \phi|q_1'\cdots q_N'\rangle.
+\end{equation}
+The probability of an observation of the system finding the first coordinate in
+the range $q_1'$ to $q_1'+dq_1'$, the second coordinate in the range $q_2'$ to $q_2'
++dq_2'$, {\em etc.}, is
+\begin{equation}
+P(q_1'\cdots q_N'; dq_1'\cdots dq_N') = |\psi(q_1'\cdots q_N')|^2\,dq_1'\cdots 
+dq_N'.
+\end{equation}
+Finally, the normalization condition for a physical wave-function is
+\begin{equation}
+\int_{-\infty}^{+\infty} \cdots \int_{-\infty}^{+\infty}
+|\psi(q_1'\cdots q_N')|^2\,dq_1'\cdots dq_N' = 1.
+\end{equation}
+
+The $N$ linear operators $\partial/\partial q_i$ (where $i$ runs from 1 to $N$)
+are defined
+\begin{equation}\label{e3.57}
+\frac{\partial}{\partial q_i} \psi\rangle =\frac{\partial\psi}{\partial q_i}
+\rangle.
+\end{equation}
+These linear operators can also act on bras (provided the associated wave-functions
+are square integrable) in accordance with [see Eq.~(\ref{e3.31})]
+\begin{equation}
+\langle \phi \frac{\partial }{\partial q_i} = -\langle \frac{\partial \phi}
+{\partial q_i}.
+\end{equation}
+Corresponding to Eq.~(\ref{e3.35}), we can derive the commutation relations
+\begin{equation}
+\frac{\partial}{\partial q_i} q_j - q_j \frac{\partial}{\partial q_i} = \delta_{ij}.
+\end{equation}
+It is also clear that
+\begin{equation}
+\frac{\partial}{\partial q_i}\frac{\partial}{\partial q_j} \psi\rangle
+= \frac{\partial^2\psi}{\partial q_i \partial q_j} \rangle = \frac{\partial }{\partial
+q_j} \frac{\partial }{\partial q_i} \psi\rangle,
+\end{equation}
+showing that
+\begin{equation}
+\frac{\partial}{\partial q_i}\frac{\partial}{\partial q_j} = 
+\frac{\partial }{\partial q_j}
+\frac{\partial }{\partial q_i}.
+\end{equation}
+
+It can be seen, by comparison with Eqs.~(\ref{e3.14a})--(\ref{e3.14c}), that the linear operators
+$-{\rm i}\,\hbar\, \partial/\partial q_i$ satisfy the same commutation relations
+with the $q$'s
+and with each other that the $p$'s do. The most general conclusion
+we can draw from this coincidence of commutation relations is (see Dirac)
+\begin{equation}
+p_i = -{\rm i} \,\hbar \frac{\partial}{\partial q_i} +
+\frac{\partial  F(q_1\cdots q_N) }{\partial q_i}.
+\end{equation}
+However, the function $F$
+ can be transformed away via  a suitable readjustment of the phases
+of the basis eigenkets (see Sect.~\ref{s3.4}, and Dirac). Thus, we can always construct
+a set of simultaneous eigenkets of $q_1\cdots q_N$ for  which
+\begin{equation}\label{e3.63}
+p_i = -{\rm i}\,\hbar \frac{\partial}{\partial q_i}.
+\end{equation}
+This is the generalized Schr\"{o}dinger representation. 
+
+It follows from Eqs.~(\ref{e3.50}), (\ref{e3.57}), and (\ref{e3.63}) that
+\begin{equation}
+p_i \rangle = 0.
+\end{equation}
+Thus, the standard ket in Schr\"{o}dinger's representation is a simultaneous eigenket
+of all the momentum operators belonging to the eigenvalue zero. Note that
+\begin{equation}
+\langle q_1'\cdots q_N'|\frac{\partial}{\partial q_i} \psi\rangle = 
+\langle q_1'\cdots q_N'| \frac{\partial \psi}{\partial q_i}\rangle 
+=\frac{\partial \psi(q_1'\cdots q_N')}{\partial q_i'} = \frac{\partial }
+{\partial q_i'}\langle q_1'\cdots q_N'|\psi\rangle.
+\end{equation}
+Hence,
+\begin{equation}
+\langle q_1'\cdots q_N'| \frac{\partial}{\partial q_i} = 
+\frac{\partial}{\partial q_i'} \langle q_1'\cdots q_N'|,
+\end{equation}
+so that
+\begin{equation}\label{e3.67}
+\langle q_1'\cdots q_N'| p_i = -{\rm i}\,\hbar\frac{\partial}{\partial q_i'}
+\langle q_1'\cdots q_N'|.
+\end{equation}
+The dual of the above equation gives
+\begin{equation}
+p_i|q_1'\cdots q_N'\rangle = {\rm i}\,\hbar\frac{\partial}{\partial q_i'} |q_1'\cdots
+q_N'\rangle.
+\end{equation}
+
+\section{Momentum Representation}
+Consider a system with one degree of freedom, describable in terms of a coordinate
+$x$ and its conjugate momentum $p$, both of which have a continuous range of
+eigenvalues. We have seen that it is possible to represent the system in terms
+of the eigenkets of $x$. 
+This is termed Schr\"{o}dinger's representation.
+However, it is also possible to represent the system in 
+terms of the eigenkets of $p$. 
+
+Consider the eigenkets of $p$ which belong to the eigenvalues $p'$. These are
+denoted $|p'\rangle$. The orthogonality relation for the momentum eigenkets is
+\begin{equation}\label{e3.69}
+\langle p'|p''\rangle = \delta(p'-p''),
+\end{equation}
+and the corresponding completeness relation is
+\begin{equation}\label{e3.70}
+\int_{-\infty}^{+\infty} dp' |p'\rangle \langle p'| = 1.
+\end{equation}
+A general state ket can be written
+\begin{equation}
+\phi(p)\rangle
+\end{equation}
+where the standard ket $\rangle $  satisfies 
+\begin{equation}
+\langle p'| \rangle = 1.
+\end{equation}
+Note that the standard ket in this representation is quite
+different to that  in Schr\"{o}dinger's representation. 
+The momentum space wave-function $\phi(p')$ satisfies
+\begin{equation}
+\phi(p') = \langle p'|\phi \rangle.
+\end{equation}
+The probability that a measurement of the momentum yields a result
+lying  in the range $p'$ to
+$p'+dp'$ is given by
+\begin{equation}
+P(p', dp') = |\phi(p')|^2\,dp'.
+\end{equation}
+Finally, the normalization condition for a physical momentum space wave-function is
+\begin{equation}
+\int_{-\infty}^{+\infty} |\phi(p')|^2\,dp' = 1.
+\end{equation}
+
+The fundamental commutation relations (\ref{e3.14a})--(\ref{e3.14c}) exhibit a 
+particular symmetry between coordinates and their conjugate momenta. If all the
+coordinates are transformed into their conjugate momenta, and {\em vice versa}, and
+$\rm i$ is  then replaced by $-\rm i$,  the commutation relations are
+unchanged. It follows from this symmetry that we can always choose the eigenkets
+of $p$ in such a manner that  the coordinate 
+$x$ can be represented as (see Sect.~\ref{s3.4})
+\begin{equation}
+x = {\rm i}\,\hbar\, \frac{d}{dp}.
+\end{equation}
+This is termed the momentum representation. 
+
+The above result is easily generalized to a system with more than one degree of
+freedom. Suppose the system is specified by $N$ coordinates, $q_1\cdots q_N$, and
+$N$ conjugate momenta, $p_1\cdots p_N$. Then, in the momentum representation, the
+coordinates can be written as 
+\begin{equation}
+q_i = {\rm i}\,\hbar \frac{\partial}{\partial p_i}.
+\end{equation}
+We also have
+\begin{equation}
+q_i \rangle = 0,
+\end{equation}
+and
+\begin{equation}
+\langle p_1' \cdots p_N'| q_i = {\rm i}\,\hbar \frac{\partial}{\partial p_i'}
+\langle p_1'\cdots p_N'|.
+\end{equation}
+
+The momentum representation is less useful than Schr\"{o}dinger's representation
+for  a very simple reason. The energy operator ({\em i.e.}, the Hamiltonian) of
+most simple systems takes the form of a sum of quadratic terms in the momenta
+({\em i.e.}, the kinetic energy) plus a complicated function of the coordinates
+({\em i.e.}, the potential energy). In Schr\"{o}dinger's representation,
+the eigenvalue problem for the energy translates into a second-order differential
+equation in the coordinates, with a complicated potential function. In the
+momentum representation, the problem transforms into a high-order differential
+equation in the momenta, with a quadratic potential. With the mathematical
+tools at our disposal, we are far better able to solve the former type of problem
+than the latter. Hence, Schr\"{o}dinger's representation is
+generally more useful than the momentum representation. 
+
+\section{Uncertainty Relation}
+How is a momentum space wave-function related to the corresponding coordinate
+space wave-function? To answer this question, let us consider the
+representative $\langle x'|p'\rangle$ of the
+ momentum eigenkets $|p'\rangle$ in Schr\"{o}dinger's representation
+for a system with a single degree of freedom. This representative satisfies
+\begin{equation}
+p' \langle x'|p'\rangle = \langle x'|p|p'\rangle = -{\rm i}\,\hbar\frac{d}{dx'}
+\langle x'|p'\rangle,
+\end{equation}
+where use has been made of Eq.~(\ref{e3.67}) (for the case of a system with one
+degree of freedom). The solution of the above  differential equation is
+\begin{equation}
+\langle x' | p'\rangle = c' \exp({\rm i}\, p' x'/\hbar),
+\end{equation}
+where $c' = c'(p')$. It is easily demonstrated that
+\begin{equation}
+\langle p'|p''\rangle = \int_{-\infty}^{+\infty} \langle p'|x'\rangle \,dx'\,
+\langle x'|p''\rangle = c'^\ast c'' \int_{-\infty}^{\infty}\exp[-{\rm i}\,
+(p'-p'')\,x'/\hbar]\,dx'.
+\end{equation}
+The well-known mathematical result
+\begin{equation}\label{e3.83}
+\int_{-\infty}^{+\infty} \exp({\rm i}\, a\,x)\,dx = 2\pi\,\delta (a),
+\end{equation}
+yields
+\begin{equation}
+\langle p'|p''\rangle = |c'|^2 \, h\, \delta(p'-p'').
+\end{equation}
+This is consistent with Eq.~(\ref{e3.69}), provided that $c' = h^{-1/2}$. Thus,
+\begin{equation}\label{e3.85}
+\langle x'|p'\rangle = h^{-1/2} \exp({\rm i}\, p'\, x'/\hbar).
+\end{equation}
+
+Consider a general state ket $|A\rangle$ whose coordinate wave-function is $\psi(x')$,
+and whose momentum wave-function is $\Psi(p')$. In other words,
+\begin{eqnarray}
+\psi(x') &= &\langle x'|A\rangle, \\[0.5ex]
+\Psi(p') &=& \langle p'|A\rangle.
+\end{eqnarray}
+It is easily demonstrated that
+\begin{eqnarray}
+\psi(x') &=& \int_{-\infty}^{+\infty} dp' \langle x'|p'\rangle \langle p'|A\rangle
+\nonumber\\[0.5ex]
+&= &\frac{1}{h^{1/2}} \int_{-\infty}^{+\infty} \Psi(p') 
+\exp({\rm i} \,p'\,x'/\hbar)\,dp'\label{e3.87}
+\end{eqnarray}
+and 
+\begin{eqnarray}
+\Psi(p') &=& \int_{-\infty}^{+\infty} dx' \langle p'|x'\rangle \langle x'|A\rangle
+\nonumber\\[0.5ex]
+&=& \frac{1}{h^{1/2}} \int_{-\infty}^{+\infty} \psi(x') \exp(-{\rm i}\, p' x'/\hbar)\,
+dx',
+\end{eqnarray}
+where use has been made of Eqs.~(\ref{e3.16}), (\ref{e3.70}), (\ref{e3.83}), and (\ref{e3.85}). 
+Clearly, the momentum
+space wave-function is the {\em Fourier transform}
+ of the coordinate space wave-function. 
+
+Consider a state whose coordinate space wave-function is a {\em wave-packet}. 
+In other words, the wave-function only has non-negligible amplitude in some
+spatially localized region of extent $\Delta x$. As is well-know, the Fourier
+transform of a wave-packet fills up a wave-number band of approximate extent
+$\delta k \sim 1/\Delta x$. Note that in Eq.~(\ref{e3.87}) the role of the wave-number
+$k$ is played by the quantity $p'/\hbar$. It follows that the momentum space
+wave-function corresponding to a wave-packet in coordinate space extends over
+a range of momenta $\Delta p \sim \hbar /\Delta x$. Clearly, a measurement 
+of $x$ is almost certain to give a result lying in a
+range of width $\Delta x$. Likewise, measurement of $p$ is almost certain to
+yield a result lying in a range of width $\Delta p$. The product of these two
+uncertainties is 
+\begin{equation}
+\Delta x \,\Delta p \sim \hbar.
+\end{equation}
+This result is called {\em Heisenberg's uncertainty principle}. 
+
+Actually, it is possible to write Heisenberg's uncertainty principle
+ more exactly by making use of
+Eq.~(\ref{e2.75}) and the commutation relation (\ref{e3.36}). We obtain
+\begin{equation}
+\langle (\Delta x)^2\rangle \langle (\Delta p)^2\rangle \geq \frac{\hbar^2}{4}
+\end{equation}
+for any general state. It is easily demonstrated that the minimum uncertainty states,
+for which the equality sign holds in the above relation, correspond to Gaussian
+wave-packets in both coordinate and momentum space. 
+
+\section{Displacement Operators}\label{s3.8}
+Consider a system with one degree of freedom corresponding to the Cartesian
+coordinate $x$. Suppose that we displace this system some distance along the $x$-axis.
+We could imagine that the system is on wheels, and we just give it a little
+push. The final state of the system is completely determined by its initial state,
+together with the direction and magnitude of the displacement.
+Note that the type of displacement we are considering is one in which
+{\em everything} to do with the system is displaced. So, if the system is
+subject to an external potential, then the potential must be  displaced.
+
+The situation is not so clear with state kets. The final state
+of the system only determines the {\em direction} of the displaced state ket. Even if
+we adopt the  convention that all state kets have unit norms, the final ket is
+still not completely determined, since it can be multiplied by a constant phase-factor. However, we know that the superposition relations between states 
+remain invariant under the displacement. This follows because the superposition
+relations have a physical significance which is unaffected by a displacement of
+the system. 
+Thus, if 
+\begin{equation}\label{e3.91}
+|R\rangle = |A\rangle + |B\rangle
+\end{equation}
+in the undisplaced system, and the displacement causes ket $|R\rangle$ to
+transform to ket $|Rd\rangle$, {\em etc}., then in the displaced system we have
+\begin{equation}\label{e3.92}
+|Rd\rangle = |Ad\rangle + |Bd\rangle.
+\end{equation}
+Incidentally, this determines the displaced kets to within a single arbitrary phase-factor to be multiplied into all of them. The displaced kets cannot be multiplied by 
+individual phase-factors, because this would wreck the superposition relations. 
+
+Since Eq.~(\ref{e3.92}) holds in the displaced system whenever Eq.~(\ref{e3.91}) holds in the
+undisplaced system, it follows that the displaced ket $|Rd\rangle$ must be the
+result of some linear operator acting on the undisplaced ket
+$|R\rangle$. In other
+words,
+\begin{equation}
+|R d\rangle = D |R\rangle,
+\end{equation}
+where $D$ an  operator which depends only on the
+nature of the displacement. The arbitrary phase-factor by which all
+displaced kets may be multiplied results in $D$ being undetermined to an arbitrary
+multiplicative constant of modulus unity. 
+
+We now adopt the ansatz that any combination of bras, kets, and dynamical
+variables which possesses a physical significance is invariant under a displacement
+of the system. The normalization condition 
+\begin{equation}
+\langle A|A\rangle = 1
+\end{equation}
+for a state ket $|A\rangle$ certainly has a physical significance. Thus, we must
+have 
+\begin{equation}
+\langle Ad|Ad\rangle = 1.
+\end{equation}
+Now, $|Ad\rangle = D|A\rangle$ and $\langle Ad| = \langle A|D^{\dag}$, so
+\begin{equation}
+\langle A| D^{\dag} \,D|A\rangle = 1.
+\end{equation}
+Since this must hold for any state ket $|A\rangle$, it follows that
+\begin{equation}\label{e3.97}
+D^{\dag} \,D = 1.
+\end{equation}
+Hence, the displacement operator is {\em unitary}. 
+Note that the above relation implies that
+\begin{equation}
+|A\rangle = D^{\dag} |A d\rangle.
+\end{equation}
+
+The  equation
+\begin{equation}
+v \,|A\rangle = |B\rangle,
+\end{equation}
+where the operator
+$v$ represents a dynamical variable, has some physical significance. Thus,
+we require that
+\begin{equation}
+v_d |Ad\rangle = |Bd\rangle,
+\end{equation}
+where $v_d$ is the displaced operator. It follows that
+\begin{equation}
+v_d |Ad\rangle = D |B\rangle = D \,v \,|A\rangle = D\, v\, D^{\dag} |Ad\rangle.
+\end{equation}
+Since this is true for any ket $|Ad\rangle$, we have
+\begin{equation}\label{e3.102}
+v_d = D\, v\, D^{\dag}.
+\end{equation}
+Note that the arbitrary numerical factor in $D$ does not affect either of the
+results (\ref{e3.97}) and (\ref{e3.102}).
+
+Suppose, now, that the system is displaced an {\em infinitesimal} distance $\delta x$
+along the $x$-axis. We expect that the displaced ket $|A d\rangle$ should
+approach the undisplaced ket 
+$|A\rangle$ in the limit as $\delta x\rightarrow 0$. Thus,
+we expect the limit
+\begin{equation}
+\lim_{\delta x\rightarrow 0 } \frac{|A d\rangle - |A\rangle}{\delta x}
+= \lim_{\delta x\rightarrow 0 }\frac{D-1}{\delta x}|A\rangle
+\end{equation}
+to exist. Let
+\begin{equation}
+d_x =  \lim_{\delta x\rightarrow 0 }\frac{D-1}{\delta x},
+\end{equation}
+where $d_x$ is denoted the {\em displacement operator} along the $x$-axis. The fact 
+that $D$ can be replaced by $D \exp({\rm i}\,\gamma)$, where $\gamma$ is a real
+phase-angle, implies that $d_x$ can be replaced by
+\begin{equation}
+ \lim_{\delta x\rightarrow 0 }\frac{D\exp({\rm i}\,\gamma)-1}{\delta x}=
+ \lim_{\delta x\rightarrow 0 }\frac{D-1+{\rm i}\, \gamma}{\delta x}= d_x + {\rm i}\,a_x,
+\end{equation}
+where $a_x$ is the limit of $\gamma/\delta x$. We have assumed, as seems
+reasonable,  that $\gamma$ tends
+to zero as $\delta x\rightarrow 0$. It is clear that the displacement operator
+is undetermined to an arbitrary imaginary additive constant. 
+
+For small $\delta x$, we have
+\begin{equation}\label{e3.106}
+D = 1 + \delta x\,d_x.
+\end{equation}
+It follows from Eq.~(\ref{e3.97}) that
+\begin{equation}
+(1+ \delta x\,d_x^{~\dag}) (1+  \delta x\,d_x) = 1.
+\end{equation}
+Neglecting order $(\delta x)^2$, we obtain
+\begin{equation}
+d_x^{~\dag} + d_x = 0.
+\end{equation}
+Thus, the displacement operator is {\em anti-Hermitian}. Substituting into
+Eq.~(\ref{e3.102}), and again neglecting order $(\delta x)^2$, we find that
+\begin{equation}
+v_d = (1+ \delta x\,d_x)\, v\, (1- \delta x\,d_x) = v + \delta x\,( d_x\, v - v\, d_x),
+\end{equation}
+which implies
+\begin{equation}\label{e3.110}
+\lim_{\delta x\rightarrow 0} \frac{v_d -v}{\delta x} = d_x \,v -v\, d_x.
+\end{equation}
+
+Let us consider a specific example. 
+Suppose that a state has a wave-function $\psi(x')$. If the system is displaced
+a distance $\delta x$ along the $x$-axis then the new wave-function is
+$\psi(x'-\delta x)$ ({\em i.e.}, the same shape shifted in the $x$-direction
+by a distance $\delta x$). Actually, the new wave-function can be multiplied by
+an arbitrary number of modulus unity. It can be seen that the new wave-function  
+is obtained from the old wave-function according to the 
+prescription  $x'\rightarrow x'- \delta x$. Thus,
+\begin{equation}
+x_d = x -\delta x.
+\end{equation}
+A comparison  with Eq.~(\ref{e3.110}), using  $x=v$, yields
+\begin{equation}
+d_x \,x - x\,d_x = -1.
+\end{equation}
+It follows that ${\rm i}\,\hbar\, d_x$ obeys the same commutation relation with 
+$x$ that $p_x$, the momentum conjugate to $x$, does [see Eq.~(\ref{e3.14c})]. 
+The most general conclusion we can draw from this observation is that
+\begin{equation}
+p_x = {\rm i}\,\hbar\, d_x + f(x),
+\end{equation}
+where $f$ is Hermitian (since $p_x$ is Hermitian). However, the fact that $d_x$
+is undetermined to an arbitrary additive imaginary constant (which could be a function
+of $x$) enables us to transform the function $f$ out of the above equation, leaving
+\begin{equation}\label{e3.114}
+p_x = {\rm i}\,\hbar\, d_x.
+\end{equation}
+Thus, the displacement operator in the $x$-direction is proportional to the
+momentum conjugate to $x$. We say that $p_x$ is the {\em generator} of translations
+along the $x$-axis. 
+
+A finite translation along the $x$-axis can be constructed from 
+a series of very many
+infinitesimal translations. Thus, the operator $D(\Delta x)$ which translates the
+system a distance $\Delta x$ along the $x$-axis is
+written
+\begin{equation}
+D(\Delta x) =
+\lim_{N\rightarrow \infty}
+ \left(1-{\rm i}\, \frac{\Delta x}{N} \frac{p_x}{\hbar}\right)^N,
+\end{equation}
+where use has been made of Eqs.~(\ref{e3.106}) and (\ref{e3.114}). It follows that
+\begin{equation}\label{e3.116}
+D(\Delta x) = \exp\left({-\rm i} \,p_x\,\Delta x /\hbar\right).
+\end{equation}
+The unitary nature of the operator is now clearly apparent.
+
+We can also construct displacement operators which translate the system along
+the $y$- and $z$-axes. Note that a displacement a distance $\Delta x$ 
+along the
+$x$-axis {\em commutes} with a displacement a distance $\Delta y$ along the
+ $y$-axis. 
+In other words, if the system is moved $\Delta x$ along the $x$-axis, and then
+$\Delta y$ along the $y$-axis then it ends up in the same state as if it were moved
+$\Delta y$ along the $y$-axis, and then $\Delta x$ along the $x$-axis. The fact that
+translations in independent directions commute is clearly associated with the
+fact that the conjugate momentum operators
+ associated with these directions also commute
+[see Eqs.~(\ref{e3.14b}) and (\ref{e3.116})].
+ 

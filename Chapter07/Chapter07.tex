@@ -1,0 +1,898 @@
+\chapter{Scattering theory}
+\section{Introduction}
+Historically,  data regarding quantum phenomena has been
+obtained from two main sources---the study of spectroscopic lines,
+and scattering experiments. 
+We have already developed theories which account
+for some aspects of the spectra  of hydrogen-like atoms.
+Let us now examine the quantum theory of
+scattering. 
+
+\section{Lipmann-Schwinger Equation}
+Consider time-independent scattering theory, for which the Hamiltonian
+of the system is written
+\begin{equation}
+H= H_0 + H_1,
+\end{equation}
+where $H_0$ is the Hamiltonian of a free particle of mass $m$,
+\begin{equation}
+H_0 = \frac{p^2}{2\,m},
+\end{equation}
+and $H_1$ represents the non-time-varying source of the scattering. Let $|\phi\rangle$
+be an energy eigenket of $H_0$,
+\begin{equation}\label{e7.3}
+H_0\, |\phi\rangle = E\, |\phi\rangle,
+\end{equation}
+whose wave-function $\langle {\bf r}'|\phi\rangle$ is
+$\phi({\bf r}')$. This state is   a plane-wave state or, possibly, a
+spherical-wave state. 
+Schr\"{o}dinger's equation for the scattering problem is
+\begin{equation}\label{e7.4}
+(H_0 + H_1) |\psi\rangle = E\,|\psi\rangle,
+\end{equation}
+where $|\psi\rangle$ is an energy eigenstate of the total Hamiltonian
+whose wave-function $\langle {\bf r}'|\psi\rangle$ is $\psi({\bf r}')$. 
+In general, both $H_0$ and $H_0 + H_1$ have continuous energy
+spectra: {\em i.e.}, their  energy eigenstates are unbound.
+We require a solution of Eq.~(\ref{e7.4}) which satisfies the
+boundary condition $|\psi\rangle \rightarrow |\phi\rangle$ as
+$H_1\rightarrow 0$. Here, $|\phi\rangle$ is a solution of the free particle
+Schr\"{o}dinger equation, (\ref{e7.3}), corresponding to the same energy eigenvalue.
+
+Formally, the desired solution can be written
+\begin{equation}
+|\psi\rangle =|\phi\rangle +\frac{1}{E-H_0} \,H_1 |\psi\rangle.
+\end{equation}
+Note that we can recover Eq.~(\ref{e7.4}) by operating on the above equation
+with $E-H_0$, and making use of Eq.~(\ref{e7.3}). Furthermore, the solution
+satisfies the boundary condition $|\psi\rangle \rightarrow |\phi
+\rangle$ as $H_1\rightarrow 0$. Unfortunately, the operator
+$(E-H_0)^{-1}$ is {\em singular}: {\em i.e.}, it produces infinities when it
+operates on an eigenstate of $H_0$ corresponding to the eigenvalue $E$. 
+We need a prescription for dealing with these infinities, 
+otherwise the above solution  is useless. The standard prescription is
+to make the energy eigenvalue $E$ slightly complex. Thus,
+\begin{equation}\label{e7.6}
+|\psi^\pm\rangle =|\phi\rangle +\frac{1}{E-H_0\pm {\rm i}\,\epsilon} 
+\,H_1 |\psi^\pm\rangle,
+\end{equation}
+where $\epsilon$ is real, positive, and small. Equation~(\ref{e7.6}) is called
+the {\em Lipmann-Schwinger equation}, and is non-singular
+as long as $\epsilon>0$.  The physical significance of the
+$\pm$ signs will become apparent later on.
+
+The Lipmann-Schwinger equation can be converted into an {\em integral
+equation} via left multiplication by $\langle{\bf r}|$. Thus,
+\begin{equation}\label{e7.7}
+\psi^\pm({\bf r}) = \phi({\bf r})
++\int \left\langle{\bf r}\left|\frac{1}{E-H_0\pm {\rm i}\,\epsilon}
+\right| {\bf r}'\right\rangle \langle {\bf r}'|H_1|\psi^\pm\rangle\,d^3{\bf r}'.
+\end{equation}
+Adopting the Schr\"{o}dinger representation, we can write the scattering
+problem (\ref{e7.4}) in the form
+\begin{equation}
+(\nabla^2 + k^2)\,\psi({\bf r}) = \frac{2\,m}{\hbar^2} \langle {\bf r} |H_1|
+\psi\rangle,
+\end{equation}
+where
+\begin{equation}
+E = \frac{\hbar^2 k^2}{2\,m}.
+\end{equation}
+This equation is called {\em Helmholtz's equation}, and can be inverted
+using standard Green's function techniques. Thus,
+\begin{equation}\label{e7.10}
+\psi({\bf r}) = \phi({\bf r}) + \frac{2\,m}{\hbar^2} \int G({\bf r}, {\bf r'})
+\langle {\bf r}' |H_1|\psi\rangle \,d^3{\bf r}',
+\end{equation}
+where
+\begin{equation}
+(\nabla^2 + k^2)\,G({\bf r}, {\bf r}') = \delta({\bf r} -{\bf r}').
+\end{equation}
+Note that the solution (\ref{e7.10}) satisfies the boundary condition $|\psi\rangle
+\rightarrow |\phi\rangle$ as $H_1\rightarrow 0$. 
+As is well-known, the Green's function for the Helmholtz problem is
+given by
+\begin{equation}
+G({\bf r}, {\bf r}') = -\frac{\exp(\pm {\rm i}\,k\,
+|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}.
+\end{equation}
+Thus, Eq.~(\ref{e7.10}) becomes
+\begin{equation}
+\psi^\pm({\bf r}) = \phi({\bf r}) - \frac{2\,m}{\hbar^2} \int\frac{\exp(\pm {\rm i}\,k\,
+|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}\, \langle {\bf r}' |H_1|\psi\rangle \,d^3{\bf r}'.\label{e7.13}
+\end{equation}
+A comparison of Eqs.~(\ref{e7.7}) and (\ref{e7.13}) suggests that the kernel to Eq.~(\ref{e7.7})
+takes the form
+\begin{equation}
+ \left\langle{\bf r}\left|\frac{1}{E-H_0\pm {\rm i}\,\epsilon}
+\right| {\bf r}'\right\rangle  = - \frac{2\,m}{\hbar^2} \,
+\frac{\exp(\pm {\rm i}\,k\,
+|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}   .
+\end{equation}
+It is not entirely clear that the $\pm$ signs correspond on both sides
+of this equation. In fact, they do, as is easily proved by a more rigorous
+derivation of this result. 
+
+Let us suppose that the scattering Hamiltonian, $H_1$, is only a function
+of the position operators. This implies that
+\begin{equation}\label{e7.15}
+\langle {\bf r}'|H_1|{\bf r}\rangle = V({\bf r})\, \delta({\bf r} -{\bf r}').
+\end{equation}
+ We can write
+\begin{eqnarray}
+\langle {\bf r}'|H_1| \psi^\pm\rangle& =& \int \langle
+{\bf r}'|H_1|{\bf r}''\rangle \langle {\bf r}'' |\psi^\pm\rangle\,
+d^3{\bf r}''\nonumber\\[0.5ex]
+&=& V({\bf r}') \,\psi^\pm ({\bf r}').
+\end{eqnarray}
+Thus, the integral equation (\ref{e7.13}) simplifies to
+\begin{equation}\label{e7.17}
+\psi^\pm({\bf r}) = \phi({\bf r}) - \frac{2\,m}{\hbar^2} \int\frac{\exp(\pm {\rm i}\,k\,
+|{\bf r} - {\bf r}'|)}{4\pi\,|{\bf r} - {\bf r}'|}\, V({\bf r}')\,
+\psi^\pm({\bf r'})\,d^3{\bf r}'.
+\end{equation}
+
+Suppose that the initial state $|\phi\rangle$ is a plane-wave with  wave-vector  ${\bf k}$ ({\em i.e.}, a stream of particles of
+definite momentum ${\bf p} = \hbar \,{\bf k}$). The ket corresponding to
+this  state is denoted $|{\bf k}\rangle$. The associated wave-function 
+takes the form 
+\begin{equation}
+\langle {\bf r} | {\bf k}\rangle = \frac{
+\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r}) }{(2\pi)^{3/2}}.
+\end{equation}
+The wave-function is normalized such that
+\begin{eqnarray}
+\langle {\bf k}|{\bf k}'\rangle &=& \int \langle {\bf k}|{\bf r}\rangle
+\langle {\bf r} |{\bf k}'\rangle\,d^3{\bf r}\nonumber\\[0.5ex]
+&=& \int \frac{ \exp[-{\rm i}\, {\bf r}\!\cdot\!({\bf k} -{\bf k}')]}
+{(2\pi )^3}\, d^3{\bf r} = \delta ({\bf k} - {\bf k'}).
+\end{eqnarray}
+
+Suppose that the scattering potential $V({\bf r})$ is only non-zero in some
+relatively localized region centred on the origin (${\bf r} = 0$).
+Let us calculate the wave-function $\psi({\bf r})$ a long way from
+the scattering region. In other words, let us adopt the ordering
+$r\gg r'$. It is easily demonstrated that
+\begin{equation}
+|{\bf r} - {\bf r}'| \simeq r - \hat{{\bf r}}\!\cdot\!{\bf r}'
+\end{equation}
+to first-order in $r'/r$, where
+\begin{equation}
+\hat{{\bf r}} = \frac{\bf r}{r}
+\end{equation}
+is a unit vector which points from the scattering region to the
+observation point. Let us define
+\begin{equation}
+{\bf k}' = k\,\hat{{\bf r}}.
+\end{equation}
+Clearly, ${\bf k}'$ is the wave-vector for particles which possess the
+same energy as the incoming particles ({\em i.e.}, $k'=k$), but propagate
+from the scattering region to the observation point. Note that
+\begin{equation}
+\exp(\pm {\rm i}\, k\,|{\bf r} - {\bf r'} |\,) \simeq
+\exp(\pm {\rm i}\, k \,r) \exp(\mp {\rm i}\, {\bf k}'\!\cdot \!{\bf r}').
+\end{equation}
+
+In the large-$r$ limit, Eq.~(\ref{e7.17}) reduces to
+\begin{equation}
+\psi({\bf r})^\pm \simeq \frac{\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r})}{
+(2\pi)^{3/2}} -\frac{m}{2\pi\,\hbar^2} \frac{\exp(\pm{\rm i}\,k\,r)}{r}
+\int \exp(\mp {\rm i} \,{\bf k}'\! \cdot \!{\bf r}')\,
+V({\bf r}')\, \psi^\pm  ({\bf r}')\,d^3{\bf r}'.
+\end{equation}
+The first term on the right-hand side is the incident wave. The second term
+represents a spherical wave centred on the scattering region. The
+plus sign (on $\psi^\pm$) corresponds to a wave propagating away from the
+scattering region, whereas the minus sign corresponds to a
+wave propagating towards the scattering region. It is obvious that
+the former represents the physical solution. 
+Thus, the wave-function a long way from the scattering region can be
+written
+\begin{equation}
+\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \left[\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r}) + \frac{\exp(\,{\rm i}\,kr)}{r} f({\bf k}', {\bf k}) \right],
+\end{equation}
+where
+\begin{eqnarray}
+f({\bf k}', {\bf k}) &= &- \frac{(2\pi)^2 \,m}{\hbar^2} \int
+\frac{\exp(-{\rm i}\,{\bf k}'\!\cdot \! {\bf r}'  ) }{(2\pi)^{3/2}}\, V({\bf r}')\,\psi({\bf r}') \,d^3{\bf r}'  \nonumber\\[0.5ex]
+&=& - \frac{(2\pi)^2 \,m}{\hbar^2}\, \langle {\bf k}'|H_1|\psi\rangle.
+\end{eqnarray}
+
+Let us define the differential cross-section $d\sigma/d\Omega$ as
+the number of particles per unit time scattered into an element of
+solid angle $d\Omega$, divided by the incident flux of particles. 
+Recall, from Sect.~\ref{s4}, that the probability flux 
+({\em i.e.}, the particle flux) associated with a
+wave-function $\psi$ is
+\begin{equation}
+{\bf j} = \frac{\hbar}{m} {\rm Im}(\psi^\ast\, \nabla \psi).
+\end{equation}
+Thus, the probability flux associated with the incident wave-function,
+\begin{equation}
+\frac{ \exp(\,{\rm i} \,{\bf k}\!\cdot\!{\bf r})}{(2\pi)^{3/2}},
+\end{equation}
+is
+\begin{equation}
+{\bf j}_{\rm inci} = \frac{\hbar}{(2\pi)^{3}\,m} \,{\bf k}.
+\end{equation}
+Likewise, the probability flux associated with the scattered wave-function,
+\begin{equation}
+\frac{ \exp(\,{\rm i} \,k\,r)}{(2\pi)^{3/2}}\frac{
+ f({\bf k}', {\bf k})}{r},
+\end{equation}
+ is
+\begin{equation}
+{\bf j}_{\rm scat}=\frac{\hbar}{(2\pi)^{3}\,m}
+\frac{|f( {\bf k}', {\bf k})|^2}{r^2} \, k\, \hat{\bf r}.
+\end{equation}
+Now,
+\begin{equation}
+\frac{d\sigma}{d \Omega} \,d\Omega  = 
+\frac{ r^2\,d\Omega \, |{\bf j}_{\rm scat}|}{|{\bf j}_{\rm inci}|},
+\end{equation}
+giving
+\begin{equation}\label{e7.33}
+\frac{d\sigma}{d \Omega} = |f({\bf k}', {\bf k})|^2.
+\end{equation}
+Thus, $|f({\bf k}', {\bf k})|^2$ gives the differential cross-section for particles with incident momentum $\hbar\,{ \bf k}$ to be scattered
+into states whose momentum vectors are directed in a range of solid angles
+$d\Omega$ about $\hbar\,{ \bf k}'$. Note that the scattered particles possess
+the same energy as the incoming particles ({\em i.e.}, $k'=k$). This is always
+the case for scattering Hamiltonians of the form shown in Eq.~(\ref{e7.15}). 
+
+\section{Born Approximation}
+Equation~(\ref{e7.33}) is not particularly useful, as it stands, because the
+quantity $f({\bf k}', {\bf k})$ depends on the unknown ket $|\psi\rangle$.
+Recall that $\psi({\bf r})=\langle {\bf r}|\psi\rangle$
+ is the solution of the integral equation
+\begin{equation}
+\psi({\bf r}) = \phi({\bf r})-\frac{m}{2\pi\,\hbar^2}
+ \frac{\exp(\,{\rm i}\,k\,r)}{r}
+\int \exp(- {\rm i} \,{\bf k}'\! \cdot \!{\bf r}')\,
+V({\bf r}')\, \psi  ({\bf r}')\,d^3{\bf r}',
+\end{equation}
+where $\phi({\bf r})$ is the wave-function of the incident state. 
+According to the above equation the total wave-function is a superposition
+of the incident wave-function and lots of spherical-waves emitted from
+the scattering region. The strength of the spherical-wave emitted at
+a given point is proportional to the local value of the scattering
+potential, $V$, as well as the local value of the wave-function, $\psi$.
+
+Suppose that the scattering is not particularly  strong. In this case, it is
+reasonable to suppose that the total wave-function, $\psi({\bf r})$, does
+not differ substantially from the incident wave-function, $\phi({\bf r})$.
+Thus, we can obtain an expression for $f({\bf k}', {\bf k})$ by making
+the substitution
+\begin{equation}
+\psi({\bf r}) \rightarrow \phi({\bf r}) = 
+\frac{\exp(\,{\rm i}\,{\bf k}\!\cdot \! {\bf r}  ) }{(2\pi)^{3/2}}.
+\end{equation}
+This  is called the {\em Born approximation}.
+
+The Born approximation yields
+\begin{equation}
+f({\bf k}', {\bf k}) \simeq - \frac{m}{2\pi\, \hbar^2} \int \exp\left[\,
+{\rm i}\, ({\bf k} - {\bf k}')\!\cdot \!{\bf r}'\right] 
+V({\bf r}')\,d^3{\bf r}'.
+\end{equation}
+Thus, $f({\bf k}', {\bf k})$ is proportional to the Fourier transform
+of the scattering potential $V({\bf r})$ with respect to the wave-vector
+${\bf q} \equiv {\bf k} - {\bf k}'$.
+
+For a spherically symmetric potential, 
+\begin{equation}
+f({\bf k}', {\bf k}) \simeq  - \frac{m}{2\pi\, \hbar^2} \int\!\int\!\int
+\exp(\,{\rm i} \, q \,r'\cos\theta') \, V(r')\,r'^2 dr'\,\sin\theta'
+ \,d\theta'\,d\phi',
+\end{equation}
+giving
+\begin{equation}\label{e7.38}
+f({\bf k}', {\bf k}) \simeq  - \frac{2\,m}{\hbar^2\,q}
+\int_0^\infty r' \,V(r') \sin(q \,r') \,dr'.
+\end{equation}
+Note that $f({\bf k}', {\bf k})$ is just a function of $q$ for a
+spherically symmetric potential.
+It is easily demonstrated that
+\begin{equation}
+q \equiv |{\bf k} - {\bf k}'| = 2\, k \,\sin (\theta/2),
+\end{equation}
+where $\theta$ is the angle subtended between the vectors
+${\bf k}$ and ${\bf k}'$. In other words, $\theta$ is the angle of
+scattering. Recall that the
+vectors ${\bf k}$ and ${\bf k}'$ have the same length by energy conservation.
+
+Consider scattering by a Yukawa potential
+\begin{equation}
+V(r) = \frac{V_0\,\exp(-\mu \,r)}{\mu \,r},
+\end{equation}
+where $V_0$ is a constant and $1/\mu$ measures the ``range'' of the
+potential. It follows from Eq.~(\ref{e7.38}) that
+\begin{equation}
+f(\theta) = - \frac{2\,m \,V_0}{\hbar^2\,\mu} \frac{1}{q^2 + \mu^2},
+\end{equation}
+since
+\begin{equation}
+\int_0^\infty \exp(-\mu \,r') \,\sin(q\,r') \, dr' = \frac{q}{\mu^2 + q^2}.
+\end{equation}
+Thus, in the Born approximation, the differential cross-section
+for scattering by a Yukawa potential is
+\begin{equation}
+\frac{d\sigma}{d \Omega} \simeq \left(\frac{2\,m \,V_0}{ \hbar^2\,\mu}\right)^2
+\frac{1}{[2\,k^2\, (1-\cos\theta) + \mu^2]^2},
+\end{equation}
+given that
+\begin{equation}
+q^2 = 4\,k^2\, \sin^2(\theta/2) = 2\,k^2\, (1-\cos\theta).
+\end{equation}
+
+The Yukawa potential reduces to the familiar Coulomb potential as
+$\mu \rightarrow 0$, provided that $V_0/\mu \rightarrow
+Z\,Z'\, e^2 / 4\pi\epsilon_0$. In this limit the Born differential cross-section becomes
+\begin{equation}
+\frac{d\sigma}{d\Omega} \simeq \left(\frac{2\,m \,Z\, Z'\, e^2}{4\pi\epsilon_0\,\hbar^2}\right)^2
+\frac{1}{ 16 \,k^4\, \sin^4( \theta/2)}.
+\end{equation}
+Recall that $\hbar\, k$ is equivalent to $|{\bf p}|$, so the above
+equation can be rewritten 
+\begin{equation}\label{e7.46}
+ \frac{d\sigma}{d\Omega} \simeq\left(\frac{Z \,Z'\, e^2}{16\pi\epsilon_0\,E}\right)^2
+\frac{1}{\sin^4(\theta/2)},
+\end{equation}
+where $E= p^2/2\,m$ is the kinetic energy of the incident particles. 
+Equation~(\ref{e7.46}) is the classical Rutherford scattering cross-section formula.
+
+The Born approximation is valid provided that $\psi({\bf r})$ is
+not too different from $\phi({\bf r})$ in the scattering region. 
+It follows, from Eq.~(\ref{e7.17}), that the condition for  $\psi({\bf r})
+\simeq \phi({\bf r})$ in the vicinity of ${\bf r} = 0$ is 
+\begin{equation}\label{e7.47}
+\left| \frac{m}{2\pi\, \hbar^2} \int \frac{ \exp(\,{\rm i}\, k \,r')}{r'} 
+\,V({\bf r}')\,d^3{\bf r'} \right| \ll 1.
+\end{equation}
+ Consider the special case of the Yukawa potential. At low energies,
+({\em i.e.}, $k\ll \mu$) we can replace $\exp(\,{\rm i}\,k\, r')$ by unity,
+giving
+\begin{equation}
+\frac{2\,m}{\hbar^2} \frac{|V_0|}{\mu^2} \ll 1
+\end{equation}
+as the condition for the validity of the Born approximation.
+The condition for the Yukawa potential to develop a bound state
+is
+\begin{equation}
+\frac{2\,m}{\hbar^2} \frac{|V_0|} {\mu^2} \geq 2.7,
+\end{equation}
+where $V_0$ is negative. Thus, if the potential is strong enough to
+form a bound state then the Born approximation is likely to break
+down. In the high-$k$ limit, Eq.~(\ref{e7.47}) yields
+\begin{equation}
+\frac{2\,m}{\hbar^2} \frac{|V_0|}{\mu \,k} \ll 1.
+\end{equation}
+This inequality becomes progressively easier to satisfy as $k$ increases,
+implying that the Born approximation is more accurate at high
+incident particle energies.
+
+\section{Partial Waves}
+We can assume, without loss of generality, that the incident wave-function
+is characterized by  a wave-vector ${\bf k}$ which is aligned parallel to the $z$-axis.
+The scattered wave-function is characterized by a wave-vector ${\bf k}'$
+which has the same magnitude as ${\bf k}$, but, in general, points
+in a different direction. The direction of ${\bf k}'$ is specified
+by the polar angle $\theta$ ({\em i.e.}, the angle subtended between the
+two wave-vectors), and an azimuthal angle $\varphi$ about the $z$-axis.
+Equation~(\ref{e7.38}) strongly suggests that for a spherically symmetric
+scattering potential [{\em i.e.}, $V({\bf r}) = V(r)$] the scattering amplitude
+is a function of $\theta$ only:
+\begin{equation}
+f(\theta, \varphi) = f(\theta).
+\end{equation}
+It follows that neither the incident wave-function,
+\begin{equation}\label{e7.52}
+\phi({\bf r}) = \frac{\exp(\,{\rm i}\,k\,z)}{(2\pi)^{3/2}}= \frac{\exp(\,{\rm i}\,k\,r\cos\theta)}{(2\pi)^{3/2}},
+\end{equation}
+nor the total wave-function,
+\begin{equation}\label{e7.53}
+\psi({\bf r})  = \frac{1}{(2\pi)^{3/2}}
+\left[ \exp(\,{\rm i}\,k\,r\cos\theta) + \frac{\exp(\,{\rm i}\,k\,r)\, f(\theta)}
+{r} \right],
+\end{equation}
+depend on the azimuthal angle $\varphi$. 
+
+Outside the range of the scattering potential, both $\phi({\bf r})$ and
+$\psi({\bf r})$ satisfy the free space Schr\"{o}dinger equation 
+\begin{equation}\label{e7.54}
+(\nabla^2 + k^2)\,\psi = 0.
+\end{equation}
+What is the most general solution to this equation in spherical polar
+coordinates which does not depend on the azimuthal angle $\varphi$?
+Separation of variables yields
+\begin{equation}\label{e7.55}
+\psi(r,\theta) = \sum_l R_l(r)\, P_l(\cos\theta),
+\end{equation}
+since the Legendre functions $P_l(\cos\theta)$ form a complete
+set in $\theta$-space. The Legendre functions are related to the
+spherical harmonics introduced in Sect.~\ref{s5} via
+\begin{equation}
+P_l(\cos\theta) = \sqrt{\frac{4\pi}{2\,l+1}}\, Y_l^0(\theta,\varphi).
+\end{equation}
+Equations~(\ref{e7.54}) and (\ref{e7.55}) can be combined to give
+\begin{equation}
+r^2\frac{d^2 R_l}{dr^2} + 2\,r \frac{dR_l}{dr} +  [k^2 \,r^2 -
+l\,(l+1)]R_l = 0.
+\end{equation}
+The two independent solutions to this equation are called a
+spherical Bessel function, $j_l(k\,r)$, and a Neumann function,
+$\eta_l(k\,r)$. 
+It is easily demonstrated that
+\begin{eqnarray}\label{e7.58a}
+j_l(y) &=& y^l\left(-\frac{1}{y}\frac{d}{dy}\right)^l \frac{\sin y}{y},
+\\[0.5ex]\label{e7.58b}
+\eta_l(y) &=& -y^l\left(-\frac{1}{y}\frac{d}{dy}\right)^l \frac{\cos y}{y}.
+\end{eqnarray}
+Note that  spherical Bessel functions are well-behaved in the limit
+$y\rightarrow 0$ , whereas  Neumann functions become singular.
+The asymptotic behaviour of these functions in the limit $y\rightarrow
+\infty$ is
+\begin{eqnarray}\label{e7.59a}
+j_l(y) &\rightarrow &\frac{\sin(y - l\,\pi/2)}{y},\\[0.5ex]
+\eta_l(y) &\rightarrow & - \frac{\cos(y-l\,\pi/2)}{y}.\label{e7.59b}
+\end{eqnarray}
+
+We can write
+\begin{equation}
+\exp(\,{\rm i}\,k\,r \cos\theta) = \sum_l a_l\, j_l(k\,r)\, P_l(\cos\theta),
+\end{equation}
+where the $a_l$ are constants. Note there are no  Neumann functions in
+this expansion, because they are not well-behaved  as $r \rightarrow 0$. 
+The Legendre functions are orthonormal,
+\begin{equation}\label{e7.61}
+\int_{-1}^1 P_n(\mu) \,P_m(\mu)\,d\mu = \frac{\delta_{nm}}{n+1/2},
+\end{equation}
+so we can invert the above expansion to give
+\begin{equation}
+a_l \,j_l(k\,r) = (l+1/2)\int_{-1}^1 \exp(\,{\rm i}\,k\,r \,\mu) \,P_l(\mu) \,d\mu.
+\end{equation}
+It is well-known that
+\begin{equation}
+j_l(y) = \frac{(-{\rm i})^l}{2} \int_{-1}^1 \exp(\,{\rm i}\, y\,\mu)
+\,P_l(\mu)\,d\mu,
+\end{equation}
+where $l=0, 1, 2, \cdots$ [see Abramowitz and Stegun (Dover, New York NY, 1965),
+Eq.~10.1.14]. Thus,
+\begin{equation}
+a_l = {\rm i}^l \,(2\,l+1),
+\end{equation}
+giving
+\begin{equation}
+\exp(\,{\rm i}\,k\,r \cos\theta) = \sum_l {\rm i}^l\,
+(2\,l+1)\, j_l(k\,r)\, P_l(\cos\theta).
+\end{equation}
+The above expression  tells us how to decompose
+a plane-wave  into
+a series of spherical-waves (or ``partial waves'').
+
+The most general solution for the total wave-function outside the
+scattering region is
+\begin{equation}
+\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \sum_l\left[
+A_l\,j_l(k\,r) + B_l\,\eta_l(k\,r)\right] P_l(\cos\theta),
+\end{equation}
+where the $A_l$ and $B_l$ are constants. 
+Note that the Neumann functions are allowed to appear 
+in this expansion, because
+its region of validity does not include the origin. In the large-$r$
+limit, the total wave-function reduces to
+\begin{equation}
+\psi ({\bf r} ) \simeq \frac{1}{(2\pi)^{3/2}} \sum_l\left[A_l\,
+\frac{\sin(k\,r - l\,\pi/2)}{k\,r} - B_l\,\frac{\cos(k\,r -l\,\pi/2)}{k\,r}
+\right] P_l(\cos\theta),
+\end{equation}
+where use has been made of Eqs.~(\ref{e7.59a})--(\ref{e7.59b}). The above expression can also
+be written
+\begin{equation}\label{e7.68}
+\psi ({\bf r} ) \simeq \frac{1}{(2\pi)^{3/2}} \sum_l C_l\,
+\frac{\sin(k\,r - l\,\pi/2+ \delta_l)}{k\,r}\, P_l(\cos\theta),
+\end{equation}
+where the sine and cosine functions have been combined to give a
+sine function which is phase-shifted by $\delta_l$. 
+
+Equation~(\ref{e7.68}) yields
+\begin{eqnarray}
+\psi({\bf r})& \simeq &\frac{1}{(2\pi)^{3/2}} \sum_l C_l\,
+\frac{\exp[\,{\rm i}\,(k\,r - l\,\pi/2+ \delta_l)]
+-\exp[-{\rm i}\,(k\,r - l\,\pi/2+ \delta_l)] }{2\,{\rm i}\,k\,r}\nonumber\\[0.5ex]
+&&\mbox{\hspace{2cm}}\times  P_l(\cos\theta),\label{e7.69}
+\end{eqnarray}
+which contains both incoming and outgoing spherical-waves. What is the
+source of the incoming waves? Obviously, they must be part of
+the large-$r$ asymptotic expansion of the incident wave-function. In fact,
+it is easily seen that
+\begin{eqnarray}
+\phi({\bf r}) &\simeq& \frac{1}{(2\pi)^{3/2}} \sum_l {\rm i}^l\,
+(2l+1)\, \frac{
+\exp[\,{\rm i}\,(k\,r - l\,\pi/2)]
+-\exp[-{\rm i}\,(k\,r - l\,\pi/2)]}{2\,{\rm i}\,k\,r} \nonumber\\[0.5ex]
+&&\mbox{\hspace{2cm}}\times P_l(\cos\theta)\label{e7.70}
+\end{eqnarray}
+in the large-$r$ limit. Now, Eqs.~(\ref{e7.52}) and (\ref{e7.53}) give
+\begin{equation}\label{e7.71}
+(2\pi)^{3/2}[\psi({\bf r} )- \phi({\bf r})  ] = 
+\frac{\exp(\,{\rm i}\,k\,r)}{r}\,
+f(\theta).
+\end{equation}
+Note that the right-hand side consists only of an outgoing spherical
+wave. This implies that the coefficients of the incoming spherical waves
+in the large-$r$  expansions of $\psi({\bf r})$ and $\phi({\bf r})$
+must be equal. It follows from Eqs.~(\ref{e7.69}) and (\ref{e7.70}) that
+\begin{equation}
+C_l = (2\,l+1)\,\exp[\,{\rm i}\,(\delta_l + l\,\pi/2)].
+\end{equation} 
+Thus, Eqs.~(\ref{e7.69})--(\ref{e7.71}) yield
+\begin{equation}\label{e7.73}
+f(\theta) = \sum_{l=0}^\infty (2\,l+1)\,\frac{\exp(\,{\rm i}\,\delta_l)}
+{k} \,\sin\delta_l\,P_l(\cos\theta).
+\end{equation}
+Clearly, determining the scattering amplitude
+$f(\theta)$  via  a decomposition into
+partial waves ({\em i.e.}, spherical-waves) is equivalent to determining
+the phase-shifts $\delta_l$.
+
+\section{Optical Theorem}
+The differential scattering cross-section $d\sigma/d\Omega$ is simply
+the modulus squared of the scattering amplitude $f(\theta)$. The
+total cross-section is given by
+\begin{eqnarray}
+\sigma_{\rm total}& = &\int |f(\theta)|^2\,d\Omega\nonumber\\[0.5ex]
+&=& \frac{1}{k^2} \oint d\varphi \int_{-1}^{1} d\mu
+\sum_l \sum_{l'} (2\,l+1)\,(2\,l'+1) 
+\exp[\,{\rm i}\,(\delta_l-\delta_{l'}]\nonumber\\[0.5ex]
+&&\mbox{\hspace{1cm}}\times  \sin\delta_l \,\sin\delta_{l'}\,
+P_l(\mu)\, P_{l'}(\mu),
+\end{eqnarray}
+where $\mu = \cos\theta$. It follows that
+\begin{equation}\label{e7.75}
+\sigma_{\rm total} = \frac{4\pi}{k^2} \sum_l (2\,l+1)\,\sin^2\delta_l,
+\end{equation}
+where use has been made of Eq.~(\ref{e7.61}). A comparison of this result with
+Eq.~(\ref{e7.73}) yields 
+\begin{equation}
+\sigma_{\rm total} = \frac{4\pi}{k}\, {\rm Im}\left[f(0)\right],
+\end{equation}
+since $P_l(1) = 1$. This result is known as the {\em optical theorem}.
+It is a reflection of the fact that the very existence of scattering
+requires scattering in the forward ($\theta=0$) direction
+in order to interfere with the incident wave, and thereby reduce the
+probability current in this direction.
+
+It is usual to write
+\begin{equation}
+\sigma_{\rm total} = \sum_{l=0}^\infty \sigma_l,
+\end{equation}
+where 
+\begin{equation}\label{e7.78}
+\sigma_l = \frac{4\pi}{k^2}\, (2\,l+1)\, \sin^2\delta_l
+\end{equation}
+is the $l$th partial cross-section: {\em  i.e.}, the contribution to the
+total cross-section from the $l$th partial wave. Note that the maximum 
+value for the $l$th partial cross-section occurs when the phase-shift  $\delta_l$ takes the value $\pi/2$.
+
+\section{Determination of Phase-Shifts}
+Let us now consider how the phase-shifts $\delta_l$ can be
+ evaluated. Consider a spherically symmetric potential $V(r)$ which
+vanishes for $r>a$, where $a$ is termed the range of the potential.
+In the region $r>a$, the wave-function $\psi({\bf r})$ 
+satisfies the free-space Schr\"{o}dinger equation (\ref{e7.54}). The
+most general solution which is consistent with no incoming spherical-waves is
+\begin{equation}
+\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \sum_{l=0}^\infty
+{\rm i}^l\, (2\,l+1) \, A_l(r)\, P_l(\cos\theta),
+\end{equation}
+where
+\begin{equation}\label{e7.80}
+A_l(r) = \exp(\,{\rm i} \,\delta_l)\,
+\left[ \,\cos\delta_l \,j_l(k\,r) -\sin\delta_l\, \eta_l(k\,r)\,\right].
+\end{equation}
+Note that  Neumann functions are allowed to appear in the above
+expression, because its region of validity does not include the origin
+(where $V\neq 0$). The logarithmic derivative of the $l$th 
+radial wave-function
+$A_l(r)$ just outside the range of the potential is given by
+\begin{equation}
+\beta_{l+} = k\,a \left[\frac{ \cos\delta_l\,j_l'(k\,a) -
+\sin\delta_l\, \eta_l'(k\,a)}{\cos\delta_l \,
+j_l(k\,a) - \sin\delta_l\,\eta_l(k\,a)}\right],
+\end{equation}
+where $j_l'(x)$ denotes $dj_l(x)/dx$, {\em etc}. The above equation
+can be inverted to give
+\begin{equation}\label{e7.82}
+\tan \delta_l = \frac{ k\,a\,j_l'(k\,a) - \beta_{l+}\, j_l(k\,a)}
+{k\,a\,\eta_l'(k\,a) - \beta_{l+}\, \eta_l(k\,a)}.
+\end{equation}
+Thus, the problem of determining the phase-shift $\delta_l$ is equivalent
+to that of obtaining $\beta_{l+}$. 
+
+The most general solution to Schr\"{o}dinger's equation inside 
+the range of the potential ($r<a$) which does not depend on the
+azimuthal angle $\varphi$ is
+\begin{equation}
+\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}}\sum_{l=0}^\infty
+{\rm i}^l \,(2\,l+1)\,R_l(r)\,P_l(\cos\theta),
+\end{equation}
+where
+\begin{equation}
+R_l (r) = \frac{u_l(r)}{r},
+\end{equation}
+and
+\begin{equation}\label{e7.85}
+\frac{d^2 u_l}{d r^2} +\left[k^2 - \frac{2m}{\hbar^2} \,V - \frac{l\,(l+1)}
+{r^2}\right] u_l = 0.
+\end{equation}
+The boundary condition 
+\begin{equation}\label{e7.86}
+u_l(0) = 0
+\end{equation}
+ ensures that the radial wave-function is well-behaved at the
+origin. 
+We can launch a well-behaved solution of the above equation from 
+$r=0$, integrate out to $r=a$, and form the logarithmic derivative
+\begin{equation}
+\beta_{l-} = \left.\frac{1}{(u_l/r)} \frac{d(u_l/r)}{dr}\right|_{r=a}.
+\end{equation}
+Since $\psi({\bf r})$ and its first derivatives are necessarily continuous for
+physically acceptible wave-functions, it follows that
+\begin{equation}
+\beta_{l+} = \beta_{l-}.
+\end{equation}
+The phase-shift $\delta_l$ is obtainable from Eq.~(\ref{e7.82}).
+
+\section{Hard Sphere Scattering}
+Let us test out this scheme using a particularly simple example. Consider
+scattering by a hard sphere, for which  the potential is infinite 
+for $r<a$, and zero for $r>a$. It follows that $\psi({\bf r})$ is
+zero in the region $r<a$, which implies that  $u_l =0$ for all $l$. 
+Thus,
+\begin{equation}
+\beta_{l-} = \beta_{l+} = \infty,
+\end{equation}
+for all $l$. It follows from Eq.~(\ref{e7.82}) that
+\begin{equation}\label{e7.90}
+\tan \delta_l = \frac{j_l(k\,a)}{\eta_l(k\,a)}.
+\end{equation}
+
+Consider the $l=0$ partial wave, which is usually referred to as the $s$-wave.
+Equation~(\ref{e7.90}) yields
+\begin{equation}
+\tan\delta_0 = \frac{\sin (k\,a)/k\,a}{-\cos (k\,a)/ka} = -\tan k\,a,
+\end{equation}
+where use has been made of Eqs.~(\ref{e7.58a})--(\ref{e7.58b}). It follows that
+\begin{equation}\label{e7.92}
+\delta_0 = -k\,a.
+\end{equation}
+The  $s$-wave radial wave function
+is
+\begin{eqnarray}
+A_0(r) &= &\exp(-{\rm i}\, k\,a) \frac{[\cos k\,a \,\sin k\,r
+-\sin k\,a \,\cos k\,r]}{k\,r}\nonumber\\[0.5ex]
+&=& \exp(-{\rm i}\, k\,a)\, \frac{ \sin[k\,(r-a)]}{k\,r}.
+\end{eqnarray}
+The corresponding radial wave-function for the incident wave 
+takes the form
+\begin{equation}
+\tilde{A}_0(r) = \frac{ \sin k\,r}{k\,r}.
+\end{equation}
+It is clear that the actual $l=0$ radial wave-function is similar to the
+incident $l=0$ wave-function, except that it is phase-shifted by $k\,a$. 
+
+Let us consider the low and high energy asymptotic limits of $\tan\delta_l$.
+Low energy means $k\,a\ll 1$. In this regime, the spherical Bessel functions
+and Neumann functions reduce to:
+\begin{eqnarray}
+j_l(k\,r) &\simeq & \frac{(k\,r)^l}{(2\,l+1)!!},\\[0.5ex]
+\eta_l(k\,r) &\simeq & -\frac{(2\,l-1)!!}{(k\,r)^{l+1}},
+\end{eqnarray}
+where $n!! = n\,(n-2)\,(n-4)\cdots 1$. It follows that
+\begin{equation}
+\tan\delta_l = \frac{-(k\,a)^{2\,l+1}}{(2\,l+1) \,[(2\,l-1)!!]^2}.
+\end{equation}
+It is clear that we can neglect  $\delta_l$, with $l>0$, with respect to
+$\delta_0$. In other words, at low energy only $s$-wave scattering
+({\em i.e.}, spherically symmetric scattering) is important. It follows
+from Eqs.~(\ref{e7.33}), (\ref{e7.73}), and (\ref{e7.92})  that 
+\begin{equation}
+\frac{d\sigma}{d\Omega} = \frac{\sin^2 k\,a}{k^2} \simeq a^2
+\end{equation}
+for $k\,a\ll 1$. Note that the total cross-section
+\begin{equation}
+\sigma_{\rm total} = \int\frac{d\sigma}{d\Omega}\,d\Omega = 4\pi \,a^2
+\end{equation}
+is {\em four times}\/ the {\em geometric cross-section}\/ $\pi \,a^2$
+({\em i.e.}, the cross-section for classical particles bouncing off a
+hard sphere of radius $a$). 
+However, 
+low energy scattering implies relatively long wave-lengths, so we do not
+expect to obtain the  classical result  in this limit. 
+
+Consider the high energy limit $k\,a\gg 1$. At high energies, all partial
+waves up to $l_{\rm max} = k\,a$ contribute significantly to
+the scattering cross-section. It follows from Eq.~(\ref{e7.75}) that
+\begin{equation}\label{e7.99}
+\sigma_{\rm total} = \frac{4\pi}{k^2} \sum_{l=0}^{l_{\rm max}}
+(2\,l+1)\,\sin^2\delta_l.
+\end{equation}
+With so many $l$ values contributing, it is legitimate to replace
+$\sin^2\delta_l$ by its average value $1/2$. Thus,
+\begin{equation}
+\sigma_{\rm total} = \sum_{l=0}^{k\,a} \frac{2\pi}{k^2} \,(2\,l+1) \simeq 
+2\pi \,a^2.
+\end{equation}
+This is {\em twice}\/ the classical result, which is  somewhat surprizing,
+since we might expect to obtain the classical result in the short
+wave-length limit. For hard sphere scattering, incident waves with
+impact parameters less than $a$ must be deflected. However, in order to
+produce a ``shadow'' behind the sphere, there must be scattering
+in the forward direction (recall the optical theorem) to produce
+destructive interference with the incident plane-wave. In fact, the
+interference is not completely destructive, and the shadow has a bright
+spot in the forward direction. The effective cross-section associated with
+this bright spot is $\pi \,a^2$ which, when combined with the
+cross-section for classical reflection, $\pi \,a^2$, gives the actual
+cross-section of $2\pi \,a^2$.
+ 
+\section{Low Energy Scattering}
+At low energies ({\em i.e.}, when $1/k$ is much larger than the range
+of the potential) partial waves with $l>0$, in general, make a
+negligible contribution to the scattering cross-section. It follows
+that, at these energies, with a finite range potential, only $s$-wave
+scattering is important.
+
+As a specific example, let us consider scattering by  a finite
+potential well, characterized by $V=V_0$ for $r<a$, and
+$V=0$ for $r\geq a$. Here, $V_0$ is a constant. The potential
+is repulsive for $V_0>0$, and attractive for $V_0<0$. 
+The outside wave-function is given by [see Eq.~(\ref{e7.80})]
+\begin{eqnarray}
+A_0(r) &=& \exp(\,{\rm i}\, \delta_0)\,\left[
+j_0(k\,r) \cos\delta_0 - \eta_0(k\,r) \sin\delta_0\right]\nonumber\\[0.5ex]
+&=& \frac{ \exp(\,{\rm i} \,\delta_0)\, \sin(k\,r+\delta_0)}{k\,r},
+\end{eqnarray}
+where use has been made of Eqs.~(\ref{e7.58a})--(\ref{e7.58b}).
+The inside wave-function follows from Eq.~(\ref{e7.85}). We obtain
+\begin{equation}\label{e7.103}
+A_0(r) = B \,\frac{\sin k'r}{r},
+\end{equation}
+where use has been made of the boundary condition (\ref{e7.86}).
+Here, $B$ is a constant, and 
+\begin{equation}
+E - V_0 = \frac{\hbar^2 \,k'^2}{2\,m}.
+\end{equation}
+Note that Eq.~(\ref{e7.103}) only applies when $E>V_0$. For $E<V_0$, we have
+\begin{equation}
+A_0(r) = B \,\frac{\sinh\kappa\, r}{r},
+\end{equation}
+where
+\begin{equation}
+V_0 - E = \frac{\hbar^2 \kappa^2}{2\,m}.
+\end{equation}
+Matching $A_0(r)$, and its radial derivative at $r=a$, yields
+\begin{equation}\label{e7.107}
+\tan(k\,a+\delta_0) = \frac{k}{k'} \,\tan k'a
+\end{equation}
+for $E>V_0$, and
+\begin{equation}
+\tan(k\,a+ \delta_0) = \frac{k}{\kappa} \,\tanh \kappa\, a
+\end{equation}
+for $E<V_0$.
+
+Consider an attractive potential, for which $E>V_0$. Suppose that 
+$|V_0|\gg E$ ({\em i.e.}, the depth of the potential well is much larger than
+the energy of the incident particles), so that $k' \gg k$. It follows
+from Eq.~(\ref{e7.107}) that, unless $\tan k'a$ becomes extremely large, the right-hand side is much less that unity, so replacing the tangent of a
+small quantity with the quantity itself, we obtain
+\begin{equation}
+k\,a + \delta_0 \simeq \frac{k}{k'}\,\tan k'a.
+\end{equation}
+This yields
+\begin{equation}
+\delta_0 \simeq k\,a \left( \frac{\tan k'a}{k'a} -1\right).
+\end{equation}
+According to Eq.~(\ref{e7.99}), the scattering cross-section is given by
+\begin{equation}\label{e7.111}
+\sigma_{\rm total} \simeq \frac{4\pi}{k^2} \sin^2\delta_0
+=4\pi \,a^2\left(\frac{\tan k'a}{k'a} -1\right)^2.
+\end{equation}
+Now
+\begin{equation}\label{e7.112}
+k'a = \sqrt{ k^2 \,a^2 + \frac{2 \,m \,|V_0|\, a^2}{\hbar^2}},
+\end{equation}
+so for sufficiently small values of $k\,a$,
+\begin{equation}
+k' a \simeq \sqrt{\frac{2\, m \,|V_0|\, a^2}{\hbar^2}}.
+\end{equation}
+It follows that the total ($s$-wave) scattering cross-section is independent
+of the energy of the incident particles (provided that this energy is
+sufficiently small). 
+
+Note that there are values of $k'a$ ({\em e.g.}, $k'a\simeq 4.49$) at which
+$\delta_0\rightarrow \pi$, and 
+the scattering cross-section (\ref{e7.111}) vanishes, despite the very strong
+attraction of the potential. In reality, the cross-section is not
+exactly zero, because of contributions from $l>0$ partial waves. But,
+at low incident energies, these contributions are small. It follows that
+there are certain values of $V_0$ and $k$ which give rise to almost perfect 
+transmission of the incident wave. This is called the {\em Ramsauer-Townsend
+effect}, and has been observed experimentally. 
+
+\section{Resonances}
+There is a significant exception to the independence of the cross-section on energy. Suppose that the quantity $\sqrt{2\,m \,|V_0|\,a^2/\hbar^2}$
+is slightly less than $\pi/2$. As the incident energy increases, $k'a$,
+which is given by Eq.~(\ref{e7.112}), can reach the value $\pi/2$. In this case,
+$\tan k'a$ becomes infinite, so we can no longer assume that the right-hand side of Eq.~(\ref{e7.107}) is small. In fact,
+at the value of the incident energy
+when $k'a = \pi/2$, it follows from Eq.~(\ref{e7.107}) that $k\,a+\delta_0 = \pi/2$,
+or $\delta_0 \simeq \pi/2$ (since we are assuming that $k\,a\ll 1$). 
+This implies that
+\begin{equation}
+\sigma_{\rm total} = \frac{4\pi}{k^2} \sin^2\delta_0 = 4\pi \,a^2
+\left(\frac{1}{k^2 \,a^2}\right).
+\end{equation}
+Note that the cross-section now depends on the energy. Furthermore, the
+magnitude of the cross-section is much larger than that given in Eq.~(\ref{e7.111})
+for $k'a\neq \pi/2$ (since $k\,a\ll 1$). 
+
+The origin of this rather strange behaviour is quite simple. The condition
+\begin{equation}
+\sqrt{\frac{2\,m\,|V_0 |\,a^2}{\hbar^2} } = \frac{\pi}{2}
+\end{equation}
+is equivalent to the condition that a spherical well of depth
+$V_0$ possesses a bound state at zero energy. Thus, for a potential
+well which satisfies the above equation, the energy of the scattering system
+is essentially the same as the energy of the bound state. In this situation,
+an incident particle would like to form a bound state in the potential
+well. However, the bound state is not stable, since the system has a small
+positive energy. Nevertheless, this sort of {\em resonance scattering}
+is best understood as the capture of an incident particle to form
+a metastable bound state, and the subsequent decay of the bound state
+and release of the particle. The cross-section for resonance scattering
+is generally far higher than that for non-resonance scattering.
+
+We have seen that there is a resonant effect when the phase-shift of
+the $s$-wave takes the value $\pi/2$.  There is nothing special about
+the $l=0$ partial wave, so it is reasonable to assume that there
+is a similar resonance when the phase-shift of the $l$th partial
+wave is $\pi/2$. Suppose that $\delta_l$ attains the value
+$\pi/2$ at the incident energy $E_0$, so that
+\begin{equation}
+\delta_l(E_0) = \frac{\pi}{2}.
+\end{equation}
+Let us expand $\cot \delta_l$ in the vicinity of the resonant energy:
+\begin{eqnarray}
+\cot \delta_l(E)& =& \cot \delta_l(E_0) +\left(
+\frac{ d \cot\delta_l}{d E}\right)_{E=E_0}(E-E_0) + \cdots\nonumber\\[0.5ex]
+&=& - \left(\frac{1}{\sin^2\delta_l}\frac{d\delta_l}{d E}\right)_{E=E_0}
+(E-E_0)+\cdots.
+\end{eqnarray}
+Defining
+\begin{equation}
+\left(\frac{d \delta_l(E)}{d E} \right)_{E=E_0} = \frac{2}{\Gamma},
+\end{equation}
+we obtain
+\begin{equation}
+\cot\delta_l(E) = - \frac{2}{\Gamma} \,(E-E_0) + \cdots.
+\end{equation}
+Recall, from Eq.~(\ref{e7.78}), that the contribution of the $l$th partial wave
+to the scattering cross-section is
+\begin{equation}
+\sigma_l = \frac{4\pi}{k^2} \,(2\,l+1)\,\sin^2\delta_l 
+= \frac{4\pi}{k^2} \,(2\,l+1)\,\frac{1}{1+\cot^2\delta_l}.
+\end{equation}
+Thus,
+\begin{equation}
+\sigma_l \simeq \frac{4\pi}{k^2} \,(2\,l+1)\,
+\frac{\Gamma^2/4}{(E-E_0)^2 + \Gamma^2/4}.
+\end{equation}
+This is the famous {\em Breit-Wigner} formula. The variation of
+the partial cross-section $\sigma_l$ with the incident energy has
+the form of a classical resonance curve. The quantity $\Gamma$ is
+the width of the resonance (in energy). We can interpret the
+Breit-Wigner formula as describing the absorption of an incident particle
+to form a metastable state, of energy $E_0$, and lifetime $\tau = \hbar/
+\Gamma$ (see Sect.~\ref{s6.18}).

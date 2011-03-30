@@ -1,0 +1,668 @@
+\chapter{Quantum Dynamics}\label{s4}
+\section{Schr\"{o}dinger's Equations of Motion}\label{s4.1}
+Up to now, we have only considered systems at one particular instant of time. 
+Let us now investigate how quantum mechanical systems evolve with time. 
+
+Consider a system in a state $A$ which evolves in time. At time
+$t$ the state of the system is represented by the ket $|At\rangle$. The label
+$A$ is needed to distinguish the ket from any other ket ($|Bt\rangle$, say)
+which is evolving in time. The label $t$ is needed to distinguish the different
+states of the system at different times. 
+
+The final state of the system at time $t$ is completely determined by its
+initial state at time $t_0$ plus the time interval $t-t_0$ (assuming that 
+the system is left undisturbed during this time interval). However, the
+final state only determines the {\em direction} of the final state ket. 
+Even if we adopt the convention that all state kets have unit norms,
+the final ket is still not completely determined, since it can be multiplied
+by an arbitrary
+ phase-factor. However, we expect that if a superposition relation 
+holds for certain states at time $t_0$ then the same relation
+should hold between the corresponding time-evolved states at time $t$, assuming
+that the system is left undisturbed between times $t_0$ and $t$.
+In other words,
+if
+\begin{equation}\label{e4.1}
+|Rt_0\rangle = |At_0\rangle + |B t_0\rangle
+\end{equation}
+for any three kets, then we should  have
+\begin{equation}\label{e4.2}
+|Rt\rangle = |At\rangle + |B t\rangle.
+\end{equation}
+This rule determines the time-evolved kets to within a single arbitrary phase-factor to be multiplied into all of them. The evolved kets cannot be multiplied
+by individual phase-factors, since this would invalidate the superposition
+relation at later times. 
+
+According to Eqs.~(\ref{e4.1}) and (\ref{e4.2}), the final ket $|Rt\rangle$ depends linearly
+on the initial ket $|Rt_0\rangle$. Thus, the final ket can be regarded as the
+result of some linear operator acting on the initial ket: {\em, i.e.},
+\begin{equation}\label{e4.3}
+|Rt\rangle = T |Rt_0\rangle,
+\end{equation}
+where $T$ is a linear operator which depends only on the times $t$
+and $t_0$. 
+The arbitrary phase-factor by which all time evolved kets may be multiplied
+results in $T(t, t_0)$ being undetermined to an arbitrary multiplicative constant
+of modulus unity. 
+
+Since we have adopted a convention in which the norm of any state ket is unity,
+it make sense to define the time evolution operator $T$ in such a manner that
+it preserves the length of any ket upon which it acts
+({\em i.e.}, if a ket is properly normalized at time $t$ then it will remain normalized at
+all subsequent times $t>t_0$).
+This is always possible,
+since the length of a ket possesses no physical significance. Thus,
+we require that
+\begin{equation} 
+\langle A t_0|A t_0\rangle =\langle A t|A t\rangle
+\end{equation}
+for any ket $A$, 
+which immediately yields 
+\begin{equation}\label{e4.5}
+T^{\dag}\,T = 1.
+\end{equation}
+Hence, the time evolution operator $T$ is a {\em unitary} operator. 
+
+Up to now, the time evolution operator $T$ looks very much like the 
+spatial displacement
+operator $D$ introduced in the previous section. However, there are some
+important differences between time evolution and spatial displacement. In general,
+we {\em do} expect the expectation value of some observable $\xi$ to
+evolve with time, even if the system is left in a state of undisturbed motion
+(after all, time evolution has no meaning unless something {\em observable}
+changes with time). The triple product $\langle A|\xi|A\rangle$ can evolve
+either because the ket $|A\rangle$ evolves and the operator $\xi$ stays constant,
+the ket $|A\rangle$ stays constant and the operator $\xi$ evolves, or both
+the ket $|A\rangle$ and the operator $\xi$ evolve. 
+Since we are already committed to evolving state kets, according to Eq.~(\ref{e4.3}),
+let us assume that the time evolution operator $T$ can be chosen in such a
+manner that the operators representing the dynamical variables of the
+system {\em do not}
+ evolve in time (unless they contain some specific time dependence). 
+
+We expect, from physical continuity, that as $t\rightarrow t_0$ then
+$|At\rangle\rightarrow |A t_0\rangle$ for any ket $A$. Thus, the
+limit
+\begin{equation}\label{e4.6}
+\lim_{t\rightarrow t_0} \frac{|At\rangle - |At_0\rangle}{t-t_0} =
+\lim_{t\rightarrow t_0}\frac{T-1}{t-t_0}|At_0\rangle
+\end{equation}
+should exist. Note that this limit is simply the derivative of
+$|A t_0\rangle$ with respect to $t_0$. Let 
+\begin{equation}\label{e4.7}
+\tau(t_0) = \lim_{t\rightarrow t_0}\frac{T(t, t_0)-1}{t-t_0}.
+\end{equation}
+It is easily demonstrated from Eq.~(\ref{e4.5}) that $\tau$ is anti-Hermitian:
+{\em i.e.},
+\begin{equation}
+\tau^{\dag} + \tau = 0.
+\end{equation}
+The fact that $T$ can be replaced by $T\exp({\rm i}\,\gamma)$ (where $\gamma$ is
+real) implies that $\tau$ is undetermined to an arbitrary {\em imaginary} additive
+constant (see previous section). Let us
+define the Hermitian operator $H(t_0)= {\rm i}\,\hbar \,\tau$. This operator is
+undetermined to an arbitrary {\em  real} additive constant. It follows from Eqs.~(\ref{e4.6})
+and (\ref{e4.7}) that
+\begin{equation}
+{\rm i}\,\hbar \,\frac{d|At_0\rangle}{dt_0} = {\rm i}\,\hbar\lim_{t\rightarrow t_0}
+\frac{ |At\rangle - |At_0\rangle}{t-t_0} = {\rm i}\,\hbar\,\tau(t_0)|At_0\rangle
+= H(t_0) |At_0\rangle.
+\end{equation}
+When written for general $t$ this equation becomes
+\begin{equation}\label{e4.10}
+{\rm i}\,\hbar\, \frac{d|At\rangle}{dt} = H(t)|At\rangle.
+\end{equation}
+
+Equation~(\ref{e4.10}) gives the general law for the time evolution  of a state
+ket in a scheme in which the operators representing the dynamical variables remain
+fixed. This equation is denoted {\em Schr\"{o}dinger's equation of motion}. 
+It involves a Hermitian operator $H(t)$ which is, presumably, a characteristic
+of the dynamical system under investigation. 
+
+We saw, in the previous section, that
+if the operator $D(x, x_0)$ displaces the system along the $x$-axis from $x_0$ to $x$
+then
+\begin{equation}
+p_x = {\rm i}\,\hbar\,\lim_{x\rightarrow x_0} \frac{D(x,x_0)-1}{x-x_0},
+\end{equation}
+where $p_x$ is the operator representing the momentum conjugate to $x$. We now
+have that if the operator $T(t, t_0)$ evolves the system in time from $t_0$ to $t$
+then
+\begin{equation}
+H(t_0) = {\rm i}\,\hbar\,\lim_{t\rightarrow t_0} \frac{T(t, t_0)-1}{t-t_0}.
+\end{equation}
+Thus, the 
+dynamical variable corresponding to
+the operator $H$ stands  to time $t$ as the momentum $p_x$ stands  to the
+coordinate $x$. By analogy
+with classical physics, this suggests that $H(t)$ is the operator representing
+the total {\em energy} of the system. (Recall that, in classical physics,
+if the equations of motion of a system are invariant under an $x$-displacement
+of the system then this implies that the system conserves momentum in the
+$x$-direction. Likewise, if the equations of motion are invariant under
+a temporal displacement then this implies that the system conserves energy.)
+The operator $H(t)$ is usually called the {\em Hamiltonian} of the system. 
+The fact that the Hamiltonian is undetermined to an arbitrary real additive
+constant is related to the well-known phenomenon that  energy is
+undetermined to an arbitrary additive constant in physics ({\em i.e.}, the zero
+of potential energy is not well-defined). 
+
+Substituting $|At\rangle = T |At_0\rangle$ into Eq.~(\ref{e4.10}) yields
+\begin{equation}
+{\rm i}\,\hbar \,\frac{d T}{dt}|At_0\rangle = H(t)\,T|At_0\rangle.
+\end{equation}
+Since this must hold for any initial state $|At_0\rangle$ we conclude that
+\begin{equation}\label{e4.14}
+{\rm i} \,\hbar\, \frac{dT}{dt} = H(t) \,T.
+\end{equation}
+This  equation can be integrated to give
+\begin{equation}\label{e4.15}
+T(t, t_0) = \exp\left(-{\rm i} \,\int_{t_0}^t H(t') \,dt'/\hbar\right),
+\end{equation}
+where use has been made of Eqs.~(\ref{e4.5}) and (\ref{e4.6}). 
+(Here, we assume that Hamiltonian operators
+evaluated at  different times commute with one another). It is now clear  how
+the fact that $H$ is undetermined to an arbitrary real additive constant leaves
+$T$ undetermined to a phase-factor. Note that, in the above
+analysis,  time is {\em not} an
+operator (we cannot observe time, as such), it is just a parameter (or, more 
+accurately, a continuous label). Since we are only dealing with non-relativistic
+quantum mechanics, the fact that position is an operator, but time is only a
+label, need not worry us unduly. In relativistic quantum mechanics, time and space
+coordinates are treated on the same footing by relegating position from being
+an operator to being just a label. 
+
+\section{Heisenberg's Equations of Motion}\label{s4.2}
+We have seen that in Schr\"{o}dinger's scheme the dynamical variables of the
+system remain fixed during a period of undisturbed motion, whereas the state kets
+evolve according to Eq.~(\ref{e4.10}). However, this is not the only way in which
+to represent the time evolution of the system. 
+
+Suppose that a general state ket $A$ is subject to the transformation 
+\begin{equation}\label{e4.16}
+|A_t \rangle = T^{\dag}(t, t_0) |A\rangle.
+\end{equation}
+This is a time-dependent transformation,  since  the operator $T(t, t_0)$ obviously
+depends on time. The subscript $t$ is used to remind us that the transformation
+is time-dependent. 
+ The time evolution of the transformed state ket is given by
+\begin{equation}
+|A_t t\rangle = T^{\dag} (t, t_0)|At\rangle = T^{\dag} (t, t_0)\,T (t, t_0)
+|At_0\rangle = |A_t t_0\rangle,
+\end{equation}
+where use has been made of Eqs.~(\ref{e4.3}), (\ref{e4.5}), and the fact that $T(t_0, t_0)=1$. 
+Clearly, the transformed state ket {\em does not} evolve in time. Thus, the
+transformation (\ref{e4.16}) has the effect of bringing all kets representing
+states of undisturbed motion of the system to rest. 
+
+The transformation  must also be applied to bras. The dual of Eq.~(\ref{e4.16})
+yields
+\begin{equation}
+\langle A_t| =\langle A| T.
+\end{equation}
+The transformation rule for a general observable $v$ is obtained from the requirement
+that the expectation value $\langle A|v|A\rangle$ 
+should remain invariant. It is easily
+seen that
+\begin{equation}\label{e4.19}
+v_t = T^{\dag} \,v \,T.
+\end{equation}
+Thus, a dynamical variable, which corresponds to a fixed linear operator in
+Schr\"{o}\-dinger's scheme, corresponds to a moving linear operator in this
+new scheme. It is clear that the transformation (\ref{e4.16}) leads us to a scenario
+in which the state  of the system is represented by
+a
+ fixed vector, and the dynamical variables
+are represented by moving linear operators. This is termed the {\em Heisenberg
+picture}, as opposed to the {\em Schr\"{o}dinger picture},
+which is  outlined in Sect.~\ref{s4.1}.
+
+Consider a dynamical variable $v$ corresponding to a fixed linear operator in
+the Schr\"{o}dinger picture. According to Eq.~(\ref{e4.19}), we can write
+\begin{equation}
+T \,v_t = v\, T.
+\end{equation}
+Differentiation with respect to time yields
+\begin{equation}
+\frac{d T}{dt} \,v_t + T \,\frac{dv_t}{dt} = v\, \frac{dT}{dt}.
+\end{equation}
+With the help of Eq.~(\ref{e4.14}), this reduces to
+\begin{equation}
+H\,T\, v_t +{\rm i}\,\hbar\, T\,\frac{d v_t}{dt} = v\, H\,T,
+\end{equation}
+or
+\begin{equation}\label{e4.23}
+{\rm i}\,\hbar\ \frac{d v_t}{dt} = T^{\dag} \,v \,H\,T - T^{\dag} \,H\,T \,v_t
+= v_t\, H_t - H_t\, v_t,
+\end{equation}
+where
+\begin{equation}
+H_t = T^{\dag}\, H\, T.
+\end{equation}
+Equation~(\ref{e4.23})
+can be written
+\begin{equation}\label{e4.25}
+{\rm i}\,\hbar\ \frac{d v_t}{dt} = [v_t, H_t].
+\end{equation}
+
+Equation~(\ref{e4.25}) shows how the dynamical variables of the system evolve in the
+Heisenberg  picture. It is denoted {\em Heisenberg's equation of motion}. 
+Note that the time-varying dynamical variables in the Heisenberg picture
+are usually called {\em Heisenberg dynamical variables} to distinguish them
+from {\em Schr\"{o}dinger dynamical variables} ({\em i.e.}, the corresponding variables in
+the Schr\"{o}dinger picture), which do not evolve in time. 
+
+According to Eq.~(\ref{e3.13}), the Heisenberg equation of motion can be written
+\begin{equation}\label{e4.26}
+\frac{dv_t}{dt} = [v_t, H_t]_{\rm quantum},
+\end{equation}
+where $[\cdots]_{\rm quantum}$ denotes the quantum Poisson bracket. 
+Let us compare this equation
+with the classical time evolution
+equation for a general dynamical variable $v$, which can be written
+in the form [see Eq.~(\ref{e3.4})]
+\begin{equation}\label{e4.27}
+\frac{dv}{dt} = [v,H]_{\rm classical}.
+\end{equation}
+Here, $[\cdots]_{\rm classical}$ is the classical Poisson bracket, and $H$ denotes
+the classical Hamiltonian. The strong resemblance between 
+Eqs.~(\ref{e4.26}) and (\ref{e4.27}) 
+provides us with further justification for our identification
+of the linear operator $H$ with the energy of the system in quantum mechanics. 
+
+Note that if the Hamiltonian does not explicitly depend on time ({\em i.e.}, the system is
+not subject to some time-dependent external force) then Eq.~(\ref{e4.15}) yields
+\begin{equation}\label{e4.28}
+T(t, t_0) = \exp\left[-{\rm i}\, H\,(t-t_0)/\hbar \right].
+\end{equation}
+This operator manifestly commutes with $H$, so 
+\begin{equation}
+H_t = T^{\dag}\, H \,T = H.
+\end{equation}
+Furthermore, Eq.~(\ref{e4.25}) gives
+\begin{equation}
+{\rm i}\,\hbar \,\frac{dH}{dt} = [H, H] = 0.
+\end{equation}
+Thus, if the energy of the system  has no explicit time-dependence then it is 
+represented by the same non-time-varying operator $H$ in both the Schr\"{o}dinger
+and Heisenberg pictures. 
+
+Suppose that $v$ is an observable which commutes with the Hamiltonian
+(and, hence, with the time evolution operator $T$). It follows from Eq.~(\ref{e4.19})
+that $v_t= v$. Heisenberg's equation of motion yields
+\begin{equation}
+{\rm i}\,\hbar \,\frac{d v}{dt} = [v, H] = 0.
+\end{equation}
+Thus, {\em any observable which commutes with the Hamiltonian is a constant
+of the motion} (hence, it is represented by the same fixed operator in
+both the Schr\"{o}dinger and Heisenberg pictures). Only those observables
+which {\em do not} commute with the Hamiltonian evolve 
+in time in the Heisenberg picture.
+
+\section{Ehrenfest's Theorem}
+We have now derived all of the basic elements of quantum mechanics. The only
+thing which is lacking is some rule  to determine the form of the 
+quantum mechanical Hamiltonian. For a physical system which possess a classical
+analogue, we generally assume that the Hamiltonian has the same form as
+in classical physics ({\em i.e.}, we replace the classical coordinates and conjugate
+momenta by the corresponding quantum mechanical operators). This scheme guarantees
+that quantum mechanics yields the correct classical equations of motion
+in the classical limit. Whenever an ambiguity arises because of 
+non-commuting
+observables, this can usually be resolved by requiring the Hamiltonian $H$ to
+be an Hermitian operator. For instance, we would write the
+quantum mechanical analogue of the classical product $x\,p$, appearing in the
+Hamiltonian, as the Hermitian product $(1/2)(x\,p + p\,x)$. When the system
+in question has no classical analogue then we are reduced to guessing a form
+for $H$ which reproduces the observed behaviour of the system. 
+
+Consider a three-dimensional system characterized by three independent Cartesian
+position coordinates $x_i$ (where $i$ runs from 1 to 3), with three corresponding
+conjugate momenta $p_i$. These are represented by three commuting position
+operators $x_i$, and three commuting momentum operators $p_i$, respectively. The 
+commutation
+relations  satisfied by the position and momentum operators
+are [see Eq.~(\ref{e3.14c})]
+\begin{equation}\label{e4.32}
+[x_i, p_j] = {\rm i}\,\hbar\, \delta_{ij}.
+\end{equation}
+It is helpful to denote $(x_1, x_2, x_3)$ as ${\bf x}$ and $(p_1, p_2, p_3)$ as 
+${\bf p}$. The following useful formulae,
+\begin{eqnarray}\label{e4.33a}
+[x_i, F({\bf p})]& =& {\rm i}\,\hbar \,\frac{\partial F}{\partial p_i},\\[0.5ex]
+[p_i, G({\bf x})]& = &- {\rm i}\,\hbar\,\frac{\partial G}{\partial x_i},\label{e4.33b}
+\end{eqnarray}
+where $F$ and $G$ are functions which can be expanded as  power series, are
+easily proved using  the fundamental commutation relations Eq.~(\ref{e4.32}).
+
+Let us now consider the three-dimensional motion of a free particle of mass
+$m$ in the
+Heisenberg picture. The Hamiltonian is assumed to have the same form as in
+classical physics:
+\begin{equation}
+H = \frac{{\bf p}^2}{2\,m} = \frac{1}{2\,m} \sum_{i=1}^3 p_i^{~2}.
+\end{equation}
+In the following, all dynamical variables are assumed to be Heisenberg dynamical
+variables, although we will omit the subscript $t$ for the sake of clarity. 
+The time evolution of the momentum operator $p_i$ follows from Heisenberg's
+equation of motion (\ref{e4.25}). We find that
+\begin{equation}
+\frac{dp_i}{dt} = \frac{1}{{\rm i}\,\hbar}[p_i, H] = 0,
+\end{equation}
+since $p_i$ automatically commutes with any function of the momentum operators. 
+Thus, for a free particle the momentum operators are constants of the motion,
+which means that $p_i(t) = p_i(0)$ at all times $t$ (for $i$ is 1 to 3). 
+The time evolution of the position operator $x_i$ is given by
+\begin{equation}
+\frac{d x_i}{dt} = \frac{1}{{\rm i}\,\hbar} [x_i, H] = \frac{1}{{\rm i}\,\hbar}
+\frac{1}{2\,m}\, {\rm i}\,\hbar\,\frac{\partial}{\partial p_i}\!
+\left(\sum_{j=1}^3 p_j^{~2}\right) = \frac{p_i}{m} = \frac{p_i(0)}{m},
+\end{equation}
+where use has been made of Eq.~(\ref{e4.33a}).  It follows that
+\begin{equation}
+x_i(t) = x_i(0) + \left[\frac{p_i(0)}{m}\right] t,
+\end{equation}
+which is analogous to the equation of motion of a classical free particle.
+Note that even though
+\begin{equation}
+[x_i(0), x_j(0)] = 0,
+\end{equation}
+where the position operators are evaluated at equal times, the $x_i$ {\em do not}
+commute when evaluated at different times. For instance,
+\begin{equation}
+[x_i(t), x_i(0)] = \left[ \frac{p_i(0)\,t}{m}, x_i(0)\right] = 
+\frac{-{\rm i}\,\hbar \,t}
+{m}.
+\end{equation}
+Combining the above commutation relation with the uncertainty relation (\ref{e2.75}) yields
+\begin{equation}
+\langle (\Delta x_i)^2\rangle_t \langle (\Delta x_i)^2\rangle_{t=0} \geq
+\frac{\hbar^2\, t^2}{4\, m^2}.
+\end{equation}
+This result implies that even if a particle is well-localized at $t=0$, its
+position becomes progressively more uncertain with time. This conclusion
+can also be obtained by studying the propagation of wave-packets in
+wave mechanics.
+
+Let us now add a potential $V({\bf x})$ to our free particle Hamiltonian:
+\begin{equation}
+H = \frac{{\bf p}^2}{2\,m} + V({\bf x}).
+\end{equation}
+Here, $V$ is some function of the $x_i$ operators. Heisenberg's equation of
+motion gives
+\begin{equation}
+\frac{d p_i}{dt} = \frac{1}{{\rm i}\,\hbar} [p_i, V({\bf x})] = - \frac{\partial
+V({\bf x})}{\partial x_i},
+\end{equation}
+where use has been made of Eq.~(\ref{e4.33b}). On the other hand, the result
+\begin{equation}
+\frac{d x_i}{dt} = \frac{p_i}{m}
+\end{equation}
+still holds, because the $x_i$ all commute with the new term $V({\bf x})$ in the
+Hamiltonian. We can use the Heisenberg equation of motion a second time
+to deduce that
+\begin{equation}
+\frac{d^2 x_i}{dt^2} = \frac{1}{{\rm i}\,\hbar} \left[\frac{dx_i}{dt}, H\right]
+= \frac{1}{{\rm i}\,\hbar}\left[ \frac{p_i}{m}, H \right]
+=\frac{1}{m}\frac{d p_i}{dt} = - \frac{1}{m} \frac{\partial V({\bf x})}{\partial x_i}.
+\end{equation}
+In vectorial form, this equation becomes
+\begin{equation}\label{e4.45}
+m\,\frac{d^2 {\bf x}}{d t^2} = \frac{d{\bf p}}{dt} =
+- \nabla V({\bf x}).
+\end{equation}
+This is the quantum mechanical equivalent of Newton's second law of motion.
+Taking the expectation values of both sides with respect to a Heisenberg
+state ket that does {\em not}\/ move with time, we obtain
+\begin{equation}\label{e4.46}
+m \,\frac{d^2\langle {\bf x}\rangle}{dt^2}= \frac{d\langle{\bf p}\rangle}{dt}
+= - \langle \nabla V({\bf x})\rangle.
+\end{equation}
+This is known as {\em Ehrenfest's theorem}. When written in terms of expectation
+values, this result is independent of whether we are using the Heisenberg or
+Schr\"{o}dinger picture. In contrast, the operator equation (\ref{e4.45}) only holds
+if ${\bf x}$ and ${\bf p}$ are understood to be Heisenberg dynamical variables.
+Note that Eq.~(\ref{e4.46}) has no dependence on $\hbar$. 
+In fact, it guarantees to  us that the centre of
+a wave-packet always moves like a classical particle.
+
+\section{Schr\"{o}dinger's Wave Equation}
+Let us now consider the motion of a particle 
+in three dimensions in the Schr\"{o}dinger picture. The fixed dynamical variables of
+the system are the position operators ${\bf x}\equiv
+(x_1, x_2, x_3)$, and the momentum operators ${\bf p}\equiv (p_1, p_2, p_3)$.
+The state of the system is represented as some time evolving ket $|At\rangle$.
+
+Let $|{\bf x'}\rangle$ represent a simultaneous eigenket of the position operators
+belonging to the eigenvalues ${\bf x'} \equiv (x_1', x_2', x_3')$. Note that, since
+the position operators  are {\em fixed} in the Schr\"{o}dinger picture, we do not
+expect the $|{\bf x}'\rangle$ to evolve in time. The wave-function of the system
+at time $t$ is defined
+\begin{equation}
+\psi({\bf x'}, t) = \langle {\bf x'}| At\rangle.
+\end{equation}
+The Hamiltonian of the system is taken to be
+\begin{equation}\label{e4.48}
+H = \frac{{\bf p}^2}{2\,m} + V({\bf x}).
+\end{equation}
+
+Schr\"{o}dinger's equation of motion (\ref{e4.10}) yields 
+\begin{equation}\label{e4.49}
+{\rm i}\,\hbar \,\frac{\partial \langle {\bf x'}|At\rangle}{\partial t}
+= \langle {\bf x'}|H| At\rangle,
+\end{equation}
+where use has been made of the time independence of the $|{\bf x'}\rangle$. 
+We adopt Schr\"{o}d\-inger's representation in which the momentum conjugate
+to the position operator $x_i$ is written  [see Eq.~(\ref{e3.63})]
+\begin{equation}\label{e4.50}
+p_i = -{\rm i}\,\hbar\frac{\partial}{\partial x_i}.
+\end{equation}
+Thus,
+\begin{equation}\label{e4.51}
+\left\langle {\bf x}'\left|\frac{{\bf p}^2}{2\,m}\right| At\right\rangle = 
+- \left(\frac{\hbar^2}{2\,m}\right)
+\nabla'^2\langle {\bf x'} |At\rangle,
+\end{equation}
+where use has been made of Eq.~(\ref{e3.67}). Here, $\nabla'\equiv(\partial/\partial x',
+\partial/\partial y', \partial/\partial z')$ denotes the gradient operator written
+in terms of the position eigenvalues. We can also
+write
+\begin{equation}\label{e4.52}
+\langle {\bf x'}|V({\bf x}) = V({\bf x'})\langle {\bf x'} |,
+\end{equation}
+where $V({\bf x'})$ is  a scalar function of the position eigenvalues. Combining
+Eqs.~(\ref{e4.48}), (\ref{e4.49}), (\ref{e4.51}), and (\ref{e4.52}), we obtain
+\begin{equation}
+{\rm i}\,\hbar \,\frac{\partial \langle {\bf x}'|At\rangle}{\partial t}
+= - \left(\frac{\hbar^2}{2\,m}\right)
+\nabla'^2\langle{\bf x'} |At\rangle + V({\bf x}') \langle {\bf x}'|At\rangle,
+\end{equation}
+which can also be written
+\begin{equation}\label{e4.54}
+{\rm i}\,\hbar\,\frac{\partial \psi({\bf x}', t)}{\partial t}
+= -  \left(\frac{\hbar^2}{2\,m}\right)
+\nabla'^2\psi({\bf x}', t) + V({\bf x'})\, \psi({\bf x'}, t).
+\end{equation}
+This is Schr\"{o}dinger's famous wave-equation, and is the basis of
+wave mechanics. Note, however, that the wave-equation is 
+just one of many possible representations of quantum mechanics. It just happens
+to give a type of equation which we know how to solve. In deriving the wave-equation, we have chosen to represent the system in terms of the eigenkets of
+the position operators, instead of those of the momentum operators. We have
+also fixed the relative phases of the $|{\bf x'}\rangle$ according to 
+Schr\"{o}dinger's representation, so that Eq.~(\ref{e4.50}) is valid.  Finally, we
+have chosen to work in the Schr\"{o}dinger picture, in which state kets evolve
+and dynamical variables are fixed, instead of the Heisenberg picture,
+in which the opposite is true. 
+
+Suppose that the ket $|At\rangle$ is an eigenket of the Hamiltonian
+belonging to the eigenvalue $H'$:
+\begin{equation}
+H|At\rangle = H'|At\rangle.
+\end{equation}
+Schr\"{o}dinger's equation of motion (\ref{e4.10}) yields
+\begin{equation}
+{\rm i}\,\hbar \,\frac{d |At\rangle}{dt} = H' |At\rangle.
+\end{equation}
+This can be integrated to give
+\begin{equation}
+|At\rangle = \exp[ -{\rm i}\,H'(t-t_0)/\hbar] |At_0\rangle.
+\end{equation}
+Note that $|At\rangle$ only differs from $|At_0\rangle$ by a phase-factor. The direction of the vector remains fixed in ket space. This
+suggests that if the system is initially in an eigenstate of the
+Hamiltonian then it remains in this state for ever, as long as the system
+is undisturbed. Such a state is called a {\em stationary state}. The wave-function
+of a stationary state satisfies 
+\begin{equation}
+\psi({\bf x}', t) = \psi({\bf x'}, t_0) \exp[ -{\rm i}\,H'\,(t-t_0)/\hbar].
+\end{equation}
+
+Substituting the above relation into Schr\"{o}dinger's wave equation
+(\ref{e4.54}), we
+obtain
+\begin{equation}\label{e4.59}
+-\left(\frac{\hbar^2}{2\,m}\right)\nabla'^2\psi_0({\bf x'}) + 
+(V({\bf x'})-E)\,\psi_0({\bf x'}) =0,
+\end{equation}
+where $\psi_0({\bf x'}) \equiv \psi({\bf x'}, t_0)$,
+and $E= H'$ is the energy of the system. This is Schr\"{o}dinger's
+time-independent wave-equation. A {\em bound state} solution of the
+above equation, in which the particle is confined within a finite region
+of space, satisfies the boundary condition
+\begin{equation}\label{e4.60}
+\psi_0({\bf x}') \rightarrow 0 \mbox{\hspace{1cm}as $|{\bf x}'|\rightarrow \infty$}.
+\end{equation}
+Such a solution is only possible if
+\begin{equation}
+E < \lim_{|{\bf x}'|\rightarrow \infty} V({\bf x'}).
+\end{equation}
+Since it is conventional to set the potential at infinity equal to zero, the above
+relation implies that bound states are equivalent to negative energy states.
+The boundary condition (\ref{e4.60}) is sufficient to uniquely specify the solution
+of Eq.~(\ref{e4.59}).
+
+The quantity $\rho({\bf x'}, t)$, defined by
+\begin{equation}
+\rho({\bf x'}, t) = |\psi({\bf x'}, t)|^2,
+\end{equation}
+is termed the {\em probability density}. Recall, from Eq.~(\ref{e3.19}), that the
+probability of observing the particle in some volume element $d^3 x'$ 
+around position ${\bf x'}$ is proportional to $\rho({\bf x'}, t)\,d^3 x'$.
+The probability is {\em equal} to $\rho({\bf x'}, t)\,d^3 x'$ if the wave-function
+is properly normalized, so that
+\begin{equation}\label{e4.63}
+\int \rho({\bf x'}, t)\, d^3 x' = 1.
+\end{equation}
+
+Schr\"{o}dinger's time-dependent wave-equation, (\ref{e4.54}), can easily be
+written in the form of a conservation equation for the probability
+density:
+\begin{equation}\label{e4.64}
+\frac{\partial \rho}{\partial t} + \nabla'\cdot {\bf j} = 0.
+\end{equation}
+The {\em probability
+current}\/ ${\bf j}$ takes the form
+\begin{equation}\label{e4.65}
+{\bf j}({\bf x}', t) = - \left(\frac{{\rm i}\, \hbar}{2\,m}\right)
+\left[ \psi^\ast\, \nabla' \psi - (\nabla' \psi^\ast)\,\psi\right]
+= \left(\frac{\hbar}{m} \right){\rm Im} (\psi^\ast \nabla' \psi).
+\end{equation}
+We can integrate Eq.~(\ref{e4.64}) over all space, using the divergence theorem,
+and the boundary condition $\rho\rightarrow 0$ as $|{\bf x'}|\rightarrow
+\infty$, to obtain 
+\begin{equation}
+\frac{\partial}{\partial t} \int \rho({\bf x'}, t)\, d^3 x' = 0.
+\end{equation}
+Thus, Schr\"{o}dinger's wave-equation {\em  conserves}\/
+ probability. In particular, if the
+wave-function starts off properly normalized, according to Eq.~(\ref{e4.63}), then it
+remains properly normalized at all subsequent times. It is easily
+demonstrated that
+\begin{equation}
+\int {\bf j}({\bf x}', t) \,d^3 x' = \frac{\langle {\bf p }\rangle_t}{m},
+\end{equation}
+where $\langle {\bf p} \rangle_t$ denotes the expectation value of the momentum
+evaluated at time $t$.  Clearly, the probability current is indirectly related to
+the particle momentum.
+
+In deriving Eq.~(\ref{e4.64}) we have, naturally, assumed that the potential $V({\bf x}')$
+is real. Suppose, however, that the potential has an imaginary component. 
+In this case, Eq.~(\ref{e4.64}) generalizes to
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla'\cdot {\bf j} = \frac{2\,{\rm Im}(V)}{\hbar}
+\rho,
+\end{equation}
+giving
+\begin{equation}
+\frac{\partial}{\partial t} \int \rho({\bf x'}, t)\, d^3 x' = \frac{2}{\hbar}\,
+{\rm Im}\!\int
+V({\bf x}') \,\rho({\bf x'}, t)\, d^3 x'.
+\end{equation}
+Thus, if ${\rm Im}(V)<0$ then the total probability of observing the particle
+anywhere in space 
+decreases monotonically with time. Thus, an imaginary potential can be
+used to account for the disappearance of a particle. Such a potential
+is often employed to model nuclear reactions in which incident particles can be
+absorbed by nuclei.
+
+The wave-function can always be written in the form
+\begin{equation}\label{e4.70}
+\psi({\bf x}', t) = \sqrt{\rho({\bf x}', t)} \exp\left[\frac{{\rm i}\,S({\bf x}',t)}{
+\hbar}\right],
+\end{equation}
+where 
+$\rho$ and $S$ are both real functions. The interpretation of $\rho$ as a probability
+density has already been given. What is the interpretation of $S$?
+Note that
+\begin{equation}
+\psi^\ast \nabla'\psi = \sqrt{\rho} \,\nabla'(\sqrt{\rho}) + \left(\frac{{\rm i}}
+{\hbar}
+\right) \rho \nabla' S.
+\end{equation}
+It follows from Eq.~(\ref{e4.65}) that
+\begin{equation}
+{\bf j} = \frac{\rho \,\nabla' S}{m}.
+\end{equation}
+Thus, the gradient of the phase of the wave-function determines the 
+direction of the probability
+current. In particular, the probability current is locally
+normal to the  contours of the  phase-function $S$. 
+
+Let us substitute Eq.~(\ref{e4.70}) into Schr\"{o}dinger's time-dependent wave-equation. We obtain
+\begin{eqnarray}
+-\frac{1}{2\,m}\left[ \hbar^2 \nabla'^2 \sqrt{\rho} + 2{\rm i}\,\hbar
+\nabla'(\sqrt{\rho})\!\cdot\! \nabla' S - \sqrt{\rho}\, |\nabla' S|^2 
++{\rm i}\,\hbar \sqrt{\rho}\,\nabla'^2 S\right]
++ \sqrt{\rho}\, V& &\nonumber\\[0.5ex]
+= \left[ {\rm i}\,\hbar \frac{\partial \sqrt{\rho}}{\partial t}
+- \sqrt{\rho}\, \frac{\partial S}{\partial t} \right].&&\label{e4.73}
+\end{eqnarray}
+Let us treat $\hbar$ as a small quantity. To lowest order, Eq.~(\ref{e4.73})
+yields
+\begin{equation}
+-\frac{\partial S({\bf x}', t)}{\partial t} = \frac{1}{2\,m} |\nabla' S({\bf x}', t)
+|^2 + V ({\bf x}', t) = H({\bf x}', \nabla'
+S, t),
+\end{equation}
+where $H({\bf x}, {\bf p}, t)$ is the Hamiltonian operator. The above equation is
+known as the {\em Hamilton-Jacobi} equation, and is one of the many forms
+in which we can write the equations of classical mechanics. In classical
+mechanics, $S$ is the {\em action} ({\em i.e.}, the path-integral of the Lagrangian).
+Thus, in the limit $\hbar\rightarrow 0$, wave mechanics reduces to classical
+mechanics. It is a good approximation to neglect the terms involving
+$\hbar$ in Eq.~(\ref{e4.73}) provided that
+\begin{equation}\label{e4.75}
+\hbar\, |\nabla'^2 S| \ll |\nabla' S|^2.
+\end{equation}
+Note that, according to Eq.~(\ref{e4.70}),
+\begin{equation}
+\lambdabar = \frac{\hbar}{|\nabla' S|},
+\end{equation}
+where $\lambdabar$ is the de~Broglie wave-length divided by $2\pi$. The inequality
+(\ref{e4.75}) is equivalent to
+\begin{equation}
+|\nabla' \lambdabar| \ll 1.
+\end{equation}
+In other words, quantum mechanics reduces  to classical mechanics whenever the 
+de~Broglie wave-length is small compared to the characteristic distance over which
+things (other than the quantum phase)
+ vary. This distance is usually set by the variation scale-length of the potential.
