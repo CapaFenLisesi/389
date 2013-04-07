@@ -4,15 +4,6 @@ These notes were authored by Prof. Richard Fitzpatrick
 (Department of Physics, University 
 of Texas at Austin).
 
-The files will only compile properly when the following
-standard Latex packages are installed:
-
-fullpage
-epsf
-charter
-euler
-fancyhdr
-
 The document can be compiled by issuing the command
 
 latex Quantum
