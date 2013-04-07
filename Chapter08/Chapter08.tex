@@ -1,0 +1,1274 @@
+\chapter{Time-Dependent Perturbation Theory}
+% !TEX root = ../Quantum.tex
+
+\section{Introduction}
+Suppose that the Hamiltonian of the  system under consideration 
+can be written
+\begin{equation}
+H = H_0 + H_1(t),
+\end{equation}
+where $H_0$ does not contain time explicitly, and $H_1$ is a small
+time-dependent perturbation. It is assumed that we are able to calculate
+the eigenkets of the unperturbed Hamiltonian:
+\begin{equation}
+H_0 \,|n\rangle = E_n \,|n\rangle.
+\end{equation}
+We know that if the system is in one of the
+eigenstates of $H_0$ then, in the absence of the external
+perturbation,  it remains in this state for ever. However,
+the presence of a small time-dependent perturbation can, in principle, 
+give rise to a finite probability that a system initially in some
+eigenstate $|i\rangle$ of the unperturbed Hamiltonian
+is  found in some other eigenstate at a subsequent time (because
+$|i\rangle$ is no longer  an exact  eigenstate of the total
+ Hamiltonian).
+ In other words,
+a time-dependent perturbation  allows 
+the system to make transitions between
+its unperturbed energy eigenstates. Let us investigate such transitions. 
+
+\section{General Analysis}
+Suppose that at $t=t_0$ the state of the system is represented by
+\begin{equation}
+|A\rangle = \sum_n c_n\, |n\rangle,
+\end{equation}
+where the $c_n$ are complex numbers. Thus, the initial state is some
+linear superposition of the unperturbed 
+energy eigenstates. In the absence of the
+time-dependent perturbation, the time evolution of the system is
+given by
+\begin{equation}
+|A, t_0, t\rangle = \sum_n c_n \exp[-{\rm i}\,E_n \,(t-t_0)/\hbar]\,|n\rangle.
+\end{equation}
+Now, the probability of finding the system in state $|n\rangle$ at time
+$t$ is 
+\begin{equation}
+P_n(t) = |c_n \exp[-{\rm i}\,E_n (t-t_0)/\hbar]|^{\,2} = |c_n|^{\,2} = P_n(t_0).
+\end{equation}
+Clearly, with $H_1= 0$, the probability of finding the system in
+state $|n\rangle$ at time $t$ is exactly the same as the probability
+of finding the system in this state at the initial time $t_0$. However,
+with $H_1\neq 0$, we expect $P_n(t)$ to vary with time. Thus, we can
+write
+\begin{equation}\label{e6.150}
+|A, t_0, t\rangle = \sum_n c_n(t) \exp[-{\rm i}\,E_n\,(t-t_0)/\hbar]\,|n\rangle,
+\end{equation}
+where $P_n(t) = |c_n(t)|^{\,2}$. Here, we have carefully separated the fast 
+phase oscillation of the eigenkets, which depends on the unperturbed
+Hamiltonian, from the slow variation of the amplitudes $c_n(t)$, which
+depends entirely on the perturbation ({\rm i.e.}, $c_n$ is constant if $H_1=0$).
+Note that the eigenkets $|n\rangle$, appearing in Equation~(\ref{e6.150}), are {\em time-independent}\/ 
+(they are actually the eigenkets of $H_0$ evaluated at the time $t_0$).
+
+Schr\"{o}dinger's time evolution equation yields
+\begin{equation}\label{e6.151}
+{\rm i}\,\hbar\, \frac{\partial}{\partial t}\,|A, t_0, t\rangle  = 
+H\,|A,t_0,t\rangle= (H_0+H_1) \,|A,t_0,t\rangle.
+\end{equation}
+It follows from Equation~(\ref{e6.150}) that
+\begin{equation}
+(H_0+H_1)\, |A,t_0,t\rangle = \sum_m c_m(t) \exp[-{\rm i}\,E_m\, (t-t_0)/\hbar]\,
+(E_m + H_1)\,|m\rangle.
+\end{equation}
+We also have
+\begin{equation}
+{\rm i}\,\hbar\, \frac{\partial}{\partial t}\,|A,t_0,t\rangle =
+\sum_m \left({\rm i}\,\hbar \,\frac{d c_m}{dt}+ c_m(t)\, E_m\right)
+ \exp[-{\rm i}\,E_m \,(t-t_0)/\hbar]\, |m\rangle,
+\end{equation}
+where use has been made of the time-independence of the kets
+$|m\rangle$. According to Equation~(\ref{e6.151}), we can equate the right-hand sides
+of the previous two equations to obtain
+\begin{equation}
+\sum_m {\rm i}\,\hbar\, \frac{d c_m}{dt}\exp[-{\rm i}\,E_m \,(t-t_0)/\hbar] \,|m\rangle = \sum_m c_m(t) \exp[-{\rm i}\,E_m \,(t-t_0)/\hbar]\,
+H_1\, |m\rangle.
+\end{equation}
+Left-multiplication by $\langle n|$ yields
+\begin{equation}\label{e6.155}
+{\rm i}\,\hbar\, \frac{d c_n}{dt} = \sum_m H_{nm}(t)\, \exp[\,{\rm i}\,\omega_{nm}\, (t-t_0)]\,
+c_m(t),
+\end{equation}
+where
+\begin{equation}
+H_{nm}(t) = \langle n |\,H_1(t)\,|m \rangle,
+\end{equation}
+and
+\begin{equation}
+\omega_{nm} = \frac{E_n - E_m}{\hbar}.
+\end{equation}
+Here, we have made use of the standard  orthonormality result, $\langle n|m\rangle
+=\delta_{nm}$. Suppose that there are $N$ linearly independent eigenkets
+of the unperturbed Hamiltonian. According to Equation~(\ref{e6.155}), the
+time variation of the coefficients $c_n$, which specify the
+probability of finding the system in state $|n\rangle$ at time $t$,
+is  determined by $N$ coupled first-order differential equations. Note
+that Equation~(\ref{e6.155}) is exact---we have made no approximations at this stage.
+Unfortunately, we cannot generally find exact solutions to this equation,
+so we have to obtain approximate solutions via suitable expansions  in small
+quantities. However, for the particularly simple case of a two-state system
+({\rm i.e.}, $N=2$), it is actually possible to solve Equation~(\ref{e6.155}) without
+approximation. This
+solution is of great  practical importance. 
+ 
+\section{Two-State System}
+Consider a system in which the time-independent Hamiltonian 
+possesses two eigenstates, denoted
+\begin{align}
+H_0 \,|1\rangle &= E_1\, |1\rangle, \\[0.5ex]
+H_0 \,|2\rangle &= E_2 \,|2\rangle.
+\end{align}
+Suppose, for the sake of simplicity, that the diagonal matrix
+elements of the interaction Hamiltonian, $H_1$, are zero:
+\begin{equation}
+\langle 1|\,H_1\,|1\rangle = \langle 2|\,H_1\,|2\rangle = 0.
+\end{equation}
+The off-diagonal matrix elements are assumed to oscillate sinusoidally
+at some frequency $\omega$:
+\begin{equation}
+\langle 1|\,H_1\,|2\rangle = \langle 2|\,H_1\,|1\rangle^\ast = \gamma \exp(\,{\rm i}\,
+\omega\,t),
+\end{equation}
+where $\gamma$ and $\omega$ are real. 
+Note that it is only the off-diagonal matrix elements that give rise to
+the effect which we are interested in---namely, transitions between states
+1 and 2.
+
+For a two-state system, Equation~(\ref{e6.155}) reduces to
+\begin{align}\label{e6.162}
+{\rm i} \,\hbar\, \frac{d c_1}{dt} &= \gamma \exp[+{\rm i}\,
+(\omega-\omega_{21})\,t\,]\,c_2,\\[0.5ex]
+{\rm i}\,\hbar\, \frac{d c_2}{dt} &= \gamma  \exp[-{\rm i}\,
+(\omega-\omega_{21})\,t\,]\,c_1,\label{e6.163}
+\end{align}
+where $\omega_{21}  = (E_2 - E_1)/\hbar$, and it is assumed that $t_0=0$. Equations (\ref{e6.162}) and 
+(\ref{e6.163}) can be combined to give a second-order differential equation
+for the time variation of the amplitude $c_2$:
+\begin{equation}
+\frac{d^2 c_2}{dt^2} + {\rm i}\,(\omega-\omega_{21})\,\frac{d c_2}{dt} + 
+\frac{\gamma^2}{\hbar^2} \,c_2 = 0.
+\end{equation}
+Once we have solved for $c_2$, we can use Equation~(\ref{e6.163}) to obtain the 
+amplitude $c_1$. Let us look for a solution in which the system is
+certain to be in state 1 at time $t=0$. Thus, our initial 
+conditions are $c_1(0) = 1$ and $c_2(0) = 0$. It is easily
+demonstrated that the appropriate solutions are
+\begin{align}
+c_2(t) =& \frac{-{\rm i}\, \gamma/\hbar}
+{[\gamma^2/\hbar^2 + (\omega-\omega_{21})^{\,2}/4]^{1/2}}\,
+\exp[-{\rm i}\,(\omega-\omega_{21})\,t/2]\,\sin\left([\gamma^2/\hbar^2+(\omega-\omega_{21})^{\,2}/4]^{1/2}\,t\right),
+\\[0.5ex]
+c_1(t)=& \exp[\,{\rm i}\,(\omega-\omega_{21})\,t/2]\,\cos\left(
+[\gamma^2/\hbar^2+(\omega-\omega_{21})^{\,2}/4]^{1/2}\,t\right)\nonumber\\[0.5ex]
+&- \frac{{\rm i}\,(\omega-\omega_{21})/2 }{[\gamma^2/\hbar^2 + 
+(\omega-\omega_{21})^2/4]^{1/2}} \exp[\,{\rm i}\,(\omega-\omega_{21})\,t/2]\,\sin\left(
+[\gamma^2/\hbar^2+(\omega-\omega_{21})^{\,2}/4]^{1/2}\,t\right).
+\end{align}
+The probability of finding the system in state 1 at time $t$ is
+simply $P_1(t) = |c_1|^{\,2}$. Likewise, the probability of finding the
+system in state 2 at time $t$ is $P_2(t) = |c_2|^{\,2}$. 
+It follows that
+\begin{align}\label{e6.167}
+P_2(t) &= \frac{\gamma^2/\hbar^2}{ \gamma^2/\hbar^2 + 
+(\omega-\omega_{21})^{\,2}/4}\,  \sin^2\left([\gamma^2/\hbar^2+
+(\omega-\omega_{21})^{\,2}/4]^{1/2}\,t\right),\\[0.5ex]
+P_1(t) &= 1 - P_2(t).
+\end{align}
+
+Equation~(\ref{e6.167}) exhibits all the features of a classic {\em resonance}.
+At resonance, when the oscillation frequency of 
+the perturbation, $\omega$, matches the frequency $\omega_{21}$, we find
+that
+\begin{align}
+P_1(t) &=\cos^2 (\gamma \,t / \hbar),\\[0.5ex]
+P_2(t) &= \sin^2 (\gamma \,t/\hbar ).
+\end{align}
+According to the above result,
+ the system starts off at $t=0$ in state $1$. After a time
+interval $\pi \,\hbar/2\,\gamma$, it is certain to be in state 2. After a
+further time interval $\pi\, \hbar/2\,\gamma$, it is certain to be in
+state 1, and so on. In other words, the system periodically flip-flops between states
+1 and 2 under the influence of the time-dependent perturbation. This
+implies that the system  alternatively absorbs and emits  energy from
+the source of the perturbation. 
+
+The absorption-emission cycle also take place away from the resonance,
+when $\omega\neq \omega_{21}$. However, the amplitude of oscillation of
+the coefficient $c_2$ is reduced. This means that the maximum value
+of $P_2(t)$ is no longer unity, nor is the minimum value of $P_1(t)$
+zero. In fact, if we plot the maximum value of $P_2(t)$ as a function
+of the applied frequency, $\omega$, then we obtain a resonance curve
+whose maximum (unity) lies at the resonance, and whose full-width
+half-maximum (in frequency) is $4\,\gamma/\hbar$. Thus, if the
+applied frequency differs from the resonant frequency by  substantially
+more than $2\,\gamma/\hbar$ then the probability of the system jumping from
+state 1 to state 2 is very small. In other words, the time-dependent
+perturbation is only effective at causing transitions between states
+1 and 2 if its frequency of oscillation lies in the approximate range
+$\omega_{21} \pm 2\,\gamma/\hbar$. Clearly, the weaker the perturbation
+({\rm i.e.}, the smaller $\gamma$ becomes), the narrower the resonance.
+
+\section{Spin Magnetic Resonance}
+Consider a bound electron placed in a
+uniform $z$-directed magnetic field, and then subjected to a small time-dependent magnetic field rotating in the $x$-$y$ plane. 
+Thus,
+\begin{equation}
+{\bf B} = B_0\, {\bf e}_z + B_1\left[\cos(\omega\, t) \,{\bf e}_x + \sin(\omega \,t)
+\,{\bf e}_y\right],
+\end{equation}
+where $B_0$ and $B_1$ are constants, with $B_1\ll B_0$. The rotating magnetic
+field usually  represents the magnetic component of an
+electromagnetic wave propagating along the $z$-axis. In this system, the
+electric component of the wave has no effect.
+The Hamiltonian is written
+\begin{equation}
+H = - \bmu \cdot {\bf B} = H_0 + H_1,
+\end{equation}
+where
+\begin{equation}
+H_0 = \frac{e\,B_0}{m_e}\, S_z,
+\end{equation}
+and 
+\begin{equation}
+H_1 = \frac{e\, B_1}{m_e} \left[\cos(\omega\, t) \,S_x + \sin(\omega\, t)\, S_y\right].
+\end{equation}
+
+The eigenstates of the unperturbed Hamiltonian are the `spin up' and
+`spin down' states, denoted $|+\rangle$ and $|-\rangle$, respectively.
+Thus,
+\begin{equation}
+H_0 \,|\pm \rangle = \pm \frac{e\, \hbar\, B_0}{2 \,m_e} \,|\pm \rangle.
+\end{equation}
+The time-dependent Hamiltonian can be written
+\begin{equation}
+H_1 = \frac{e\, B_1}{2 \,m_e} \left[\exp(\,{\rm i}\,\omega \,t)\, S^- + 
+\exp(-{\rm i}\,\omega\, t)\, S^+\right],
+\end{equation}
+where $S^\pm=S_x\pm {\rm i}\,S_y$ are the conventional raising and lowering operators
+for  spin angular momentum. It follows that
+\begin{equation}
+\langle + |\,H_1\, |+\rangle = \langle - |\,H_1\,|-\rangle = 0,
+\end{equation}
+and
+\begin{equation}
+\langle - |\,H_1\,| + \rangle = \langle + |\,H_1\,| - \rangle^\ast = 
+\frac{e \,\hbar \,B_1}{2\, m_e} \exp(\,{\rm i}\,\omega\, t).
+\end{equation}
+
+It can be seen that this system is exactly the same as the two-state system
+discussed in the previous section, provided that we make the identifications
+\begin{align}
+|1 \rangle &\rightarrow  |-\rangle,\\[0.5ex]
+|2 \rangle &\rightarrow  |+\rangle,\\[0.5ex]
+\omega_{21} &\rightarrow  \frac{e \,B_0}{m_e},\\[0.5ex]
+\gamma &\rightarrow  \frac{e\,\hbar\, B_1}{2\,m_e}.
+\end{align}
+The resonant frequency, $\omega_{21}$, is simply the spin precession frequency
+for an electron in a uniform magnetic field of strength $B_0$. In the
+absence of the perturbation, the expectation values of $S_x$ and $S_y$ 
+oscillate because of the spin precession, but the expectation value
+of $S_z$ remains invariant. If we now apply a magnetic perturbation rotating
+at the resonant frequency then, according to the analysis of the previous
+section, the system undergoes a succession of spin-flops,
+$|+\rangle \rightleftharpoons |-\rangle$, in addition to the spin
+precession. We also know that if the oscillation frequency of the
+applied field is very different from the resonant frequency then there is
+virtually zero probability of the field triggering a spin-flop. The width
+of the resonance (in frequency) is determined by the strength of the 
+oscillating magnetic perturbation. Experimentalist are able to measure the
+magnetic moments of electrons, and other spin one-half particles, to a
+high degree of accuracy by placing the particles in a magnetic field, 
+and subjecting them to an oscillating magnetic field whose frequency is
+gradually  scanned. 
+By determining the resonant frequency ({\rm i.e.}, the frequency at which the
+particles absorb energy from the oscillating field), it is possible to
+calculate the magnetic moment. 
+
+\section{Dyson Series}
+Let us now try to find approximate solutions of Equation~(\ref{e6.155}) for a general
+system. It is convenient to work in terms of the time evolution
+operator, $U(t_0, t)$, which is defined
+\begin{equation}
+|A, t_0, t\rangle = U(t_0, t) \,|A\rangle.
+\end{equation}
+Here, $|A, t_0, t\rangle$ is the state ket  of the
+system at time $t$, given that the state ket at the initial
+time $t_0$ is $|A\rangle$. It is easily seen that the time evolution operator
+satisfies the differential equation
+\begin{equation}
+{\rm i}\, \hbar\, \frac{\partial U(t_0, t)}{\partial t} = (H_0 + H_1)\,
+U(t_0, t),
+\end{equation}
+subject to  the initial condition
+\begin{equation}
+U(t_0, t_0 ) = 1.
+\end{equation}
+
+In the absence of the external perturbation, the time evolution operator
+reduces to
+\begin{equation}
+U(t_0, t) =  \exp[-{\rm i} \, H_0\,(t-t_0)/\hbar].
+\end{equation}
+Let us switch on the perturbation and look for a solution of the
+form
+\begin{equation}
+U(t_0, t) = \exp[ -{\rm i} \, H_0\,(t-t_0)/\hbar]\, U_I(t_0, t).
+\end{equation}
+It is readily demonstrated that $U_I$ satisfies the differential
+equation
+\begin{equation}\label{e6.188}
+{\rm i}\, \hbar\, \frac{\partial U_I(t_0, t)}{\partial t} =  H_I(t_0, t)\,
+U_I(t_0, t),
+\end{equation}
+where
+\begin{equation}
+H_I(t_0,t) = \exp[ +{\rm i} \, H_0\,(t-t_0)/\hbar] \, H_1\,
+\exp[ -{\rm i} \, H_0\,(t-t_0)/\hbar],
+\end{equation}
+subject to the initial condition
+\begin{equation}\label{e6.190}
+U_I(t_0, t_0) = 1.
+\end{equation}
+Note that $U_I$ specifies that  component of the time evolution operator
+which is due to the time-dependent perturbation. Thus, we would expect $U_I$
+to contain all of the information regarding transitions between different
+eigenstates of $H_0$ caused by the perturbation. 
+
+Suppose that the system starts off at time $t_0$ in the eigenstate $|i\rangle$ of
+the unperturbed Hamiltonian. The subsequent evolution of
+the state ket is given by Equation~(\ref{e6.150}),
+\begin{equation}
+|i, t_0, t\rangle = \sum_m c_m(t) \exp[ -{\rm i} \, E_m\,(t-t_0)/\hbar]\,
+|m\rangle.
+\end{equation}
+However, we also have
+\begin{equation}
+|i, t_0, t\rangle = \exp[-{\rm i} \, H_0\,(t-t_0)/\hbar]\, U_I(t_0, t)\, |i\rangle.
+\end{equation}
+It follows that
+\begin{equation}\label{e6.193}
+c_n(t) = \langle n|\, U_I(t_0, t)\, | i\rangle,
+\end{equation}
+where use has been made of $\langle n|m \rangle = \delta_{n\,m}$. 
+Thus, the probability that the system is found in state $|n\rangle$ at time
+$t$, given that it is definitely in state $|i\rangle$ at time $t_0$,
+is simply
+\begin{equation}
+P_{i\rightarrow n} (t_0, t) = |\langle n|\, U_I(t_0, t)\, | i\rangle|^{\,2}.
+\end{equation}
+This quantity is usually  termed the {\em transition probability}\/ 
+between states $|i\rangle$ and $|n\rangle$.
+
+Note that the differential equation (\ref{e6.188}), plus the initial  condition
+(\ref{e6.190}), are equivalent to the following integral equation,
+\begin{equation}
+U_I(t_0, t) = 1 - \frac{\rm i}{\hbar} \int_{t_0}^t dt' \,H_I(t_0, t')\,
+U_I(t_0, t') .
+\end{equation}
+We can obtain an approximate solution to this equation by iteration:
+\begin{align}
+U_I(t_0, t) &\simeq 1 - \frac{\rm i}{\hbar} \int_{t_0}^t H_I(t_0, t')
+\left[ 1 - \frac{\rm i}{\hbar} \int_{t_0}^{t'} dt'\,H_I(t_0, t'')\,
+U_I(t_0, t'')\right] \nonumber \\[0.5ex]
+&\simeq 1 - \frac{\rm i}{\hbar} \int_{t_0}^t H_I(t_0, t')\,dt' + \left(\frac{-{\rm i}}{\hbar}\right)^2 \int_{t_0}^t dt'
+\int_{t_0}^{t'} dt''\,  H_I(t_0, t' )\,H_I(t_0, t'' ) + \cdots.\label{e6.196}
+\end{align}
+This expansion is known as the {\em Dyson series}.
+Let 
+\begin{equation}
+c_n = c_n^{(0)} + c_n^{(1)} + c_n^{(2)} + \cdots,
+\end{equation}
+where the superscript $^{(1)}$ refers to a first-order term in the expansion,
+{\rm etc}. It follows from Equations~(\ref{e6.193}) and (\ref{e6.196}) that 
+\begin{align}
+c_n^{(0)}(t) &= \delta_{i\,n},\\[0.5ex]
+c_n^{(1)}(t) &= -\frac{\rm i}{\hbar} \int_{t_0}^t 
+dt'\,\langle n |\,H_I(t_0, t')\,|i\rangle,\\[0.5ex]
+c_n^{(2)}(t) &= \left(\frac{-{\rm i}}{\hbar}\right)^2 \int_{t_0}^t dt'
+\int_{t_0}^{t'}dt''\, \langle n|\,  H_I(t_0, t' )\,H_I(t_0, t'' )\,|i\rangle.
+\end{align}
+These expressions simplify to
+\begin{align}\label{e6.201}
+c_n^{(0)}(t) &= \delta_{in},\\[0.5ex]\label{e6.202}
+c_n^{(1)}(t) &= -\frac{\rm i}{\hbar} \int_{t_0}^t dt'\, \exp[\,{\rm i} \,\omega_{ni}\,
+(t'-t_0)]\, H_{ni}(t') , \\[0.5ex]
+c_n^{(2)}(t) &= \left(\frac{-{\rm i}}{\hbar}\right)^2
+\sum_m \int_{t_0}^t dt'\int_{t_0}^{t' }dt''\,\exp[\,{\rm i}
+ \,\omega_{nm}\,(t'-t_0)]\,  H_{nm}(t') \,
+\exp[\,{\rm i} \,\omega_{mi}\,(t''-t_0)]\,H_{mi}(t''),\label{e6.203}
+\end{align}
+where
+\begin{equation}
+\omega_{nm} = \frac{E_n -E_m}{\hbar},
+\end{equation}
+and
+\begin{equation}
+H_{nm} (t) = \langle n|\, H_1(t)\, | m\rangle.
+\end{equation}
+The transition probability between states $i$ and $n$ is
+simply
+\begin{equation}
+P_{i\rightarrow n} (t_0, t) = |c_n^{(0)} + c_n^{(1)} + c_n^{(2)} +\cdots|^{\,2}.
+\end{equation}
+
+According to the above analysis, there is no chance of a
+transition between states $|i\rangle$ and $|n\rangle$ (where $i\neq n$)
+to zeroth order ({\rm i.e.}, in the absence of the perturbation). To
+first order, the transition probability is proportional to
+the time integral of the matrix element $\langle n|\,H_1\,| i\rangle$,
+weighted by some oscillatory phase-factor. Thus, if the matrix
+element is zero then there is no chance of a first-order transition between
+states $|i\rangle$ and $|n\rangle$. However, to second order,
+a transition between states $|i\rangle$ and $|n\rangle$ is possible
+even when the
+matrix element $\langle n|\,H_1\,| i\rangle$ is zero.
+
+\section{Sudden Perturbations}\label{s8.6}
+Consider, for example, a constant perturbation that is suddenly switched on at time
+$t=0$:
+\begin{align}
+H_1(t) &= 0 \mbox{\hspace{2.0cm}for $t<0$}\nonumber \\[0.5ex]
+H_1(t) &= H_1\mbox{\hspace{1.75cm}for $t\geq 0$},\label{e6.207}
+\end{align}
+where $H_1$ is time-independent, but is generally a function of 
+the position,
+momentum, and spin operators. Suppose that the system is definitely
+in state $|i\rangle$ at time $t=0$. According to Equations~(\ref{e6.201})--(\ref{e6.203}) (with
+$t_0 = 0$),
+\begin{align}
+c_n^{(0)}(t) &= \delta_{i\,n},\\[0.5ex]
+c_n^{(1)}(t) &= -\frac{{\rm i}}{\hbar}\, H_{ni} \int_0^t  dt'\,\exp[\,{\rm i}\,
+\omega_{ni}\,(t'-t)]= \frac{H_{ni}}{E_n - E_i}\, [1- \exp(\,{\rm i}\,\omega_{ni}\,t)],\label{e6.209}
+\end{align}
+giving
+\begin{equation}
+P_{i\rightarrow n}(t) \simeq |c_n^{(1)}|^{\,2} = \frac{4\,|H_{ni}|^{\,2}}{|E_n - E_i|^{\,2}}\,
+\sin^2\left[ \frac{(E_n-E_i)\,t}{2\,\hbar}\right],
+\end{equation}
+for $i\neq n$. 
+The transition probability between states $|i\rangle$ and $|n\rangle$
+can be written
+\begin{equation}\label{e6.211}
+P_{i\rightarrow n}(t) = \frac{|H_{ni}|^{\,2} \,t^2}{\hbar^2} \,{\rm sinc}^2\left[ \frac{(E_n-E_i)\,t}{2\,\hbar}\right],
+\end{equation}
+where 
+\begin{equation}
+{\rm sinc}(x)\equiv  \frac{\sin x}{x}.
+\end{equation}
+The sinc function is highly oscillatory, and decays like $1/|x|$ 
+at large $|x|$. It is a good approximation to say that ${\rm sinc}(x)$ 
+is small except when $|x| \ltapp \pi$. It follows that the
+transition probability, $P_{i\rightarrow n}$,  is small except when
+\begin{equation}
+|E_n - E_i| \ltapp \frac{2\pi\, \hbar}{t}.
+\end{equation}
+Note that in the limit $t\rightarrow \infty$ only those transitions
+that conserve energy ({\rm i.e.}, $E_n=E_i$) have  an appreciable
+probability of occurrence. At finite $t$, is is possible to
+have transitions which do not exactly conserve energy, provided that
+\begin{equation}
+{\mit\Delta} E \,{\mit\Delta} t \ltapp h,
+\end{equation}
+where ${\mit\Delta} E = |E_n - E_i|$ is the change in energy of the system associated
+with the transition, and ${\mit\Delta} t = t$ is the time elapsed since the
+perturbation was switched on. This result is just a manifestation
+of the well-known uncertainty relation for energy and time. Incidentally, the energy-time 
+uncertainty relation is fundamentally different to the position-momentum
+uncertainty relation, because  (in non-relativistic quantum mechanics)
+position and momentum are operators, whereas time is merely a parameter. 
+
+The probability of a transition that conserves energy ({\rm i.e.}, $E_n = E_i$)
+is
+\begin{equation}
+P_{i\rightarrow n} (t) = \frac{|H_{in}|^{\,2}\,t^2}{\hbar^2},
+\end{equation}
+where use has been made of ${\rm sinc}(0) = 1$. Note that this probability
+grows {\em quadratically}\/ with time. This result is somewhat surprising, because 
+it implies that the probability of a transition occurring in a fixed
+time interval, $t$ to $t+dt$, grows linearly with $t$, despite the fact that
+$H_1$ is constant for $t>0$. In practice, there is usually a group of
+final states, all possessing  nearly the same energy as the energy of the
+initial state $|i\rangle$. It is helpful to define the density of
+states, $\rho(E)$, where the number of final states lying in the
+energy range $E$ to $E+dE$ is given by $\rho(E)\,dE$. Thus, the
+probability of a transition from the initial state $i$ to any of
+the continuum of possible final states is
+\begin{equation}
+P_{i\rightarrow} (t) = \int dE_n\,P_{i\rightarrow n}(t) \,\rho(E_n),
+\end{equation}
+giving
+\begin{equation}
+P_{i\rightarrow} (t) = \frac{2\, t}{\hbar} \int dx\, |H_{ni}|^{\,2}\, \rho(E_n) \,{\rm sinc}^2(x),
+\end{equation}
+where 
+\begin{equation}
+x=(E_n-E_i)\,t/2\,\hbar,
+\end{equation}
+ and use has been made of Equation~(\ref{e6.211}). We know that in the limit $t\rightarrow
+\infty$ the function ${\rm sinc}(x)$ is only non-zero in an infinitesimally
+narrow range of final energies  centered on $E_n = E_i$. It follows that, in this limit,
+we can take
+$\rho(E_n)$ and $|H_{ni}|^{\,2}$ out of the integral in the above 
+formula to obtain
+\begin{equation}
+P_{i\rightarrow[n]} (t) = \left.\frac{2\pi}{\hbar}\, \overline{|H_{ni}|^{\,2}}
+ \,\rho(E_n)\,t\,
+\right|_{E_n\simeq E_i},
+\end{equation}
+where $P_{i\rightarrow [n]}$ denotes the transition probability between 
+the initial state $|i\rangle$
+and all final states $|n\rangle$ that have approximately the same energy
+as the initial state.
+Here, $\overline{|H_{ni}|^{\,2}}$ is the average of $|H_{ni}|^{\,2}$ over
+all final states with approximately the same energy as the initial state.
+In deriving the above formula, we have made use of the result
+\begin{equation}
+\int_{-\infty}^{\infty} dx\,\,{\rm sinc}^2(x) = \pi.
+\end{equation}
+Note that the transition probability, $P_{i\rightarrow [n]}$,
+ is now proportional to $t$, instead
+of $t^2$. 
+
+It is convenient to define the {\em transition rate}, which is simply
+the transition probability  per unit time. Thus,
+\begin{equation}
+w_{i\rightarrow [n]} = \frac{d P_{i\rightarrow [n]}}{dt},
+\end{equation}
+giving
+\begin{equation}\label{e6.222}
+w_{i\rightarrow [n]} = \left.\frac{2\pi}{\hbar}\, \overline{|H_{ni}|^{\,2}} 
+\,\rho(E_n)
+\right|_{E_n\simeq E_i}.
+\end{equation}
+This appealingly simple result is known as {\em Fermi's golden rule}. 
+Note that the transition rate is constant in time (for $t>0$):
+{\rm i.e.}, the probability of a transition occurring in the time interval
+$t$ to $t+dt$ is independent of $t$ for fixed $dt$. 
+Fermi's golden rule is sometimes written
+\begin{equation}\label{e6.222a}
+ w_{i\rightarrow n} = \frac{2\pi}{\hbar} \,|H_{ni}|^{\,2}\,
+\delta(E_n - E),
+\end{equation}
+where it is understood that this formula must be  integrated 
+with $\int dE_n\,\rho(E_n)$ to obtain the actual transition rate. 
+
+Let us now calculate  the second-order term in the Dyson series, using the
+constant perturbation (\ref{e6.207}). From Equation~(\ref{e6.203}) we find that
+\begin{align}
+c_n^{(2)}(t) &= \left(\frac{-{\rm i}}{\hbar}\right)^2 \sum_m H_{nm} H_{mi}
+\int_0^t dt'\, \exp(\,{\rm i}\,\omega_{nm}\,t'\,) \int_0^{t'} \,
+dt'' \,\exp(\,{\rm i} \,\omega_{mi}\,t\,)\nonumber\\[0.5ex]
+&=\frac{\rm i}{\hbar} \sum_m \frac{H_{nm} \,H_{mi}}{E_m - E_i}
+\int_0^t dt' \left[\exp(\,{\rm i}\,\omega_{ni}\,t'\,)
+ - \exp(\,{\rm i}\,\omega_{nm}\,t']\,\right)\nonumber\\[0.5ex]
+&= \frac{{\rm i}\,t}{\hbar} \sum_m \frac{H_{nm} H_{mi}}{E_m - E_i}
+\left[ \exp(\,{\rm i}\,\omega_{ni}\, t/2) \,{\rm sinc}(\omega_{ni}\,t/2)- \exp(\,{\rm i}\,\omega_{nm} \,t/2) \,{\rm sinc}(\omega_{nm}\,t/2)\right].
+\end{align}
+Thus,
+\begin{align}
+c_n(t) = c_n^{(1)}+ c_n^{(2)} &=  \frac{{\rm i}\,t}{\hbar}
+\exp(\,{\rm i}\,\omega_{ni}\,t/2)\,
+\left[ \left(H_{ni} + \sum_m \frac{H_{nm}\,H_{mi}}{E_m - E_i}\right)\, {\rm sinc} (\omega_{ni}\,t/2)\right.\nonumber
+\\[0.5ex]&\left.
+ - \sum_m\frac{H_{nm}\,H_{mi}}{E_m - E_i}
+\exp(\,{\rm i}\,\omega_{im}\,t/2)\,{\rm sinc}(\omega_{nm}\,t/2)\right],\label{e6.225}
+\end{align}
+where use has been made of Equation~(\ref{e6.209}). It follows, by analogy with the
+previous analysis, that
+\begin{equation}\label{e6.226}
+w_{i\rightarrow [n]} =\left. \frac{2\pi}{\hbar}\, \overline{ \left|
+H_{ni} + \sum_m \frac{H_{nm}\,H_{mi}}{E_m - E_i}\right|^{\,2}} \rho(E_n)
+\right|_{E_n  \simeq E_i},
+\end{equation}
+where the transition rate is calculated for all final states, $|n\rangle$, with
+approximately the same energy as the initial state, $|i\rangle$, and for
+intermediate states, $|m\rangle$ whose energies differ from that of
+the initial state. The fact that $E_m\neq E_i$ causes the last term on the
+right-hand side of Equation~(\ref{e6.225}) to average to zero (due to the oscillatory
+phase-factor) during the evaluation of the transition probability. 
+
+According to Equation~(\ref{e6.226}), a second-order transition takes place in
+two steps. First, the system makes a non-energy-conserving transition to
+some intermediate state $|m\rangle$. Subsequently,  the system makes another
+non-energy-conserving transition to the final state $|n\rangle$. The net
+transition, from $|i\rangle$ to $|n\rangle$, conserves energy. The
+non-energy-conserving transitions are generally termed {\em virtual
+transitions}, whereas the energy conserving first-order transition
+is termed a {\em real transition}. The above formula clearly breaks down
+if $H_{nm}\,H_{mi}\neq 0$ when $E_m =  E_i$. This problem can be avoided by
+gradually turning on the perturbation: {\rm i.e.}, $H_1\rightarrow \exp(\eta\,t)\,
+H_1$ (where $\eta$ is very small). The net result is to change the energy
+denominator in Equation~(\ref{e6.226}) from $E_i-E_m$ to $E_i - 
+E_m +{\rm i}\,\hbar\,\eta$. 
+
+\section{Energy-Shifts and Decay-Widths}\label{s6.18}
+We have examined how a state $|n\rangle$, other than the initial
+state $|i\rangle$, becomes populated as a result of some time-dependent
+perturbation applied to the system. Let us now consider 
+how the initial state becomes depopulated. 
+
+In this case, it is convenient to gradually turn on the perturbation from zero at
+ $t=-\infty$. Thus, 
+\begin{equation}
+H_1(t) = \exp(\eta\,t)\,H_1,
+\end{equation}
+where $\eta$ is small and positive, and $H_1$ is a constant. 
+
+In the remote past, $t\rightarrow -\infty$, the system is assumed to
+be in the initial state $|i\rangle$. Thus, $c_i(t\rightarrow-\infty) =1$,
+and $c_{n\neq i}(t\rightarrow -\infty) = 0$. Basically, we want to
+calculate the time evolution of the coefficient $c_i(t)$.
+First, however, let us check that our previous Fermi golden rule result
+still applies  when the perturbing potential is turned on slowly,
+instead of very suddenly. For $c_{n \neq i}(t)$ we have from Equations~(\ref{e6.201})--(\ref{e6.202}) that
+\begin{align}
+c_n^{(0)}(t) &= 0,\\[0.5ex]
+c_n^{(1)}(t) &= - \frac{\rm i}{\hbar}\, H_{ni} \int_{-\infty}^t dt'\,
+\exp[(\eta + {\rm i}\,\omega_{ni} ) \,t']= -\frac{\rm i}{\hbar}\, H_{ni}\, \frac{
+\exp[(\eta + {\rm i}\,\omega_{ni} )\, t]}{\eta +{\rm i}\,\omega_{ni}},
+\end{align}
+where $H_{ni} = \langle n|\,H_1\,|i\rangle$. 
+It follows that, to first order, the transition probability from state $|i\rangle$ to state $|n\rangle$ is
+\begin{equation}
+P_{i\rightarrow n}(t) = |c_n^{(1)}|^{\,2} = \frac{|H_{ni}|^{\,2}}{\hbar^2}
+\frac{\exp(2\, \eta\, t)}{\eta^2 + \omega_{ni}^{\,2}}.
+\end{equation}
+The transition rate is given by
+\begin{equation}\label{e6.281}
+w_{i\rightarrow n}(t) = \frac{dP_{i\rightarrow n}}{dt} = 
+\frac{2 \,|H_{ni}|^{\,2}}{\hbar^2}
+\frac{\eta \exp(2 \,\eta \,t)}{\eta^2 + \omega_{ni}^{\,2}}.
+\end{equation}
+Consider the limit $\eta\rightarrow 0$. In this limit,
+$\exp(\eta\, t)\rightarrow 1$, but
+\begin{equation}
+\lim_{\eta\rightarrow 0} \frac{\eta}{\eta^2+ \omega_{ni}^{~2}}
+=\pi\,\delta(\omega_{ni}) = \pi\,\hbar \,\delta(E_n - E_i).
+\end{equation}
+Thus, Equation~(\ref{e6.281}) yields the standard Fermi golden rule result
+\begin{equation}
+w_{i\rightarrow n} = \frac{2\pi}{\hbar} \,|H_{ni}|^{\,2} \,\delta(E_n - E_i).
+\end{equation}
+It is clear that the delta-function in the above formula actually represents
+a function that  is highly peaked at some particular energy. The width
+of the peak is determined by how fast the perturbation is switched on.
+
+Let us now calculate $c_i(t)$ using Equations~(\ref{e6.201})--(\ref{e6.203}). We have
+\begin{align}
+c_i^{(0)} (t) &= 1,\\[0.5ex]
+c_i^{(1)} (t) &= -\frac{\rm i}{\hbar}\,H_{ii}\, \int_{-\infty}^t 
+\exp(\eta \,t')\,dt'= -\frac{\rm i}{\hbar}\,H_{ii} \,\frac{\exp(
+\eta\, t)}{\eta},\\[0.5ex]
+c_i^{(2)} (t) &= \left(\frac{-{\rm i}}{\hbar} \right)^2
+\sum_m |H_{mi}|^{\,2} \int_{-\infty}^t dt' \int_{-\infty}^{t'} dt''\,
+\exp[(\eta+ {\rm i}\,\omega_{im})\, t'] \exp[
+(\eta+ {\rm i}\,\omega_{mi})\, t'']\nonumber\\[0.5ex]
+&= \left(\frac{-{\rm i}}{\hbar} \right)^2 \sum_m |H_{mi}|^{\,2} 
+\frac{\exp(2 \,\eta\, t)}{2\,\eta\,(\eta + {\rm i}\,\omega_{mi})}.
+\end{align}
+Thus, to second order we have
+\begin{equation}
+c_i(t) \simeq 1 + \left(\frac{-{\rm i}}{\hbar}\right) H_{ii}\, \frac{\exp(\eta \,t)}{\eta}
++ \left(\frac{-{\rm i}}{\hbar} \right)^2  |H_{ii}|^{\,2} \,\frac{\exp(2\,\eta\, t)}
+{2\, \eta^2} +\left(\frac{-{\rm i}}{\hbar}\right) \sum_{m\neq i}
+\frac{|H_{mi}|^{\,2} \exp(2\,\eta\, t)}
+{2\,\eta\,(E_i -E_m  + {\rm i}\,\hbar \,\eta)}.\label{e6.287}
+\end{equation}
+
+Let us now consider the ratio $\dot{c_i}/c_i$, where $\dot{c}_i \equiv
+d c_i/dt$. Using Equation~(\ref{e6.287}), we can evaluate this ratio in the limit
+$\eta\rightarrow 0$. We obtain
+\begin{align}
+\frac{\dot{c}_i}{c_i} &\simeq \left[\left( \frac{-{\rm i}}{\hbar}\right) H_{ii} 
++ \left(\frac{-{\rm i}}{\hbar} \right)^2  \frac{ |H_{ii}|^{\,2} 
+}{\eta}+
+\left(\frac{-{\rm i}}{\hbar}\right) \sum_{m\neq i}
+\frac{|H_{mi}|^{\,2} }
+{E_i -E_m+{\rm i}\,\hbar \,\eta}\right]\left/\left( 1- \frac{\rm i}{\hbar}
+\frac{H_{ii}}{\eta} \right)\right. \nonumber\\[0.5ex]
+&\simeq \left(\frac{-{\rm i}}{\hbar}\right) H_{ii} + \lim_{\eta\rightarrow
+0}\left(
+\frac{-{\rm i}}{\hbar}\right) \sum_{m\neq i}
+\frac{|H_{mi}|^{\,2}}{E_i - E_m+ {\rm i}\,\hbar \,\eta}.\label{e6.288}
+\end{align}
+This result is formally correct to second order in perturbed quantities.
+Note that the right-hand side of Equation~(\ref{e6.288}) is independent of time.
+We can write
+\begin{equation}\label{e6.289}
+\frac{\dot{c}_i}{c_i}  = \left( \frac{-{\rm i}}{\hbar}\right) 
+{\mit\Delta}_i,
+\end{equation}
+where
+\begin{equation}
+{\mit\Delta}_i = H_{ii}  + \lim_{\eta\rightarrow 0}
+\sum_{m\neq i} \frac{|H_{mi}|^{\,2}}{E_i - E_m+ {\rm i}\,\hbar \,\eta} 
+\end{equation}
+is a constant.
+According to a well-known result in pure mathematics,
+\begin{equation}
+\lim_{\epsilon\rightarrow 0} \frac{1}{x+{\rm i}\,\epsilon}
+= {\cal P}\,\frac{1}{x} - {\rm i}\,\pi\,\delta(x),
+\end{equation}
+where $\epsilon >0$, and ${\cal P}$ denotes the principal part. 
+It follows that
+\begin{equation}
+{\mit\Delta}_i = H_{ii} + {\cal P}\sum_{m\neq i} \frac{|H_{mi}|^{\,2}}{E_i - E_m}
+- {\rm i}\,\pi \sum_{m\neq i} |H_{mi}|^{\,2}\, \delta(E_i - E_m).
+\end{equation}
+
+ It is convenient to normalize the solution of
+Equation~(\ref{e6.289}) such that $c_i(0) = 1$. Thus, we obtain
+\begin{equation}
+c_i(t) = \exp\!\left(\frac{-{\rm i}\, {\mit\Delta}_i\, t}{\hbar}\right).
+\end{equation}
+According to Equation~(\ref{e6.150}),  the time evolution of the initial
+state ket $|i\rangle$ is given by
+\begin{equation}
+|i, t\rangle = \exp[-{\rm i}\,({\mit\Delta}_i + E_i)\,t/\hbar] \,|i\rangle.
+\end{equation}
+We can rewrite this result as
+\begin{equation}\label{e6.295}
+|i, t\rangle = \exp(-{\rm i}\,[E_i + {\rm Re}({\mit\Delta}_i)\,]\,t/\hbar)\,
+\exp[\,{\rm Im}({\mit\Delta}_i)\,t/\hbar] \,|i\rangle.
+\end{equation}
+It is clear that the real part of ${\mit\Delta}_i$ gives rise to a simple
+shift in energy of state $|i\rangle$, whereas the imaginary part of
+${\mit\Delta}_i$ governs the growth or decay  of this state. 
+Thus,
+\begin{equation}
+|i, t\rangle = \exp[-{\rm i}\,(E_i + {\mit\Delta} E_i)\,t/\hbar]
+\exp( - {\mit\Gamma}_i\,t/2\,\hbar)\,|i\rangle,
+\end{equation}
+where
+\begin{equation}
+{\mit\Delta} E_i = {\rm  Re}({\mit\Delta}_i) =  H_{ii} + {\cal P} \sum_{m\neq i}
+\frac{|H_{mi}|^{\,2}}{E_i - E_m} ,
+\end{equation}
+and
+\begin{equation}
+\frac{{\mit\Gamma}_i}{\hbar} = - \frac{2\,{\rm Im}({\mit\Delta}_i)}{\hbar}
+= \frac{2\pi}{\hbar} \sum_{m\neq i} |H_{mi}|^{\,2}\,\delta(E_i - E_m).
+\end{equation}
+Note that the energy-shift ${\mit\Delta} E_i$ is the same as that predicted
+by standard time-independent perturbation theory. 
+
+The probability of observing the system in state $|i\rangle$ at time $t>0$, given
+that it is definately in state $|i\rangle$ at time $t=0$, is given by
+\begin{equation}
+P_{i\rightarrow i} (t) = |c_i|^{\,2} = \exp(-{\mit\Gamma}_i\,t/ \hbar),
+\end{equation}
+where 
+\begin{equation}
+\frac{{\mit\Gamma}_i}{\hbar} = \sum_{m\neq i} w_{i\rightarrow m}.
+\end{equation}
+Here, use has been made of Equation~(\ref{e6.222a}).
+Clearly, the rate of decay of the initial state is  a simple function of 
+the transition rates to the other states.  Note that the system conserves
+ probability up to second order in perturbed quantities, because
+\begin{equation}
+|c_i|^{\,2} + \sum_{m\neq i} |c_m|^{\,2} \simeq (1- {\mit\Gamma}_i\,t/ \hbar)
++ \sum_{m\neq i} w_{i\rightarrow m} \,t = 1.
+\end{equation}
+
+The quantity ${\mit\Gamma}_i$ is called the {\em decay-width}\/ of state $|i\rangle$.
+ It is
+closely related to the mean lifetime of this state,
+\begin{equation}
+\tau_i =\frac{\hbar}{{\mit\Gamma}_i},
+\end{equation}
+where 
+\begin{equation}
+P_{i\rightarrow i} = \exp(- t/\tau_i).
+\end{equation}
+According to Equation~(\ref{e6.295}), the amplitude of state $|i\rangle$ both oscillates
+and decays as time progresses. Clearly, state $|i\rangle$ is not a
+stationary state in the presence of the time-dependent perturbation. 
+However, we can still represent it as a superposition of stationary
+states (whose amplitudes simply oscillate in time). Thus,
+\begin{equation}
+\exp[-{\rm i}\,(E_i + {\mit\Delta} E_i)\,t/\hbar]
+\exp( - {\mit\Gamma}_i\,t/2\,\hbar)  = \int dE\,f(E) \exp(-{\rm i}\, E\,t/\hbar),
+\end{equation}
+where $f(E)$ is the weight of the  stationary state with energy $E$ in the
+superposition. The Fourier inversion theorem yields
+\begin{equation}
+|f(E)|^{\,2} \propto \frac{1}{(E - [E_i +{\rm Re}({\mit\Delta}_i)])^2 + {\mit\Gamma}_i^{\,2}/4}.
+\end{equation}
+In the absence of the perturbation, $|f(E)|^{\,2}$ is basically a delta-function
+centered on the unperturbed energy $E_i$ of state $|i\rangle$. 
+In other words, state $|i\rangle$ is a stationary state whose energy is
+completely determined. In the presence of the perturbation, the energy
+of state $|i\rangle$ is {\em shifted}\/ by ${\rm Re}({\mit\Delta}_i)$. The fact that
+the state is no longer stationary ({\rm i.e.}, it decays in time) implies that
+its energy cannot be exactly determined. Indeed, the 
+energy of the state
+is smeared over some region of width (in energy) ${\mit\Gamma}_i$ centered
+around the shifted energy $E_i +{\rm Re}({\mit\Delta}_i)$. The faster the
+decay of the state ({\rm i.e.}, the larger ${\mit\Gamma}_i$), the more its
+energy is spread out. This effect is clearly a manifestation of
+the energy-time uncertainty relation ${\mit\Delta} E\, {\mit\Delta} t \sim \hbar$. 
+One consequence of this effect is the existence of a {\em natural
+width}\/ of spectral lines associated with the decay of some excited
+state to the ground state (or any other lower energy state). The uncertainty
+in energy of the excited state, due to its propensity to decay, gives
+rise to a slight smearing (in wavelength)
+of the spectral line associated with the
+transition. Strong lines, which correspond to fast transitions, are smeared out
+more that weak lines. For this reason, spectroscopists generally favor
+forbidden lines (see Section~\ref{sdipole}) for Doppler-shift measurements. Such lines are not as bright
+as those corresponding to allowed transitions, but they are a lot sharper. 
+
+\section{Harmonic Perturbations}
+Consider a  perturbation that  oscillates sinusoidally in time.
+This is usually called a {\em harmonic perturbation}. Thus,
+\begin{equation}\label{e6.227}
+H_1(t) = V\,\exp(\,{\rm i}\,\omega \,t) + V^\dagger \,\exp(-{\rm i}\,\omega\, t),
+\end{equation}
+where $V$ is, in general, a function of  position, momentum, and
+spin operators. 
+
+Let us initiate the system in the eigenstate $|i\rangle$ of the unperturbed
+Hamiltonian, $H_0$, and switch on the harmonic perturbation at $t=0$. 
+It follows from Equation~(\ref{e6.202}) that
+\begin{align}\label{e6.228}
+c_n^{(1)} &= \frac{-{\rm i}}{\hbar} \int_0^t dt'\left[V_{ni} \,\exp({\rm i}\,\omega
+\,t') + V_{ni}^\dagger\, \exp(-{\rm i}\,\omega\, t')\right]\exp(\,{\rm i}\,
+\omega_{ni}\, t')\nonumber\\[0.5ex]
+&= \frac{1}{\hbar} \left(\frac{1-\exp[\,{\rm i}\,(\omega_{ni} + \omega)\,t]}
+{\omega_{ni} + \omega}\, V_{ni}+\frac{1-\exp[\,{\rm i}\,(\omega_{ni}-\omega
+)\,t]}
+{\omega_{ni} - \omega} \,V_{ni}^{\,\dagger}\right),
+\end{align}
+where
+\begin{align}\label{e6.229}
+V_{ni} &= \langle n|\,V\,| i\rangle,\\[0.5ex]
+V_{ni}^\dagger &= \langle n |\,V^\dagger\, |i\rangle = \langle i|\,V\,|n\rangle^\ast.\label{e6.230}
+\end{align}
+This formula is analogous to Equation~(\ref{e6.209}), provided that
+\begin{equation}
+\omega_{ni} = \frac{E_n-E_i}{\hbar} \rightarrow \omega_{ni}\pm \omega.
+\end{equation}
+Thus, it follows from  the  analysis of Section~\ref{s8.6} that
+ the transition probability
+$P_{i\rightarrow n}(t)=|c_n^{(1)}|^{\,2}$ is only appreciable in the limit $t\rightarrow\infty$ if
+\begin{align}\label{e6.232}
+\omega_{ni} + \omega \simeq  0 &~~~{\rm or}~~~  E_n \simeq E_i - \hbar\, \omega,\\[0.5ex]
+\omega_{ni} - \omega \simeq 0 &~~~{\rm or}~~~  E_n \simeq E_i + \hbar\, \omega.\label{e6.233}
+\end{align}
+Clearly, (\ref{e6.232}) corresponds to the first term on the right-hand side
+of Equation~(\ref{e6.228}), and (\ref{e6.233}) corresponds to the second term. The former
+term describes a process by which the system gives up energy $\hbar\,\omega$
+to the perturbing field, while making a transition 
+to a final state whose energy level is less than that of the initial
+state by $\hbar\,\omega$. This process is known as {\em stimulated emission}.
+The latter term describes a process by which the system gains 
+energy $\hbar\,\omega$ from the perturbing field, while making a transition
+to a final state whose energy level exceeds that of the initial
+state by $\hbar\,\omega$. This process is known as {\em absorption}. In
+both cases, the total energy ({\rm i.e.}, that of the system {\em plus}\/ 
+the perturbing field) is conserved.
+
+By analogy with Equation~(\ref{e6.222}),
+\begin{align}\label{e6.234}
+w_{i\rightarrow [n]} &=\left. \frac{2\pi}{\hbar} \,\overline{|V_{ni}|^{\,2}}\,\rho(E_n)
+\right|_{E_n = E_i-\hbar\,\omega},\\[0.5ex]
+w_{i\rightarrow [n]} &=\left.  \frac{2\pi}{\hbar} \,\overline{
+|V_{ni}^\dagger|^{\,2}}\,\rho(E_n)\right|_{E_n = E_i+\hbar\,\omega}.\label{e6.235}
+\end{align}
+Equation~(\ref{e6.234}) specifies the transition rate for stimulated emission, whereas
+Equation~(\ref{e6.235}) gives the transition rate for absorption. 
+These equations are more usually written
+\begin{align}\label{e6.236a}
+w_{i\rightarrow n} &= \frac{2\pi}{\hbar} \,|V_{ni}|^{\,2}
+\, \delta(E_n-E_i+\hbar\,\omega),\\[0.5ex]
+w_{i\rightarrow n} &=  \frac{2\pi}{\hbar} \,
+|V_{ni}^\dagger|^{\,2}\,\delta(E_n -E_i-\hbar\,\omega).\label{e6.237}
+\end{align}
+
+It is clear from Equations~(\ref{e6.229})--(\ref{e6.230}) that $|V_{in}^\dagger|^{\,2} = |V_{ni}|^{\,2}$.
+It follows from Equations~(\ref{e6.234})--(\ref{e6.235}) that
+\begin{equation}
+\frac{w_{i\rightarrow [n]}}{\rho(E_n)} = \frac{w_{n\rightarrow [i]}}{\rho(E_i)}.
+\end{equation}
+In other words, the rate of stimulated emission, divided by the density
+of final states for stimulated emission, equals the rate of absorption,
+ divided
+by the density of final states for absorption. This result, which
+expresses a fundamental symmetry between absorption and stimulated
+emission, is known as {\em detailed balancing}, and is very important in
+statistical mechanics. 
+
+\section{Absorption and Stimulated Emission of Radiation}
+Let us use some of the results of time-dependent perturbation theory
+to investigate the interaction of an atomic electron with 
+classical ({\rm i.e.}, non-quantized) electromagnetic radiation. 
+
+The unperturbed Hamiltonian
+is
+\begin{equation}\label{e6.239}
+H_0 = \frac{p^2}{2 \,m_e} + V_0(r).
+\end{equation}
+The standard classical prescription for obtaining the Hamiltonian of
+a  particle
+of charge $q$
+in the presence of an electromagnetic field is
+\begin{align}
+{\bf p} &\rightarrow {\bf p} - q\,{ \bf A},\\[0.5ex]
+H &\rightarrow  H-q\,\phi,
+\end{align}
+where ${\bf A}(\bf r)$ is the vector potential and $\phi({\bf r})$
+is the scalar potential. Note that
+\begin{align}
+{\bf E} &=  - \nabla\phi - \frac{\partial {\bf A}}{\partial t},\\[0.5ex]
+{\bf B} &= \nabla\times {\bf A}.
+\end{align}
+This prescription also works in quantum mechanics. Thus, the Hamiltonian
+of an atomic electron placed in an electromagnetic field is
+\begin{equation}
+H = \frac{\left|{\bf p} + e\, {\bf A}\right|^{\,2} }{2\,m_e}- e \,\phi + V_0(r),
+\end{equation}
+where ${\bf A}$ and $\phi$ are real functions of the position operators.
+The above equation can be written
+\begin{equation}
+H = \frac{ \left(p^2 +e \,{\bf A}\cdot {\bf p}
++e \,{\bf p}\cdot{\bf A} + e^2 A^2\right)}{2\,m_e}- e \,\phi + V_0(r).
+\end{equation}
+Now, 
+\begin{equation}
+{\bf p}\cdot {\bf A} = {\bf A}\cdot  {\bf p},
+\end{equation}
+provided that we adopt the gauge $\nabla\cdot{\bf A} = 0$.
+Hence,
+\begin{equation}\label{e8.132f}
+H = \frac{p^2}{2\,m_e} -\frac{e\,{\bf A}\cdot{\bf p}}{m_e}
++\frac{ e^2  A^2}{2\,m_e}- e\, \phi + V_0(r).
+\end{equation}
+
+Suppose that the perturbation corresponds to a monochromatic plane-wave, for which
+\begin{align}
+\phi &= 0,\\[0.5ex]
+{\bf A} &= 2\, A_0 \,\bepsilon\,\cos\left
+(\frac{\omega}{c} \,{\bf n}\cdot{\bf x}
+- \omega\, t\right),
+\end{align}
+where $\bepsilon$ and ${\bf n}$ are unit vectors that specify the direction
+of polarization and the direction of propagation, respectively. 
+Note that $\bepsilon\cdot{\bf n} = 0$. The Hamiltonian
+becomes
+\begin{equation}
+H = H_0 + H_1(t),
+\end{equation}
+with
+\begin{equation}
+H_0 = \frac{p^2}{2\,m_e}  + V(r),
+\end{equation}
+and
+\begin{equation}
+H_1 \simeq \frac{e\,{\bf A}\cdot{\bf p}}{m_e},
+\end{equation}
+where the $A^2$ term, which is  second order in $A_0$, has been neglected.
+
+The perturbing Hamiltonian can be written
+\begin{equation}\label{e6.253}
+H_1 =  \frac{e \,A_0\, \bepsilon \cdot{\bf p} }{m_e}
+\left(\exp[\,{\rm i}\,(\omega/c)\, {\bf n}\cdot{\bf x} - {\rm i}\,
+\omega\, t] +  \exp[-{\rm i}\,(\omega/c)\, {\bf n}\cdot{\bf x} + {\rm i}\,
+\omega\, t]\right).
+\end{equation}
+This has the same form as Equation~(\ref{e6.227}), provided that
+\begin{equation}
+V = - \frac{e \,A_0\, \bepsilon \cdot{\bf p} }{m_e}\, \exp[-{\rm i}\,(\omega/c)\, {\bf n}\cdot{\bf x}\,]
+\end{equation}
+It is clear, by analogy with the previous analysis, that the first
+term on the right-hand side of Equation~(\ref{e6.253}) describes the absorption
+of a photon of energy $\hbar\,\omega$, whereas the second term describes
+the stimulated emission of a photon of energy $\hbar\,\omega$. It follows from
+Equations~(\ref{e6.236a}) and (\ref{e6.237}) that the rates of absorption and stimulated emission are
+\begin{equation}\label{e8.140rx}
+w_{i\rightarrow n} = \frac{2\pi}{\hbar} \frac{e^2}{m_e^{\,2}}\,
+|A_0|^{\,2}\, |\langle n|\, \exp[\,{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}\,
+\delta(E_n-E_i -\hbar\,\omega),
+\end{equation}
+and
+\begin{equation}\label{e8.141rx}
+w_{i\rightarrow n} = \frac{2\pi}{\hbar} \frac{e^2}{m_e^{\,2}}\,
+|A_0|^{\,2}\, |\langle n|\, \exp[-{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}\,
+\delta(E_n-E_i +\hbar\,\omega),
+\end{equation}
+respectively. 
+
+Now, the energy density of a radiation field
+is
+\begin{equation}
+U = \frac{1}{2}\left(\frac{\epsilon_0\,E_0^{\,2}}{2}+ \frac{B_0^{\,2}}{2\,\mu_0}
+\right),
+\end{equation}
+where $E_0$ and $B_0=E_0/c= 2\,A_0\,\omega/c$ are the peak electric and magnetic field-strengths,
+respectively. Hence,
+\begin{equation}
+U = 2\,\epsilon_0\,c\,\omega^2\,|A_0|^{\,2},
+\end{equation}
+and expressions (\ref{e8.140rx}) and (\ref{e8.141rx})
+become 
+\begin{equation}\label{e8.140r}
+w_{i\rightarrow n} = \frac{\pi}{\hbar} \frac{e^2}{\epsilon_0\,m_e^{\,2}\,\omega^2}\,
+U\, |\langle n|\, \exp[\,{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}\,
+\delta(E_n-E_i -\hbar\,\omega),
+\end{equation}
+and
+\begin{equation}\label{e8.141r}
+w_{i\rightarrow n} = \frac{\pi}{\hbar} \frac{e^2}{\epsilon_0\,m_e^{\,2}\,\omega^2}\,
+U\, |\langle n|\, \exp[-{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}\,
+\delta(E_n-E_i +\hbar\,\omega),
+\end{equation}
+respectively. 
+Finally, if we imagine that the incident radiation has a range of different frequencies, so
+that
+\begin{equation}
+U = \int d\omega\,u(\omega),
+\end{equation}
+where $d\omega\,u(\omega)$ is the energy density of radiation whose frequency lies in the range $\omega$
+to $\omega+d\omega$, then we can integrate our transition rates over $\omega$ to give
+\begin{equation}
+w_{i\rightarrow n} = \frac{\pi}{\hbar^2} \frac{e^2}{\epsilon_0\,m_e^{\,2}\,\omega_{ni}^2}\,
+u(\omega_{ni})\, |\langle n|\, \exp[\,{\rm i}\,(\omega_{ni}/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}
+\end{equation}
+for absorption, and 
+\begin{equation}
+w_{i\rightarrow n} = \frac{\pi}{\hbar^2} \frac{e^2}{\epsilon_0\,m_e^{\,2}\,\omega_{in}^2}\,
+u(\omega_{in})\, |\langle n|\, \exp[-{\rm i}\,(\omega_{in}/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p} \,|i\rangle|^{\,2}
+\end{equation}
+for stimulated emission. Here, $\omega_{ni} = (E_n-E_i)/\hbar>0$ and $\omega_{in} = (E_i-E_n)/\hbar>0$. 
+Furthermore, we are assuming that the radiation is incoherent, so that intensities can be
+added. 
+
+\section{Electric Dipole Approximation}\label{sdipole}
+In general, the wavelength of the type of
+electromagnetic radiation that induces, or is emitted during, transitions
+between different atomic energy levels is much larger than the 
+typical size of
+a light atom. Thus,
+\begin{equation}\label{e6.260}
+\exp[\,{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}] = 1
++ {\rm i}\,\frac{\omega}{c} \,{\bf n}\cdot{\bf x} + \cdots,
+\end{equation}
+can be approximated by its first term, unity (remember that $\omega/c =2\pi/\lambda$).
+This approximation is known as the {\em electric dipole approximation}. 
+It follows that
+\begin{equation}
+\langle n|\, \exp[\,{\rm i}\,(\omega/c)\,{\bf n}\cdot{\bf x}]\,
+\bepsilon\cdot{\bf p}\, |i\rangle \simeq  \bepsilon \cdot
+\langle n|\,{\bf p}\,|i\rangle.
+\end{equation}
+It is readily demonstrated that
+\begin{equation}
+[{\bf x}, H_0] = \frac{{\rm i}\, \hbar \,{\bf p}}{m_e},
+\end{equation}
+so
+\begin{equation}
+\langle n|\, {\bf p}\,|i\rangle = -{\rm i}\, \frac{m_e}{\hbar}
+\langle n|\,[{\bf x}, H_0]\,|i\rangle 
+= {\rm i}\,m_e\,\omega_{ni}\, \langle n|\,{\bf x}\,|i\rangle.
+\end{equation}
+Thus, making use of the electric dipole approximation, we obtain
+\begin{equation}\label{e8.155s}
+w_{i\rightarrow n} = 4\pi^2\,\alpha\,\frac{c}{\hbar}\,u(\omega_{ni})\,|\bepsilon\cdot{\bf f}_{ni}|^{\,2}
+\end{equation}
+for absorption, and 
+\begin{equation}\label{e8.156s}
+w_{i\rightarrow n} = 4\pi^2\,\alpha\,\frac{c}{\hbar}\,u(\omega_{in})\,|\bepsilon\cdot{\bf f}_{in}|^{\,2}
+\end{equation}
+for stimulated emission, where
+\begin{equation}
+{\bf f}_{ni} =\langle n|\,{\bf x}\,|i\rangle,
+\end{equation}
+and  $\alpha = e^2/(2\,\epsilon_0\, h \,c) \simeq 1/137$ is the fine structure constant. 
+
+Suppose that the radiation is polarized in the $z$-direction, 
+so that $\bepsilon
+= {\bf e}_z$. We have already seen, from Section~\ref{s6.4}, that 
+$\langle n|\,z\,|i\rangle=0$ unless the initial and final states satisfy
+\begin{align}
+{\mit\Delta} l &= \pm 1,\\[0.5ex]
+{\mit\Delta} m &= 0.
+\end{align}
+Here, $l$ is the quantum number describing the total orbital angular momentum of
+the electron, and $m$ is the quantum number describing the projection of the
+orbital angular momentum along the $z$-axis.
+It is easily demonstrated that $\langle n|\,x\,|i \rangle $ and 
+$\langle n|\,y\,|i\rangle $
+are only non-zero if 
+\begin{align}
+{\mit\Delta} l &= \pm 1,\\[0.5ex]
+{\mit\Delta} m &= \pm 1.
+\end{align}
+Thus, for generally directed radiation $\bepsilon\cdot{\bf f}_{ni}$ is only non-zero if
+\begin{align}
+{\mit\Delta} l &= \pm 1,\\[0.5ex]
+{\mit\Delta} m &= 0, \pm 1.
+\end{align}
+These are termed the {\em selection rules}\/ for electric dipole transitions. It
+is clear, for instance, that the electric dipole approximation allows
+a transition from a $2p$ state to a $1s$ state, but disallows a transition
+from a $2s$ to a $1s$ state. The latter transition is called a {\em forbidden
+transition}. 
+
+Forbidden transitions are not strictly forbidden. Instead, they  take
+place at a far lower rate than transitions that are allowed 
+according to  the electric
+dipole approximation. 
+After electric dipole transitions, the next most likely type of transition
+is a {\em magnetic dipole transition}, which is due to the interaction between
+the electron spin and the oscillating magnetic field of the
+incident  electromagnetic
+radiation. Magnetic dipole transitions are typically about $10^5$ times
+more unlikely than similar electric dipole transitions. The first-order term
+in Equation~(\ref{e6.260}) yields so-called {\em electric quadrupole transitions}.
+These are typically about $10^8$ times more unlikely than electric
+dipole transitions. Magnetic dipole and electric quadrupole transitions
+satisfy different selection rules than  electric dipole transitions. For instance, the selection rules for electric quadrupole transitions
+are ${\mit\Delta} l =0, \pm 2$. Thus, transitions that are forbidden as
+electric dipole transitions may well be allowed as magnetic dipole
+or electric quadrupole transitions.
+
+\section{Spontaneous Emission}
+So far, we have calculated the  rates of {\em radiation induced}\/ transitions
+between two  atomic states. This process is known as {\em absorption}\/ when the energy of the final state exceeds that
+of the initial state, and {\em stimulated emission}\/ when the energy of the final state is less than that
+of the initial state. Now, in the absence of any external radiation, we would
+not expect an atom in a given state to spontaneously jump into a 
+state with a higher energy. On the other hand, it should be possible for
+such an atom to spontaneously jump into an state with a lower energy
+via the emission of a photon whose energy is equal to the difference
+between the energies of the initial and final states. This process is known as {\em spontaneous emission}.
+
+It is possible to derive the  rate of spontaneous emission between two atomic states
+from a knowledge of the corresponding absorption and stimulated
+emission rates using a famous thermodynamic argument due to Einstein.
+Consider a very large ensemble of similar atoms placed inside a closed cavity whose walls (which are assumed to be perfect emitters and absorbers of radiation) are held at
+the constant temperature $T$. Let the system have attained thermal equilibrium.
+According to statistical thermodynamics, the cavity is filled with so-called ``black-body'' electromagnetic
+radiation whose energy spectrum is
+\begin{equation}\label{e13.109}
+u(\omega) = \frac{\hbar}{\pi^2\,c^3}\,\frac{\omega^3}{\exp(\hbar\,\omega/k_B\,T)-1},
+\end{equation}
+where $k_B$ is the Boltzmann constant. This well-known result was first
+obtained by Max Planck in 1900.
+
+Consider two atomic states, labeled $2$ and $1$, with $E_2> E_1$. One
+of the tenants of statistical thermodynamics is that in thermal equilibrium
+we have so-called {\em detailed balance}. This means that, irrespective
+of any other atomic states, the rate at which atoms in the ensemble leave
+state $2$ due to  transitions to state $1$ is exactly balanced by the
+rate at which atoms enter state $2$ due to transitions from state $1$.
+The former rate ({\rm i.e.}, number of transitions per unit time in the ensemble) is written
+\begin{equation}
+W_{2\rightarrow 1} = N_2\,(w_{2\rightarrow 1}^{\rm spn} + w_{2\rightarrow 1}^{\rm stm}),
+\end{equation}
+where $w_{2\rightarrow 1}^{\rm spn}$ and $w_{2\rightarrow 1}^{\rm arm}$ are the rates of spontaneous  and stimulated emission,
+respectively, 
+(for a single atom) between
+states $2$ and $1$, and $N_2$ is the number of atoms in the ensemble
+in state $2$. Likewise, the latter rate takes the form
+\begin{equation}
+W_{1\rightarrow 2} = N_1\,w^{\rm abs}_{1\rightarrow 2},
+\end{equation}
+where  $w^{\rm abs}_{1\rightarrow 2}$ is the rate of absorption (for a single atom) between states $1$ and $2$, and $N_1$ is the number of atoms in the ensemble in state $1$.
+The above expressions describe how atoms in the ensemble make transitions from
+state $2$ to state $1$ due to a combination of spontaneous and stimulated emission, and make the opposite transition as a consequence  of absorption.
+In thermal equilibrium, we have $W_{2\rightarrow 1}=W_{1\rightarrow 2}$,
+which gives
+\begin{equation}
+w_{2\rightarrow 1}^{\rm spn} = \frac{N_1}{N_2}\,w^{\rm abs}_{1\rightarrow 2}-
+w_{2\rightarrow 1}^{\rm stm}.
+\end{equation}
+Equations~(\ref{e8.155s}) and (\ref{e8.156s}) imply that
+\begin{equation}\label{e13.113}
+w_{i\rightarrow f}^{\rm spn} =\frac{4\pi^2\,\alpha\,c}{\hbar} \left(\frac{N_1}{N_2}-1\right)u(\omega_{21})\left\langle |\bepsilon\cdot {\bf f}_{21}|^{\,2}\right\rangle,
+\end{equation}
+where $\omega_{21}= (E_2-E_1)/\hbar$, and the large angle brackets denote an average over all possible directions of the incident radiation (because, in equilibrium, the
+radiation inside the cavity is isotropic). 
+In fact, it is easily demonstrated that
+\begin{equation}\label{e3.105c}
+\left\langle |\bepsilon\cdot{\bf f}_{21}|^{\,2}\right\rangle = \frac{f_{21}^{\,2}}{3},
+\end{equation}
+where $f^{\,2}_{21}$ stands for
+\begin{equation}\label{e3.106c}
+f^{\,2}_{21} = |\langle 2|\,x\,|1\rangle|^{\,2}+|\langle 2|\,y\,|1\rangle|^{\,2}+ |\langle 2|\,z\,|1\rangle|^{\,2}.
+\end{equation}
+Now, another famous result in statistical thermodynamics is that
+in thermal equilibrium the number of atoms in an ensemble occupying
+a state of energy $E$ is proportional to $\exp(-E/k_B\,T)$. This implies
+that
+\begin{equation}\label{e13.114}
+\frac{N_1}{N_2} = \frac{\exp(-E_1/k_B\,T)}{\exp(-E_2/k_B\,T)}
+= \exp(\,\hbar\, \omega_{21}/k_B\,T).
+\end{equation}
+Thus, it follows from Equations~(\ref{e13.109}), (\ref{e13.113}), (\ref{e3.105c}), and (\ref{e13.114}) that the rate of spontaneous emission between states
+$2$ and $1$ takes the form
+\begin{equation}\label{e3.115}
+w_{2\rightarrow 1}^{\rm spn} = \frac{\omega_{21}^{\,3}\,e^2\,f_{21}^{\,2}}{3\pi\,\epsilon_0\,\hbar\,c^3}.
+\end{equation}
+Note,  that, although the above result has been derived for
+an atom in a radiation-filled cavity, it remains correct even in the absence
+of radiation.
+
+Let us estimate the typical value of the spontaneous emission rate for a
+hydrogen atom. We expect the matrix element $f_{21}$ to be
+of order $a_0$, where $a_0$ is the Bohr radius.
+We also expect $\omega_{21}$ to be of order $|E_0|/\hbar$, where $E_0$
+is the ground-state  energy. It thus
+follows from Equation~(\ref{e3.115}) that
+\begin{equation}
+w_{2\rightarrow 1}^{\rm spn} \sim \alpha^3\,\omega_{21},
+\end{equation}
+where $\alpha \simeq 1/137$ is
+the fine structure constant. This is an important result, because our perturbation
+expansion is based on the assumption that the transition rate between different energy
+eigenstates is much slower than the frequency of phase oscillation of these states: {\rm
+i.e.}, that $w_{2\rightarrow 1}^{\rm spn} \ll \omega_{21}$. This is indeed the
+case.
+
+\subsection*{Exercises}
+\begin{enumerate}[label=\thechapter.\arabic*,leftmargin=*,widest=9.20]
+\item Demonstrate that ${\bf p}\cdot{\bf A}={\bf A}\cdot{\bf p}$ when $\nabla\cdot{\bf A} = 0$, where
+${\bf p}$ is the momentum operator, and ${\bf A}({\bf x})$  is a real function of the position operator, ${\bf x}$. 
+Hence, show that the Hamiltonian (\ref{e8.132f}) is Hermitian.
+
+\item Find the selection rules for the matrix elements $\langle n,l,m|\,x\,|n',l',m'\rangle$, $\langle n,l,m|\,y\,|n',l',m'\rangle$,
+and $\langle n,l,m|\,z\,|n',l',m'\rangle$ to be non-zero. Here, $|n,l,m\rangle$ denotes an energy eigenket of a hydrogen-like
+atom corresponding to the conventional quantum numbers, $n$, $l$, and $m$. 
+
+\item Demonstrate that 
+$$
+\left\langle |\bepsilon\cdot{\bf f}_{21}|^{\,2}\right\rangle = \frac{f_{21}^{\,2}}{3},
+$$
+where the average is taken over all directions of the incident radiation.
+
+\item Demonstrate that the spontaneous decay rate (via an electric dipole transition) from any 2p state to a 1s state
+of a hydrogen atom is
+$$
+w_{2p\rightarrow 1s} = \left(\frac{2}{3}\right)^8\alpha^5\,\frac{m_e\,c^2}{\hbar}=6.26\times 10^8\,{\rm s}^{-1},
+$$
+where $\alpha$ is the fine structure constant. 
+Hence, deduce that the natural line width of the associated spectral line is
+$$
+\frac{{\mit\Delta}\lambda}{\lambda} \simeq 4\times 10^{-8}.
+$$
+The only non-zero $1s\leftrightarrow 2p$ electric dipole matrix elements take the values
+\begin{align}
+\langle 1,0,0|\,x\,|2,1,\pm 1\rangle &= \pm\frac{2^7}{3^5}\,a_0,\nonumber\\[0.5ex]
+\langle 1,0,0|\,y\,|2,1,\pm 1\rangle &= {\rm i}\,\frac{2^7}{3^5}\,a_0,\nonumber\\[0.5ex]
+\langle 1,0,0|\,z\,|2,1,0\rangle &= \sqrt{2}\,\frac{2^7}{3^5}\,a_0,\nonumber
+\end{align}
+where $a_0$ is the Bohr radius.
+\end{enumerate}
+
+
+
+

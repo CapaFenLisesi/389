@@ -1,0 +1,382 @@
+\chapter{Identical Particles}
+% !TEX root = ../Quantum.tex
+
+\section{Permutation Symmetry}
+Consider a system consisting of a collection of identical particles. 
+In classical mechanics, it is, in principle, possible to continuously monitor the position of each particle as a function of time. 
+Hence, the constituent particles  can be unambiguously labeled. In quantum mechanics, on the other hand, this is not possible because continuous position
+measurements would disturb the system. It follows that identical particles cannot be unambiguously labeled in quantum
+mechanics. 
+
+Consider a  quantum system consisting of two identical particles. Suppose that one of the particles---particle 1, say---is characterized by the state ket $|k'\rangle$. Here, $k'$
+represents the eigenvalues of the complete set of commuting observables associated with the particle. Suppose that the other particle---particle 2---is
+characterized by the state ket $|k''\rangle$. The state ket for the whole system can be written in the product form
+\begin{equation}
+|k'\rangle\,|k''\rangle,
+\end{equation}
+where it is understood that the first ket corresponds to particle 1, and the second to particle 2. We can also
+consider the ket
+\begin{equation}
+|k''\rangle\,|k'\rangle,
+\end{equation}
+which corresponds to a state in which particle 1 has the eigenvalues $k''$, and particle $2$ the eigenvalues $k'$. 
+
+Suppose that we were to measure all of the simultaneously measurable properties of our two-particle system. We might obtain the results $k'$ for one particle, and $k''$ for the other.
+However, we have no way of knowing whether the corresponding state ket is $|k'\rangle\,|k''\rangle$ or $|k''\rangle\,|k'\rangle$, or any
+linear combination of these two kets. In other words, all state kets of the form
+\begin{equation}
+c_1\,|k'\rangle\,|k''\rangle + c_2\,|k''\rangle\,|k'\rangle,
+\end{equation}
+correspond to an identical set of results when the properties of the system are measured. This phenomenon is
+known as {\em exchange degeneracy}. Such degeneracy is problematic because the specification of a complete set of  observable eigenvalues in a system of identical particles does not seem to uniquely determine the corresponding state ket. Fortunately,  nature has a way of avoiding this difficulty. 
+
+Consider the permutation operator $P_{12}$, which is defined such that
+\begin{equation}
+P_{12}\,|k'\rangle\,|k''\rangle = |k''\rangle\,|k'\rangle.
+\end{equation}
+In other words, $P_{12}$ swaps the identities of particles $1$ and $2$. It is
+easily seen that
+\begin{align}
+P_{21} &= P_{12},\\[0.5ex]
+P_{12}^{\,2} &= 1.\label{e10.6t}
+\end{align}
+Now, the Hamiltonian of a system of two identical particles must necessarily be a symmetric function of each particle's observables (because
+exchange of identical particles could not possibly affect the overall energy of the system). For instance, 
+\begin{equation}
+H = \frac{{\bf p}_1^{\,2}}{2\,m} + \frac{{\bf p}_2^{\,2}}{2\,m} + V_{\rm pair} (|{\bf x}_1-{\bf x}_2|) + V_{\rm ext}({\bf x}_1)+ V_{\rm ext}({\bf x}_2).
+\end{equation}
+Here, we have separated the mutual interaction of the two particles from their interaction with an external potential. It follows that if
+\begin{equation}\label{e10.8t}
+H\,|k'\rangle\,|k''\rangle = E\,|k'\rangle\,|k''\rangle
+\end{equation}
+then
+\begin{equation}\label{e10.9t}
+H\,|k''\rangle\,|k'\rangle = E\,|k''\rangle\,|k'\rangle,
+\end{equation}
+where $E$ is the total energy. 
+Operating on both sides of (\ref{e10.8t}) with $P_{12}$, and making use of Equation~(\ref{e10.6t}), we obtain
+\begin{equation}
+P_{12}\,H\,P_{12}^{\,2}\,|k'\rangle\,|k''\rangle = E\,P_{12}\,|k'\rangle\,|k''\rangle,
+\end{equation}
+or
+\begin{equation}
+P_{12}\,H\,P_{12}\,|k''\rangle\,|k'\rangle = E\,|k''\rangle\,|k'\rangle = H\,|k''\rangle\,|k'\rangle,
+\end{equation}
+where use has been made of (\ref{e10.9t}). 
+We deduce that
+\begin{equation}
+P_{12}\,H\,P_{12} = H,
+\end{equation}
+which implies [from (\ref{e10.6t})] that
+\begin{equation}
+[H,P_{12}] = 0.
+\end{equation}
+In other words, an eigenstate of the Hamiltonian is a simultaneous eigenstate of the permutation operator $P_{12}$. 
+
+Now, according to Equation~(\ref{e10.6t}), the permutation operator possesses  the eigenvalues $+1$ and $-1$, respectively. The corresponding properly normalized eigenstates are
+\begin{equation}
+|k'\,k''\rangle_+ = \frac{1}{\sqrt{2}}\,\left(|k'\rangle\,|k''\rangle + |k''\rangle\,|k'\rangle\right),
+\end{equation}
+and
+\begin{equation}
+|k'\,k''\rangle_- = \frac{1}{\sqrt{2}}\,\left(|k'\rangle\,|k''\rangle - |k''\rangle\,|k'\rangle\right).
+\end{equation}
+Here, it is assumed that $\langle k'|k''\rangle = \delta_{k'\,k''}$. Note that
+$|k'\,k''\rangle_+$ is  symmetric with respect to interchange of particles---i.e., 
+\begin{equation}
+|k''\,k'\rangle_+ =+ |k'\,k''\rangle_+,
+\end{equation}
+whereas $|k'\,k''\rangle_-$ is  antisymmetric---i.e.,  
+\begin{equation}
+|k''\,k'\rangle_- =- |k'\,k''\rangle_-.
+\end{equation}
+
+Let us now consider a  system of three identical particles. We can represent the overall state ket as
+\begin{equation}
+|k'\,k''\,k'''\rangle,
+\end{equation}
+where $k'$, $k''$, and $k'''$ are the eigenvalues of particles 1, 2, and 3, respectively. We can also
+define the two-particle permutation operators
+\begin{align}
+P_{12}\,|k'\,k''\,k'''\rangle &= |k''\,k'\,k'''\rangle,\\[0.5ex]
+P_{23}\,|k'\,k''\,k'''\rangle &= |k'\,k'''\,k''\rangle,\\[0.5ex]
+P_{31}\,|k'\,k''\,k'''\rangle &= |k'''\,k''\,k'\rangle.
+\end{align}
+It is easily demonstrated that
+\begin{align}
+P_{21}&= P_{12},\\[0.5ex]
+P_{32}&= P_{23},\\[0.5ex]
+P_{13}&= P_{31},
+\end{align}
+and
+\begin{align}\label{e10.25t}
+P_{12}^{\,2} &= 1,\\[0.5ex]
+P_{23}^{\,2} &= 1,\\[0.5ex]
+P_{31}^{\,2} &= 1.\label{e10.27t}
+\end{align}
+As before, the Hamiltonian of the system must be a symmetric function of the particle's observables: i.e.,
+\begin{align}\label{e10.28t}
+H\,|k'\,k''\,k'''\rangle &= E\,|k'\,k''\,k'''\rangle,\\[0.5ex]
+H\,|k''\,k'''\,k'\rangle &= E\,|k''\,k'''\,k'\rangle,\\[0.5ex]
+H\,|k'''\,k'\,k''\rangle &= E\,|k'''\,k'\,k''\rangle,\\[0.5ex]
+H\,|k''\,k'\,k'''\rangle &= E\,|k''\,k'\,k'''\rangle,\\[0.5ex]
+H\,|k'\,k'''\,k''\rangle &= E\,|k'\,k'''\,k''\rangle,\\[0.5ex]
+H\,|k'''\,k''\,k'\rangle &= E\,|k'''\,k''\,k'\rangle,\label{e10.33t}
+\end{align}
+where $E$ is the total energy. 
+Using analogous arguments to those employed for the two-particle system, 
+we deduce that 
+\begin{equation}
+[H,P_{12}] = [H,P_{23}] = [H,P_{31}] = 0.
+\end{equation}
+Hence, an eigenstate of the Hamiltonian is a simultaneous eigenstate of the permutation operators $P_{12}$, $P_{23}$, and $P_{31}$. 
+However, according to Equations~(\ref{e10.25t})--(\ref{e10.27t}), the possible eigenvalues of these operators are $\pm 1$. 
+
+Let us define the cyclic permutation operator $P_{123}$, where
+\begin{equation}
+P_{123} \,|k'\,k''\,k'''\rangle =|k'''\,k'\,k''\rangle.
+\end{equation}
+It follows that
+\begin{equation}\label{e10.36t}
+P_{123} = P_{12}\,P_{31}=P_{23}\,P_{12}=P_{31}\,P_{23}.
+\end{equation}
+It is also clear from Equations~(\ref{e10.28t}) and (\ref{e10.33t}) that
+\begin{equation}
+[H,P_{123}] = 0.
+\end{equation}
+Thus,  an eigenstate of the Hamiltonian is a simultaneous eigenstate of the permutation operators $P_{12}$, $P_{23}$, $P_{31}$,
+and $P_{123}$. Let $\lambda_{12}$, $\lambda_{23}$, $\lambda_{31}$ and $\lambda_{123}$ represent  the eigenvalues of these operators,
+respectively. We know that $\lambda_{12}=\pm 1$, $\lambda_{23}=\pm 1$, and $\lambda_{31}=\pm 1$.  Moreover, it follows from
+(\ref{e10.36t}) that
+\begin{equation}
+\lambda_{123} = \lambda_{12}\,\lambda_{31} = \lambda_{23}\,\lambda_{12}=\lambda_{31}\,\lambda_{23}.
+\end{equation}
+The above equations imply that
+\begin{equation}
+\lambda_{123} = +1,
+\end{equation}
+and
+either
+\begin{equation}
+\lambda_{12} = \lambda_{23} = \lambda_{31}= +1,
+\end{equation}
+or
+\begin{equation}
+\lambda_{12} = \lambda_{23} = \lambda_{31}= -1.
+\end{equation}
+In other words, the multi-particle state ket must be either totally symmetric, or totally antisymmetric, with respect to swapping the
+identities of any given  pair
+of particles. 
+Thus, in terms of properly normalized single particle kets, the properly normalized totally symmetric and totally antisymmetric kets are 
+\begin{align}
+|k'\,k''\,k'''\rangle_+ &= \frac{1}{\sqrt{3!}}\left(|k'\rangle\,|k''\rangle\,|k'''\rangle + |k'''\rangle\,|k'\rangle\,|k''\rangle+|k''\rangle\,|k'''\rangle\,|k'\rangle \right.\nonumber\\[0.5ex]
+&\left.+ |k'''\rangle\,|k''\rangle\,|k'\rangle + |k'\rangle\,|k'''\rangle\,|k''\rangle+ |k''\rangle\,|k'\rangle\,|k'''\rangle\right), 
+\end{align}
+and
+\begin{align}\label{e10.43t}
+|k'\,k''\,k'''\rangle_- &= \frac{1}{\sqrt{3!}}\left(|k'\rangle\,|k''\rangle\,|k'''\rangle + |k'''\rangle\,|k'\rangle\,|k''\rangle+|k''\rangle\,|k'''\rangle\,|k'\rangle \right.\nonumber\\[0.5ex]
+&\left.-|k'''\rangle\,|k''\rangle\,|k'\rangle - |k'\rangle\,|k'''\rangle\,|k''\rangle- |k''\rangle\,|k'\rangle\,|k'''\rangle\right), 
+\end{align}
+respectively. 
+
+The above arguments can be generalized to systems of more than three identical particles in a straightforward manner. 
+
+\section{Symmetrization Postulate}
+We have seen that the exchange degeneracy of a  system of identical particles is such that a specification of a complete set of
+observable eigenvalues does not uniquely determine the corresponding state ket. However, we have also seen that there are only two
+possible state kets: i.e., a ket that is totally symmetric with respect to particle interchange, or a ket that is totally antisymmetric. 
+It turns out that systems of identical particles possessing integer-spin (e.g., spin 0, or spin 1) always choose the totally symmetric
+ket, whereas systems of identical particles possessing half-integer-spin (e.g., spin 1/2) always choose the totally antisymmetric ket. 
+This additional piece of information ensures that the specification of a complete set of
+observable eigenvalues of a system of identical particles does, in fact,  uniquely determine the corresponding state ket. 
+
+Systems of identical particles whose state kets are totally symmetric with respect to particle interchange are said to
+obey {\em Bose-Einstein statistics}. Moreover, such particles are termed {\em bosons}. On the other hand,
+systems of identical particles whose state kets are totally antisymmetric with respect to particle interchange are said to
+obey {\em Fermi-Dirac statistics}, and the constituent particles are called {\em fermions}. In non-relativistic quantum mechanics, the rule that all integer-spin particles are bosons, whereas all half-integer spin
+particles are fermions, must be accepted as an empirical fact. However, in relativistic quantum mechanics, it is possible
+to prove that half-integer-spin particles cannot be bosons, and integer-spin particles cannot be fermions. 
+Incidentally, electrons, protons, and neutrons are all fermions.
+
+The {\em Pauli exclusion principle} is an immediate consequence of the fact that electrons obey Fermi-Dirac statistics. This principle 
+states that no two electrons in a multi-electron system can possess identical sets of observable eigenvalues. For instance,
+in the case of a three-electron system, the state ket is [see Equation~(\ref{e10.43t})]
+\begin{align}
+|k'\,k''\,k'''\rangle_- &= \frac{1}{\sqrt{3!}}\left(|k'\rangle\,|k''\rangle\,|k'''\rangle + |k'''\rangle\,|k'\rangle\,|k''\rangle+|k''\rangle\,|k'''\rangle\,|k'\rangle \right.\nonumber\\[0.5ex]
+&\left.-|k'''\rangle\,|k''\rangle\,|k'\rangle - |k'\rangle\,|k'''\rangle\,|k''\rangle- |k''\rangle\,|k'\rangle\,|k'''\rangle\right).
+\end{align}
+Note, however, that
+\begin{equation}
+|k'\,k'\,k'''\rangle = |k'\,k''\,k''\rangle = |k'''\,k''\,k'''\rangle = |0\rangle.
+\end{equation}
+In other words, if two of the electrons in the system possess the same set of observable eigenvalues then the state ket becomes the null ket, which corresponds to
+the absence of a state. 
+
+\section{Two-Electron System}
+Consider a system consisting of two electrons. Let ${\bf x}_1$ and ${\bf S}_1$ represent the position and spin operators of the first electron, respectively, 
+and let ${\bf x}_2$ and ${\bf S}_2$ represent the corresponding operators for the second electron. Furthermore,
+let ${\bf S}={\bf S}_1+{\bf S}_2$ represent the total spin operator for the system. Suppose that the Hamiltonian commutes with $S^{2}$, as is often the case.
+It follows that the state of the system is specified by the position eigenvalues ${\bf x}_1'$ and ${\bf x}_2'$, as well as the total spin
+quantum numbers $s$ and $m$. As usual, the eigenvalue of $S^{2}$ is $s\,(s+1)\,\hbar^2$, and the eigenvalue of $S_z$ is $m\,\hbar$. 
+Moreover, $s, m$ can only takes the values $1,1$ or $1,0$ or $1,-1$ or $0,0$. (See Chapter~\ref{c6}.)
+The overall wavefunction of the system can be written
+\begin{equation}\label{e10.46t}
+\psi({\bf x}_1',{\bf x}_2'; s,m) = \phi({\bf x}_1', {\bf x}_2')\,\chi(s,m),
+\end{equation}
+where
+\begin{align}
+\chi(1,1) &= \chi_+\,\chi_+,\\[0.5ex]
+\chi(1,0)&= \frac{1}{\sqrt{2}}\,(\chi_+\,\chi_-+\chi_-\,\chi_+),\\[0.5ex]
+\chi(1,-1)&=  \chi_-\,\chi_-,\\[0.5ex]
+\chi(0,0) &= \frac{1}{\sqrt{2}}\,(\chi_+\,\chi_--\chi_-\,\chi_+).
+\end{align}
+Here, the spinor $\chi_+\,\chi_-$ denotes a state in which $m_1=1/2$ and $m_2=-1/2$, etc., where $m_1\,\hbar$ and $m_2\,\hbar$ are the eigenvalues
+of  $S_{1\,z}$ and $S_{2\,z}$,  respectively. The three $s=1$ spinors are usually referred to as {\em triplet}\/ spinors, whereas the single
+$s=0$ spinor is called the {\em singlet}\/ spinor. Note that the triplet spinors are all symmetric with respect to exchange of particles, whereas the
+singlet spinor is antisymmetric. 
+
+Fermi-Dirac statistics requires the overall wavefunction to be antisymmetric with respect to exchange of particles. Now, according to (\ref{e10.46t}), 
+the overall wavefunction can be written as a product of a spatial wavefunction and a spinor. Moreover, when the system is in the spin triplet
+state (i.e., $s=1$) the spinor is symmetric with respect to exchange of particles. On the other hand, when the system is in the spin singlet
+state (i.e., $s=0$) the spinor is antisymmetric. It follows that, to maintain the overall antisymmetry
+of the wavefunction, the triplet spatial wavefunction must be antisymmetric with respect to exchange of particles, whereas the singlet
+spatial wavefunction must be symmetric. In other words, in the spin triplet state, the spatial wavefunction takes the form
+\begin{equation}
+\phi({\bf x}_1',{\bf x}_2') = \frac{1}{\sqrt{2}}\left[\omega_A({\bf x}_1')\,\omega_B({\bf x}_2')-\omega_B({\bf x}_1')\,\omega_A({\bf x}_2')\right],
+\end{equation}
+whereas in the spin singlet state the spatial wavefunction is written
+\begin{equation}
+\phi({\bf x}_1',{\bf x}_2') = \frac{1}{\sqrt{2}}\left[\omega_A({\bf x}_1')\,\omega_B({\bf x}_2')+\omega_B({\bf x}_1')\,\omega_A({\bf x}_2')\right].
+\end{equation}
+The probability of observing one electron in the volume element $d^3 x_1$ around position ${\bf x}_1$, and the
+other in the volume element $d^3x_2$ around position ${\bf x}_2$, is $|\phi({\bf x}_1,{\bf x}_2)|^{\,2}\,d^3x_1\,d^3x_2$,  or
+\begin{equation}
+\frac{1}{2}\left\{|\omega_A({\bf x}_1)|^{\,2}\,|\omega_B({\bf x}_2)|^{\,2}+|\omega_A({\bf x}_2)|^{\,2}\,|\omega_B({\bf x}_1)|^{\,2}
+\pm 2\,{\rm Re}\left[\omega_A({\bf x}_1)\,\omega_B({\bf x}_2)\,\omega_A^{\,\ast}({\bf x}_2)\,\omega_B^{\,\ast}({\bf x}_1)\right]\right\}d^3 x_1\,d^3x_2.
+\end{equation}
+Here, the plus sign corresponds to the spin singlet state, whereas the minus sign corresponds to the spin triplet state. We can immediately see that in the
+spin triplet state the probability of finding the two electrons at the same point in space is zero. In other words, the two electrons have
+a tendency to avoid one another in the triplet state. On the other hand, in the spin singlet state there is an enhanced probability of finding the
+two electrons at the same point in space, because of the final term in the previous expression. In other words, the two electrons are attracted to
+one another in the singlet state. 
+Note, however, that the spatial probability distributions
+associated with the singlet and triplet states only differ substantially when the two single particle spatial wavefunctions $\omega_A({\bf x})$ and $\omega_B({\bf x})$
+overlap: i.e., when there exists a region of space in which the two wavefunctions are simultaneously nonnegligible. 
+
+\section{Helium Atom}
+Consider the helium atom, which is a good example of a two-electron system. The Hamiltonian is written
+\begin{equation}\label{e10.54t}
+H = \frac{{\bf p}_1^{\,2}}{2\,m_1} + \frac{{\bf p}_2^{\,2}}{Z\,m_2} - \frac{Z\,e^2}{4\pi\,\epsilon_0\,r_1} -\frac{Z\,e^2}{4\pi\,\epsilon_0\,r_2}
++ \frac{e^2}{4\pi\,\epsilon_0\,r_{12}},
+\end{equation}
+where $Z=2$, $r_1=|{\bf x}_1|$, $r_2=|{\bf x}_2|$, and $r_{12} = |{\bf x}_1-{\bf x}_2|$. Suppose that the final term on the right-hand side of the above expression were absent. In this case, the overall spatial wavefunction can be formed from products of  hydrogen atom wavefunctions calculated with
+$Z=2$, instead of $Z=1$. Each of these wavefunctions is characterized by the usual triplet of quantum numbers, $n$, $l$, and $m$. 
+Now, the total spin of the system is a constant of the motion (since ${\bf S}$ obviously commutes with the Hamiltonian), 
+so the overall spin state is either the singlet or the triplet state. The corresponding spatial wavefunction is symmetric in the former case, and
+antisymmetric in the latter. Suppose that one electron has the quantum numbers $n$, $l$, $m$ whereas the other has the quantum numbers $n'$ ,$l'$, $m'$. 
+The corresponding spatial wavefunction is
+\begin{equation}\label{e10.55t}
+\phi({\bf x}_1,{\bf x}_2)=\frac{1}{\sqrt{2}}\left[\psi_{nlm}({\bf x}_1)\,\psi_{n'l'm'}({\bf x}_2)\pm \psi_{nlm}({\bf x}_2)\,\psi_{n'l'm'}({\bf x}_1)\right],
+\end{equation}
+where the plus and minus signs correspond to the singlet and triplet spin states, respectively. Here, $\psi_{nlm}({\bf x})$
+is a standard hydrogen atom wavefunction (calculated with $Z=2$). For the special case in which the two sets of spatial quantum numbers, $n$, $l$, $m$
+and $n'$,$l'$,$m'$, are the same, the triplet spin state does not exist (because the associated spatial wavefunction is null). Hence, only
+singlet spin state is allowed, and the spatial wavefunction reduces to
+\begin{equation}
+\phi({\bf x}_1,{\bf x}_2)=\psi_{nlm}({\bf x}_1)\,\psi_{nlm}({\bf x}_2).
+\end{equation}
+In particular, the ground state ($n=n'=1$, $l=l'=0$, 	$m=m'=0$) can only exist as a singlet spin state (i.e., a state of overall spin 0), and has the
+spatial wavefunction
+\begin{equation}\label{e10.57t}
+\phi({\bf x}_1,{\bf x}_2) =\psi_{100}({\bf x}_1)\,\psi_{100}({\bf x}_2)= \frac{Z^{\,3}}{\pi\,a_0^{\,3}}\,\exp\left[\frac{-Z\,(r_1+r_2)}{a_0}\right],
+\end{equation}
+where  $a_0$ is the Bohr radius. This follows because
+\begin{equation}
+\psi_{100}({\bf x})= \frac{1}{\sqrt{4\pi}}\left(\frac{Z}{a_0}\right)^{3/2}2\,\exp\left(\frac{-Z\,r}{a_0}\right).
+\end{equation}
+The energy of this state
+is
+\begin{equation}
+E = 2\,Z^{\,2}\,E_0=-108.8\,{\rm eV},
+\end{equation}
+where $E_0=-13.6\,{\rm eV}$ is the ground state energy of a hydrogen atom. In the above expression, the factor of $2$ comes from the fact that
+there are two electrons in a helium atom. 
+
+The above estimate for the ground state energy of a helium atom completely ignores the final term on the right-hand side of Equation~(\ref{e10.54t}),
+which describes the mutual interaction between the two electrons. We can obtain a better estimate for the ground state energy by treating (\ref{e10.57t})
+as the unperturbed wavefunction, and $e^2/(4\pi\,\epsilon_0\,r_{12})$ as a perturbation. According to standard first-order perturbation theory, the
+correction to the ground state energy is
+\begin{equation}
+{\mit\Delta} E = \left\langle \frac{e^2}{4\pi\,\epsilon_0\,r_{12}}\right\rangle=\int\int d^3x_1\,d^3 x_2\,\frac{Z^{\,6}}{\pi^2\,a_0^{\,6}}\,\exp\left[\frac{-2\,Z\,(r_1+r_2)}{a_0}\right]\frac{e^2}{4\pi\,\epsilon_0\,r_{12}}.
+\end{equation}
+This can be written
+\begin{equation}
+\frac{{\mit\Delta E}}{|E_0|} = \frac{2\,Z^{\,6}}{\pi^2}\int\int \frac{d^3 x_1}{a_0^{\,3}}\,\frac{d^3 x_2}{a_0^{\,3}}\,\exp\left(-2\,Z\,\frac{r_1+r_2}{a_0}\right)
+\frac{a_0}{r_{12}},
+\end{equation}
+since $E_0=-e^2/(8\pi\,\epsilon_0\,a_0)$. Now, 
+\begin{equation}
+\frac{1}{r_{12}} = \frac{1}{(r_1^{\,2}+r_2^{\,2}-2\,r_1\,r_2\,\cos\gamma)^{1/2} }= \sum_{l=0,\infty} \frac{r_<^{\,l}}{r_>^{\,l+1}}\,P_l(\cos\gamma),
+\end{equation}
+where $r_>$ ($r_<$) is the larger (smaller) of $r_1$ and $r_2$, and $\gamma$ is the angle subtended between ${\bf x}_1$ and ${\bf x}_2$. 
+Moreover, the {\em addition theorem}\/ for spherical harmonics states that
+\begin{equation}
+P_l(\cos\gamma) = \frac{4\pi}{2\,l+1}\sum_{m=-l,+l} Y_{l\,m}^\ast(\theta_1,\varphi_1)\,Y_{l\,m}(\theta_2,\varphi_2).
+\end{equation}
+However, 
+\begin{equation}
+\int d{\mit\Omega}  \,Y_{l\,m}(\theta,\phi) = \sqrt{4\pi}\,\delta_{l\,0}\,\delta_{m\,0},
+\end{equation}
+so we obtain 
+\begin{align}
+\frac{{\mit\Delta E}}{|E_0|}& = 32\,Z\int_0^\infty d x_1\,x_1^{\,2}\left[\int_0^{x_1} d x_2\,\frac{x_2^{\,2}}{x_1}\,{\rm e}^{-2\,(x_1+x_2)}
++\int_{x_1}^\infty dx_2\,x_2\,{\rm e}^{-2\,(x_1+x_2)}\right]\nonumber\\[0.5ex]
+&= \frac{5\,Z}{4} = \frac{5}{2}.
+\end{align}
+ Here, $x_1=Z\,r_1/a_0$ and $x_2=Z\,r_2/a_0$, and $Z=2$.  
+Thus, our improved estimate for the ground state energy of the helium atom is
+\begin{equation}
+E = \left(8 - \frac{5}{2}\right)E_0 = -74.8\,{\rm eV}.
+\end{equation}
+This is much closer to the experimental value of $-78.8\,{\rm eV}$ than our previous estimate. 
+
+Consider an exited state of the helium atom in which one electron is in the ground state, while the other is in a state characterized by the quantum
+numbers $n$, $l$, $m$. We can write the energy of this state as
+\begin{equation}
+E = Z^{\,2}\,E_{100} + Z^{\,2}\,E_{nlm} + {\mit\Delta E},
+\end{equation}
+where $E_{nlm}$ is the energy of a hydrogen atom electron whose quantum numbers are $n$, $l$, $m$. 
+According to first-order perturbation theory, ${\mit\Delta E}$ is the expectation value of $e^2/(4\pi\,\epsilon_0\,r_{12})$. It follows from
+(\ref{e10.55t}) (with $n,l,m=1,0,0$ and $n',l',m'=n,l,m$) that
+\begin{equation}\label{e10.68t}
+{\mit\Delta}E = I\pm J,
+\end{equation}
+where
+\begin{align}
+I &= \int d^3 x_1\int d^3 x_2\, |\psi_{100}({\bf x}_1)|^{\,2}\,|\psi_{nlm}({\bf x}_2)|^{\,2}\,\frac{e^2}{4\pi\,\epsilon_0\,r_{12}},\\[0.5ex]
+J&= \int d^3 x_1\int d^3 x_2 \,\psi_{100}({\bf x}_1)\,\psi_{nlm}({\bf x}_2)\,\frac{e^2}{4\pi\,\epsilon_0\,r_{12}}\,\psi_{100}^{\,\ast}({\bf x}_2)\,\psi_{nlm}^{\,\ast}({\bf x}_1).
+\end{align}
+Here, the plus sign in (\ref{e10.68t}) corresponds to the spin singlet state, whereas the minus sign corresponds to the spin triplet state. The
+integral $I$---which is known as the  {\em direct integral}---is obviously positive. The integral $J$---which is known as the {\em exchange integral}---can
+be shown to also be positive. Hence, we conclude that in excited states of helium  the spin singlet state has a higher energy
+than the spin triplet state. Incidentally, helium in the spin singlet state is known as {\em para-helium}, whereas helium in the triplet state is
+called {\em ortho-helium}. As we have seen, for the ground state, only para-helium is possible. 
+
+The fact that para-helium energy levels lie slightly above corresponding ortho-helium levels is interesting because our original Hamiltonian does not
+depend on spin. Nevertheless, there is a spin dependent effect---i.e., a helium atom has a lower energy when its electrons possess parallel spins---as a consequence of
+Fermi-Dirac statistics. To be more exact, the energy is lower in the spin triplet state because the corresponding spatial wavefunction is antisymmetric,
+causing the electrons to tend to avoid one another (thereby reducing their electrostatic repulsion). 
+
+\subsection*{Exercises}
+\begin{enumerate}[label=\thechapter.\arabic*,leftmargin=*,widest=9.20]
+
+\item Demonstrate that the particle interchange operator, $P_{12}$, in a system of two identical particles is Hermitian.
+
+\item Consider two identical spin-$1/2$ particles of mass $m$ confined in a cubic box of dimension $L$. Find the possible
+energies and wavefunctions of this system in the case of no interaction between the particles. 
+
+\item Consider a system of two spin-$1$ particles with no orbital angular momentum (i.e., both particles are  in $s$-states). What are
+the possible eigenvalues of the total spin angular momentum of the system, as well as its projection along the $z$-direction, in the
+cases in which the particles are non-identical and identical?
+
+\end{enumerate}

@@ -1,0 +1,980 @@
+\chapter{Relativistic Electron Theory}\label{c11}
+% !TEX root = ../Quantum.tex
+
+\section{Introduction}
+The aim of this chapter is to develop a quantum mechanical theory of electron
+dynamics that is consistent with special relativity. Such a theory is needed
+to explain the origin of electron spin (which is essentially a relativistic effect),
+and to account for the fact that the spin contribution to the electron's magnetic
+moment is twice what we would naively expect by analogy with (non-relativistic)
+classical physics (see Section~\ref{s5.5c}). Relativistic electron theory is
+also required to fully understand the fine structure of the hydrogen
+atom energy levels (recall, from Section~\ref{s7.7x}, and Exercises~\ref{ex7.1} and \ref{ex7.2}, that the modification to the energy
+levels due to spin-orbit coupling is of the same order of magnitude as the
+first-order correction due to the electron's relativistic mass increase.)
+
+In the following, we shall use
+$x^1$, $x^2$, $x^3$ to represent the Cartesian coordinates  $x$, $y$, $z$, respectively, and $x^0$ to represent $c\,t$. 
+The time dependent wavefunction then takes the form $\psi(x^0,x^1,x^2,x^3)$.  Adopting 
+standard relativistic notation, we write the four $x$'s as $x^{\,\mu}$, for $\mu= 0,1,2,3$. A space-time
+vector with four components that transforms under Lorentz transformation in an analogous manner to the four space-time coordinates 
+$x^{\,\mu}$ is termed a {\em 4-vector}, and its components are written like $a^{\,\mu}$ (i.e., with an upper
+Greek suffix). We can lower the suffix according to the rules
+\begin{align}
+a_0&= a^0,\\[0.5ex]
+a_1 &=-a^1,\\[0.5ex]
+a_2 &= -a^2,\\[0.5ex]
+a_3 &= -a^3.
+\end{align}
+Here, the $a^{\,\mu}$ are called the {\em contravariant}\/ components of the vector $a$, whereas the
+$a_{\mu}$ are termed the {\em covariant}\/ components. Two 4-vectors $a^{\,\mu}$ and $b^{\,\mu}$
+have the Lorentz invariant scalar product
+\begin{equation}\label{e11.5}
+a^0\,b^0-a^1\,b^1-a^2\,a^2-a^3\,b^3 = a^{\,\mu}\,b_\mu= a_\mu\,b^{\,\mu},
+\end{equation}
+a summation being implied over a repeated letter suffix. The metric tenor $g_{\mu\,\nu}$ is defined
+\begin{align}
+g_{00}&=1,\\[0.5ex]
+g_{11}&=-1,\\[0.5ex]
+g_{22}&=-1,\\[0.5ex]
+g_{33}&=-1,
+\end{align}
+with all other components zero.
+Thus,
+\begin{equation}
+a_{\mu} = g_{\mu\,\nu}\,a^\nu.
+\end{equation}
+Likewise,
+\begin{equation}
+a^{\,\mu} = g^{\,\mu\,\nu}\,a_\nu,
+\end{equation}
+where $g^{00}=1$, $g^{11}=g^{22}=g^{33}=-1$, with all other components zero. 
+Finally, $g_\nu^{~\mu}=g^{\,\mu}_{~\nu} =1$ if $\mu=\nu$, and $g_\nu^{~\mu}=g^{\,\mu}_{~\nu}=0$ otherwise. 
+
+In the Schr\"{o}dinger representation, the momentum of a particle, whose components are written $p_x$, $p_y$, $p_z$, or $p^1$, $p^2$, $p^3$, 
+is represented by the operators
+\begin{equation}\label{e11.11}
+p^{\,i} = -{\rm i}\,\hbar\,\frac{\partial}{\partial x^{\,i}},
+\end{equation}
+for $i=1,2,3$. Now, the four operators $\partial/\partial x^{\,\mu}$ form the covariant components of a
+4-vector whose contravariant components are written $\partial /\partial x_{\mu}$. So, to make
+expression (\ref{e11.11}) consistent with relativistic theory,  we must first write it with its
+suffixes balanced,
+\begin{equation}
+p^{\,i} = {\rm i}\,\hbar\,\frac{\partial}{\partial x_i},
+\end{equation}
+and then extend it to the complete 4-vector equation
+\begin{equation}\label{e11.13}
+p^{\,\mu} =  {\rm i}\,\hbar\,\frac{\partial}{\partial x_{\mu}}.
+\end{equation}
+According to standard relativistic theory, the new operator $p^0={\rm i}\,\hbar\,\partial/\partial x_0$, which forms a 4-vector when
+combined with the momenta $p^{\,i}$, is interpreted as the energy of the particle divided by $c$, where $c$ is the velocity of
+light in vacuum.
+
+\section{Dirac Equation}
+Consider the motion of an electron in the absence of an electromagnetic field. In classical relativity, 
+electron energy, $E$, is related to  electron momentum, ${\bf p}$,  according to the well-known formula
+\begin{equation}
+\frac{E}{c}=(p^2+ m_e^2\,c^2)^{1/2},
+\end{equation}
+where $m_e$ is the electron rest mass. 
+The quantum mechanical equivalent of this expression is the wave equation
+\begin{equation}\label{e11.15}
+\left[p^0  - (p^1\,p^1+p^2\,p^2+p^3\,p^3+m_e^2\,c^2)^{1/2}\right]\psi = 0,
+\end{equation}
+where the $p$'s are interpreted as differential operators according to Equation~(\ref{e11.13}). The above equation
+takes into account the correct relativistic relation between electron energy and momentum, but is nevertheless unsatisfactory from the
+point of view of relativistic theory, because it is highly asymmetric between  $p^0$ and the other $p$'s. This  makes the equation
+difficult to generalize, in a manifestly Lorentz  invariant manner, in the presence of an electromagnetic  field. We must therefore look for a new equation. 
+
+If we multiply the wave equation (\ref{e11.15}) by the operator $\left[p^0  +(p^1\,p^1+p^2\,p^2+p^3\,p^3+m_e^2\,c^2)^{1/2}\right]$
+then we obtain
+\begin{equation}\label{e11.16}
+\left(p^0\,p^0- p^1\,p^1-p^2\,p^2-p^3\,p^3+m_e^2\,c^2\right)\psi = \left(p^{\,\mu}\,p_\mu+m_e^2\,c^2\right)\psi.
+\end{equation}
+This equation is manifestly Lorentz invariant, and, therefore, forms a more convenient starting point for relativistic quantum mechanics. 
+Note, however, that Equation~(\ref{e11.16}) is not entirely equivalent to Equation~(\ref{e11.15}), because, although every
+solution of (\ref{e11.15}) is also a solution of (\ref{e11.16}), the converse is not true. In fact, only those solutions of (\ref{e11.16})
+belonging to positive values of $p^0$ are also solutions of (\ref{e11.15}). 
+
+The wave equation (\ref{e11.16}) is quadratic in $p^0$, and is thus not of the form required by the  laws of quantum theory.  (Recall that we showed, from
+general principles, in Chapter~\ref{s4},   that the 
+time evolution equation for the wavefunction should be linear in the operator $\partial/\partial t$, and, hence, in $p^0$.) We, therefore, seek a wave equation that is
+equivalent to (\ref{e11.16}), but is
+linear in $p^0$. In order to ensure that this equation transforms in a simple way under a Lorentz transformation, we
+shall require it to be rational and linear in $p^1$, $p^2$, $p^3$, as well as $p^0$. We are thus
+lead to a wave equation of the form
+\begin{equation}\label{e11.17}
+\left(p^0 - \alpha_1\,p^1-\alpha_2\,p^2-\alpha_3\,p^3-\beta\,m_e\,c\right)\psi = 0,
+\end{equation}
+where the $\alpha$'s and $\beta$ are dimensionless, and independent of the $p$'s. Moreover, according to standard relativity, because we are considering the case of no electromagnetic field, all points in space-time
+must be equivalent. Hence, the $\alpha$'s and $\beta$ must also be independent of
+the $x$'s. This implies that the $\alpha$'s and $\beta$ commute with the $p$'s and the $x$'s. We, therefore,  deduce that the $\alpha$'s and $\beta$
+describe an internal degree of freedom that is independent of space-time coordinates. Actually, we shall show later that these operators are related to electron spin. 
+
+Multiplying (\ref{e11.17}) by the operator $p^0 +\alpha_1\,p^1+\alpha_2\,p^2+\alpha_3\,p^3+\beta\,m_e\,c$, we obtain
+\begin{equation}
+\left[p^0\,p^0-\frac{1}{2}\sum_{i,j=1,3}\{\alpha_i,\alpha_j\}\,p^i\,p^j-\sum_{i=1,3}\{\alpha_i,\beta\}\,p^i\,m_e\,c-\beta^{\,2}\,m_e^2\,c^2\right]\psi= 0,
+\end{equation}
+where $\{a,b\}\equiv a\,b+b\,a$. 
+This equation is equivalent to (\ref{e11.16}) provided that
+\begin{align}\label{e11.19}
+\{\alpha_i,\alpha_j\}&=2\,\delta_{ij},\\[0.5ex]
+\{\alpha_i,\beta\}&= 0,\label{e11.20}\\[0.5ex]
+\beta^{\,2} &= 1,\label{e11.21}
+\end{align}
+for $i,j=1,3$. 
+It is helpful to define the $\gamma^{\,\mu}$, for $\mu=0,3$, where
+\begin{align}\label{e11.25}
+\beta &=\gamma^0,\\[0.5ex]
+\alpha_i &= \gamma^0\,\gamma^i,\label{e11.26}
+\end{align}
+for $i=1,3$. 
+Equations~(\ref{e11.19})--(\ref{e11.21}) can then be shown to reduce to
+\begin{equation}\label{e11.26a}
+\{\gamma^{\,\mu},\gamma^\nu\} = 2\,g^{\,\mu\,\nu}.
+\end{equation}
+One way of satisfying the above anti-commutation relations is to represent the operators $\gamma^{\,\mu}$ as matrices. However, it turns
+out that the smallest  dimension in which the $\gamma^{\,\mu}$ can be realized   is four. In fact, it is easily verified that the  $4\times 4$ matrices 
+\begin{align}\label{e11.26t}
+\gamma^0 &= \left(\begin{array}{rr} 1& 0\\[0.5ex]0&-1\end{array}\right),\\[0.5ex]
+\gamma^i &= \left(\begin{array}{rr} 0& \sigma_i\\[0.5ex]-\sigma_i&0\end{array}\right),\label{e11.27t}
+\end{align}
+for $i=1,3$, satisfy the appropriate anti-commutation relations. Here, $0$ and $1$ denote $2\times 2$ null and identity matrices, respectively, whereas the $\sigma_i$ represent the $2\times 2$ Pauli matrices
+introduced in Section~\ref{spauli}. 
+It follows from (\ref{e11.25}) and (\ref{e11.26}) that
+\begin{align}\label{e11.28g}
+\beta &= \left(\begin{array}{rr} 1& 0\\[0.5ex]0&-1\end{array}\right),\\[0.5ex]
+\alpha_i &= \left(\begin{array}{rr} 0& \sigma_i\\[0.5ex]\sigma_i&0\end{array}\right).\label{e11.29g}
+\end{align}
+Note that  $\gamma^0$, $\beta$, and the $\alpha_i$, are all Hermitian matrices, whereas the $\gamma^{\,\mu}$, for $\mu=1,3$, are anti-Hermitian. 
+However, the matrices $\gamma^0\,\gamma^{\,\mu}$, for $\mu=0,3$, are Hermitian. Moreover, it is easily demonstrated that
+\begin{equation}\label{e11.30x}
+\gamma^{\,\mu\,\dag} = \gamma^0\,\gamma^{\,\mu}\,\gamma^0,
+\end{equation}
+for $\mu=0,3$. 
+
+Equation~(\ref{e11.17}) can be written in the form
+\begin{equation}\label{e11.30}
+(\gamma^{\,\mu}\,p_\mu - m_e\,c)\,\psi = ({\rm i}\,\hbar\,\gamma^{\,\mu}\,\partial_\mu-m_e\,c)\,\psi=0,
+\end{equation}
+where $\partial_\mu\equiv \partial/\partial x^{\,\mu}$.  Alternatively, we can write 
+\begin{equation}\label{e11.31}
+{\rm i}\,\hbar\,\frac{\partial\psi}{\partial t} = (c\,\balpha\cdot{\bf p} + \beta\,m_e\,c^2)\,\psi,
+\end{equation}
+where ${\bf p}=(p_x,p_y,p_z)=(p^1,p^2,p^3)$, and $\balpha$ is the vector of the $\alpha_i$ matrices. The previous expression is known as the {\em Dirac equation}. 
+Incidentally, it is clear that, corresponding to the four rows and columns of the $\gamma^{\,\mu}$ matrices, the wavefunction $\psi$
+must take the form of a $4\times 1$ column matrix, each element of which is, in general, a function of the $x^{\,\mu}$. 
+We saw in Section~\ref{spauli} that the spin of the electron requires the wavefunction to have two components. The reason
+our present theory requires the wavefunction to have four components is because the wave equation (\ref{e11.16}) has twice
+as many solutions as it ought to have, half of them corresponding to negative energy states. 
+
+We can incorporate an electromagnetic field into the above formalism by means of the standard prescription $E\rightarrow E+e\,\phi$, and
+$p^{\,i}\rightarrow p^{\,i} +e\,A^{\,i}$, where $e$ is the magnitude of the electron charge, $\phi$ the scalar potential, and ${\bf A}$ the
+vector potential. This prescription can be expressed in the Lorentz invariant form
+\begin{equation}
+p^{\,\mu} \rightarrow p^{\,\mu} + \frac{e}{c}\,{\mit\Phi}^{\,\mu},
+\end{equation}
+where ${\mit\Phi}^{\,\mu} = (\phi,c\,{\bf A})$ is the potential 4-vector. Thus,
+Equation~(\ref{e11.30}) becomes
+\begin{equation}\label{e11.33}
+\left[\gamma^{\,\mu}\left(p_\mu+\frac{e}{c}\,{\mit\Phi}_\mu\right)-m_e\,c\right]\psi = \left[\gamma^{\,\mu}\left({\rm i}\,\hbar\,\partial_\mu+\frac{e}{c}\,{\mit\Phi}_\mu\right)-m_e\,c\right]\psi=0 ,
+\end{equation}
+whereas
+Equation~(\ref{e11.31}) generalizes to 
+\begin{equation}\label{e11.34}
+{\rm i}\,\hbar\,\frac{\partial\psi}{\partial t} =\left[-e\,\phi + c\,\balpha\cdot({\bf p}+e\,{\bf A})+ \beta\,m_e\,c^2\right]\psi = 0.
+\end{equation}
+
+If we write the wavefunction in the spinor form
+\begin{equation}
+\psi= \left(\begin{array}{c}\psi_0\\[0.5ex]\psi_1\\[0.5ex]\psi_2\\[0.5ex]\psi_3\end{array}\right)
+\end{equation}
+then the Hermitian conjugate of Equation~(\ref{e11.34}) becomes
+\begin{equation}
+-{\rm i}\,\hbar\,\frac{\partial\psi^\dag}{\partial t} =\psi^\dag\left[-e\,\phi + c\,\balpha\cdot({\bf p} +{\bf e}\,{\bf A})+ \beta\,m_e\,c^2\right] = 0,
+\end{equation}
+where
+\begin{equation}
+\psi^\dag = \left(\psi_0^{\,\ast}, \psi_1^{\,\ast},\psi_2^{\,\ast},\psi_3^{\,\ast}\right),
+\end{equation}
+Here, use has been made of the fact that the $\alpha_i$ and $\beta$ are Hermitian matrices that commute with the $p^i$ and $A^i$. 
+
+It follows from $\psi^\dag\,\gamma^0$ times Equation~(\ref{e11.33}) that
+\begin{equation}
+\psi^\dag\left[\gamma^0\,\gamma^{\,\mu}\left({\rm i}\,\hbar\,\partial_\mu-\frac{e}{c}\,{\mit\Phi}_\mu\right)-\gamma^0\,m_e\,c\right]\psi=0.
+\end{equation}
+The Hermitian conjugate of this expression is 
+\begin{equation}
+\psi^\dag\left[\left(-{\rm i}\,\hbar\,\partial_\mu- \frac{e}{c}\,{\mit\Phi}_\mu\right)\gamma^0\,\gamma^{\,\mu}-m_e\,c\,\gamma^0\,\right]\psi=0,
+\end{equation}
+where $\partial_\mu$ now acts backward on $\psi^\dag$, and use has been made of the fact that the matrices $\gamma^0\,\gamma^{\,\mu}$
+and $\gamma^0$ are Hermitian. Taking the difference between the previous two equation, we obtain
+\begin{equation}\label{e11.41}
+\partial_\mu\,j^{\,\mu} = 0,
+\end{equation}
+where
+\begin{equation}\label{e11.42x}
+j^{\,\mu} = c\,\psi^\dag\,\gamma^0\,\gamma^{\,\mu}\,\psi.
+\end{equation}
+Writing $j^{\,\mu} = (c\,\rho, {\bf j})$, where
+\begin{align}
+\rho &= \psi^\dag\,\psi,\\[0.5ex]
+j^{\,i}& = c\,\psi^\dag\,\gamma^0\,\gamma^i\,\psi = \psi^\dag\,c\,\alpha_i\,\psi,
+\end{align}
+Equation~(\ref{e11.41}) becomes
+\begin{equation}
+\frac{\partial\rho}{\partial t} + \nabla\cdot{\bf j} = 0.
+\end{equation}
+The above expression has the same form as the non-relativistic probability conservation equation (\ref{e4.64}). This
+suggests that we can interpret the positive definite real scalar field $\rho({\bf x},t) = |\psi|^{\,2}$ as the relativistic {\em probability density}, and the vector field ${\bf j}({\bf x},t)$
+as the relativistic {\em probability current}. Integration of the above expression over all space, assuming that $|\psi({\bf x},t)|\rightarrow 0$ as $|{\bf x}|\rightarrow
+\infty$, yields
+\begin{equation}
+\frac{d}{dt}\!\int d^3 x\,\,\rho({\bf x},t) = 0.
+\end{equation}
+This ensures that if the wavefunction  is properly normalized at time $t=0$, such that
+\begin{equation}
+\int d^3 x\,\,\rho({\bf x},0) = 1,
+\end{equation}
+then the wavefunction remains properly normalized at all subsequent times, as it evolves in accordance with the Dirac equation. 
+In fact, if this were not the case then it would be impossible to interpret $\rho$ as a probability density. Now, relativistic
+invariance demands that if the wavefunction is properly normalized in one particular inertial frame then it should
+be properly normalized in all inertial frames. This is the case provided that Equation~(\ref{e11.41}) is Lorentz invariant (i.e., if it has the property
+that if it holds
+in one inertial frame then it holds in all inertial frames), 
+which is true as long as the $j^{\,\mu}$ transform as the contravariant components of a  4-vector under  Lorentz transformation (see Exercise~\ref{ex11.4}). 
+
+\section{Lorentz Invariance of Dirac Equation}
+Consider two inertial frames, $S$ and $S'$. Let the $x^{\,\mu}$ and $x^{\,\mu'}$ be the space-time coordinates of a given event in each frame, respectively. 
+These coordinates are  related via a Lorentz transformation, which takes the general form
+\begin{equation}
+x^{\,\mu'} = a^{\,\mu}_{~\nu}\,x^\nu,
+\end{equation}
+where the $a^{\,\mu}_{~\nu}$ are real numerical coefficients that are independent of the $x^{\,\mu}$. 
+We also have
+\begin{equation}
+x_{\mu'} = a_{\mu}^{~\nu}\,x_\nu.
+\end{equation}
+Now, since [see Equation~(\ref{e11.5})]
+\begin{equation}
+x^{\,\mu'}\,x_{\mu'} = x^{\,\mu}\,x_\mu,
+\end{equation}
+it follows that
+\begin{equation}\label{e11.51}
+a^{\,\mu}_{~\nu}\,a_\mu^{~\lambda} = g_\nu^{~\lambda}.
+\end{equation}
+Moreover, it is easily shown that
+\begin{align}
+x^{\,\mu} &= a_\nu^{~\mu}\,x^{\nu'},\\[0.5ex]
+x_\mu &= a^\nu_{~\mu}\,x_{\nu'}.
+\end{align}
+By definition,  a 4-vector $p^{\,\mu}$ has analogous transformation properties to the $x^{\,\mu}$. Thus,
+\begin{align}
+p^{\,\mu'} &= a^{\,\mu}_{~\nu}\,p^\nu,\\[0.5ex]
+p^{\,\mu} &= a_\nu^{~\mu}\,p^{\nu'},
+\end{align}
+etc.
+
+In  frame $S$, the Dirac equation is written
+\begin{equation}\label{e11.55}
+\left[\gamma^{\,\mu}\left(p_\mu- \frac{e}{c}\,{\mit\Phi}_\mu\right)-m_e\,c\right]\psi = 0.
+\end{equation}
+Let $\psi'$ be the wavefunction in frame $S'$. Suppose that
+\begin{equation}
+\psi' = A\,\psi,
+\end{equation}
+where $A$ is a $4\times 4$ transformation matrix that is independent of the $x^{\,\mu}$. (Hence, $A$ commutes with the $p_\mu$ and the ${\mit\Phi}_\mu$.)
+Multiplying (\ref{e11.55}) by $A$, we obtain
+\begin{equation}
+\left[A\,\gamma^{\,\mu}\,A^{-1}\left(p_\mu- \frac{e}{c}\,{\mit\Phi}_\mu\right)-m_e\,c\right]\psi' = 0.
+\end{equation}
+Hence, given that the $p_\mu$ and ${\mit\Phi}_\mu$ are the covariant components of 4-vectors, we obtain
+\begin{equation}\label{e11.57}
+\left[A\,\gamma^{\,\mu}\,A^{-1}\,a^\nu_{~\mu}\left(p_{\nu'}- \frac{e}{c}\,{\mit\Phi}_{\nu'}\right)-m_e\,c\right]\psi' = 0.
+\end{equation}
+Suppose that
+\begin{equation}\label{e11.58}
+A\,\gamma^{\,\mu}\,A^{-1}\,a^\nu_{~\mu} = \gamma^\nu,
+\end{equation}
+which is equivalent to 
+\begin{equation}\label{e11.59}
+A^{-1}\,\gamma^\nu\,A = a^\nu_{~\mu}\,\gamma^{\,\mu}.
+\end{equation}
+Here, we have assumed that the $a^\nu_{~\mu}$ commute with $A$ and the $\gamma^{\,\mu}$ (since they are just numbers). If (\ref{e11.58})
+holds then (\ref{e11.57}) becomes
+\begin{equation}\label{e11.61}
+\left[\gamma^{\,\mu}\left(p_{\mu'}- \frac{e}{c}\,{\mit\Phi}_{\mu'}\right)-m_e\,c\right]\psi' = 0.
+\end{equation}
+A comparison of this equation with (\ref{e11.55}) reveals that the Dirac equation takes the same form in frames $S$ and $S'$. In other words, the
+Dirac equation is Lorentz invariant. Incidentally, it is clear from (\ref{e11.55}) and (\ref{e11.61}) that the $\gamma^{\,\mu}$ matrices are
+the same in all inertial frames. 
+
+It remains to find a transformation matrix $A$ that satisfies (\ref{e11.59}). Consider an infinitesimal Lorentz transformation, for which
+\begin{equation}\label{e11.62}
+a_\mu^{~\nu} = g_\mu^{~\nu} + {\mit\Delta}\omega_\mu^{~\nu},
+\end{equation}
+where the ${\mit\Delta}\omega_\mu^{~\nu}$ are real numerical coefficients that are independent of the $x^{\,\mu}$, and are  also small compared to unity. To first order in small quantities, (\ref{e11.51}) yields
+\begin{equation}\label{e11.63}
+{\mit\Delta}\omega^{\,\mu\,\nu} + {\mit\Delta}\omega^{\nu\,\mu} = 0.
+\end{equation}
+Let us write
+\begin{equation}\label{e11.64}
+A = 1 - \frac{{\rm i}}{4}\,\sigma_{\mu\,\nu}\,{\mit\Delta}\omega^{\,\mu\,\nu},
+\end{equation}
+where the $\sigma_{\mu\,\nu}$ are ${\cal O}(1)$ $4\times 4$ matrices. To first order in small
+quantities,
+\begin{equation}\label{e11.65}
+A^{-1} = 1 + \frac{{\rm i}}{4}\,\sigma_{\mu\,\nu}\,{\mit\Delta}\omega^{\,\mu\,\nu}.
+\end{equation}
+Moreover, it follows from (\ref{e11.63}) that
+\begin{equation}
+\sigma_{\mu\,\nu} = -\sigma_{\nu\,\mu}.
+\end{equation}
+To first order in small quantities, Equations~(\ref{e11.59}), (\ref{e11.62}), (\ref{e11.64}), and (\ref{e11.65}) yield
+\begin{equation}
+{\mit\Delta}\omega^\nu_{~\beta}\,\gamma^{\,\beta} = -\frac{\rm i}{4}\,{\mit\Delta}\omega^{\alpha\,\beta}\left(\gamma^\nu\,\sigma_{\alpha\,\beta}- \sigma_{\alpha\,\beta}\,\gamma^\nu\right).
+\end{equation}
+Hence, making use of the symmetry property (\ref{e11.63}), we obtain
+\begin{equation}
+{\mit\Delta}\omega^{\alpha\,\beta}\,(g^\nu_{~\alpha}\,\gamma_\beta -g^\nu_{~\beta}\,\gamma_\alpha) = -\frac{\rm i}{2}\,{\mit\Delta}\omega^{\alpha\,\beta}\,(\gamma^\nu\,\sigma_{\alpha\,\beta}-\sigma_{\alpha\,\beta}\,\gamma^\nu),
+\end{equation}
+where $\gamma_\mu = g_{\mu\,\nu}\,\gamma^\nu$. 
+Since this equation must hold for arbitrary ${\mit\Delta}\omega^{\alpha\,\beta}$, we deduce that
+\begin{equation}\label{e11.69}
+2\,{\rm i}\,(g^\nu_{~\alpha}\,\gamma_\beta -g^\nu_{~\beta}\,\gamma_\alpha) = [\gamma^\nu, \sigma_{\alpha\,\beta}].
+\end{equation}
+Making use of the anti-commutation relations (\ref{e11.26a}), it can be shown that a suitable solution of the above
+equation is
+\begin{equation}\label{e11.70}
+\sigma_{\mu\,\nu} = \frac{{\rm i}}{2}\,[\gamma_\mu,\gamma_\nu].
+\end{equation}
+Hence, 
+\begin{align}\label{e11.71}
+A &= 1 + \frac{1}{8}\,[\gamma_\mu,\gamma_\nu]\,{\mit\Delta}\omega^{\,\mu\,\nu},\\[0.5ex]
+A^{-1} &= 1 - \frac{1}{8}\,[\gamma_\mu,\gamma_\nu]\,{\mit\Delta}\omega^{\,\mu\,\nu}.
+\end{align}
+Now that we have found the correct transformation rules for an infinitesimal Lorentz transformation, we can easily find those for a
+finite transformation by building it up from a large number of successive infinitesimal transforms. 
+
+Making use of (\ref{e11.30x}), as well as $\gamma^0\,\gamma^0=1$,  the Hermitian conjugate of (\ref{e11.71}) can be shown
+to take the form
+\begin{equation}
+A^\dag = 1-\frac{1}{8}\,\gamma^0\,[\gamma_\mu,\gamma_\nu]\,\gamma^0\,{\mit\Delta}\omega^{\,\mu\,\nu} = \gamma^0\,A^{-1}\,\gamma^0.
+\end{equation}
+Hence, (\ref{e11.59}) yields
+\begin{equation}
+A^\dag\,\gamma^0\,\gamma^{\,\mu}\,A = a^\mu_{~\nu}\,\gamma^0\,\gamma^\nu.
+\end{equation}
+It follows that
+\begin{equation}
+\psi^\dag\,A^\dag\,\gamma^0\,\gamma^{\,\mu}\,A\,\psi= a^{\,\mu}_{~\nu}\,\psi^\dag\,\gamma^0\,\gamma^\nu\,\psi,
+\end{equation}
+or
+\begin{equation}
+\psi'^{\dag}\,\gamma^0\,\gamma^{\,\mu}\,\psi'= a^{\,\mu}_{~\nu}\,\psi^\dag\,\gamma^0\,\gamma^\nu\,\psi,
+\end{equation}
+which implies that
+\begin{equation}
+j^{\,\mu'} = a^{\,\mu}_{~\nu}\,j^{\,\nu},
+\end{equation}
+where the $j^{\,\mu}$ are defined in Equation~(\ref{e11.42x}).  This proves that the $j^{\,\mu}$ transform as the contravariant components
+of a 4-vector. 
+
+\section{Free Electron Motion}
+According to Equation~(\ref{e11.31}), the relativistic Hamiltonian of a free electron takes the form
+\begin{equation}
+H = c\,\balpha\cdot{\bf p} + \beta\,m_e\,c^2.
+\end{equation}
+Let us use the Heisenberg picture to investigate the motion of such an electron. For the
+sake of brevity, we shall omit the suffix $t$ that should be appended to dynamical variables that vary in time, according to the formalism of Section~\ref{s4.2}.
+
+The above Hamiltonian is independent of ${\bf x}$. Hence, momentum ${\bf p}$ commutes with the Hamiltonian, and is therefore a
+constant of the motion. The $x$ component of the velocity is 
+\begin{equation}\label{e11.80}
+\dot{x} = \frac{[x,H]}{{\rm i}\,\hbar} = c\,\alpha_1,
+\end{equation} 
+where use has been made of the standard commutation relations between position and momentum operators. 
+This result is rather surprising, since it implies a relationship between velocity and momentum that is quite different from that
+in classical mechanics. This relationship, however, is clearly connected to the expression $j_x = \psi^\dag c\,\alpha_1\,\psi$ for the
+$x$ component of the probability current. The operator $\dot{x}$, specified in the above equation, has the eigenvalues $\pm c$,
+corresponding to the eigenvalues $\pm 1$ of $\alpha_1$. Since $\dot{y}$ and $\dot{z}$ are similar to $\dot{x}$, we
+conclude that a measurement of a velocity component of a free electron is certain to yield the result $\pm c$. As is easily demonstrated, this conclusion also
+holds in the presence of an electromagnetic field. 
+
+Of course, electrons are often observed to have velocities considerably less than that of light. Hence, the previous conclusion seems to
+be in conflict with experimental observations. The conflict is not real, however, because the theoretical velocity discussed above is
+the velocity at one instance in time, whereas observed velocities are always averages over a finite time interval. We shall find, on
+further examination of the equations of motion, that the velocity of a free electron is not constant, but oscillates rapidly about a mean value
+that agrees with the experimentally observed value. 
+
+In order to understand why a measurement of a velocity component must lead to the result $\pm c$ in a relativistic theory, consider the
+following argument. To measure the velocity we must measure the position at two slightly different times, and then divide the
+change in position by the time interval. (We cannot just measure the momentum and then apply a formula, because the
+ordinary connection between velocity and momentum is no longer valid.) In order that our measured velocity may
+approximate to the instantaneous velocity, the time interval between the two measurements of position must be very short, and the
+measurements themselves very accurate. However, the great accuracy with which the position of the electron
+is known during the time interval leads to an almost complete indeterminacy in its momentum, according to the Heisenberg uncertainty principle. 
+This means that almost all values of the momentum are equally likely, so that the momentum is almost certain to be infinite. But, an infinite
+value of a momentum component corresponds to the values $\pm c$ for the corresponding velocity component. 
+
+Let us now examine how the election velocity varies in time. We have
+\begin{equation}
+{\rm i}\,\hbar\,\dot{\alpha}_1  =\alpha_1\,H-H\,\alpha_1.
+\end{equation}
+Now $\alpha_1$ anti-commutes with all terms in $H$ except $c\,\alpha_1\,p^1$,
+so
+\begin{equation}
+\alpha_1\,H+H\,\alpha_1  = \alpha_1\,c\,\alpha_1\,p^1 + c\,\alpha_1\,p^1\,\alpha_1 = 2\,c\,p^1.
+\end{equation}
+Here, use has been made of the fact that $\alpha_1$ commutes with $p^1$, and also that $\alpha_1^{\,2}=1$. 
+Hence, we get
+\begin{equation}\label{e11.83}
+{\rm i}\,\hbar\,\dot{\alpha}_1 = 2\,\alpha_1\,H-2\,c\,p^1.
+\end{equation}
+Since $H$ and $p^1$ are constants of the motion, this equation yields
+\begin{equation}
+{\rm i}\,\hbar\,\ddot{\alpha}_1 = 2\,\dot{\alpha}_1\,H,
+\end{equation}
+which can be integrated to give
+\begin{equation}
+\dot{\alpha}_1(t) = \dot{\alpha}_1(0)\,\exp\left(\frac{-2\,{\rm i}\,H\,t}{\hbar}\right).
+\end{equation}
+It follows from Equation~(\ref{e11.80}) and (\ref{e11.83}) that
+\begin{equation}
+\dot{x}(t) = c\,\alpha_1(t) = \frac{{\rm i}\,\hbar\,c}{2}\,\dot{\alpha}_1(0)\,\exp\left(\frac{-2\,{\rm i}\,H\,t}{\hbar}\right)H^{\,-1} + c^2\,p_x\,H^{\,-1},
+\end{equation}
+and
+\begin{equation}
+x(t) = x(0)- \frac{\hbar^2\,c}{4}\,\dot{\alpha}_1(0)\,\exp\left(\frac{-2\,{\rm i}\,H\,t}{\hbar}\right)H^{\,-2} + c^2\,p_x\,H^{\,-1}\,t.
+\end{equation}
+We can see that the $x$-component of velocity consists of two parts, a constant part, $c^2\,p_x\,H^{\,-1}$, connected with the momentum
+according to the classical relativistic formula, and an oscillatory part whose frequency, $2\,H/h$,  is high (being at least $2\,m_e\,c^2/h$). 
+Only the constant part would be observed in a practical measurement of velocity (i.e., an average over a short time interval that is still much longer than $h/2\,m_e\,c^2$). 
+The oscillatory part ensures that the instantaneous value of $\dot{x}$ has the eigenvalues $\pm c$.  Note, finally, that the oscillatory part of $x$ is small, being of
+order
+$\hbar/m_e\,c$.
+
+\section{Electron Spin}
+According to Equation~(\ref{e11.34}),  the relativistic Hamiltonian of an electron in an electromagnetic
+field is
+\begin{equation}\label{e11.87}
+H =-e\,\phi + c\,\balpha\cdot({\bf p}+e\,{\bf A})+ \beta\,m_e\,c^2.
+\end{equation}
+Hence,
+\begin{equation}\label{e11.89}
+\left(\frac{H}{c}+\frac{e}{c}\,\phi\right)^2 = \left[\balpha\cdot({\bf p}+e\,{\bf A})+ \beta\,m_e\,c\right]^{\,2} = \left[\balpha\cdot({\bf p}+e\,{\bf A})\right]^{\,2} + m_e^{\,2}\,c^2,
+\end{equation}
+where use has been made of Equations~(\ref{e11.20}) and (\ref{e11.21}). 
+Now, we can write
+\begin{equation}
+\alpha_i = \gamma^5\,\Sigma_i,
+\end{equation}
+for $i=1,3$, where
+\begin{equation}
+\gamma^5 = \left(\begin{array}{cc} 0& 1\\[0.5ex]1 & 0\end{array}\right),
+\end{equation}
+and
+\begin{equation}\label{e11.92f}
+\Sigma_i = \left(\begin{array}{cc} \sigma_i& 0\\[0.5ex]0& \sigma_i\end{array}\right).
+\end{equation}
+Here, $0$ and $1$ denote $2\times 2$ null and identity matrices, respectively, whereas the $\sigma_i$ are conventional
+$2\times 2$ Pauli matrices. Note that $\gamma^5\,\gamma^5=1$, and
+\begin{equation}
+[\gamma^5, \Sigma_i]=0.
+\end{equation}
+ It follows from (\ref{e11.89}) that
+\begin{equation}
+\left(\frac{H}{c}+\frac{e}{c}\,\phi\right)^2 =  \left[\bSigma\cdot({\bf p}+e\,{\bf A})\right]^{\,2} + m_e^{\,2}\,c^2.
+\end{equation}
+Now, a straightforward generalization of Equation~(\ref{e5.174}) gives
+\begin{equation}\label{e11.93}
+(\bSigma \cdot {\bf a} ) \,(\bSigma \cdot {\bf b}) = {\bf a} \cdot {\bf b}
++{\rm i}\,\bSigma\cdot ({\bf a} \times {\bf b}),
+\end{equation}
+where ${\bf a}$ and ${\bf b}$ are any two three-dimensional vectors that commute with $\bSigma$. 
+It follows that
+\begin{equation}
+ \left[\bSigma\cdot({\bf p}+e\,{\bf A})\right]^{\,2} = ({\bf p}+e\,{\bf A})^2 + {\rm i}\,\bSigma\cdot ({\bf p}+e\,{\bf A})\times ({\bf p}+e\,{\bf A}).
+ \end{equation}
+ However,
+ \begin{equation}
+ ({\bf p}+e\,{\bf A})\times ({\bf p}+e\,{\bf A}) = e\,{\bf p}\times {\bf A} +e\,{\bf A}\times {\bf p} = -{\rm i}\,e\,\hbar\,\nabla\times {\bf A} -{ \rm i}\,e\,\hbar\,{\bf A}\times \nabla = -{\rm i}\,e\,\hbar\,{\bf B},
+ \end{equation}
+ where ${\bf B} = \nabla\times {\bf A}$ is the magnetic field strength. 
+ Hence, we obtain
+ \begin{equation}\label{e11.96}
+ \left(\frac{H}{c}+\frac{e}{c}\,\phi\right)^2 = ({\bf p}+e\,{\bf A})^2 + m_e^{\,2}\,c^2+e\,\hbar\,\bSigma\cdot{\bf B}.
+ \end{equation}
+ 
+ Consider the non-relativistic limit. In this case, we can write
+ \begin{equation}
+ H = m_e\,c^2+ \delta H,
+ \end{equation}
+ where $\delta H$ is small compared to $m_e\,c^2$. Substituting into (\ref{e11.96}), and neglecting $\delta H^{\,2}$, and other
+ terms involving $c^{\,-2}$, we get
+ \begin{equation}
+ \delta H\simeq -e\,\phi + \frac{1}{2\,m_e}\,({\bf p} + e\,{\bf A})^2 + \frac{e\,\hbar}{2\,m_e}\,\bSigma\cdot{\bf B}.
+ \end{equation}
+ This Hamiltonian is the same as the classical Hamiltonian of a non-relativistic electron, except for the final term. 
+ This term may be interpreted as arising from the electron having an intrinsic  magnetic moment 
+ \begin{equation}\label{e11.99}
+ \bmu = - \frac{e\,\hbar}{2\,m_e}\,\bSigma.
+ \end{equation}
+ 
+ In order to demonstrate that the electron's intrinsic magnetic moment is associated with an intrinsic angular momentum,
+  consider the motion of an electron in a central electrostatic potential: i.e., $\phi=\phi(r)$ and ${\bf A}={\bf 0}$. 
+In this case, the Hamiltonian (\ref{e11.87}) becomes
+\begin{equation}
+H = - e\,\phi(r) + c\,\gamma^5\,\bSigma\cdot{\bf p} + \beta\,m_e\,c^2.
+\end{equation}
+Consider the $x$ component of the electron's orbital angular momentum,
+\begin{equation}
+L_x = y\,p_z-z\,p_y = {\rm i}\,\hbar\left(z\,\frac{\partial}{\partial y} - y\,\frac{\partial}{\partial z}\right).
+\end{equation}
+The Heisenberg equation of motion for this quantity is
+\begin{equation}
+{\rm i}\,\hbar\,\dot{L}_x = [L_x,H].
+\end{equation}
+However, it is easily demonstrated that
+\begin{align}
+[L_x,r] &= 0,\\[0.5ex]
+[L_x,p_x] &= 0,\\[0.5ex]
+[L_x,p_y] &= {\rm i}\,\hbar\,p_z,\\[0.5ex]
+[L_x,p_z]&=  -{\rm i}\,\hbar\,p_y.
+\end{align}
+Hence, we obtain
+\begin{equation}
+[L_x,H] = {\rm i}\,\hbar\,c\,\gamma^5\,(\Sigma_2\,p_z-\Sigma_3\,p_y),
+\end{equation}
+which implies that
+\begin{equation}
+\dot{L}_x = c\,\gamma^5\,(\Sigma_2\,p_z-\Sigma_3\,p_y).
+\end{equation}
+It can be seen that $L_x$ is not a constant of the motion. However, the $x$-component of the total angular
+momentum of the system must be a constant of the motion (because a central electrostatic potential exerts zero torque on the system). Hence, we deduce that the electron possesses additional
+angular momentum that is not connected with its motion through space. Now,
+\begin{equation}
+{\rm i}\,\hbar\,\dot{\Sigma}_1= [\Sigma_1,H].
+\end{equation}
+However,
+\begin{align}
+[\Sigma_1,\gamma^5] &= 0,\\[0.5ex]
+[\Sigma_1,\Sigma_1] &=0,\\[0.5ex]
+[\Sigma_1,\Sigma_2] &=2\,{\rm i}\,\Sigma_3,\\[0.5ex]
+[\Sigma_1,\Sigma_3]&=-2\,{\rm i}\,\Sigma_2,
+\end{align}
+so
+\begin{equation}
+[\Sigma_1,H] = 2\,{\rm i}\,c\,\gamma^5\,(\Sigma_3\,p_y-\Sigma_2\,p_z),
+\end{equation}
+which implies that
+\begin{equation}
+\frac{\hbar}{2}\,\dot{\Sigma}_1 = -c\,\gamma^5\,(\Sigma_2\,p_z-\Sigma_3\,p_y).
+\end{equation}
+Hence, we deduce that
+\begin{equation}
+\dot{L}_x +\frac{\hbar}{2}\,\dot{\Sigma}_1 = 0.
+\end{equation}
+Since there is nothing special about the $x$ direction, we conclude that the vector ${\bf L} + (\hbar/2)\,\bSigma$ is
+a constant of the motion. We can interpret this result by saying that the electron has a spin angular momentum
+${\bf S} = (\hbar/2)\,\bSigma$, which must be added to its orbital angular momentum in order to obtain a constant of the motion. 
+According to (\ref{e11.99}), the relationship between the electron's spin angular momentum and its intrinsic (i.e., non-orbital) magnetic moment is
+\begin{equation}
+\bmu = - \frac{e\,g}{2\,m_e}\,{\bf S},
+\end{equation}
+where the gyromagnetic ratio $g$ takes the value
+\begin{equation}
+g= 2.
+\end{equation}
+As explained in Section~\ref{s5.5c}, this is twice the value one would naively predict by analogy with classical physics. 
+
+\section{Motion in  Central Field}
+To further study the motion of an electron in a central field, whose Hamiltonian is
+\begin{equation}\label{e11.119}
+H = - e\,\phi(r) + c\,\balpha\cdot{\bf p} + \beta\,m_e\,c^2,
+\end{equation}
+it is convenient to  transform to polar coordinates. Let 
+\begin{equation}
+r = (x^{2}+y^{2}+z^{2})^{1/2},
+\end{equation}
+and
+\begin{equation}\label{e11.222f}
+p_r = {\bf x}\cdot{\bf p}.
+\end{equation}
+It is easily demonstrated that
+\begin{equation}\label{e11.122}
+[r,p_r] = {\rm i} \,\hbar,
+\end{equation}
+which implies that in the Schr\"{o}dinger representation 
+\begin{equation}\label{e11.123}
+p_r = -{\rm i}\,\hbar\,\frac{\partial}{\partial r}.
+\end{equation}
+
+Now, by symmetry, an energy eigenstate in a central field is a simultaneous eigenstate of the total angular momentum
+\begin{equation}
+{\bf J} = {\bf L} + \frac{\hbar}{2}\,\bSigma.
+\end{equation}
+Furthermore, we know from general principles that the eigenvalues of $J^{\,2}$ are $j\,(j+1)\,\hbar^2$, where $j$ is a positive half-integer (since
+$j=|l+1/2|$, where $l$ is the standard non-negative integer quantum number associated with orbital angular momentum.)
+
+It follows from Equation~(\ref{e11.93}) that
+\begin{equation}
+(\bSigma\cdot {\bf L})\,(\bSigma\cdot{\bf L}) = L^{\,2} + {\rm i}\,\bSigma\times ({\bf L}\times {\bf L}).
+\end{equation}
+However, because ${\bf L}$ is an angular momentum, its components satisfy the standard commutation relations
+\begin{equation}
+{\bf L}\times {\bf L} = {\rm i}\,\hbar\,{\bf L}.
+\end{equation}
+Thus, we obtain
+\begin{equation}
+(\bSigma\cdot {\bf L})\,(\bSigma\cdot{\bf L}) = L^{\,2} -\hbar\,\bSigma\cdot{\bf L} = J^{\,2} - 2\,\hbar\,\bSigma\cdot{\bf L} -\frac{\hbar^2}{4}\,\Sigma^{\,2}.
+\end{equation}
+However, $\Sigma^{\,2}=3$, so
+\begin{equation}\label{e11.128}
+(\bSigma\cdot {\bf L} + \hbar)^2 = J^{\,2}+\frac{1}{4}\,\hbar^2.
+\end{equation}
+
+Further application of (\ref{e11.93}) yields
+\begin{align}\label{e11.129}
+(\bSigma\cdot {\bf L})\,(\bSigma\cdot{\bf p}) &= {\bf L}\cdot {\bf p} + {\rm i}\,\bSigma\cdot{\bf L}\times {\bf p}= {\rm i}\,\bSigma\cdot{\bf L}\times{\bf p},\\[0.5ex]
+(\bSigma\cdot {\bf p})\,(\bSigma\cdot{\bf L}) &= {\bf p}\cdot {\bf L} + {\rm i}\,\bSigma\cdot{\bf p}\times {\bf L}= {\rm i}\,\bSigma\cdot{\bf p}\times{\bf L},
+\end{align}
+However, it is easily demonstrated from the fundamental commutation relations between position and momentum operators that
+\begin{equation}
+{\bf L}\times {\bf p} + {\bf p}\times{\bf L} = 2\,{\rm i}\,\hbar\,{\bf p}.
+\end{equation}
+Thus,
+\begin{equation}
+(\bSigma\cdot{\bf L})\,(\bSigma\cdot{\bf p}) + (\bSigma\cdot{\bf p})\,(\bSigma\cdot{\bf L}) =-2\,\hbar\,\bSigma\cdot{\bf p},
+\end{equation}
+which implies that
+\begin{equation}
+\{\bSigma\cdot {\bf L}+ \hbar,\, \bSigma\cdot {\bf p}\} = 0.
+\end{equation}
+Now, $\gamma^5\,\bSigma = \balpha$. Moreover, $\gamma^5$ commutes with ${\bf p}$, ${\bf L}$, and $\bSigma$. Hence,
+we conclude that
+\begin{equation}
+\{\bSigma\cdot {\bf L}+ \hbar,\, \balpha\cdot {\bf p}\} = 0.
+\end{equation}
+Finally, since $\beta$ commutes with ${\bf p}$ and ${\bf L}$, but anti-commutes with the components of $\balpha$, we obtain
+\begin{equation}\label{e11.135}
+[\zeta,\balpha\cdot {\bf p}] = 0,
+\end{equation}
+where 
+\begin{equation}\label{e11.137}
+\zeta = \beta\left(\bSigma\cdot{\bf L} + \hbar\right).
+\end{equation}
+
+If we repeat the above analysis, starting at Equation~(\ref{e11.129}), but substituting ${\bf x}$ for ${\bf p}$, and 
+making use of the easily demonstrated result
+\begin{equation}
+{\bf L}\times {\bf x} + {\bf x}\times{\bf L} = 2\,{\rm i}\,\hbar\,{\bf x},
+\end{equation}
+we find that
+\begin{equation}
+[\zeta,\balpha\cdot {\bf x}] = 0.
+\end{equation}
+
+Now, $r$ commutes with $\beta$, as well as the components of $\bSigma$ and ${\bf L}$. Hence,
+\begin{equation}
+[\zeta,r] = 0.\label{e11.139}
+\end{equation}
+Moreover, $\beta$ commutes with the components of ${\bf L}$, and can easily be shown to commute with all components of $\bSigma$. 
+It follows that
+\begin{equation}\label{e11.140}
+[\zeta,\beta]=0.
+\end{equation}
+Hence, Equations~(\ref{e11.119}), (\ref{e11.135}), (\ref{e11.139}), and (\ref{e11.140}) imply that
+\begin{equation}
+[\zeta, H] =0.
+\end{equation}
+In other words, an eigenstate of the Hamiltonian is a simultaneous eigenstate of $\zeta$. 
+Now,
+\begin{equation}
+\zeta^{\,2} = [\beta\,(\bSigma\cdot{\bf L}+\hbar)]^{\,2} = (\bSigma\cdot{\bf L}+\hbar)^2 = J^{\,2}+\frac{1}{4}\,\hbar^2,
+\end{equation}
+where use has been made of Equation~(\ref{e11.128}), as well as $\beta^{\,2}=1$. It follows that the eigenvalues of
+$\zeta^{\,2}$ are $j\,(j+1)\,\hbar^2 + (1/4)\,\hbar^2 = (j+1/2)^2\,\hbar^2$. Thus, the eigenvalues of $\zeta$
+can be written $k\,\hbar$, where $k=\pm(j+1/2)$ is a non-zero integer. 
+
+Equation~(\ref{e11.93}) implies that 
+\begin{align}
+(\bSigma\cdot{\bf x})\,(\bSigma\cdot{\bf p}) &= {\bf x}\cdot{\bf p} + {\rm i}\,\bSigma\cdot{\bf x}\times {\bf p} 
+= r\,p_r + {\rm i}\,\bSigma\cdot{\bf L}\nonumber\\[0.5ex]
+&= r\,p_r + {\rm i}\,(\beta\,\zeta-\hbar),\label{e11.143}
+\end{align}
+where use has been made of (\ref{e11.222f}) and (\ref{e11.137}).
+
+It is helpful to define the new operator $\epsilon$, where
+\begin{equation}\label{e11.144}
+r\,\epsilon = \balpha\cdot{\bf x}.
+\end{equation}
+Moreover, it is evident that
+\begin{equation}\label{e11.145}
+[\epsilon,r] = 0.
+\end{equation}
+Hence,
+\begin{equation}
+r^2\,\epsilon^2 = (\balpha\cdot{\bf x})^2 = \frac{1}{2}\sum_{i,j=1,3}\{\alpha_i,\alpha_j\}\,x^i\,x^j = \sum_{i=1,3}(x^i)^{\,2}=r^2,
+\end{equation}
+where use has been made of (\ref{e11.19}). 
+It follows that
+\begin{equation}\label{e11.147}
+\epsilon^2 = 1.
+\end{equation}
+We have already seen that $\zeta$ commutes with $\balpha\cdot{\bf x}$ and $r$. Thus,
+\begin{equation}
+[\zeta,\epsilon] = 0.
+\end{equation}
+
+Equation~(\ref{e11.93}) gives
+\begin{equation}
+(\bSigma\cdot{\bf x})\,({\bf x}\cdot{\bf p}) - ({\bf x}\cdot{\bf p})\,(\bSigma\cdot{\bf x}) = \bSigma\cdot\left[{\bf x}\,({\bf x}\cdot{\bf p})- ({\bf x}\cdot{\bf p})\,{\bf x}\right] = {\rm i}\,\hbar\,\bSigma\cdot{\bf x},
+\end{equation}
+where use has been made of the fundamental commutation relations for position and momentum operators. 
+However, ${\bf x}\cdot{\bf p}=r\,p_r$ and $\bSigma\cdot{\bf x} = \gamma^5\,r\,\epsilon$, so, multiplying through by $\gamma^5$, we get
+\begin{equation}
+r^2\,\epsilon\,p_r - r\,p_r\,r\,\epsilon = {\rm i}\,\hbar\,r\,\epsilon.
+\end{equation}
+Equation~(\ref{e11.122}) then yields
+\begin{equation}
+[\epsilon,p_r]= 0.
+\end{equation}
+
+Equation~(\ref{e11.143}) implies that
+\begin{equation}
+(\balpha\cdot{\bf x})\,(\balpha\cdot{\bf p}) = r\,p_r+{\rm i}\,(\beta\,\zeta-\hbar).
+\end{equation}
+Making use of Equations~(\ref{e11.139}), (\ref{e11.144}), (\ref{e11.145}), and (\ref{e11.147}), we get
+\begin{equation}
+\balpha\cdot {\bf p} = \epsilon\,(p_r-{\rm i}\,\hbar/r) + {\rm i}\,\epsilon\,\beta\,\zeta/r.
+\end{equation}
+Hence, the Hamiltonian (\ref{e11.119}) becomes
+\begin{equation}
+H= - e\,\phi(r) + c\,\epsilon\,(p_r-{\rm i}\,\hbar/r) + {\rm i}\,c\,\epsilon\,\beta\,\zeta/r + \beta\,m_e\,c^2.
+\end{equation}
+Now, we wish to solve the energy eigenvalue problem
+\begin{equation}
+H\,\psi = E\,\psi,
+\end{equation}
+where $E$ is the energy eigenvalue. However, we have already shown that  an eigenstate of the Hamiltonian is a simultaneous eigenstate of the $\zeta$
+operator belonging to the eigenvalue $k\,\hbar$, where $k$ is a non-zero integer. Hence, the eigenvalue problem reduces to
+\begin{equation}
+\left[- e\,\phi(r) + c\,\epsilon\,(p_r-{\rm i}\,\hbar/r) + {\rm i}\,c\,\hbar\,k\,\epsilon\,\beta/r + \beta\,m_e\,c^2\right]\psi = E\,\psi,
+\end{equation}
+which only involves the radial coordinate $r$. It is easily demonstrated that $\epsilon$ anti-commutes with $\beta$. Hence, given that
+$\beta$ takes the form (\ref{e11.28g}), and  that $\epsilon^2=1$, we can represent $\epsilon$ as the matrix
+\begin{equation}
+\epsilon = \left(\begin{array}{rr}0&-{\rm i}\\[0.5ex]{\rm i}&0\end{array}\right).
+\end{equation}
+Thus, writing $\psi$ in the spinor form 
+\begin{equation}
+\psi = \left(\begin{array}{c} \psi_a(r)\\[0.5ex]\psi_b(r)\end{array}\right),
+\end{equation}
+and making use of (\ref{e11.123}), 
+the energy eigenvalue problem for an electron in a central field reduces to the following two coupled radial differential equations:
+\begin{align}\label{e11.159}
+\hbar\,c\left(\frac{d}{d r} + \frac{k+1}{r}\right)\psi_b + (E-m_e\,c^2+e\,\phi)\,\psi_a&= 0,\\[0.5ex]
+\hbar\,c\left(\frac{d}{d r}-\frac{k-1}{r}\right)\psi_a - (E+m_e\,c^2+e\,\phi)\,\psi_b &=0.\label{e11.160}
+\end{align}
+
+\section{Fine Structure of Hydrogen Energy Levels}
+For the case of a hydrogen atom,
+\begin{equation}
+\phi(r) = \frac{e}{4\pi\,\epsilon_0\,r}.
+\end{equation}
+Hence, Equations~(\ref{e11.159}) and (\ref{e11.160}) yield
+\begin{align}
+\left(\frac{1}{a_1} - \frac{\alpha}{y}\right)\psi_a - \left(\frac{d}{dy} + \frac{k+1}{y}\right)\psi_b &=0,\\[0.5ex]
+\left(\frac{1}{a_2} +\frac{\alpha}{y}\right)\psi_b - \left(\frac{d}{dy} - \frac{k-1}{y}\right)\psi_a &=0,
+\end{align}
+where $y=r/a_0$,  and
+\begin{align}
+a_1 &= \frac{\alpha}{1-{\cal E}},\\[0.5ex]
+a_2&= \frac{\alpha}{1+{\cal E}},
+\end{align}
+with
+ ${\cal E} = E/(m_e\,c^2)$. Here, $a_0= 4\pi\,\epsilon_0\,\hbar^2/(m_e\,e^2)$ is the Bohr radius, and
+$\alpha=e^2/(4\pi\,\epsilon_0\,\hbar\,c)$ the fine structure constant. 
+Writing
+\begin{align}\label{e11.166}
+\psi_a(y) = \frac{{\rm e}^{-y/a}}{y}\,f(y),\\[0.5ex]
+\psi_b(y) = \frac{{\rm e}^{-y/a}}{y}\,g(y),\label{e11.167}
+\end{align}
+where
+\begin{equation}
+a = (a_1\,a_2)^{1/2} = \frac{\alpha}{\sqrt{1-{\cal E}^{\,2}}},
+\end{equation}
+we obtain
+\begin{align}\label{e11.169}
+\left(\frac{1}{a_1}-\frac{\alpha}{y}\right)f - \left(\frac{d}{d y}- \frac{1}{a}+\frac{k}{y}\right)g &=0,\\[0.5ex]
+\left(\frac{1}{a_2}+\frac{\alpha}{y}\right)g - \left(\frac{d}{d y}- \frac{1}{a}-\frac{k}{y}\right)f &=0.\label{e11.170}
+\end{align}
+Let us search for power law solutions of the form
+\begin{align}\label{e11.171}
+f(y)&= \sum_{s} c_s\,y^s,\\[0.5ex]
+g(y)&= \sum_s c_s'\,y^s,\label{e11.172}
+\end{align}
+where successive values of $s$ differ by unity. Substitution of these solutions into Equations~(\ref{e11.169}) and (\ref{e11.170}) leads to the
+recursion relations
+\begin{align}\label{e11.173}
+\frac{c_{s-1}}{a_1} -\alpha\,c_s - (s+k)\,c_s' + \frac{c_{s-1}}{a}&=0,\\[0.5ex]
+\frac{c_{s-1}'}{a_2}+\alpha\,c_s' -(s-k)\,c_s + \frac{c_{s-1}}{a}&=0.\label{e11.174}
+\end{align}
+Multiplying the first of these equations by $a$, and the second by $a_2$, and then subtracting, we eliminate both $c_{s-1}$ and $c_{s-1}'$,
+since $a/a_1=a_2/a$. We are left with
+\begin{equation}\label{e11.175}
+[a\,\alpha-a_2\,(s-k)]\,c_s + [a_2\,\alpha+a\,(s+k)]\,c_{s}' = 0.
+\end{equation}
+
+The physical boundary conditions at $y=0$ require that $y\,\psi_a\rightarrow 0$ and $y\,\psi_b\rightarrow 0$ as $y\rightarrow 0$. Thus, it
+follows from (\ref{e11.166}) and (\ref{e11.167}) that $f\rightarrow 0$ and $g\rightarrow 0$ as $y\rightarrow 0$. 
+Consequently, the series (\ref{e11.171}) and (\ref{e11.172}) must terminate at small positive $s$. If $s_0$ is the minimum value of $s$
+for which $c_s$ and $c_s'$ do not both vanish then it follows from (\ref{e11.173}) and (\ref{e11.174}), putting $s=s_0$ and
+$c_{s_0-1}=c_{s_0-1}'=0$, that
+\begin{align}
+\alpha\,c_{s_0}+(s_0+k)\,c_{s_0}'&=0,\\[0.5ex]
+\alpha\,c_{s_0}' - (s_0-k)\,c_{s_0} &=0,
+\end{align}
+which implies that
+\begin{equation}
+\alpha^2 = - s_0^{\,2} + k^2.
+\end{equation}
+Since the boundary condition requires that the minimum value of $s_0$ be greater than zero, we must take
+\begin{equation}
+s_0 = (k^2-\alpha^2)^{1/2}.
+\end{equation}
+
+To investigate the convergence of the series (\ref{e11.171}) and (\ref{e11.172}) at large $y$, we shall determine the
+ratio $c_s/c_{s-1}$ for large $s$. In the limit of large $s$, Equations~(\ref{e11.174}) and (\ref{e11.175}) yield
+\begin{align}
+s\,c_s&\simeq \frac{c_{s-1}}{a}+\frac{c_{s-1}'}{a_2},\\[0.5ex]
+a_2\,c_s&\simeq a\,c_s',
+\end{align}
+since $\alpha\simeq 1/137 \ll 1$. Thus,
+\begin{equation}
+\frac{c_s}{c_{s-1}}\simeq \frac{2}{a\,s}.
+\end{equation}
+However, this is the ratio of coefficients in the series expansion of $\exp(2\,y/a)$. Hence, we deduce that the series  (\ref{e11.171}) and (\ref{e11.172}) diverge
+unphysically at large $y$ unless they terminate at large $s$. 
+
+Suppose that the series (\ref{e11.171}) and (\ref{e11.172})  terminate with the terms $c_s$ and $c_s'$, so that $c_{s+1}=c_{s+1}'=0$. It
+follows from (\ref{e11.173}) and (\ref{e11.174}), with $s+1$ substituted for $s$, that
+\begin{align}
+\frac{c_s}{a_1} + \frac{c_s'}{a}&=0,\\[0.5ex]
+\frac{c_s'}{a_2} + \frac{c_s}{a} &=0.
+\end{align}
+These two expressions are equivalent, because $a^2=a_1\,a_2$. When combined with (\ref{e11.175}) they give
+\begin{equation}
+a_1\left[a\,\alpha-a_2\,(s-k)\right] = a\left[a_2\,\alpha+a\,(s+k)\right],
+\end{equation}
+which reduces to
+\begin{equation}
+2\,a_1\,a_2\,s = a\,(a_1-a_2)\,\alpha,
+\end{equation}
+or
+\begin{equation}
+{\cal E} = \left(1+\frac{\alpha^2}{s^2}\right)^{-1/2}.
+\end{equation}
+Here,  $s$, which specifies the last term in the series, must be greater than $s_0$ by some non-negative integer $i$. Thus,
+\begin{equation}
+s = i+ (k^2-\alpha^2)^{1/2}= i+[(j+1/2)^2-\alpha^2]^{1/2}.
+\end{equation}
+where $j\,(j+1)\,\hbar^2$ is the eigenvalue of $J^{\,2}$. Hence, the energy eigenvalues of the hydrogen atom become
+\begin{equation}
+\frac{E}{m_e\,c^2} =\left\{1 + \frac{\alpha^2}{\left(i+[(j+1/2)^2-\alpha^2]^{1/2}\right)^2}\right\}^{-1/2}.
+\end{equation}
+Given that $\alpha\simeq 1/137$, we can expand the above expression in $\alpha^2$ to give
+\begin{equation}
+\frac{E}{m_e\,c^2} = 1 - \frac{\alpha^2}{2\,n^2}- \frac{\alpha^4}{2\,n^4}\left(\frac{n}{j+1/2}-\frac{3}{4}\right)+{\cal O}(\alpha^6),
+\end{equation}
+where $n= i + j+1/2$ is a positive integer. Of course, the first term in the above expression corresponds to the electron's
+rest mass energy. The second term corresponds to the standard non-relativistic expression for the hydrogen energy levels, with $n$ playing the role
+of the radial quantum number (see Section~\ref{s5.6}). 
+Finally, the third term corresponds to the fine structure correction to these energy levels (see Exercise~\ref{ex7.2}).
+Note that this correction only depends on the quantum numbers $n$ and $j$. Now, we showed in Section~\ref{s7.7x} that the fine structure correction to
+the energy levels of the hydrogen atom is a combined effect of spin-orbit coupling and the electron's relativistic mass increase. Hence,
+it is evident that both of these effects are automatically taken into account in the Dirac equation. 
+
+\section{Positron Theory}
+We have already mentioned that the Dirac equation admits twice as many solutions as it ought to, half of them
+belonging to states with negative values for the kinetic energy $c\,p^0 + e\,{\mit\Phi}^{\,0}$. This
+difficulty was introduced when we passed from Equation~(\ref{e11.15}) to Equation~(\ref{e11.16}), and is inherent in any relativistic theory.
+
+Let us examine the negative energy solutions of the equation
+\begin{equation}\label{e11.192}
+\left[\left(p^0+\frac{e}{c}\,{\mit\Phi}^{\,0}\right)-\alpha_1\left(p^1+\frac{e}{c}\,{\mit\Phi}^{\,1}\right)-\alpha_2\left(p^2+\frac{e}{c}\,{\mit\Phi}^{\,2}\right)-\alpha_3\left(p^3+\frac{e}{c}\,{\mit\Phi}^{\,3}\right)
+-\beta\,m_e\,c\right]\psi=0
+\end{equation}
+a little more closely. For this purpose, it is convenient to use a representation of the $\alpha$'s and $\beta$
+in which all the elements of the matrices $\alpha_1$, $\alpha_2$, and $\alpha_3$ are real, and
+all of those of the matrix representing $\beta$ are imaginary or zero. Such a representation can
+be obtained from the standard representation by interchanging the expressions for $\alpha_2$ and $\beta$. 
+If Equation~(\ref{e11.192}) is expressed as a matrix equation in this representation, and we then substitute $-{\rm i}$ for
+${\rm i}$, we get [remembering the factor ${\rm i}$ in Equation~(\ref{e11.13})]
+\begin{equation}\label{e11.193}
+\left[\left(p^0-\frac{e}{c}\,{\mit\Phi}^{\,0}\right)-\alpha_1\left(p^1-\frac{e}{c}\,{\mit\Phi}^{\,1}\right)-\alpha_2\left(p^2-\frac{e}{c}\,{\mit\Phi}^{\,2}\right)-\alpha_3\left(p^3-\frac{e}{c}\,{\mit\Phi}^{\,3}\right)
+-\beta\,m_e\,c\right]\psi^\ast=0.
+\end{equation}
+Thus, each solution, $\psi$, of the wave equation (\ref{e11.192}) has for its complex conjugate, $\psi^\ast$, a solution of the
+wave equation (\ref{e11.193}). Furthermore, if the solution, $\psi$, of (\ref{e11.192})
+belongs to a negative value for $c\,p^0 + e\,{\mit\Phi}^{\,0}$ then the corresponding solution, $\psi^\ast$, of (\ref{e11.193})
+will belong to a positive value for $c\,p^0-e\,{\mit\Phi}^{\,0}$. But, the operator in (\ref{e11.193}) is
+just what we would get if we substituted $-e$ for $e$ in the operator in (\ref{e11.192}). It follows that each negative
+energy solution of (\ref{e11.192}) is the complex conjugate of a positive energy solution of the wave equation
+obtained from (\ref{e11.192}) by the substitution of $-e$ for $e$. The latter solution represents an electron
+of charge $+e$ (instead of $-e$, as we have had up to now) moving through the given electromagnetic field. 
+
+We conclude that the negative energy solutions of (\ref{e11.192}) refer to the motion of a new type of particle having the
+mass of an electron, but the opposite charge. Such particles have been observed experimentally, and are called {\em positrons}. 
+Note that we cannot simply assert that the negative energy solutions represent positrons, since this would make the dynamical
+relations all wrong. For instance, it is certainly not true that a positron has a negative kinetic energy. Instead, we assume
+that nearly all of the negative energy states are occupied, with one electron in each state, in accordance with the Pauli
+exclusion principle. An unoccupied negative energy state will now appear as a particle with a positive energy, since to make
+it disappear we would have to add an electron with a negative energy to the system. We assume that these unoccupied negative
+energy states correspond to positrons. 
+
+The previous assumptions require there to be a distribution of electrons of infinite density everywhere in space. A perfect
+vacuum is a region of space in which all states of positive energy are unoccupied, and all of those of negative energy are occupied. 
+In such a vacuum, the Maxwell  equation
+\begin{equation}
+\nabla\cdot {\bf E} = 0
+\end{equation}
+must be valid. This implies that the infinite distribution of negative energy electrons does not contribute to the
+electric field. Thus, only departures from the vacuum distribution contribute to the electric charge density $\rho$ in the 
+Maxwell equation
+\begin{equation}
+\nabla\cdot{\bf E} = \frac{\rho}{\epsilon_0}.
+\end{equation}
+In other words, there is a contribution $-e$ for each occupied state of positive energy, and a contribution $+e$ for each unoccupied
+state of negative energy. 
+
+The exclusion principle ordinarily prevents a positive energy electron from making transitions to states of negative energy.
+However, it is still possible for such an electron to drop into an unoccupied state of negative energy. In this case, we would
+observe an electron and a positron simultaneously disappearing, their energy being emitted in the form of radiation. The
+converse process would consist in the creation of an electron positron pair from electromagnetic radiation. 
+
+\subsection*{Exercises}
+\begin{enumerate}[label=\thechapter.\arabic*,leftmargin=*,widest=9.20]
+\item Noting that $\alpha_i=-\beta\,\alpha_i\,\beta$, prove that the $\alpha_i$ and $\beta$ matrices all have zero trace. Hence,
+deduce that each of these matrices has $n$ eigenvalues $+1$, and $n$ eigenvalues $-1$, where $2\,n$ is the dimension
+of the matrices. 
+\item Verify that the matrices (\ref{e11.28g}) and (\ref{e11.29g}) satisfy Equations~(\ref{e11.19})--(\ref{e11.21}).
+\item Verify that the matrices (\ref{e11.26t}) and (\ref{e11.27t}) satisfy the anti-commutation relations (\ref{e11.26a}).
+\item Verify that if \label{ex11.4}
+$$
+\partial_\mu\,j^{\,\mu} = 0,
+$$
+where $j^{\,\mu}$ is a 4-vector field, then 
+$$
+\int d^3 x\,j^{\,0}
+$$
+is Lorentz invariant, where the integral is over all space, and it is assumed that  $j^{\,\mu}\rightarrow 0$ as $|{\bf x}|\rightarrow\infty$. 
+\item Verify that (\ref{e11.70}) is a solution of (\ref{e11.69}). 
+\item Verify that the $4\times 4$ matrices $\Sigma_i$, defined in (\ref{e11.92f}), satisfy the standard anti-commutation
+relations for Pauli matrices: i.e., 
+$$
+\{\Sigma_i, \Sigma_j\} = 2\,\delta_{ij}.
+$$
+\end{enumerate}
