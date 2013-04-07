@@ -1,668 +1,892 @@
-\chapter{Quantum Dynamics}\label{s4}
-\section{Schr\"{o}dinger's Equations of Motion}\label{s4.1}
-Up to now, we have only considered systems at one particular instant of time. 
-Let us now investigate how quantum mechanical systems evolve with time. 
+\chapter{Orbital Angular Momentum}\label{ch4}
+% !TEX root = ../Quantum.tex
 
-Consider a system in a state $A$ which evolves in time. At time
-$t$ the state of the system is represented by the ket $|At\rangle$. The label
-$A$ is needed to distinguish the ket from any other ket ($|Bt\rangle$, say)
-which is evolving in time. The label $t$ is needed to distinguish the different
-states of the system at different times. 
+\section{Orbital Angular Momentum}\label{s5.1}
+Consider a particle described by the Cartesian coordinates 
+$(x, y, z)\equiv {\bf x}$
+ and their conjugate momenta $(p_x, p_y, p_z)\equiv {\bf p}$. The classical
+definition of the orbital angular momentum of such a particle about the
+origin is ${\bf L} = {\bf x}\times{\bf p}$, giving
+\begin{align}\label{e5.1a}
+L_x &= y\, p_z - z\, p_y,\\[0.5ex]
+L_y &= z\, p_x - x\, p_z,\\[0.5ex]
+L_z &= x\,p_y - y \,p_x.\label{e5.1c}
+\end{align}
+Let us assume that the operators $(L_x, L_y, L_z)\equiv {\bf L}$ which
+represent the components of
+orbital angular momentum in quantum mechanics can be defined in
+an analogous manner to the corresponding components of
+classical angular momentum. In other words, we are 
+going to assume that the above equations specify  the angular momentum operators
+in terms of the position and linear momentum operators. Note that $L_x$, $L_y$,
+and $L_z$ are Hermitian, so they represent things which can, in principle,
+be measured. Note, also, that there is no ambiguity regarding the order
+in which operators appear in products on the right-hand sides of Equations~(\ref{e5.1a})--(\ref{e5.1c}),
+because all of the products consist of operators that commute. 
 
-The final state of the system at time $t$ is completely determined by its
-initial state at time $t_0$ plus the time interval $t-t_0$ (assuming that 
-the system is left undisturbed during this time interval). However, the
-final state only determines the {\em direction} of the final state ket. 
-Even if we adopt the convention that all state kets have unit norms,
-the final ket is still not completely determined, since it can be multiplied
-by an arbitrary
- phase-factor. However, we expect that if a superposition relation 
-holds for certain states at time $t_0$ then the same relation
-should hold between the corresponding time-evolved states at time $t$, assuming
-that the system is left undisturbed between times $t_0$ and $t$.
-In other words,
+The fundamental commutation relations satisfied by the
+position  and linear momentum operators are [see Equations~(\ref{e3.14a})--(\ref{e3.14c})]
+\begin{align}\label{e5.2a}
+[x_i, x_j] &=0,\\[0.5ex]
+[p_i, p_j] &=0,\\[0.5ex]
+[x_i, p_j] &= {\rm i}\,\hbar \,\delta_{ij},\label{e5.2c}
+\end{align}
+where $i$ and $j$ stand for either $x$, $y$, or $z$. 
+Consider the commutator of the operators $L_x$ and $L_z$:
+\begin{align}
+[L_x, L_y] &= [(y\,p_z-z\,p_y), (z\,p_x-x \,p_z)]
+= y\,[p_z, z]\,p_x + x\,p_y\,[z, p_z] \nonumber\\[0.5ex]
+&= {\rm i}\,\hbar\,(-y \,p_x+ x\,p_y) = {\rm i}\,\hbar\, L_z.
+\end{align}
+The cyclic permutations of the above result yield
+the fundamental commutation relations satisfied 
+by the   components of an orbital angular momentum:
+\begin{align}\label{e5.4a}
+[L_x, L_y] &= {\rm i}\,\hbar\, L_z,\\[0.5ex]
+[L_y, L_z] &= {\rm i}\,\hbar\, L_x,\\[0.5ex]
+[L_z, L_x] &= {\rm i}\,\hbar\, L_y.\label{e5.4c}
+\end{align}
+These can be summed up more succinctly by writing
+\begin{equation}\label{e5.5}
+{\bf L}\times {\bf L} = {\rm i}\,\hbar \,{\bf L}.
+\end{equation}
+The three commutation relations (\ref{e5.4a})--(\ref{e5.4c})  are the foundation for the whole
+theory of angular momentum in quantum mechanics. Whenever we encounter 
+three operators having these commutation relations, we know that the
+dynamical variables  that they represent have identical properties
+to those of the components of an
+ angular momentum (which we are about to derive). In fact,
+we shall  assume that {\em any three operators that satisfy the commutation
+relations (\ref{e5.4a})--(\ref{e5.4c}) represent the components of some sort of angular momentum}. 
+
+Suppose that there are $N$ particles in the system, with
+angular momentum vectors ${\bf L}_i$ (where $i$ runs from 1 to $N$). 
+Each of these vectors satisfies Equation~(\ref{e5.5}), so that
+\begin{equation}\label{e5.6}
+{\bf L}_i\times {\bf L}_i = {\rm i}\,\hbar \,{\bf L}_i.
+\end{equation}
+However, we expect  the angular momentum operators
+ belonging to  different particles to commute, because they represent different
+degrees of freedom of the system. So,
+we can write
+\begin{equation}\label{e5.7}
+{\bf L}_i\times {\bf L}_j + {\bf L}_j\times {\bf L}_i =0,
+\end{equation}
+for $i\neq j$. Consider the total angular momentum of the system, 
+${\bf L} = \sum_{i=1,N} {\bf L}_i$. It is clear from Equations~(\ref{e5.6}) and (\ref{e5.7})
+ that
+\begin{align}
+{\bf L} \times {\bf L}& = \sum_{i=1,N} {\bf L}_i\times
+\sum_{j=1,N} {\bf L}_j  = \sum_{i=1,N} {\bf L}_i \times
+{\bf L}_i +\frac{1}{2}\!\sum_{i,j = 1,N}^{i\neq j}(  {\bf L}_i\times {\bf L}_j + {\bf L}_j\times {\bf L}_i) \nonumber\\[0.5ex]
+&= {\rm i}\,\hbar\,\sum_{i=1,N} {\bf L}_i = {\rm i}\,\hbar \,{\bf L}.\label{e5.8}
+\end{align}
+Thus, the sum of two or more angular momentum vectors satisfies the
+same commutation relation as a primitive  angular momentum vector.
+In particular, the total angular momentum of the system satisfies the
+commutation relation (\ref{e5.5}).
+
+The immediate conclusion which can be drawn from the commutation relations
+(\ref{e5.4a})--(\ref{e5.4c}) is that the three components of an angular momentum vector cannot
+be specified (or measured) simultaneously. In fact,  once we have specified one
+component, the values of other two components become uncertain.  It is
+conventional to specify the $z$-component, $L_z$. 
+
+Consider the magnitude squared of the angular momentum vector, $L^2 \equiv
+L_x^{\,2} + L_y^{\,2}+L_z^{\,2}$. The commutator of $L^2$ and $L_z$ is
+written
+\begin{equation}
+[L^2, L_z] = [L_x^{\,2}, L_z] + [L_y^{\,2}, L_z] + [L_z^{\,2}, L_z].
+\end{equation}
+It is easily demonstrated that
+\begin{align}
+[L_x^{\,2}, L_z] &= -{\rm i}\,\hbar\,(L_x\, L_y + L_y \,L_x),\\[0.5ex]
+[L_y^{\,2}, L_z] &= +{\rm i}\,\hbar\,(L_x\,L_y + L_y \,L_x),\\[0.5ex]
+[L_z^{\,2}, L_z] &= 0,
+\end{align}
+so 
+\begin{equation}\label{e5.11}
+[L^2, L_z] = 0.
+\end{equation}
+Because there is nothing special about the $z$-direction, we conclude that $L^2$ also
+commutes with $L_x$ and $L_y$. It is clear from Equations~(\ref{e5.4a})--(\ref{e5.4c}) and
+(\ref{e5.11}) that the best we
+can do in quantum mechanics is to specify the 
+magnitude of an angular momentum vector 
+along with {\em one}\/ of its components (by convention, the $z$-component).
+
+It is convenient to define the {\em shift operators}\/ $L^+$ and $L^-$:
+\begin{align}
+L^+ &= L_x + {\rm i}\, L_y,\\[0.5ex]
+L^- &= L_x -{\rm i} \,L_y.
+\end{align}
+It can easily be shown that
+\begin{align}\label{e5.13a}
+[L^+, L_z ] &= -\hbar\,L^+,\\[0.5ex]
+[L^-, L_z] &=+\hbar\,L^-,\\[0.5ex]
+[L^+, L^-] &= 2\,\hbar\,L_z,
+\end{align}
+and also that both  shift operators commute with $L^2$. 
+
+\section{Eigenvalues of Orbital Angular Momentum}\label{s5.2}
+Suppose that the simultaneous eigenkets of $L^2$ and $L_z$ are completely
+specified by two quantum numbers, $l$ and $m$. These  kets are denoted
+$|l, m\rangle$. The quantum number $m$ is defined by
+\begin{equation}
+L_z \,|l, m\rangle = m\,\hbar\, |l, m\rangle.
+\end{equation}
+Thus, $m$ is the eigenvalue of $L_z$ divided by $\hbar$. It is possible
+to write such an equation because $\hbar$ has the dimensions of angular momentum.
+Note that $m$ is a real number, because  $L_z$ is an Hermitian operator. 
+
+We can write
+\begin{equation}\label{e5.15}
+L^2 \,|l, m\rangle = f(l,m)\, \hbar^2\,|l, m\rangle,
+\end{equation}
+without loss of generality, 
+where $f(l,m)$ is some real dimensionless function of $l$ and $m$. Later on,
+we will show that $f(l,m) = l\,(l+1)$. 
+Now, 
+\begin{equation}\label{e5.16}
+\langle l, m |\, L^2 - L_z^{\,2}\, |l, m\rangle =\langle l, m|\,
+f(l, m) \,\hbar^2 - m^2\, \hbar^2\, |l, m\rangle =[f(l,m) - m^2] \,\hbar^2,
+\end{equation}
+assuming that the $|l, m\rangle$ have unit norms. However,
+\begin{equation}
+\langle l, m |\,L^2 - L_z^{\,2}\,|l, m\rangle =\langle l, m|\,
+L_x^{\,2} + L_y^{\,2}\,|l, m\rangle = \langle l, m|\,L_x^{\,2}\,|l, m\rangle+
+\langle l, m|\,L_y^{\,2}\,|l, m\rangle.
+\end{equation}
+It is easily demonstrated that
+\begin{equation}\label{e5.18}
+\langle A|\,\xi^{\,2}\,|A\rangle\geq 0,
+\end{equation}
+where $|A\rangle$ is a general  ket, and $\xi$ is an Hermitian operator. 
+The proof follows from the observation that 
+\begin{equation}
+\langle A|\,\xi^{\,2}\,|A\rangle
+= \langle A|\,\xi^{\dag}\, \xi\,|A\rangle = \langle B| B\rangle, 
+\end{equation}
+where $|B\rangle = \xi\, |A\rangle$, plus the fact that $\langle B|B\rangle\geq 0$
+for a general  ket $|B\rangle$ [see Equation~(\ref{e2.21})]. It follows from
+Equations~(\ref{e5.16})--(\ref{e5.18}) that
+\begin{equation}\label{e5.20}
+m^2 \leq f(l,m).
+\end{equation}
+
+Consider the effect of the shift operator $L^+$ on the eigenket $|l, m\rangle$.
+It is easily demonstrated that
+\begin{equation}
+L^2 (L^+ |l, m\rangle) = \hbar^2\, f(l,m)\, (L^+ |l,m\rangle),
+\end{equation}
+where use has been made of Equation~(\ref{e5.15}), plus
+the fact that $L^2$ and $L^+$ commute. 
+It follows that the ket $L^+ |l,m\rangle$ has the same
+eigenvalue of $L^2$ as the ket $|l,m\rangle$. Thus, the shift operator
+$L^+$ does not affect the magnitude of the angular momentum of 
+any eigenket it acts upon. However, 
+\begin{equation}
+L_z \,L^+ |l, m\rangle = (L^+ L_z + [L_z, L^+])\,|l,m\rangle
+= (L^+ L_z + \hbar\, L^+) \,|l,m\rangle
+= (m+1)\,\hbar \,L^+|l, m\rangle,
+\end{equation}
+where use has been made of Equation~(\ref{e5.13a}). The above equation implies
+that $L^+ |l,m\rangle$ is proportional to $|l, m+1\rangle$. We can
+write
+\begin{equation}\label{e5.23}
+L^+ |l ,m\rangle = c^+_{l\,m}\, \hbar\,|l, m+1\rangle,
+\end{equation}
+where $c^+_{l\, m}$ is a number. It is clear that if the operator $L^+$ 
+acts on a simultaneous  eigenstate of $L^2$ and $L_z$ then 
+the eigenvalue of $L^2$ remains unchanged, but the  eigenvalue
+of $L_z$ is increased by $\hbar$. For this reason, $L^+$  is called
+a {\em raising operator}. 
+
+Using similar arguments to those given above, it is possible
+to demonstrate that
+\begin{equation}\label{e5.24}
+L^-\, |l ,m\rangle = c^-_{l\,m}\,\hbar\, |l, m-1\rangle.
+\end{equation}
+Hence, $L^-$ is called a {\em lowering operator}. 
+
+The shift operators, $L^+$ and $L^-$, respectively step the value of $m$ up and down by unity
+each time they operate on one of the simultaneous eigenkets of 
+$L^2$ and $L_z$. It would appear, at first sight, that any value of
+$m$ can be obtained by applying these operators a sufficient
+number of times. However, according to Equation~(\ref{e5.20}), there is
+a definite upper bound to the values that $m^2$ can take. This 
+bound is determined by  the eigenvalue of $L^2$
+[see Equation~(\ref{e5.15})]. It follows that there is a maximum and a minimum
+possible
+value which  $m$ can take. 
+Suppose that we attempt to raise the value
+of $m$ above its maximum value $m_{\rm max}$. Since there is  no
+state with $m> m_{\rm max}$, we must have
+\begin{equation}
+L^+ |l, m_{\rm max}\rangle = |0\rangle.
+\end{equation}
+This implies that 
+\begin{equation}\label{e5.26}
+L^-\, L^+ |l, m_{\rm max}\rangle = |0\rangle.
+\end{equation}
+However,
+\begin{equation}
+L^-\, L^+ = L_x^{\,2} + L_y^{\,2} + {\rm i}\,[L_x,  L_y]
+= L^2 - L_z^{\,2} - \hbar \,L_z,
+\end{equation}
+so Equation~(\ref{e5.26}) yields
+\begin{equation}
+(L^2 - L_z^{\,2} - \hbar \,L_z) \,|l, m_{\rm max}\rangle = |0\rangle.
+\end{equation}
+The above equation can be rearranged to give
+\begin{equation}
+L^2\, |l, m_{\rm max}\rangle = (L_z^{\,2} + \hbar \,L_z)\, |l, m_{\rm max}\rangle 
+= m_{\rm max}(m_{\rm max} + 1) \,\hbar^2\, |l, m_{\rm max}\rangle.
+\end{equation}
+Comparison of this equation with Equation~(\ref{e5.15}) yields the result
+\begin{equation}
+f(l, m_{\rm max}) = m_{\rm max} (m_{\rm max} + 1).
+\end{equation}
+But, when $L^-$ operates on $|n, m_{\rm max}\rangle$ it generates
+$|n, m_{\rm max}-1\rangle$, $|n, m_{\rm max}-2\rangle$,  etc. Since
+the lowering operator does not change the eigenvalue of $L^2$, all of these states
+must correspond to the same value of $f$, namely $m_{\rm max}(m_{\rm max} + 1)$.
+Thus,
+\begin{equation}
+L^2 \,|l, m\rangle = m_{\rm max}(m_{\rm max} + 1)\,\hbar^2\, |l, m\rangle.
+\end{equation}
+At this stage, we can give the unknown quantum number $l$ the value $m_{\rm max}$,
+without loss of generality. 
+We can also write the above equation in the form
+\begin{equation}
+L^2 \,|l, m\rangle = l\,(l+1)\, \hbar^2\, |l, m\rangle.
+\end{equation}
+
+It is easily seen that
+\begin{equation}
+L^- \,L^+ \,|l, m\rangle = (L^2 - L_z^{\,2}-\hbar\, L_z)\,|l, m \rangle
+= \hbar^2 \,[l\,(l+1) - m\,(m+1)]\,|l,m\rangle.
+\end{equation}
+Thus,
+\begin{equation}
+\langle l,m|\, L^- \,L^+\,| l,m\rangle =\hbar^2 \,[l\,(l+1) - m\,(m+1)].
+\end{equation}
+However, we also know that
+\begin{equation}
+\langle l,m| L^- \,L^+ |l,m\rangle = \langle l, m| L^-\, \hbar\, c^+_{l\,m}
+|l,m+1\rangle = \hbar^2\,  c^+_{l\,m} \,c^{-}_{l\,\, m+1},
+\end{equation}
+where use has been made of Equations~(\ref{e5.23}) and (\ref{e5.24}). 
+It follows that
+\begin{equation}\label{e5.36}
+ c^+_{l\,m}\, c^{-}_{l\,\,m+1} = [l\,(l+1) - m\,(m+1)].
+\end{equation}
+
+Consider the following:
+\begin{align}
+\langle l, m|\, L^-\, |l, m+1\rangle &=
+\langle l, m|\,L_x\,|l,m+1 \rangle - {\rm i}\, \langle l, m| \,L_y\,|l,m+1 \rangle \nonumber
+\\[0.5ex]
+&= \langle l, m+1| \,L_x\,|l,m \rangle^\ast - {\rm i}\, \langle l, m+1|\, L_y\,|l,m \rangle^\ast\nonumber\\[0.5ex]
+&=( \langle l, m+1|\, L_x\,|l,m \rangle + {\rm i}\, 
+\langle l, m+1|\, L_y\,|l,m \rangle)^\ast\nonumber\\[0.5ex]
+&= \langle l, m+1|\,L^+\,|l, m\rangle^\ast,
+\end{align}
+where use has been made of the fact that $L_x$ and $L_y$ are Hermitian.
+The above equation reduces to
+\begin{equation}\label{e5.38}
+c^-_{l\,\, m+1} = (c_{l\,m}^+)^\ast
+\end{equation}
+with the aid of Equations~(\ref{e5.23}) and (\ref{e5.24}). 
+
+Equations (\ref{e5.36}) and (\ref{e5.38}) can be combined to give
+\begin{equation}\label{e5.39}
+|c^+_{l\,m}|^{\,2} = [l\,(l+1) - m \,(m+1)].
+\end{equation}
+The solution of the above equation is
+\begin{equation}
+c_{l\,m}^+ = \sqrt{l\,(l+1)- m \,(m+1)}.
+\end{equation}
+Note that $c_{l\,m}^+$ is undetermined to an arbitrary phase-factor
+[{\rm i.e.}, we can replace $c_{l\, m}^+$, given above, by $c_{l\, m}^+\exp(\,{\rm i}\,\gamma)$,
+where $\gamma$ is real, and we still satisfy Equation~(\ref{e5.39})]. We have made the arbitrary, but convenient, choice that $c_{l\,m}^+$ is real and positive. This is equivalent
+to choosing  the relative phases of the eigenkets $|l, m\rangle$. 
+According to Equation~(\ref{e5.38}),
+\begin{equation}\label{e5.41}
+c_{l\, m}^- = (c_{l\, \,m-1}^+)^\ast =  \sqrt{l\,(l+1)- m\, (m-1)}.
+\end{equation}
+
+We have already seen that the inequality (\ref{e5.20}) implies that there is a
+maximum and a minimum possible value of $m$. The maximum value of $m$
+is denoted $l$. What is the minimum value? Suppose that we try
+to lower the value of $m$ below its minimum value $m_{\rm min}$. Because 
+there is no state with $m<m_{\rm min}$, we must have
+\begin{equation}
+L^- \,|l, m_{\rm min}\rangle = 0.
+\end{equation}
+According to Equation~(\ref{e5.24}), this implies that
+\begin{equation}
+c_{l\,\, m_{\rm min}}^- = 0.
+\end{equation}
+It can be seen from Equation~(\ref{e5.41})  that $m_{\rm min} = -l$. 
+We conclude that $m$ can take a ``ladder'' of discrete values, each rung differing
+from its immediate neighbors by unity. The top rung is $l$, and the
+bottom rung is  $-l$. There are only two possible choices for $l$.
+Either it is an integer ({\rm e.g.}, $l=2$, which  allows $m$ to take the values
+$-2, -1, 0, 1, 2$), or it is a half-integer ({\rm e.g.}, $l=3/2$, which  allows
+$m$ to take the values $-3/2, -1/2, 1/2, 3/2$). We shall prove in the next
+section that an orbital angular momentum can only take integer values
+of $l$. 
+
+In summary, using  just  the fundamental commutation relations (\ref{e5.4a})--(\ref{e5.4c}),
+plus the fact that $L_x$, $L_y$, and $L_z$ are Hermitian operators, we have
+shown that the eigenvalues of $L^2\equiv L_x^{\,2} + L_y^{\,2}+L_z^{\,2}$
+can be written $l\,(l+1)\,\hbar^2$, where $l$ is an integer, or a half-integer. 
+We have also demonstrated that the eigenvalues of $L_z$ can only
+take the values $m\,\hbar$, where $m$ lies in the range $-l, -l+1,\cdots
+l-1, l$. Let $|l, m\rangle$ denote a properly normalized simultaneous eigenket
+of $L^2$ and $L_z$, belonging to the eigenvalues $l\,(l+1)\,\hbar^2$
+and $m\,\hbar$, respectively.
+We have shown that 
+\begin{align}\label{e5.44a}
+L^+ \,|l, m\rangle &= \sqrt{l\,(l+1)-m\,(m+1)}\,\hbar\,|l, m+1\rangle\\[0.5ex]
+L^- \,|l,m \rangle &= \sqrt{l\,(l+1)-m\,(m-1)}\,\hbar\,|l, m-1\rangle,\label{e5.44b}
+\end{align}
+where $L^\pm = L_x \pm {\rm i} \,L_y$ are the so-called shift operators.
+
+\section{Rotation Operators}\label{s5.3}
+Consider a particle whose position is described by the spherical polar coordinates
+$(r, \theta, \varphi)$. The classical momentum conjugate to the azimuthal
+angle $\varphi$ is the $z$-component of angular momentum, $L_z$. 
+According to Section~\ref{s3.5}, in quantum mechanics we can always adopt the Schr\"{o}dinger 
+representation, for  which ket space is spanned by the simultaneous eigenkets
+of the position operators $r$, $\theta$, and $\varphi$, and $L_z$ takes the
+form
+\begin{equation}\label{e5.45}
+L_z = -{\rm i}\,\hbar\, \frac{\partial}{\partial \varphi}.
+\end{equation}
+We can do this because there is nothing in Section~\ref{s3.5} which specifies that
+we have to use  Cartesian coordinates---the representation (\ref{e3.63}) works for 
+any well-defined set of coordinates. 
+
+Consider an operator $R({\mit\Delta}\varphi)$ that rotates the system through an angle
+${\mit\Delta}\varphi$ about the $z$-axis. This operator is very similar to the
+operator $D({\mit\Delta} x)$, introduced in Section~\ref{s3.8}, which translates the system
+a distance ${\mit\Delta} x$ along the $x$-axis. 
+We were able to demonstrate in Section~\ref{s3.8}
+that
+\begin{equation}
+p_x = {\rm i}\,\hbar\, \lim_{\delta x\rightarrow 0}\frac{D(\delta x)-1}
+{\delta x},
+\end{equation}
+where $p_x$ is the linear momentum conjugate to $x$. There is nothing
+in our derivation of this result which specifies that $x$ has to be a Cartesian
+coordinate. Thus, the result should apply just as well to an angular
+coordinate. We conclude that
+\begin{equation}\label{e5.47}
+L_z = {\rm i}\,\hbar\, \lim_{\delta \varphi\rightarrow 0}\frac{R(\delta \varphi)-1}
+{\delta \varphi}.
+\end{equation}
+
+According to Equation~(\ref{e5.47}), we can write
+\begin{equation}
+R(\delta \varphi) = 1 -{\rm i}\,L_z\,\delta\varphi/\hbar
+\end{equation}
+in the limit $\delta\varphi\rightarrow 0$. In other words, the angular momentum 
+operator $L_z$
+can be used to rotate the system about the $z$-axis by an infinitesimal amount.
+We say that $L_z$ is the {\em generator}\/ of rotations about the $z$-axis. 
+The above equation implies that 
+\begin{equation}
+R({\mit\Delta}\varphi) = \lim_{N\rightarrow\infty} \left(1-{\rm i} \,\frac{{\mit\Delta}
+\varphi}{N} \frac{L_z}{\hbar}\right)^N,
+\end{equation}
+which reduces to
+\begin{equation}\label{e5.50}
+R({\mit\Delta}\varphi) = \exp(-{\rm i}\,L_z \,{\mit\Delta}\varphi/\hbar).
+\end{equation}
+Note that $R({\mit\Delta}\varphi)$ has all of the properties we would expect of
+a rotation operator: i.e., 
+\begin{align}
+R(0) &= 1,\\[0.5ex]
+R({\mit\Delta}\varphi)\,R(-{\mit\Delta}\varphi) &= 1,\\[0.5ex]
+R({\mit\Delta}\varphi_1)\,R({\mit\Delta}\varphi_2)& = R({\mit\Delta}\varphi_1+ {\mit\Delta}\varphi_2).
+\end{align}
+
+Suppose that the system is in a simultaneous eigenstate of $L^2$ and $L_z$. 
+As before, this state is represented by the eigenket $|l,m\rangle$, where
+the eigenvalue of $L^2$ is $l\,(l+1)\,\hbar^2$, and
+the eigenvalue of $L_z$ is $m\,\hbar$.  We expect the wavefunction
+ to remain unaltered  if we rotate
+the system $2\pi$ degrees about the $z$-axis. Thus,
+\begin{equation}
+R(2\pi)\,|l,m\rangle = \exp(-{\rm i}\,L_z \,2\pi/\hbar)\,|l,m\rangle 
+= \exp(-{\rm i}\, 2\pi\,m) \,|l,m\rangle = |l,m\rangle.
+\end{equation}
+We conclude that $m$ must be an integer. This implies, from the previous
+section, that $l$ must also be an integer. Thus, an {\em orbital}\/ angular momentum
+can only take  {\em integer}\/ values of the quantum numbers $l$ and $m$. 
+
+Consider the action of the rotation operator $R({\mit\Delta}\varphi)$ on an eigenstate
+possessing zero angular momentum about the $z$-axis ({\rm i.e.}, an $m=0$
+state). We have
+\begin{equation}
+R({\mit\Delta}\varphi)\,|l, 0\rangle =  \exp(0)\,| l, 0\rangle = |l, 0\rangle.
+\end{equation}
+Thus, the eigenstate is invariant to rotations about the $z$-axis. Clearly,
+its wavefunction must be symmetric about the $z$-axis. 
+
+There is nothing special about the $z$-axis, so we can write
+\begin{align}\label{e5.54a}
+R_x({\mit\Delta}\varphi_x) &= \exp(-{\rm i}\,L_x \,{\mit\Delta}\varphi_x/\hbar),\\[0.5ex]
+R_y({\mit\Delta}\varphi_y) &= \exp(-{\rm i}\,L_y \,{\mit\Delta}\varphi_y/\hbar),\\[0.5ex]\label{e5.54c}
+R_z({\mit\Delta}\varphi_y) &= \exp(-{\rm i}\,L_z\, {\mit\Delta}\varphi_z/\hbar),
+\end{align}
+by analogy with Equation~(\ref{e5.50}). Here, $R_x({\mit\Delta}\varphi_x)$ denotes an operator
+that rotates the system by an angle ${\mit\Delta}\varphi_x$ about the $x$-axis, {\rm etc}.
+Suppose that the system is in an eigenstate of zero overall orbital angular momentum
+({\rm i.e.}, an $l=0$ state).
+We know that the system is also in an eigenstate of zero orbital angular momentum 
+about any particular axis. This follows because $l=0$ implies $m=0$, according
+to  the
+previous section, and we can choose the $z$-axis to point in any direction. 
+Thus,
+\begin{align}
+R_x({\mit\Delta} \varphi_x)\, |0,0\rangle &=\exp(0)\,|0,0\rangle = |0,0\rangle,\\[0.5ex]
+R_y({\mit\Delta} \varphi_y)\, |0,0\rangle &=\exp(0)\,|0,0\rangle = |0,0\rangle,\\[0.5ex]
+R_z({\mit\Delta} \varphi_z) \,|0,0\rangle &=\exp(0)\,|0,0\rangle = |0,0\rangle.
+\end{align}
+Clearly, a zero angular momentum state is invariant to rotations about {\em any}\/
+axis.
+Such a state  must possess a spherically symmetric wavefunction. 
+
+Note that a rotation about the $x$-axis does not commute with a rotation
+about the $y$-axis. In other words, if the system is rotated an angle
+${\mit\Delta}\varphi_x$ about the $x$-axis, and then ${\mit\Delta}\varphi_y$ about the
+$y$-axis, it ends up in a different state to that obtained by rotating
+an angle ${\mit\Delta}\varphi_y$ about the
+$y$-axis, and then ${\mit\Delta}\varphi_x$ about the $x$-axis. In quantum
+mechanics, this implies that $R_y({\mit\Delta}\varphi_y)\,R_x({\mit\Delta}\varphi_x)
+\neq R_x({\mit\Delta}\varphi_x)\,R_y({\mit\Delta}\varphi_y)$, or 
+$L_y \,L_x \neq L_x\, L_y$, [see  Equations~(\ref{e5.54a})--(\ref{e5.54c})]. Thus, the noncommuting
+nature of the angular momentum operators is a direct consequence
+of  the fact that
+rotations do not commute. 
+
+\section{Eigenfunctions of Orbital Angular Momentum}\label{s5.4}
+In Cartesian coordinates, the three components of orbital angular
+momentum can be written 
+\begin{align}\label{e4.74v}
+L_x &= -{\rm i}\,\hbar\left(y\,\frac{\partial}{\partial z} - z\,\frac{\partial}
+{\partial y}\right),\\[0.5ex]
+L_y &= -{\rm i}\,\hbar\left(z\,\frac{\partial}{\partial x} - x\,\frac{\partial}
+{\partial z}\right),\\[0.5ex]
+L_z &= -{\rm i}\,\hbar\left(x\,\frac{\partial}{\partial y} - y\,\frac{\partial}
+{\partial x}\right),\label{e4.76v}
+\end{align}
+using the Schr\"{o}dinger representation. Transforming to standard
+spherical polar coordinates,
+\begin{align}
+x &= r \,\sin\theta\, \cos\varphi,\\[0.5ex]
+y &= r\, \sin\theta\, \sin\varphi,\\[0.5ex]
+z &= r\,\cos\theta,\label{e4.79v}
+\end{align}
+we obtain
+\begin{align}\label{e5.58a}
+L_x &= {\rm i}\,\hbar\,\left(\sin\varphi\, \frac{\partial}{\partial \theta}
++ \cot\theta \cos\varphi\,\frac{\partial}{\partial \varphi}\right),
+\\[0.5ex]
+L_y &= -{\rm i} \,\hbar\,\left(\cos\varphi\, \frac{\partial}{\partial\theta}
+-\cot\theta \sin\varphi \,\frac{\partial}{\partial \varphi}\right),\\[0.5ex]
+L_z&= -{\rm i}\,\hbar\,\frac{\partial}{\partial\varphi}.\label{e5.58c}
+\end{align}
+Note that Equation~(\ref{e5.58c}) accords with Equation~(\ref{e5.45}). The shift
+operators $L^\pm = L_x \pm {\rm i}\,L_y$ become
+\begin{equation}\label{e5.59}
+L^\pm = \pm \hbar\,\exp(\pm{\rm i}\,\varphi)\left(\frac{\partial}{\partial\theta}
+\pm{\rm i} \,\cot\theta\,\frac{\partial}{\partial\varphi}\right).
+\end{equation}
+Now,
+\begin{equation}
+L^2 = L_x^{\,2}+L_y^{\,2}+L_z^{\,2} = L_z^{\,2} + (L^+\, L^- + L^- \,L^+) /2,
+\end{equation}
+so
+\begin{equation}\label{e5.61}
+L^2 = - \hbar^2\left( \frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\,
+\sin\theta\,\frac{\partial}{\partial\theta} + \frac{1}{\sin^2\theta}\frac{\partial^2}
+{\partial\varphi^2}\right).
+\end{equation}
+
+ The eigenvalue problem for
+$L^2$ takes the form
+\begin{equation}\label{e5.62}
+L^2 \,\psi = \lambda \,\hbar^2\, \psi,
+\end{equation}
+where $\psi(r, \theta, \varphi)$ is the wavefunction, and $\lambda$ is a number. 
+Let us write
+\begin{equation}
+\psi(r, \theta, \varphi) = R(r) \,Y(\theta, \varphi).
+\end{equation}
+Equation~(\ref{e5.62}) reduces to
+\begin{equation}
+\left( \frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\,
+\sin\theta\,\frac{\partial}{\partial\theta} + \frac{1}{\sin^2\theta}\frac{\partial^2}
+{\partial\varphi^2}\right)Y + \lambda \,Y = 0,
+\end{equation}
+where use has been made of Equation~(\ref{e5.61}). As is well-known,
+square integrable solutions to this
+equation only exist when $\lambda$ takes the values $l\,(l+1)$, where $l$ is
+an integer. These solutions are known as {\em spherical harmonics}, and
+can be written
+\begin{equation}\label{e5.65}
+Y_{l\,m}(\theta, \varphi) = \sqrt{ \frac{2\,l+1}{4\pi} \frac{(l-m)!}{(l+m)!}}
+\,(-1)^m\, {\rm e}^{\,{\rm i} \,m\,\varphi}\, P_{l\,m}(\cos\varphi),
+\end{equation}
+where $m$ is a positive  integer lying in the range $0\leq  m\leq l$. Here, 
+$P_{l\,m}(\xi)$ is an {\em associated Legendre function}\/ satisfying the
+equation
+\begin{equation}
+\frac{d}{d\xi}\! \left[ (1-\xi^{\,2})\,\frac{dP_{l\,m}}{d\xi}\right]
+- \frac{m^2}{1-\xi^{\,2}}\, P_{l\,m} + l\,(l+1)\,P_{l\,m} = 0.
+\end{equation}
+We define 
+\begin{equation}
+Y_{l\,\,-m} = (-1)^m\, Y_{l\,m}^{\,\ast},
+\end{equation}
+which allows $m$ to take the negative values $-l\leq m< 0$.
+The spherical harmonics are {\em orthogonal}\/ functions, and are 
+properly normalized with respect to integration over
+the entire solid angle:
+\begin{equation}
+\int_0^\pi \int_0^{2\pi}d\theta\,d\varphi \, \sin\theta\,Y_{l\,m}^{\,\ast} (\theta,\varphi)\,
+Y_{l'\,m'}(\theta, \varphi) = \delta_{l \,l'} \,\delta_{m \,m'}.
+\end{equation}
+The spherical harmonics also form a complete set for representing general functions
+of $\theta$ and $\varphi$. 
+
+By definition,
+\begin{equation}\label{e5.69}
+L^2 \,Y_{l\,m} = l\,(l+1)\,\hbar^2\,Y_{l\,m},
+\end{equation}
+where $l$ is an integer.
+It follows from Equations~(\ref{e5.58c}) and (\ref{e5.65}) that
+\begin{equation}
+L_z \,Y_{l\,m} = m\,\hbar\,Y_{l\,m},
+\end{equation}
+where $m$ is an integer lying in the range $-l\leq m \leq l$. Thus, the
+wavefunction $\psi(r, \theta, \varphi) = R(r) \,Y_{l,m}(\theta, \phi)$, where
+$R$ is a general function,  has
+all of the expected features of the wavefunction 
+of a simultaneous eigenstate of $L^2$ and $L_z$
+belonging to the quantum numbers $l$ and $m$. The well-known formula
+\begin{equation}\label{e4.94v}
+\frac{d P_{l\,m}}{d\xi} = -\frac{1}{\sqrt{1-\xi^{\,2}}}\,P_{l\,\,m+1}
+- \frac{m\,\xi}{1-\xi^{\,2}}\, P_{l\,m} 
+=  \frac{(l+m)\,(l-m+1)}{\sqrt{1-\xi^{\,2}}}\,P_{l\,\,m-1} + \frac{m\,\xi}
+{1-\xi^{\,2}}\, P_{l\,m}
+\end{equation}
+can be combined with Equations~(\ref{e5.59}) and (\ref{e5.65}) to give
+\begin{align}\label{e4.95v}
+L^+ \,Y_{l\,m} &= [l\,(l+1)- m\,(m+1)]^{1/2}\,\hbar\,Y_{l\,\,m+1},\\[0.5ex]
+L^- \,Y_{l\,m} &= [l\,(l+1) - m \,(m-1)]^{1/2} \,\hbar \,Y_{l\,\,m-1}.\label{e4.96v}
+\end{align}
+These equations are equivalent to Equations~(\ref{e5.44a})--(\ref{e5.44b}). Note that a spherical
+harmonic  wavefunction
+is symmetric about the $z$-axis ({\rm i.e.}, independent of $\varphi$) whenever
+$m=0$, and is spherically symmetric whenever $l=0$ (since
+$Y_{0\,0} = 1/\sqrt{4\pi}$). 
+
+In summary, by solving directly
+for the 
+eigenfunctions of $L^2$ and $L_z$  in the Schr\"{o}d\-inger representation, we have been able to reproduce
+all of the results of Section~\ref{s5.2}. Nevertheless, the results of Section~\ref{s5.2}
+are more general than those obtained in this section, because they still apply
+when the quantum number $l$ takes on half-integer values. 
+
+\section{Motion in  Central Field}\label{s5.5}
+Consider a particle of mass $M$ moving in a spherically symmetric potential.
+The Hamiltonian takes the form
+\begin{equation}
+H = \frac{{p}^2}{2\,M} + V(r).
+\end{equation}
+Adopting Schr\"{o}dinger's representation, we can write ${\bf p} = -({\rm i}/\hbar)
+\nabla$. Hence,
+\begin{equation}
+H = -\frac{\hbar^2}{2\,M}\, \nabla^2 + V(r).
+\end{equation}
+When written in spherical polar coordinates, the above equation becomes
+\begin{equation}
+H= -\frac{\hbar^2}{2\,M}\left[ \frac{1}{r^2}\frac{\partial}{\partial r}\,
+r^2\,\frac{\partial}{\partial r}  + \frac{1}{r^2\sin\theta}
+\frac{\partial}{\partial \theta} \,
+\sin\theta \,\frac{\partial}{\partial\theta} 
++ \frac{1}{r^2\sin^2\theta} \frac{\partial^2}{\partial\varphi^2}\right]
++ V(r).
+\end{equation}
+Comparing this equation with Equation~(\ref{e5.61}), we find that
+\begin{equation}\label{e5.76}
+H= \frac{\hbar^2}{2\,M}\left(- \frac{1}{r^2}\frac{\partial}{\partial r}
+\,r^2\,\frac{\partial}{\partial r} + \frac{L^2}{\hbar^2 r^2}\right) +
+V(r).
+\end{equation}
+
+Now, we know that the three components of angular momentum commute with $L^2$ (see Section~\ref{s5.1}). We also know, from Equations~(\ref{e5.58a})--(\ref{e5.58c}), that $L_x$, $L_y$, and $L_z$ take the
+form of partial derivative operators involving only {\em angular}\/ coordinates, 
+when written in terms of spherical polar coordinates using the  Schr\"{o}dinger  representation. It follows from Equation~(\ref{e5.76}) that all three components of the angular
+momentum commute with the Hamiltonian:
+\begin{equation}
+[{\bf L}, H] = 0.
+\end{equation}
+It is also easily seen that $L^2$ (which can be expressed as a purely angular differential operator) commutes with the Hamiltonian:
+\begin{equation}
+[L^2, H] = 0.
+\end{equation}
+According to Section~\ref{s4.2},  the previous two equations
+ensure that the angular momentum ${\bf L}$ and its magnitude squared $L^2$
+are both constants of the motion. This is as expected for a spherically
+symmetric potential. 
+
+Consider the energy eigenvalue problem
+\begin{equation}
+H\,\psi = E\,\psi,
+\end{equation}
+where $E$ is a number. Since $L^2$ and $L_z$ commute with each other and
+the Hamiltonian, it is always possible to represent the state of the
+system in terms of the simultaneous eigenstates of $L^2$, $L_z$, and $H$.
+But, we already know that the most general form for the wavefunction of
+a simultaneous
+eigenstate of $L^2$ and $L_z$ is (see previous section)
+\begin{equation}\label{e5.80}
+\psi(r, \theta, \varphi) = R(r) \,Y_{l\,m}(\theta, \varphi).
+\end{equation}
+Substituting Equation~(\ref{e5.80}) into Equation~(\ref{e5.76}), and making use of Equation~(\ref{e5.69}), we
+obtain
+\begin{equation}\label{e5.81}
+\left[\frac{\hbar^2}{2\,M} \left(-\frac{1}{r^2} \frac{d}{dr}\,r^2\,\frac{d}{dr}
++\frac{l\,(l+1)}{r^2}\right) + V(r) - E\right] R = 0.
+\end{equation}
+This is a {\em Sturm-Liouville equation}\/ for the function $R(r)$. We know,
+from the general properties of this type of equation, 
+that if $R(r)$ is required to be well-behaved  at $r=0$ and as $r\rightarrow
+\infty$ then solutions only exist for a discrete set of values of $E$. These
+are the energy eigenvalues. In general, the energy eigenvalues depend
+on the quantum number $l$, but are independent of the quantum number $m$. 
+
+\section{Energy Levels of  Hydrogen Atom}\label{s5.6}
+Consider a hydrogen atom, for which the potential takes the specific form
+\begin{equation}
+V(r) = -\frac{e^2}{4\pi\,\epsilon_0\,r}.
+\end{equation}
+The radial eigenfunction $R(r)$ satisfies Equation~(\ref{e5.81}), which can be written
+\begin{equation}
+\left[\frac{\hbar^2}{2\,\mu} \left(-\frac{1}{r^2} \frac{d}{dr}\,r^2\,\frac{d}{dr}
++\frac{l\,(l+1)}{r^2}\right)   -\frac{e^2}{4\pi\,\epsilon_0\,r}- E\right] R = 0.
+\end{equation}
+Here, $\mu = m_e \,m_p/(m_e+ m_p)\simeq m_e$ is the {\em reduced mass}, which takes into
+account the fact that the electron (of mass $m_e$) and the proton (of mass $m_p$)
+both rotate about a common centre, which is equivalent to a particle of
+mass $\mu$ rotating about a fixed point. Let us write the product $r\, R(r)$
+as the function $P(r)$. The above equation transforms to
+\begin{equation}\label{e5.84}
+\frac{d^2 P}{d r^2} - \frac{2\,\mu}{\hbar^2}\left[
+\frac{l\,(l+1)\,\hbar^2}{2\,\mu \,r^2} - \frac{e^2}{4\pi \,\epsilon_0 \,r}-E\right] P =0,
+\end{equation}
+which is the one-dimensional Schr\"{o}dinger equation for a particle of
+mass $\mu$ moving in the {\em effective potential}\/
+\begin{equation}
+V_{\rm eff}(r) = -\frac{e^2}{4\pi \,\epsilon_0 \,r} + \frac{l\,(l+1)\,\hbar^2}{2\,\mu\, r^2}.
+\end{equation}
+The effective potential has a simple physical interpretation. The first part is the
+attractive Coulomb potential, and the second part corresponds
+to the repulsive centrifugal force.
+
+Let 
+\begin{equation}\label{e5.86}
+a= \sqrt{\frac{-\hbar^2}{2\,\mu \,E}},
+\end{equation}
+and $y=r/a$, with
+  \begin{equation}\label{e5.87}
+P(r) = f(y) \exp(-y).
+\end{equation}
+Here, it is assumed that the energy eigenvalue $E$ is negative.
+Equation~(\ref{e5.84}) transforms to 
+\begin{equation}\label{e5.88}
+\left(\frac{d^2}{dy^2} -2\,\frac{d}{dy} -\frac{l\,(l+1)}{y^2}
++ \frac{2\,\mu\, e^2\, a}{4\pi\, \epsilon_0\, \hbar^2\,y}\right) f= 0.
+\end{equation}
+Let us look for a power-law solution of the form
+\begin{equation}\label{e5.89}
+f(y) = \sum_{n} c_n\, y^{\,n}.
+\end{equation}
+Substituting this solution into Equation~(\ref{e5.88}), we obtain
+\begin{equation}
+\sum_n c_n \left[ n\,(n-1)\,y^{\,n-2} - 2\,n\, y^{\,n-1} - l\,(l+1) \,y^{\,n-2} +
+\frac{2\,\mu\, e^2 \,a}{4\pi\, \epsilon_0 \,\hbar^2}\, y^{\,n-1} \right] = 0.
+\end{equation}
+Equating the coefficients of $y^{\,n-2}$ gives
+\begin{equation}\label{e5.91}
+c_n\,[n\,(n-1) - l\,(l+1)] = c_{n-1} \left [2\,(n-1) - \frac{2\,\mu\, e^2\, a}{4\pi\, \epsilon_0\, \hbar^2}\right].
+\end{equation}
+Now, the power law series (\ref{e5.89}) must terminate at small $n$, at some positive
+value of $n$, otherwise $f(y)$ would behave unphysically as $y\rightarrow 0$. This
+is only possible if $[n_{\rm min} (n_{\rm min} -1) - l\,(l+1) ] =0$, where
+the first term in the series is $c_{n_{\rm min}}\,y^{\,n_{\rm min}}$. There
+are two possibilities: $n_{\rm min} = -l$ or $n_{\rm min} = l+1$. The
+former predicts  unphysical behavior of the wavefunction at $y=0$.
+Thus, we conclude that $n_{\rm min} = l+1$. Note that for an $l=0$ state
+there is a finite probability of finding the electron at the nucleus,
+whereas for an $l>0$ state there is zero  probability of finding 
+the electron at the nucleus ({\rm i.e.}, $|\psi|^{\,2} =0$ at $r=0$, except when
+$l=0$). Note, also,  that it is only possible to obtain sensible behavior of the
+wavefunction as $r\rightarrow 0$ if $l$ is an integer. 
+
+For large values of $y$, the ratio of successive terms in the series
+(\ref{e5.89}) is
+\begin{equation}
+\frac{c_n \,y}{c_{n-1}} = \frac{2\, y}{n},
+\end{equation}
+according to Equation~(\ref{e5.91}). This is the same as the ratio of
+successive terms in the series
+\begin{equation}
+\sum_n \frac{(2\,y)^{\,n}}{n!},
+\end{equation}
+which converges to $\exp(2\,y)$. We conclude that $f(y)\rightarrow \exp(2\,y)$
+as $y\rightarrow \infty$. It follows from Equation~(\ref{e5.87})  that $R(r) \rightarrow 
+\exp(r/a) /r $ as $r\rightarrow \infty$. This does not correspond to
+physically acceptable behavior of the wavefunction, since $\int d^3x'\, |\psi|^{\,2}$
+must be finite. The only way in which we can avoid this unphysical
+behavior is if the series (\ref{e5.89}) terminates at some maximum value of $n$.
+According to the recursion relation (\ref{e5.91}), this is only possible
 if
-\begin{equation}\label{e4.1}
-|Rt_0\rangle = |At_0\rangle + |B t_0\rangle
-\end{equation}
-for any three kets, then we should  have
-\begin{equation}\label{e4.2}
-|Rt\rangle = |At\rangle + |B t\rangle.
-\end{equation}
-This rule determines the time-evolved kets to within a single arbitrary phase-factor to be multiplied into all of them. The evolved kets cannot be multiplied
-by individual phase-factors, since this would invalidate the superposition
-relation at later times. 
-
-According to Eqs.~(\ref{e4.1}) and (\ref{e4.2}), the final ket $|Rt\rangle$ depends linearly
-on the initial ket $|Rt_0\rangle$. Thus, the final ket can be regarded as the
-result of some linear operator acting on the initial ket: {\em, i.e.},
-\begin{equation}\label{e4.3}
-|Rt\rangle = T |Rt_0\rangle,
-\end{equation}
-where $T$ is a linear operator which depends only on the times $t$
-and $t_0$. 
-The arbitrary phase-factor by which all time evolved kets may be multiplied
-results in $T(t, t_0)$ being undetermined to an arbitrary multiplicative constant
-of modulus unity. 
-
-Since we have adopted a convention in which the norm of any state ket is unity,
-it make sense to define the time evolution operator $T$ in such a manner that
-it preserves the length of any ket upon which it acts
-({\em i.e.}, if a ket is properly normalized at time $t$ then it will remain normalized at
-all subsequent times $t>t_0$).
-This is always possible,
-since the length of a ket possesses no physical significance. Thus,
-we require that
-\begin{equation} 
-\langle A t_0|A t_0\rangle =\langle A t|A t\rangle
-\end{equation}
-for any ket $A$, 
-which immediately yields 
-\begin{equation}\label{e4.5}
-T^{\dag}\,T = 1.
-\end{equation}
-Hence, the time evolution operator $T$ is a {\em unitary} operator. 
-
-Up to now, the time evolution operator $T$ looks very much like the 
-spatial displacement
-operator $D$ introduced in the previous section. However, there are some
-important differences between time evolution and spatial displacement. In general,
-we {\em do} expect the expectation value of some observable $\xi$ to
-evolve with time, even if the system is left in a state of undisturbed motion
-(after all, time evolution has no meaning unless something {\em observable}
-changes with time). The triple product $\langle A|\xi|A\rangle$ can evolve
-either because the ket $|A\rangle$ evolves and the operator $\xi$ stays constant,
-the ket $|A\rangle$ stays constant and the operator $\xi$ evolves, or both
-the ket $|A\rangle$ and the operator $\xi$ evolve. 
-Since we are already committed to evolving state kets, according to Eq.~(\ref{e4.3}),
-let us assume that the time evolution operator $T$ can be chosen in such a
-manner that the operators representing the dynamical variables of the
-system {\em do not}
- evolve in time (unless they contain some specific time dependence). 
-
-We expect, from physical continuity, that as $t\rightarrow t_0$ then
-$|At\rangle\rightarrow |A t_0\rangle$ for any ket $A$. Thus, the
-limit
-\begin{equation}\label{e4.6}
-\lim_{t\rightarrow t_0} \frac{|At\rangle - |At_0\rangle}{t-t_0} =
-\lim_{t\rightarrow t_0}\frac{T-1}{t-t_0}|At_0\rangle
-\end{equation}
-should exist. Note that this limit is simply the derivative of
-$|A t_0\rangle$ with respect to $t_0$. Let 
-\begin{equation}\label{e4.7}
-\tau(t_0) = \lim_{t\rightarrow t_0}\frac{T(t, t_0)-1}{t-t_0}.
-\end{equation}
-It is easily demonstrated from Eq.~(\ref{e4.5}) that $\tau$ is anti-Hermitian:
-{\em i.e.},
 \begin{equation}
-\tau^{\dag} + \tau = 0.
+\frac{\mu\, e^2 \,a}{4\pi \,\epsilon_0\, \hbar^2} = n,
 \end{equation}
-The fact that $T$ can be replaced by $T\exp({\rm i}\,\gamma)$ (where $\gamma$ is
-real) implies that $\tau$ is undetermined to an arbitrary {\em imaginary} additive
-constant (see previous section). Let us
-define the Hermitian operator $H(t_0)= {\rm i}\,\hbar \,\tau$. This operator is
-undetermined to an arbitrary {\em  real} additive constant. It follows from Eqs.~(\ref{e4.6})
-and (\ref{e4.7}) that
-\begin{equation}
-{\rm i}\,\hbar \,\frac{d|At_0\rangle}{dt_0} = {\rm i}\,\hbar\lim_{t\rightarrow t_0}
-\frac{ |At\rangle - |At_0\rangle}{t-t_0} = {\rm i}\,\hbar\,\tau(t_0)|At_0\rangle
-= H(t_0) |At_0\rangle.
-\end{equation}
-When written for general $t$ this equation becomes
-\begin{equation}\label{e4.10}
-{\rm i}\,\hbar\, \frac{d|At\rangle}{dt} = H(t)|At\rangle.
-\end{equation}
-
-Equation~(\ref{e4.10}) gives the general law for the time evolution  of a state
-ket in a scheme in which the operators representing the dynamical variables remain
-fixed. This equation is denoted {\em Schr\"{o}dinger's equation of motion}. 
-It involves a Hermitian operator $H(t)$ which is, presumably, a characteristic
-of the dynamical system under investigation. 
-
-We saw, in the previous section, that
-if the operator $D(x, x_0)$ displaces the system along the $x$-axis from $x_0$ to $x$
-then
-\begin{equation}
-p_x = {\rm i}\,\hbar\,\lim_{x\rightarrow x_0} \frac{D(x,x_0)-1}{x-x_0},
-\end{equation}
-where $p_x$ is the operator representing the momentum conjugate to $x$. We now
-have that if the operator $T(t, t_0)$ evolves the system in time from $t_0$ to $t$
-then
-\begin{equation}
-H(t_0) = {\rm i}\,\hbar\,\lim_{t\rightarrow t_0} \frac{T(t, t_0)-1}{t-t_0}.
-\end{equation}
-Thus, the 
-dynamical variable corresponding to
-the operator $H$ stands  to time $t$ as the momentum $p_x$ stands  to the
-coordinate $x$. By analogy
-with classical physics, this suggests that $H(t)$ is the operator representing
-the total {\em energy} of the system. (Recall that, in classical physics,
-if the equations of motion of a system are invariant under an $x$-displacement
-of the system then this implies that the system conserves momentum in the
-$x$-direction. Likewise, if the equations of motion are invariant under
-a temporal displacement then this implies that the system conserves energy.)
-The operator $H(t)$ is usually called the {\em Hamiltonian} of the system. 
-The fact that the Hamiltonian is undetermined to an arbitrary real additive
-constant is related to the well-known phenomenon that  energy is
-undetermined to an arbitrary additive constant in physics ({\em i.e.}, the zero
-of potential energy is not well-defined). 
-
-Substituting $|At\rangle = T |At_0\rangle$ into Eq.~(\ref{e4.10}) yields
-\begin{equation}
-{\rm i}\,\hbar \,\frac{d T}{dt}|At_0\rangle = H(t)\,T|At_0\rangle.
-\end{equation}
-Since this must hold for any initial state $|At_0\rangle$ we conclude that
-\begin{equation}\label{e4.14}
-{\rm i} \,\hbar\, \frac{dT}{dt} = H(t) \,T.
-\end{equation}
-This  equation can be integrated to give
-\begin{equation}\label{e4.15}
-T(t, t_0) = \exp\left(-{\rm i} \,\int_{t_0}^t H(t') \,dt'/\hbar\right),
-\end{equation}
-where use has been made of Eqs.~(\ref{e4.5}) and (\ref{e4.6}). 
-(Here, we assume that Hamiltonian operators
-evaluated at  different times commute with one another). It is now clear  how
-the fact that $H$ is undetermined to an arbitrary real additive constant leaves
-$T$ undetermined to a phase-factor. Note that, in the above
-analysis,  time is {\em not} an
-operator (we cannot observe time, as such), it is just a parameter (or, more 
-accurately, a continuous label). Since we are only dealing with non-relativistic
-quantum mechanics, the fact that position is an operator, but time is only a
-label, need not worry us unduly. In relativistic quantum mechanics, time and space
-coordinates are treated on the same footing by relegating position from being
-an operator to being just a label. 
-
-\section{Heisenberg's Equations of Motion}\label{s4.2}
-We have seen that in Schr\"{o}dinger's scheme the dynamical variables of the
-system remain fixed during a period of undisturbed motion, whereas the state kets
-evolve according to Eq.~(\ref{e4.10}). However, this is not the only way in which
-to represent the time evolution of the system. 
-
-Suppose that a general state ket $A$ is subject to the transformation 
-\begin{equation}\label{e4.16}
-|A_t \rangle = T^{\dag}(t, t_0) |A\rangle.
-\end{equation}
-This is a time-dependent transformation,  since  the operator $T(t, t_0)$ obviously
-depends on time. The subscript $t$ is used to remind us that the transformation
-is time-dependent. 
- The time evolution of the transformed state ket is given by
-\begin{equation}
-|A_t t\rangle = T^{\dag} (t, t_0)|At\rangle = T^{\dag} (t, t_0)\,T (t, t_0)
-|At_0\rangle = |A_t t_0\rangle,
-\end{equation}
-where use has been made of Eqs.~(\ref{e4.3}), (\ref{e4.5}), and the fact that $T(t_0, t_0)=1$. 
-Clearly, the transformed state ket {\em does not} evolve in time. Thus, the
-transformation (\ref{e4.16}) has the effect of bringing all kets representing
-states of undisturbed motion of the system to rest. 
-
-The transformation  must also be applied to bras. The dual of Eq.~(\ref{e4.16})
-yields
-\begin{equation}
-\langle A_t| =\langle A| T.
-\end{equation}
-The transformation rule for a general observable $v$ is obtained from the requirement
-that the expectation value $\langle A|v|A\rangle$ 
-should remain invariant. It is easily
-seen that
-\begin{equation}\label{e4.19}
-v_t = T^{\dag} \,v \,T.
-\end{equation}
-Thus, a dynamical variable, which corresponds to a fixed linear operator in
-Schr\"{o}\-dinger's scheme, corresponds to a moving linear operator in this
-new scheme. It is clear that the transformation (\ref{e4.16}) leads us to a scenario
-in which the state  of the system is represented by
-a
- fixed vector, and the dynamical variables
-are represented by moving linear operators. This is termed the {\em Heisenberg
-picture}, as opposed to the {\em Schr\"{o}dinger picture},
-which is  outlined in Sect.~\ref{s4.1}.
-
-Consider a dynamical variable $v$ corresponding to a fixed linear operator in
-the Schr\"{o}dinger picture. According to Eq.~(\ref{e4.19}), we can write
-\begin{equation}
-T \,v_t = v\, T.
-\end{equation}
-Differentiation with respect to time yields
-\begin{equation}
-\frac{d T}{dt} \,v_t + T \,\frac{dv_t}{dt} = v\, \frac{dT}{dt}.
-\end{equation}
-With the help of Eq.~(\ref{e4.14}), this reduces to
-\begin{equation}
-H\,T\, v_t +{\rm i}\,\hbar\, T\,\frac{d v_t}{dt} = v\, H\,T,
-\end{equation}
-or
-\begin{equation}\label{e4.23}
-{\rm i}\,\hbar\ \frac{d v_t}{dt} = T^{\dag} \,v \,H\,T - T^{\dag} \,H\,T \,v_t
-= v_t\, H_t - H_t\, v_t,
+where the last term in the series is $c_n\, y^{\,n}$. It follows from Equation~(\ref{e5.86})
+that the energy eigenvalues are {\em quantized}, and can only take the values
+\begin{equation}\label{e5.95}
+E = \frac{E_0}{n^2},
 \end{equation}
 where
 \begin{equation}
-H_t = T^{\dag}\, H\, T.
+E_0 = - \frac{\mu\, e^4}{32\pi^2\,\epsilon_0^{\,2}\, \hbar^2} = - 13.6\,{\rm eV}
 \end{equation}
-Equation~(\ref{e4.23})
-can be written
-\begin{equation}\label{e4.25}
-{\rm i}\,\hbar\ \frac{d v_t}{dt} = [v_t, H_t].
-\end{equation}
+is the ground state energy. 
+Here, $n$ is a positive integer which must exceed the quantum number $l$,
+otherwise there would be no terms in the series (\ref{e5.89}).
 
-Equation~(\ref{e4.25}) shows how the dynamical variables of the system evolve in the
-Heisenberg  picture. It is denoted {\em Heisenberg's equation of motion}. 
-Note that the time-varying dynamical variables in the Heisenberg picture
-are usually called {\em Heisenberg dynamical variables} to distinguish them
-from {\em Schr\"{o}dinger dynamical variables} ({\em i.e.}, the corresponding variables in
-the Schr\"{o}dinger picture), which do not evolve in time. 
+The properly normalized wavefunction of a hydrogen atom is written
+\begin{equation}
+\psi(r, \theta, \varphi) = R_{n\,l}(r)\, Y_{l\,m} (\theta, \varphi),
+\end{equation}
+where
+\begin{equation}
+R_{n\,l}(r) = {\cal R}_{n\,l}(r/a),
+\end{equation}
+and
+\begin{equation}
+a = n\,a_0.
+\end{equation}
+Here, 
+\begin{equation}
+a_0 =\frac{4\pi\, \epsilon_0\,\hbar^2}{\mu \,e^2} = 5.3\times 10^{-11}\,\,\,{\rm meters}
+\end{equation}
+is the {\em Bohr radius}, and 
+ ${\cal R}_{n\,l}(x)$ is a well-behaved solution of the differential equation
+\begin{equation}\label{e5.98}
+\left[\frac{1}{x^2} \frac{d}{dx}\, x^2 \,\frac{d}{dx}-\frac{l\,(l+1)}{x^2}
++ \frac{2\,n}{x} - 1\right] {\cal R}_{n\,l} = 0
+\end{equation}
+that is consistent with  the normalization constraint
+\begin{equation}
+\int_0^\infty dr\,r^2\,[R_{n\,l}(r)]^{\,2}= 1.
+\end{equation}
+Finally, the $Y_{l\,m}$ are spherical harmonics. The restrictions on the quantum numbers
+are  $|m| \leq l< n$, where $n$ is a positive integer, $l$ 
+a non-negative integer, and $m$ an integer. 
 
-According to Eq.~(\ref{e3.13}), the Heisenberg equation of motion can be written
-\begin{equation}\label{e4.26}
-\frac{dv_t}{dt} = [v_t, H_t]_{\rm quantum},
-\end{equation}
-where $[\cdots]_{\rm quantum}$ denotes the quantum Poisson bracket. 
-Let us compare this equation
-with the classical time evolution
-equation for a general dynamical variable $v$, which can be written
-in the form [see Eq.~(\ref{e3.4})]
-\begin{equation}\label{e4.27}
-\frac{dv}{dt} = [v,H]_{\rm classical}.
-\end{equation}
-Here, $[\cdots]_{\rm classical}$ is the classical Poisson bracket, and $H$ denotes
-the classical Hamiltonian. The strong resemblance between 
-Eqs.~(\ref{e4.26}) and (\ref{e4.27}) 
-provides us with further justification for our identification
-of the linear operator $H$ with the energy of the system in quantum mechanics. 
+The ground state of hydrogen corresponds to $n=1$. The only permissible values
+of the other quantum numbers are $l=0$ and $m=0$. Thus, the ground state is
+a spherically symmetric,  zero angular momentum state. The next energy level corresponds to $n=2$. The other quantum numbers are
+allowed to take the values $l=0$, $m=0$ or $l=1$, $m=-1, 0, 1$. Thus, there are
+$n=2$ states with non-zero angular momentum. Note that the energy levels given
+in Equation~(\ref{e5.95}) are independent of the quantum number $l$, despite the fact that
+$l$ appears in the radial eigenfunction equation (\ref{e5.98}). This is a special
+property of a $1/r$ Coulomb potential. 
 
-Note that if the Hamiltonian does not explicitly depend on time ({\em i.e.}, the system is
-not subject to some time-dependent external force) then Eq.~(\ref{e4.15}) yields
-\begin{equation}\label{e4.28}
-T(t, t_0) = \exp\left[-{\rm i}\, H\,(t-t_0)/\hbar \right].
-\end{equation}
-This operator manifestly commutes with $H$, so 
-\begin{equation}
-H_t = T^{\dag}\, H \,T = H.
-\end{equation}
-Furthermore, Eq.~(\ref{e4.25}) gives
-\begin{equation}
-{\rm i}\,\hbar \,\frac{dH}{dt} = [H, H] = 0.
-\end{equation}
-Thus, if the energy of the system  has no explicit time-dependence then it is 
-represented by the same non-time-varying operator $H$ in both the Schr\"{o}dinger
-and Heisenberg pictures. 
+In addition to the quantized negative energy states of the
+hydrogen atom, which we have just found, there
+is  also a continuum of unbound positive energy states. 
 
-Suppose that $v$ is an observable which commutes with the Hamiltonian
-(and, hence, with the time evolution operator $T$). It follows from Eq.~(\ref{e4.19})
-that $v_t= v$. Heisenberg's equation of motion yields
-\begin{equation}
-{\rm i}\,\hbar \,\frac{d v}{dt} = [v, H] = 0.
-\end{equation}
-Thus, {\em any observable which commutes with the Hamiltonian is a constant
-of the motion} (hence, it is represented by the same fixed operator in
-both the Schr\"{o}dinger and Heisenberg pictures). Only those observables
-which {\em do not} commute with the Hamiltonian evolve 
-in time in the Heisenberg picture.
+\subsection*{Exercises}
+\begin{enumerate}[label=\thechapter.\arabic*,leftmargin=*,widest=9.20]
+\item Demonstrate directly from the fundamental commutation relations for angular momentum, (\ref{e5.5}),  that
+$[L^2, L_z] = 0$, $[L^\pm, L_z] = \mp \,\hbar\,L^\pm$, and 
+$[L^+,L^-] = 2\,\hbar\,L_z$.
 
-\section{Ehrenfest's Theorem}
-We have now derived all of the basic elements of quantum mechanics. The only
-thing which is lacking is some rule  to determine the form of the 
-quantum mechanical Hamiltonian. For a physical system which possess a classical
-analogue, we generally assume that the Hamiltonian has the same form as
-in classical physics ({\em i.e.}, we replace the classical coordinates and conjugate
-momenta by the corresponding quantum mechanical operators). This scheme guarantees
-that quantum mechanics yields the correct classical equations of motion
-in the classical limit. Whenever an ambiguity arises because of 
-non-commuting
-observables, this can usually be resolved by requiring the Hamiltonian $H$ to
-be an Hermitian operator. For instance, we would write the
-quantum mechanical analogue of the classical product $x\,p$, appearing in the
-Hamiltonian, as the Hermitian product $(1/2)(x\,p + p\,x)$. When the system
-in question has no classical analogue then we are reduced to guessing a form
-for $H$ which reproduces the observed behaviour of the system. 
+\item Demonstrate from Equations~(\ref{e4.74v})--(\ref{e4.79v}) that 
+\begin{align}
+L_x &= {\rm i}\,\hbar\,\left(\sin\varphi\, \frac{\partial}{\partial \theta}
++ \cot\theta \cos\varphi\,\frac{\partial}{\partial \varphi}\right),\nonumber
+\\[0.5ex]
+L_y &= -{\rm i} \,\hbar\,\left(\cos\varphi\, \frac{\partial}{\partial\theta}
+-\cot\theta \sin\varphi \,\frac{\partial}{\partial \varphi}\right),\nonumber\\[0.5ex]
+L_z&= -{\rm i}\,\hbar\,\frac{\partial}{\partial\varphi},\nonumber
+\end{align}
+where $\theta$, $\varphi$ are conventional spherical polar angles. 
 
-Consider a three-dimensional system characterized by three independent Cartesian
-position coordinates $x_i$ (where $i$ runs from 1 to 3), with three corresponding
-conjugate momenta $p_i$. These are represented by three commuting position
-operators $x_i$, and three commuting momentum operators $p_i$, respectively. The 
-commutation
-relations  satisfied by the position and momentum operators
-are [see Eq.~(\ref{e3.14c})]
-\begin{equation}\label{e4.32}
-[x_i, p_j] = {\rm i}\,\hbar\, \delta_{ij}.
-\end{equation}
-It is helpful to denote $(x_1, x_2, x_3)$ as ${\bf x}$ and $(p_1, p_2, p_3)$ as 
-${\bf p}$. The following useful formulae,
-\begin{eqnarray}\label{e4.33a}
-[x_i, F({\bf p})]& =& {\rm i}\,\hbar \,\frac{\partial F}{\partial p_i},\\[0.5ex]
-[p_i, G({\bf x})]& = &- {\rm i}\,\hbar\,\frac{\partial G}{\partial x_i},\label{e4.33b}
-\end{eqnarray}
-where $F$ and $G$ are functions which can be expanded as  power series, are
-easily proved using  the fundamental commutation relations Eq.~(\ref{e4.32}).
+\item A system is in the state $\psi(\theta,\varphi)=Y_{l\,m}(\theta,\varphi)$. Evaluate
+$\langle L_x\rangle$,  $\langle L_y\rangle$, $\langle L_x^{\,2}\rangle$, and 
+$\langle L_y^{\,2}\rangle$.
 
-Let us now consider the three-dimensional motion of a free particle of mass
-$m$ in the
-Heisenberg picture. The Hamiltonian is assumed to have the same form as in
-classical physics:
-\begin{equation}
-H = \frac{{\bf p}^2}{2\,m} = \frac{1}{2\,m} \sum_{i=1}^3 p_i^{~2}.
-\end{equation}
-In the following, all dynamical variables are assumed to be Heisenberg dynamical
-variables, although we will omit the subscript $t$ for the sake of clarity. 
-The time evolution of the momentum operator $p_i$ follows from Heisenberg's
-equation of motion (\ref{e4.25}). We find that
-\begin{equation}
-\frac{dp_i}{dt} = \frac{1}{{\rm i}\,\hbar}[p_i, H] = 0,
-\end{equation}
-since $p_i$ automatically commutes with any function of the momentum operators. 
-Thus, for a free particle the momentum operators are constants of the motion,
-which means that $p_i(t) = p_i(0)$ at all times $t$ (for $i$ is 1 to 3). 
-The time evolution of the position operator $x_i$ is given by
-\begin{equation}
-\frac{d x_i}{dt} = \frac{1}{{\rm i}\,\hbar} [x_i, H] = \frac{1}{{\rm i}\,\hbar}
-\frac{1}{2\,m}\, {\rm i}\,\hbar\,\frac{\partial}{\partial p_i}\!
-\left(\sum_{j=1}^3 p_j^{~2}\right) = \frac{p_i}{m} = \frac{p_i(0)}{m},
-\end{equation}
-where use has been made of Eq.~(\ref{e4.33a}).  It follows that
-\begin{equation}
-x_i(t) = x_i(0) + \left[\frac{p_i(0)}{m}\right] t,
-\end{equation}
-which is analogous to the equation of motion of a classical free particle.
-Note that even though
-\begin{equation}
-[x_i(0), x_j(0)] = 0,
-\end{equation}
-where the position operators are evaluated at equal times, the $x_i$ {\em do not}
-commute when evaluated at different times. For instance,
-\begin{equation}
-[x_i(t), x_i(0)] = \left[ \frac{p_i(0)\,t}{m}, x_i(0)\right] = 
-\frac{-{\rm i}\,\hbar \,t}
-{m}.
-\end{equation}
-Combining the above commutation relation with the uncertainty relation (\ref{e2.75}) yields
-\begin{equation}
-\langle (\Delta x_i)^2\rangle_t \langle (\Delta x_i)^2\rangle_{t=0} \geq
-\frac{\hbar^2\, t^2}{4\, m^2}.
-\end{equation}
-This result implies that even if a particle is well-localized at $t=0$, its
-position becomes progressively more uncertain with time. This conclusion
-can also be obtained by studying the propagation of wave-packets in
-wave mechanics.
+\item Derive Equations~(\ref{e4.95v}) and (\ref{e4.96v}) from Equation~(\ref{e4.94v}).
 
-Let us now add a potential $V({\bf x})$ to our free particle Hamiltonian:
-\begin{equation}
-H = \frac{{\bf p}^2}{2\,m} + V({\bf x}).
-\end{equation}
-Here, $V$ is some function of the $x_i$ operators. Heisenberg's equation of
-motion gives
-\begin{equation}
-\frac{d p_i}{dt} = \frac{1}{{\rm i}\,\hbar} [p_i, V({\bf x})] = - \frac{\partial
-V({\bf x})}{\partial x_i},
-\end{equation}
-where use has been made of Eq.~(\ref{e4.33b}). On the other hand, the result
-\begin{equation}
-\frac{d x_i}{dt} = \frac{p_i}{m}
-\end{equation}
-still holds, because the $x_i$ all commute with the new term $V({\bf x})$ in the
-Hamiltonian. We can use the Heisenberg equation of motion a second time
-to deduce that
-\begin{equation}
-\frac{d^2 x_i}{dt^2} = \frac{1}{{\rm i}\,\hbar} \left[\frac{dx_i}{dt}, H\right]
-= \frac{1}{{\rm i}\,\hbar}\left[ \frac{p_i}{m}, H \right]
-=\frac{1}{m}\frac{d p_i}{dt} = - \frac{1}{m} \frac{\partial V({\bf x})}{\partial x_i}.
-\end{equation}
-In vectorial form, this equation becomes
-\begin{equation}\label{e4.45}
-m\,\frac{d^2 {\bf x}}{d t^2} = \frac{d{\bf p}}{dt} =
-- \nabla V({\bf x}).
-\end{equation}
-This is the quantum mechanical equivalent of Newton's second law of motion.
-Taking the expectation values of both sides with respect to a Heisenberg
-state ket that does {\em not}\/ move with time, we obtain
-\begin{equation}\label{e4.46}
-m \,\frac{d^2\langle {\bf x}\rangle}{dt^2}= \frac{d\langle{\bf p}\rangle}{dt}
-= - \langle \nabla V({\bf x})\rangle.
-\end{equation}
-This is known as {\em Ehrenfest's theorem}. When written in terms of expectation
-values, this result is independent of whether we are using the Heisenberg or
-Schr\"{o}dinger picture. In contrast, the operator equation (\ref{e4.45}) only holds
-if ${\bf x}$ and ${\bf p}$ are understood to be Heisenberg dynamical variables.
-Note that Eq.~(\ref{e4.46}) has no dependence on $\hbar$. 
-In fact, it guarantees to  us that the centre of
-a wave-packet always moves like a classical particle.
+\item Find the eigenvalues and eigenfunctions (in terms of the angles $\theta$ and $\varphi$) of $L_x$.
 
-\section{Schr\"{o}dinger's Wave Equation}
-Let us now consider the motion of a particle 
-in three dimensions in the Schr\"{o}dinger picture. The fixed dynamical variables of
-the system are the position operators ${\bf x}\equiv
-(x_1, x_2, x_3)$, and the momentum operators ${\bf p}\equiv (p_1, p_2, p_3)$.
-The state of the system is represented as some time evolving ket $|At\rangle$.
+\item Consider a beam of particles with $l=1$. A measurement of $L_x$ yields the result $\hbar$. What
+values will be obtained by a subsequent measurement of $L_z$, and with what probabilities? Repeat
+the calculation for the cases in which the measurement of $L_x$ yields the results $0$ and
+$-\hbar$. 
 
-Let $|{\bf x'}\rangle$ represent a simultaneous eigenket of the position operators
-belonging to the eigenvalues ${\bf x'} \equiv (x_1', x_2', x_3')$. Note that, since
-the position operators  are {\em fixed} in the Schr\"{o}dinger picture, we do not
-expect the $|{\bf x}'\rangle$ to evolve in time. The wave-function of the system
-at time $t$ is defined
-\begin{equation}
-\psi({\bf x'}, t) = \langle {\bf x'}| At\rangle.
-\end{equation}
-The Hamiltonian of the system is taken to be
-\begin{equation}\label{e4.48}
-H = \frac{{\bf p}^2}{2\,m} + V({\bf x}).
-\end{equation}
+\item The Hamiltonian for an axially symmetric rotator is given by
+$$
+H = \frac{L_x^{\,2}+L_y^{\,2}}{2\,I_1} + \frac{L_z^{\,2}}{2\,I_2}.
+$$
+What are the eigenvalues of $H$?
 
-Schr\"{o}dinger's equation of motion (\ref{e4.10}) yields 
-\begin{equation}\label{e4.49}
-{\rm i}\,\hbar \,\frac{\partial \langle {\bf x'}|At\rangle}{\partial t}
-= \langle {\bf x'}|H| At\rangle,
-\end{equation}
-where use has been made of the time independence of the $|{\bf x'}\rangle$. 
-We adopt Schr\"{o}d\-inger's representation in which the momentum conjugate
-to the position operator $x_i$ is written  [see Eq.~(\ref{e3.63})]
-\begin{equation}\label{e4.50}
-p_i = -{\rm i}\,\hbar\frac{\partial}{\partial x_i}.
-\end{equation}
-Thus,
-\begin{equation}\label{e4.51}
-\left\langle {\bf x}'\left|\frac{{\bf p}^2}{2\,m}\right| At\right\rangle = 
-- \left(\frac{\hbar^2}{2\,m}\right)
-\nabla'^2\langle {\bf x'} |At\rangle,
-\end{equation}
-where use has been made of Eq.~(\ref{e3.67}). Here, $\nabla'\equiv(\partial/\partial x',
-\partial/\partial y', \partial/\partial z')$ denotes the gradient operator written
-in terms of the position eigenvalues. We can also
-write
-\begin{equation}\label{e4.52}
-\langle {\bf x'}|V({\bf x}) = V({\bf x'})\langle {\bf x'} |,
-\end{equation}
-where $V({\bf x'})$ is  a scalar function of the position eigenvalues. Combining
-Eqs.~(\ref{e4.48}), (\ref{e4.49}), (\ref{e4.51}), and (\ref{e4.52}), we obtain
-\begin{equation}
-{\rm i}\,\hbar \,\frac{\partial \langle {\bf x}'|At\rangle}{\partial t}
-= - \left(\frac{\hbar^2}{2\,m}\right)
-\nabla'^2\langle{\bf x'} |At\rangle + V({\bf x}') \langle {\bf x}'|At\rangle,
-\end{equation}
-which can also be written
-\begin{equation}\label{e4.54}
-{\rm i}\,\hbar\,\frac{\partial \psi({\bf x}', t)}{\partial t}
-= -  \left(\frac{\hbar^2}{2\,m}\right)
-\nabla'^2\psi({\bf x}', t) + V({\bf x'})\, \psi({\bf x'}, t).
-\end{equation}
-This is Schr\"{o}dinger's famous wave-equation, and is the basis of
-wave mechanics. Note, however, that the wave-equation is 
-just one of many possible representations of quantum mechanics. It just happens
-to give a type of equation which we know how to solve. In deriving the wave-equation, we have chosen to represent the system in terms of the eigenkets of
-the position operators, instead of those of the momentum operators. We have
-also fixed the relative phases of the $|{\bf x'}\rangle$ according to 
-Schr\"{o}dinger's representation, so that Eq.~(\ref{e4.50}) is valid.  Finally, we
-have chosen to work in the Schr\"{o}dinger picture, in which state kets evolve
-and dynamical variables are fixed, instead of the Heisenberg picture,
-in which the opposite is true. 
+\item The expectation value of $f({\bf x},{\bf p})$ in any stationary state is a constant.
+Calculate
+$$
+0= \frac{d}{dt}\,(\langle{\bf x}\cdot{\bf p}\rangle) = \frac{{\rm i}}{\hbar}\,\langle[H, {\bf x}\cdot{\bf p}]\rangle
+$$
+for a Hamiltonian of the form
+$$
+H = \frac{p^2}{2\,m} + V(r).
+$$
+Hence, show that
+$$
+\left\langle\frac{p^2}{2\,m}\right\rangle = \frac{1}{2}\left\langle r\,\frac{dV}{dr}\right\rangle
+$$
+in a stationary state. This is another form of the {\em Virial theorem}. (See Exercise~\ref{ex3.5}.)
 
-Suppose that the ket $|At\rangle$ is an eigenket of the Hamiltonian
-belonging to the eigenvalue $H'$:
-\begin{equation}
-H|At\rangle = H'|At\rangle.
-\end{equation}
-Schr\"{o}dinger's equation of motion (\ref{e4.10}) yields
-\begin{equation}
-{\rm i}\,\hbar \,\frac{d |At\rangle}{dt} = H' |At\rangle.
-\end{equation}
-This can be integrated to give
-\begin{equation}
-|At\rangle = \exp[ -{\rm i}\,H'(t-t_0)/\hbar] |At_0\rangle.
-\end{equation}
-Note that $|At\rangle$ only differs from $|At_0\rangle$ by a phase-factor. The direction of the vector remains fixed in ket space. This
-suggests that if the system is initially in an eigenstate of the
-Hamiltonian then it remains in this state for ever, as long as the system
-is undisturbed. Such a state is called a {\em stationary state}. The wave-function
-of a stationary state satisfies 
-\begin{equation}
-\psi({\bf x}', t) = \psi({\bf x'}, t_0) \exp[ -{\rm i}\,H'\,(t-t_0)/\hbar].
-\end{equation}
+\item Use the Virial theorem of the previous exercise to prove that
+$$
+\left\langle \frac{1}{r}\right\rangle = \frac{1}{n^2\,a_0}
+$$
+for an energy eigenstate of the hydrogen atom. 
 
-Substituting the above relation into Schr\"{o}dinger's wave equation
-(\ref{e4.54}), we
-obtain
-\begin{equation}\label{e4.59}
--\left(\frac{\hbar^2}{2\,m}\right)\nabla'^2\psi_0({\bf x'}) + 
-(V({\bf x'})-E)\,\psi_0({\bf x'}) =0,
-\end{equation}
-where $\psi_0({\bf x'}) \equiv \psi({\bf x'}, t_0)$,
-and $E= H'$ is the energy of the system. This is Schr\"{o}dinger's
-time-independent wave-equation. A {\em bound state} solution of the
-above equation, in which the particle is confined within a finite region
-of space, satisfies the boundary condition
-\begin{equation}\label{e4.60}
-\psi_0({\bf x}') \rightarrow 0 \mbox{\hspace{1cm}as $|{\bf x}'|\rightarrow \infty$}.
-\end{equation}
-Such a solution is only possible if
-\begin{equation}
-E < \lim_{|{\bf x}'|\rightarrow \infty} V({\bf x'}).
-\end{equation}
-Since it is conventional to set the potential at infinity equal to zero, the above
-relation implies that bound states are equivalent to negative energy states.
-The boundary condition (\ref{e4.60}) is sufficient to uniquely specify the solution
-of Eq.~(\ref{e4.59}).
-
-The quantity $\rho({\bf x'}, t)$, defined by
-\begin{equation}
-\rho({\bf x'}, t) = |\psi({\bf x'}, t)|^2,
-\end{equation}
-is termed the {\em probability density}. Recall, from Eq.~(\ref{e3.19}), that the
-probability of observing the particle in some volume element $d^3 x'$ 
-around position ${\bf x'}$ is proportional to $\rho({\bf x'}, t)\,d^3 x'$.
-The probability is {\em equal} to $\rho({\bf x'}, t)\,d^3 x'$ if the wave-function
-is properly normalized, so that
-\begin{equation}\label{e4.63}
-\int \rho({\bf x'}, t)\, d^3 x' = 1.
-\end{equation}
-
-Schr\"{o}dinger's time-dependent wave-equation, (\ref{e4.54}), can easily be
-written in the form of a conservation equation for the probability
-density:
-\begin{equation}\label{e4.64}
-\frac{\partial \rho}{\partial t} + \nabla'\cdot {\bf j} = 0.
-\end{equation}
-The {\em probability
-current}\/ ${\bf j}$ takes the form
-\begin{equation}\label{e4.65}
-{\bf j}({\bf x}', t) = - \left(\frac{{\rm i}\, \hbar}{2\,m}\right)
-\left[ \psi^\ast\, \nabla' \psi - (\nabla' \psi^\ast)\,\psi\right]
-= \left(\frac{\hbar}{m} \right){\rm Im} (\psi^\ast \nabla' \psi).
-\end{equation}
-We can integrate Eq.~(\ref{e4.64}) over all space, using the divergence theorem,
-and the boundary condition $\rho\rightarrow 0$ as $|{\bf x'}|\rightarrow
-\infty$, to obtain 
-\begin{equation}
-\frac{\partial}{\partial t} \int \rho({\bf x'}, t)\, d^3 x' = 0.
-\end{equation}
-Thus, Schr\"{o}dinger's wave-equation {\em  conserves}\/
- probability. In particular, if the
-wave-function starts off properly normalized, according to Eq.~(\ref{e4.63}), then it
-remains properly normalized at all subsequent times. It is easily
-demonstrated that
-\begin{equation}
-\int {\bf j}({\bf x}', t) \,d^3 x' = \frac{\langle {\bf p }\rangle_t}{m},
-\end{equation}
-where $\langle {\bf p} \rangle_t$ denotes the expectation value of the momentum
-evaluated at time $t$.  Clearly, the probability current is indirectly related to
-the particle momentum.
-
-In deriving Eq.~(\ref{e4.64}) we have, naturally, assumed that the potential $V({\bf x}')$
-is real. Suppose, however, that the potential has an imaginary component. 
-In this case, Eq.~(\ref{e4.64}) generalizes to
-\begin{equation}
-\frac{\partial \rho}{\partial t} + \nabla'\cdot {\bf j} = \frac{2\,{\rm Im}(V)}{\hbar}
-\rho,
-\end{equation}
-giving
-\begin{equation}
-\frac{\partial}{\partial t} \int \rho({\bf x'}, t)\, d^3 x' = \frac{2}{\hbar}\,
-{\rm Im}\!\int
-V({\bf x}') \,\rho({\bf x'}, t)\, d^3 x'.
-\end{equation}
-Thus, if ${\rm Im}(V)<0$ then the total probability of observing the particle
-anywhere in space 
-decreases monotonically with time. Thus, an imaginary potential can be
-used to account for the disappearance of a particle. Such a potential
-is often employed to model nuclear reactions in which incident particles can be
-absorbed by nuclei.
-
-The wave-function can always be written in the form
-\begin{equation}\label{e4.70}
-\psi({\bf x}', t) = \sqrt{\rho({\bf x}', t)} \exp\left[\frac{{\rm i}\,S({\bf x}',t)}{
-\hbar}\right],
-\end{equation}
-where 
-$\rho$ and $S$ are both real functions. The interpretation of $\rho$ as a probability
-density has already been given. What is the interpretation of $S$?
-Note that
-\begin{equation}
-\psi^\ast \nabla'\psi = \sqrt{\rho} \,\nabla'(\sqrt{\rho}) + \left(\frac{{\rm i}}
-{\hbar}
-\right) \rho \nabla' S.
-\end{equation}
-It follows from Eq.~(\ref{e4.65}) that
-\begin{equation}
-{\bf j} = \frac{\rho \,\nabla' S}{m}.
-\end{equation}
-Thus, the gradient of the phase of the wave-function determines the 
-direction of the probability
-current. In particular, the probability current is locally
-normal to the  contours of the  phase-function $S$. 
-
-Let us substitute Eq.~(\ref{e4.70}) into Schr\"{o}dinger's time-dependent wave-equation. We obtain
-\begin{eqnarray}
--\frac{1}{2\,m}\left[ \hbar^2 \nabla'^2 \sqrt{\rho} + 2{\rm i}\,\hbar
-\nabla'(\sqrt{\rho})\!\cdot\! \nabla' S - \sqrt{\rho}\, |\nabla' S|^2 
-+{\rm i}\,\hbar \sqrt{\rho}\,\nabla'^2 S\right]
-+ \sqrt{\rho}\, V& &\nonumber\\[0.5ex]
-= \left[ {\rm i}\,\hbar \frac{\partial \sqrt{\rho}}{\partial t}
-- \sqrt{\rho}\, \frac{\partial S}{\partial t} \right].&&\label{e4.73}
-\end{eqnarray}
-Let us treat $\hbar$ as a small quantity. To lowest order, Eq.~(\ref{e4.73})
-yields
-\begin{equation}
--\frac{\partial S({\bf x}', t)}{\partial t} = \frac{1}{2\,m} |\nabla' S({\bf x}', t)
-|^2 + V ({\bf x}', t) = H({\bf x}', \nabla'
-S, t),
-\end{equation}
-where $H({\bf x}, {\bf p}, t)$ is the Hamiltonian operator. The above equation is
-known as the {\em Hamilton-Jacobi} equation, and is one of the many forms
-in which we can write the equations of classical mechanics. In classical
-mechanics, $S$ is the {\em action} ({\em i.e.}, the path-integral of the Lagrangian).
-Thus, in the limit $\hbar\rightarrow 0$, wave mechanics reduces to classical
-mechanics. It is a good approximation to neglect the terms involving
-$\hbar$ in Eq.~(\ref{e4.73}) provided that
-\begin{equation}\label{e4.75}
-\hbar\, |\nabla'^2 S| \ll |\nabla' S|^2.
-\end{equation}
-Note that, according to Eq.~(\ref{e4.70}),
-\begin{equation}
-\lambdabar = \frac{\hbar}{|\nabla' S|},
-\end{equation}
-where $\lambdabar$ is the de~Broglie wave-length divided by $2\pi$. The inequality
-(\ref{e4.75}) is equivalent to
-\begin{equation}
-|\nabla' \lambdabar| \ll 1.
-\end{equation}
-In other words, quantum mechanics reduces  to classical mechanics whenever the 
-de~Broglie wave-length is small compared to the characteristic distance over which
-things (other than the quantum phase)
- vary. This distance is usually set by the variation scale-length of the potential.
+\item Demonstrate that the  first few properly normalized radial wavefunctions of the hydrogen atom take the form:
+\begin{enumerate}
+\item 
+$$
+R_{1\,0}(r) = \frac{2}{a_0^{\,3/2}}\,\exp\left(-\frac{r}{a_0}\right).
+$$
+\item
+$$
+R_{2\,0}(r)= \frac{2}{(2\,a_0)^{3/2}}\left(1-\frac{r}{2\,a_0}\right)\exp\left(-\frac{r}{2\,a_0}\right).
+$$
+\item
+$$
+R_{2\,1}(r)= \frac{1}{\sqrt{3}\,(2\,a_0)^{3/2}}\,\frac{r}{a_0}\,\exp\left(-\frac{r}{2\,a_0}\right).
+$$
+\end{enumerate}
+\end{enumerate}

@@ -1,898 +1,1175 @@
-\chapter{Scattering theory}
+\chapter{Time-Independent Perturbation Theory}
+% !TEX root = ../Quantum.tex
+
 \section{Introduction}
-Historically,  data regarding quantum phenomena has been
-obtained from two main sources---the study of spectroscopic lines,
-and scattering experiments. 
-We have already developed theories which account
-for some aspects of the spectra  of hydrogen-like atoms.
-Let us now examine the quantum theory of
-scattering. 
+We have developed techniques by which the general energy eigenvalue problem
+can be reduced to a set of coupled partial differential equations involving
+various wavefunctions. Unfortunately, the number of such problems that yield
+exactly soluble equations is comparatively small. It is, therefore,  necessary to develop techniques for finding
+approximate solutions to otherwise intractable problems. 
 
-\section{Lipmann-Schwinger Equation}
-Consider time-independent scattering theory, for which the Hamiltonian
-of the system is written
+Consider the following problem, which is very common. The Hamiltonian of a
+system  is  written
 \begin{equation}
-H= H_0 + H_1,
+H = H_0 + H_1.
 \end{equation}
-where $H_0$ is the Hamiltonian of a free particle of mass $m$,
-\begin{equation}
-H_0 = \frac{p^2}{2\,m},
-\end{equation}
-and $H_1$ represents the non-time-varying source of the scattering. Let $|\phi\rangle$
-be an energy eigenket of $H_0$,
-\begin{equation}\label{e7.3}
-H_0\, |\phi\rangle = E\, |\phi\rangle,
-\end{equation}
-whose wave-function $\langle {\bf r}'|\phi\rangle$ is
-$\phi({\bf r}')$. This state is   a plane-wave state or, possibly, a
-spherical-wave state. 
-Schr\"{o}dinger's equation for the scattering problem is
-\begin{equation}\label{e7.4}
-(H_0 + H_1) |\psi\rangle = E\,|\psi\rangle,
-\end{equation}
-where $|\psi\rangle$ is an energy eigenstate of the total Hamiltonian
-whose wave-function $\langle {\bf r}'|\psi\rangle$ is $\psi({\bf r}')$. 
-In general, both $H_0$ and $H_0 + H_1$ have continuous energy
-spectra: {\em i.e.}, their  energy eigenstates are unbound.
-We require a solution of Eq.~(\ref{e7.4}) which satisfies the
-boundary condition $|\psi\rangle \rightarrow |\phi\rangle$ as
-$H_1\rightarrow 0$. Here, $|\phi\rangle$ is a solution of the free particle
-Schr\"{o}dinger equation, (\ref{e7.3}), corresponding to the same energy eigenvalue.
+Here, $H_0$ is a simple Hamiltonian for which we know
+the {\em exact}\/ eigenvalues and eigenstates. $H_1$ introduces some
+interesting additional physics into the problem, but it is sufficiently
+complicated that when we add it to $H_0$ we can no longer find the exact
+energy eigenvalues and eigenstates. However, $H_1$ can, in some sense
+(which we shall specify more exactly later on), be regarded as 
+being {\em small}\/ compared to $H_0$. Let us try to find approximate  eigenvalues
+and eigenstates of the modified Hamiltonian, $H_0+H_1$, by performing a perturbation analysis about the   eigenvalues
+and eigenstates of the original Hamiltonian, $H_0$. 
 
-Formally, the desired solution can be written
-\begin{equation}
-|\psi\rangle =|\phi\rangle +\frac{1}{E-H_0} \,H_1 |\psi\rangle.
-\end{equation}
-Note that we can recover Eq.~(\ref{e7.4}) by operating on the above equation
-with $E-H_0$, and making use of Eq.~(\ref{e7.3}). Furthermore, the solution
-satisfies the boundary condition $|\psi\rangle \rightarrow |\phi
-\rangle$ as $H_1\rightarrow 0$. Unfortunately, the operator
-$(E-H_0)^{-1}$ is {\em singular}: {\em i.e.}, it produces infinities when it
-operates on an eigenstate of $H_0$ corresponding to the eigenvalue $E$. 
-We need a prescription for dealing with these infinities, 
-otherwise the above solution  is useless. The standard prescription is
-to make the energy eigenvalue $E$ slightly complex. Thus,
-\begin{equation}\label{e7.6}
-|\psi^\pm\rangle =|\phi\rangle +\frac{1}{E-H_0\pm {\rm i}\,\epsilon} 
-\,H_1 |\psi^\pm\rangle,
-\end{equation}
-where $\epsilon$ is real, positive, and small. Equation~(\ref{e7.6}) is called
-the {\em Lipmann-Schwinger equation}, and is non-singular
-as long as $\epsilon>0$.  The physical significance of the
-$\pm$ signs will become apparent later on.
 
-The Lipmann-Schwinger equation can be converted into an {\em integral
-equation} via left multiplication by $\langle{\bf r}|$. Thus,
-\begin{equation}\label{e7.7}
-\psi^\pm({\bf r}) = \phi({\bf r})
-+\int \left\langle{\bf r}\left|\frac{1}{E-H_0\pm {\rm i}\,\epsilon}
-\right| {\bf r}'\right\rangle \langle {\bf r}'|H_1|\psi^\pm\rangle\,d^3{\bf r}'.
+\section{Two-State System}
+Let us start by considering {\em time-independent perturbation theory},
+in which the modification to the Hamiltonian, $H_1$, has no explicit
+dependence on time. It is usually assumed that the unperturbed 
+Hamiltonian, $H_0$, is also time-independent. 
+
+Consider the simplest non-trivial system, in which there are only {\em two}\/ 
+independent  eigenkets of the unperturbed Hamiltonian. These are denoted
+\begin{eqnarray}
+H_0 \,|1\rangle &=& E_1 \,|1\rangle,\\[0.5ex]
+H_0 \,|2\rangle &=& E_2 \,|2\rangle.
+\end{eqnarray}
+It is assumed that these states, and their associated eigenvalues, are known.
+Because $H_0$ is, by definition,  an Hermitian operator,
+ its two eigenkets are mutually orthogonal 
+and form a complete set. The lengths of these
+eigenkets are both normalized to unity. 
+Let us now try to solve the modified energy eigenvalue problem
+\begin{equation}\label{e6.4}
+(H_0 + H_1) \,|E\rangle = E\,|E\rangle.
 \end{equation}
-Adopting the Schr\"{o}dinger representation, we can write the scattering
-problem (\ref{e7.4}) in the form
+In fact, we can solve this problem exactly. Since the eigenkets of $H_0$ form a
+complete set, we can write
 \begin{equation}
-(\nabla^2 + k^2)\,\psi({\bf r}) = \frac{2\,m}{\hbar^2} \langle {\bf r} |H_1|
-\psi\rangle,
+|E\rangle = \langle 1|E\rangle |1\rangle  + \langle 2|E\rangle |2\rangle.
+\end{equation}
+Right-multiplication of  Equation~(\ref{e6.4}) by $\langle 1|$ and $\langle 2|$ yields two
+coupled equations, which can be written in matrix form:
+\begin{equation}\label{e6.6}
+\left( \begin{array}{c c}
+E_1 -E + e_{11}   & e_{12} \\
+e_{12}^{\,\ast} & E_2 -E + e_{22} 
+\end{array} \right)\left(\!
+\begin{array}{c}\langle 1|E\rangle\\
+\langle 2|E \rangle\end{array}
+\!\right)= \left(\!\begin{array}{c}0\\
+0 \end{array}\!
+\right).
+\end{equation}
+Here,
+\begin{eqnarray}
+e_{11} &=& \langle 1|\,H_1\, | 1\rangle,\\[0.5ex]
+e_{22} &=& \langle 2 |\,H_1\, |2\rangle, \\[0.5ex]
+e_{12} &=& \langle 1|\,H_1\,|2\rangle.
+\end{eqnarray}
+In the special (but common) case of a perturbing Hamiltonian whose diagonal
+matrix elements (in the unperturbed eigenstates) are zero, so that
+\begin{equation}
+e_{11} = e_{22} = 0,
+\end{equation}
+the solution of Equation~(\ref{e6.6}) (obtained by setting the determinant of the matrix
+equal to zero) is
+\begin{equation}
+E = \frac{(E_1+E_2) \pm \sqrt{(E_1-E_2)^{\,2} + 4\,|e_{12}|^{\,2}}}{2}.
+\end{equation}
+Let us expand in the supposedly small parameter
+\begin{equation}
+\epsilon = \frac{|e_{12}|}{|E_1-E_2|}.
+\end{equation}
+We obtain
+\begin{equation}\label{e6.13}
+E\simeq \frac{1}{2} \,(E_1+E_2) \pm \frac{1}{2}\,(E_1-E_2)\,(1+2\,\epsilon^2 + \cdots).
+\end{equation}
+The above expression  yields the modifications to the energy eigenvalues due to
+the perturbing Hamiltonian:
+\begin{eqnarray}
+E_1' &=& E_1 + \frac{|e_{12}|^{\,2}}{E_1-E_2} + \cdots,\\[0.5ex]
+E_2' &=& E_2 - \frac{|e_{12}|^{\,2}}{E_1-E_2} + \cdots.
+\end{eqnarray}
+Note that $H_1$ causes the upper eigenvalue to rise, and the lower
+eigenvalue to fall. It is easily demonstrated that the modified eigenkets
+take the form
+\begin{eqnarray}
+|1\rangle' &=& |1\rangle + \frac{e_{12}^{~\ast}}{E_1-E_2}\, |2\rangle + \cdots,
+\\[0.5ex]
+|2\rangle' &=& |2\rangle - \frac{e_{12}}{E_1-E_2}\, |1\rangle +\cdots.
+\end{eqnarray}
+Thus, the modified  energy eigenstates consist of one of the unperturbed eigenstates
+with a slight admixture of the other. Note that the series expansion in Equation~(\ref{e6.13})
+only converges if $2\,|\epsilon|<1$. This suggests that the condition for the 
+validity of the perturbation expansion is
+\begin{equation}
+|e_{12}| < \frac{|E_1-E_2|}{2}.
+\end{equation}
+In other words, when we say that $H_1$ needs to be small compared to $H_0$,
+what we really mean is that the above inequality needs to be satisfied.
+
+\section{Non-Degenerate Perturbation Theory}\label{s6.3}
+Let us now generalize our perturbation analysis to deal with systems
+possessing  more than two energy eigenstates. The energy eigenstates of the
+unperturbed Hamiltonian, $H_0$, are denoted
+\begin{equation}
+H_0\, |n\rangle = E_n\, |n\rangle,
+\end{equation}
+where $n$ runs from 1 to $N$. The eigenkets $|n\rangle$ are orthogonal,
+form a complete set, and have their lengths normalized to unity. 
+Let us now try to solve the energy eigenvalue
+problem for the perturbed Hamiltonian:
+\begin{equation}\label{e6.20}
+(H_0 + H_1) \,|E\rangle = E\, |E\rangle.
+\end{equation}
+We can express $|E\rangle$ as a linear superposition of the unperturbed energy
+eigenkets,
+\begin{equation}
+|E\rangle = \sum_k \langle k | E\rangle |k\rangle,
+\end{equation}
+where the summation is from $k=1$ to $N$. Substituting the above
+equation into Equation~(\ref{e6.20}), and right-multiplying by $\langle m|$, we obtain
+\begin{equation}\label{e6.22}
+(E_m + e_{mm} - E)\, \langle m|E\rangle + \sum_{k\neq m} e_{mk}\, \langle k|E\rangle = 0,
 \end{equation}
 where
 \begin{equation}
-E = \frac{\hbar^2 k^2}{2\,m}.
+e_{mk} = \langle m |\,H_1\,| k\rangle.
 \end{equation}
-This equation is called {\em Helmholtz's equation}, and can be inverted
-using standard Green's function techniques. Thus,
-\begin{equation}\label{e7.10}
-\psi({\bf r}) = \phi({\bf r}) + \frac{2\,m}{\hbar^2} \int G({\bf r}, {\bf r'})
-\langle {\bf r}' |H_1|\psi\rangle \,d^3{\bf r}',
+
+Let us now develop our perturbation expansion. We assume that
+\begin{equation}
+\frac{|e_{mk}|}{E_m - E_k} \sim O(\epsilon),
 \end{equation}
+for all $m\neq k$, where $\epsilon\ll 1$ is our expansion parameter. We also
+assume that
+\begin{equation}
+\frac{|e_{mm}|}{E_m} \sim O(\epsilon),
+\end{equation} 
+for all $m$. Let us search for a modified version of the $n$th unperturbed energy
+eigenstate, for which
+\begin{equation}
+E= E_n + O(\epsilon),
+\end{equation}
+and
+\begin{eqnarray}
+\langle n|E\rangle &=& 1,\\[0.5ex]
+\langle m|E\rangle &\sim& O(\epsilon),
+\end{eqnarray}
+for $m\neq n$. Suppose that we 
+write out Equation~(\ref{e6.22}) for $m\neq n$, neglecting terms that 
+are $O(\epsilon^2)$ according to our expansion scheme. We find that
+\begin{equation}
+(E_m - E_n) \,\langle m |E \rangle + e_{mn} \simeq 0,
+\end{equation} 
+giving 
+\begin{equation}
+\langle m|E\rangle \simeq -\frac{e_{mn}}{E_m - E_n}.
+\end{equation}
+Substituting the above expression into Equation~(\ref{e6.22}),
+evaluated  for $m=n$, and neglecting $O(\epsilon^3)$ terms, we obtain
+\begin{equation}
+(E_n + e_{nn} - E)  - \sum_{k\neq n} \frac{|e_{nk}|^{\,2}}
+{E_k-E_n} \simeq 0.
+\end{equation}
+Thus, the modified $n$th energy eigenstate possesses an  eigenvalue
+\begin{equation}\label{e6.32}
+E_n' = E_n + e_{nn} +  \sum_{k\neq n} \frac{|e_{nk}|^{\,2}}
+{E_n-E_k} + O(\epsilon^3),
+\end{equation}
+and a eigenket
+\begin{equation}\label{e6.33}
+|n\rangle' = |n\rangle   +\sum_{k\neq n}\frac{e_{kn}}{E_n - E_k}\,|k\rangle + O(\epsilon^2).
+\end{equation}
+Note that
+\begin{equation}
+\langle m|n\rangle' = \delta_{mn} + \frac{e_{nm}^{\,\ast}}{E_m-E_n} + \frac{e_{mn}}
+{E_n-E_m} + O(\epsilon^2) = \delta_{mn} + O(\epsilon^2).
+\end{equation}
+Thus, the modified eigenkets remain  orthogonal and properly normalized
+to $O(\epsilon^2)$. 
+
+\section{Quadratic Stark Effect}\label{s6.4}
+Suppose that a one-electron atom [{\rm i.e.}, either a hydrogen atom, or an alkali metal
+atom (which possesses  one valance electron orbiting outside a closed, spherically
+symmetric, shell)] is subjected to a uniform electric field in the positive
+$z$-direction. The Hamiltonian of the system can be split into two
+parts. The unperturbed Hamiltonian,
+\begin{equation}
+H_0 = \frac{{p}^2}{2\,m_e} + V(r),
+\end{equation}
+and the perturbing Hamiltonian,
+\begin{equation}
+H_1=  e\, |{\bf E}|\, z.
+\end{equation}
+Here, we are neglecting the small difference between the reduced mass, $\mu$, and the electron mass, $m_e$. 
+
+It is assumed that the unperturbed energy eigenvalues and eigenstates are completely
+known. The electron spin is irrelevant in this problem (because the spin operators
+all commute with $H_1$), so we can ignore the spin degrees of freedom of the system.
+This implies that the system possesses no degenerate energy eigenvalues. Actually, this is
+not true for the $n\neq 1$ energy levels of the hydrogen atom, due to the special
+properties of a pure Coulomb potential. 
+It is necessary to deal with this case separately, because
+the perturbation theory presented in Section~\ref{s6.3} breaks down  for  degenerate
+unperturbed energy levels. 
+
+An  energy eigenket of the unperturbed Hamiltonian is characterized by three quantum numbers---the radial quantum number $n$, and the two angular quantum numbers $l$ and
+$m$ (see Section~\ref{s5.6}). Let us denote such a ket $|n,l,m\rangle$, and let its
+energy  be $E_{nlm}$. According to Equation~(\ref{e6.32}), the change in this
+energy induced by a {\em small}\/ electric field is given by
+\begin{equation}
+{\mit\Delta} E_{nlm}=e\,|{\bf E}|\, \langle n,l,m |\,z\,|n,l,m\rangle+ e^2 \,|{\bf E}|^{\,2}\,\sum_{n',l',m'\neq n,l,m} \frac{|\langle 
+n,l,m|\,z\,| n,'l',m'\rangle|^{\,2}}{ E_{nlm}-E_{n'l'm'} }.\label{e6.38}
+\end{equation}
+
+Now, since
+\begin{equation}
+L_z = x\,p_y - y\, p_x,
+\end{equation}
+it follows that
+\begin{equation}
+[L_z, z] = 0.
+\end{equation}
+Thus,
+\begin{equation}
+\langle n,l, m|\, [L_z, z]\, | n',l',m'\rangle = 0,
+\end{equation}
+giving 
+\begin{equation}
+(m - m')\, \langle  n,l, m|\,z\,| n',l',m'\rangle = 0,
+\end{equation}
+because $|n,l,m\rangle$ is, by definition, an eigenstate of $L_z$ with eigenvalue
+$m\,\hbar$. It is clear, from the above relation, that
+the matrix element $\langle  n,l, m|\,z\,| n',l',m'\rangle$ is zero unless $m'=m$. 
+This is termed the {\em selection rule}\/ for the quantum number $m$.
+
+Let us now determine the selection rule for $l$. We have
+\begin{align}
+[L^2, z] &= [L_x^{\,2}, z] + [L_y^{\,2}, z] = L_x\,[L_x, z] + [L_x, z] \,L_x + L_y\,[L_y, z] + [L_y, z]\, L_y\nonumber\\[0.5ex]
+         &= {\rm i}\,\hbar\left( -L_x\, y - y\, L_x + L_y \,x + x \,L_y\right)= 2 \,{\rm i} \, \hbar \,( L_y \,x - L_x \,y + {\rm i}\,\hbar\,z)\nonumber\\[0.5ex]
+	 &= 2 \,{\rm i}\, \hbar \,( L_y\, x - y \,L_x ) =  2\, {\rm i}\, \hbar\,
+ ( x\, L_y - L_x \,y),
+\end{align}
+where use has been made of Equations~(\ref{e5.1a})--(\ref{e5.2c}). 
+Similarly, 
+\begin{align}
+[L^2, y] &= 2\,{\rm i}\, \hbar \,(  L_x\, z  - x\, L_z  ),\\[0.5ex]
+[L^2, x] &= 2\,{\rm i}\, \hbar\, ( y \,L_z - L_y \,z).
+\end{align}
+Thus,
+\begin{align}
+[L^2, [L^2, z]] &= 2 \,{\rm i} \, \hbar \left( L^2, L_y \,x - L_x\, y + {\rm i}\,\hbar\,z
+\right)= 2\,{\rm i}\,\hbar \left( L_y\, [L^2, x] - L_x\, [ L^2, y] + {\rm i}\,\hbar\,
+[L^2, z]\right)\nonumber\\[0.5ex]
+&= - 4\, \hbar^2 \,L_y\,(y\, L_z - L_y \,z) + 4\,\hbar^2 \,L_x\,(L_x\, z - x\, L_z)- 2\, \hbar^2\,(L^2 \,z - z\, L^2).
+\end{align}
+This reduces to
+\begin{equation}
+[L^2, [L^2, z]] = - \hbar^2 \left[4\,(L_x\, x + L_y \,y + L_z \,z)\, L_z - 4\,
+(L_x^{\,2} + L_y^{\,2} + L_z^{\,2})\, z + 2 \,(L^2\, z - z\, L^2)\right].
+\end{equation}
+However, it is clear from Equations~(\ref{e5.1a})--(\ref{e5.1c}) that
+\begin{equation}
+L_x \,x + L_y \,y + L_z \,z = 0.
+\end{equation}
+Hence, we obtain
+\begin{equation}
+[L^2, [L^2, z]] = 2 \,\hbar^2\, (L^2\, z + z \,L^2),
+\end{equation}
+which can be expanded to give
+\begin{equation}\label{e6.50}
+L^4 \,z - 2\, L^2 \,z\, L^2 + z\, L^4 - 2\, \hbar^2\, (L^2 \,z +z \,L^2) = 0.
+\end{equation}
+Equation (\ref{e6.50}) implies that
+\begin{equation}
+\langle n,l,m|\, L^4\, z - 2\, L^2\, z \,L^2 + z\, L^4 - 2 \,\hbar^2 \,(L^2\, z +z\, L^2)\, |n',l',m'
+\rangle = 0.
+\end{equation}
+This expression yields
+\begin{equation}
+\left[l^{\,2}\, (l+1)^2 - 2\, l\,(l+1)\,l'\,(l'+1) + l'^{\,2}\,(l'+1)^2 - 2\, l\,(l+1)
+- 2\,l'\,(l'+1)\right] \langle n,l,m|\,z\,|n',l',m' \rangle = 0,
+\end{equation}
+which reduces to
+\begin{equation}
+(l+l'+2)\,(l+l')\,(l-l'+1)\,(l-l'-1)\,\langle n,l,m|\,z\,| n',l',m' \rangle = 0.
+\end{equation}
+According to the above formula, the matrix element 
+$\langle n,l,m|\,z\,| n',l',m' \rangle$
+vanishes unless $l=l'=0$ or $l' = l\pm 1$. This matrix element can be written
+\begin{equation}\label{e6.54}
+\langle n,l,m|\,z\,| n',l',m' \rangle = \int\!\int\!\int dV'\,
+ \psi^\ast_{nlm}(r',\theta',\varphi')\,
+r'\cos\theta'\, \psi_{n'm'l'}(r',\theta',\varphi'),
+\end{equation}
+where $\psi_{nlm}({\bf x}') = \langle {\bf x}'|n,l,m\rangle$. Recall, however,
+that the wavefunction of an $l=0$ state is spherically symmetric (see Section~\ref{s5.3}):
+{\rm i.e.}, $\psi_{n00}({\bf x}') = \psi_{n00}(r')$. It follows from Equation~(\ref{e6.54})
+that the matrix element
+vanishes by symmetry when $l=l'=0$. In conclusion, the matrix element
+$\langle n,l,m|\,z\,| n',l',m' \rangle$ is zero unless $l'=l\pm 1$. This is
+ the selection rule for the quantum number $l$. 
+
+Application of the selection rules to Equation~(\ref{e6.38}) yields
+\begin{equation}
+{\mit\Delta} E_{nlm} = e^2 \,|{\bf E}|^{\,2} \sum_{n'}\sum_{l'=l\pm 1}
+\frac{|\langle n,l,m|\,z\,|n',l',m\rangle|^{\,2}}{E_{nlm} - E_{n'l' m}}.
+\end{equation}
+Note that all of the terms in Equation~(\ref{e6.38}) that vary linearly with
+ the electric field-strength
+vanish by symmetry, according to the selection rules.
+ Only those terms that  vary {\em quadratically}\/ with the
+field-strength survive. The electrical polarizability, $\alpha$, of an atom is defined in terms 
+of the electric-field induced energy-shift of a given atomic state as follows:
+\begin{equation}
+{\mit\Delta} E = - \frac{1}{2} \,\alpha \,|{\bf E}|^{\,2}.
+\end{equation}
+Consider the ground state of a hydrogen atom. (Recall, that we cannot address
+the $n>1$ excited states because they are degenerate, and our theory cannot
+handle this at present). The polarizability  of this state is given by
+\begin{equation}
+\alpha = 2 \,e^2  \sum_{n>1} 
+\frac{|\langle 1,0,0|\,z\,|n,1,0\rangle|^{\,2}}{E_{n00}-E_{100}}.
+\end{equation}
+Here, we have made use of the fact that $E_{n10} = E_{n00}$ for a hydrogen atom.
+
+The sum in the above expression can be evaluated approximately by noting that
+[see Equation~(\ref{e5.95})]
+\begin{equation}
+E_{n00} = - \frac{e^2}{8\pi\,\epsilon_0\, a_0\,n^2} 
+\end{equation}
+for a hydrogen atom,
 where
 \begin{equation}
-(\nabla^2 + k^2)\,G({\bf r}, {\bf r}') = \delta({\bf r} -{\bf r}').
+a_0 = \frac{4\pi \,\epsilon_0 \,\hbar^2}{m_e \,e^2}
 \end{equation}
-Note that the solution (\ref{e7.10}) satisfies the boundary condition $|\psi\rangle
-\rightarrow |\phi\rangle$ as $H_1\rightarrow 0$. 
-As is well-known, the Green's function for the Helmholtz problem is
+is the  Bohr radius. We can write
+\begin{equation}
+E_{n00}-E_{100} \geq E_{200} - E_{100} = \frac{3}{4}
+ \frac{e^2}{8\pi\,\epsilon_0\, a_0}.
+\end{equation}
+Thus, 
+\begin{equation}
+\alpha < \frac{16}{3}\, 4\pi \,\epsilon_0\, a_0  \sum_{n>1} 
+|\langle 1,0,0|\,z\,|n,1,0\rangle|^{\,2}.
+\end{equation}
+However,
+\begin{equation}
+\sum_{n>1} 
+|\langle 1,0,0|\,z\,|n,1,0\rangle|^{\,2} = \sum_{n',l',m'}
+\langle 1,0,0|\,z\,|n',l',m'\rangle\langle n',m',l'|\,z\,|1,0,0\rangle= \langle 1,0,0|\,z^2\,|1,0,0\rangle,
+\end{equation}
+where we have made use of the fact that the wavefunctions of a hydrogen atom
+form a complete set. It is easily demonstrated from the 
+actual form of the ground-state wavefunction
+that
+\begin{equation}
+\langle 1,0,0|\,z^2\,|1,0,0\rangle = a_0^{\,2}.
+\end{equation}
+Thus, we conclude that
+\begin{equation}
+\alpha <  \frac{16}{3} \,4\pi\, \epsilon_0\, a_0^{\,3} \simeq 5.3\,4\pi\, \epsilon_0 \,a_0^{\,3}.
+\end{equation}
+The exact result is
+\begin{equation}
+\alpha = \frac{9}{2}\, 4\pi\, \epsilon_0\, a_0^{\,3} = 4.5\,4\pi \,\epsilon_0 \,a_0^{\,3}.
+\end{equation}
+It is  possible to obtain this result, without recourse to perturbation
+theory, by solving Schr\"{o}dinger's equation in parabolic coordinates.
+
+\section{Degenerate Perturbation Theory}\label{s6.5}
+Let us now consider systems  in which the eigenstates of
+the unperturbed Hamiltonian, $H_0$,  possess
+{\em degenerate}\/ energy levels. It is always possible to
+represent degenerate energy eigenstates
+as the simultaneous eigenstates 
+of the Hamiltonian and some other Hermitian operator (or group
+of operators). Let us denote this operator (or group of operators) $L$.
+We can write
+\begin{equation}
+H_0\, |n, l\rangle = E_n\, |n, l\rangle,
+\end{equation}
+and
+\begin{equation}
+L\,|n,l\rangle = L_{n\,l}\, |n, l\rangle,
+\end{equation}
+where $[H_0, L] = 0$. Here, the $E_n$ and the $L_{n\,l}$ are real numbers that 
+depend on the quantum numbers $n$, and $n$ and $l$, respectively.
+ It is always possible
+to find a sufficient number of operators which commute with the Hamiltonian
+in order to ensure 
+that the $L_{n\,l}$ are all different. In other words, we can
+choose $L$ such that the quantum numbers
+$n$ and $l$ {\em uniquely}\/ specify each eigenstate. Suppose that for each value
+of $n$ there are $N_n$ different values of $l$: {\rm i.e.}, the $n$th energy eigenstate
+is $N_n$-fold degenerate. 
+
+In general, $L$ {\em does not}\/ commute with the perturbing Hamiltonian, $H_1$.
+This implies that the modified energy eigenstates are {\em not}\/ eigenstates
+of $L$. In this situation, we expect the perturbation to split the degeneracy
+of the energy levels, so that each modified eigenstate $|n,l\rangle'$ acquires
+a unique energy eigenvalue $E_{nl}'$. Let us naively attempt to use the standard
+perturbation theory of Section~\ref{s6.3} to evaluate the modified 
+energy eigenstates
+and energy levels. A direct generalization of Equations~(\ref{e6.32}) and (\ref{e6.33}) yields
+\begin{equation}\label{e6.68}
+E_{nl}' = E_n + e_{nlnl} + \sum_{n', l' \neq n,l}
+\frac{|e_{n'l'nl}|^{\,2}}{E_n - E_{n'}} + O(\epsilon^3),
+\end{equation}
+and
+\begin{equation}\label{e6.69}
+|n, l\rangle' = |n,l\rangle + \sum_{n', l'\neq n, l}
+\frac{e_{n'l'nl}}{E_n-E_{n'}}\,|n',l'\rangle + O(\epsilon^2),
+\end{equation}
+where 
+\begin{equation}
+e_{n'l'nl} = \langle n',l'|\,H_1\,|n,l\rangle.
+\end{equation}
+It is fairly obvious that the summations in Equations~(\ref{e6.68}) and (\ref{e6.69}) are not
+well-behaved if the $n$th energy level is degenerate. The problem terms
+are those involving unperturbed eigenstates labeled by the same value of $n$, but different
+values of $l$: {\rm i.e.}, those states whose unperturbed energies are $E_n$.  These
+terms give rise to singular factors $1/(E_n - E_n)$ in the summations. 
+Note, however, that this problem would not exist if the matrix
+elements, $e_{nl'nl}$, of the perturbing Hamiltonian between distinct, 
+degenerate, unperturbed energy eigenstates 
+corresponding to the eigenvalue $E_n$ were zero. In other words, if
+\begin{equation}\label{e6.71}
+\langle n, l' |\,H_1\,| n, l\rangle = \lambda_{n\,l}\, \delta_{l\,l'},
+\end{equation}
+then all of the singular terms in Equations~(\ref{e6.68}) and (\ref{e6.69}) would vanish. 
+
+In general, Equation~(\ref{e6.71}) is not satisfied. Fortunately, we can always redefine
+the unperturbed energy eigenstates belonging to the eigenvalue $E_n$ in such
+a manner that Equation~(\ref{e6.71}) is satisfied. Let us define $N_n$ new states
+that  are linear combinations of the $N_n$ original degenerate
+eigenstates corresponding
+to the eigenvalue $E_n$:
+\begin{equation}
+|n,l^{(1)}\rangle = \sum_{k=1,N_n} \langle n,k|n,l^{(1)}\rangle |n,k\rangle.
+\end{equation}
+Note that these new states are also degenerate energy eigenstates 
+of the unperturbed Hamiltonian corresponding to the eigenvalue $E_n$. 
+The $|n,l^{(1)}\rangle$ are chosen in
+such a manner that they are eigenstates of the perturbing
+Hamiltonian, $H_1$. Thus,
+\begin{equation}\label{e6.71a}
+H_1\, |n, l^{(1)}\rangle = \lambda_{n\,l} \,|n, l^{(1)}\rangle.
+\end{equation}
+The $|n,l^{(1)}\rangle$ are also chosen so that they are orthogonal,
+and have unit lengths.
+It follows that
+\begin{equation}
+\langle n, l'^{(1)} | \,H_1\,|n, l^{(1)}\rangle = \lambda_{n\,l}\,\delta_{l\,l'}.
+\end{equation}
+Thus, if we use the new eigenstates, instead of the old ones, then we can employ
+Equations~(\ref{e6.68}) and (\ref{e6.69}) directly, because all of the singular terms vanish.
+The only remaining difficulty is to determine the new eigenstates in terms of
+the original ones.  
+
+Now 
+\begin{equation}
+\sum_{l=1,N_n} |n,l\rangle \langle n,l| = 1,
+\end{equation}
+where 1 denotes the identity operator in the sub-space of all unperturbed
+energy eigenkets corresponding to the eigenvalue $E_n$. Using this completeness
+relation, the operator eigenvalue equation (\ref{e6.71a}) can be transformed into a 
+straightforward matrix eigenvalue equation:
+\begin{equation}
+\sum_{l''=1,N_n}\langle n, l'|H_1|n, l''\rangle \langle n, l''|n, l^{(1)}\rangle
+= \lambda_{n\,l}\, \langle n, l'| n, l^{(1)}\rangle. 
+\end{equation}
+This can be written more transparently as
+\begin{equation}\label{e6.77}
+{\bf U} \,{\bf x} = \lambda \,{\bf x},
+\end{equation}
+where the elements of the $N_n\times N_n$  Hermitian matrix ${\bf U}$ are
+\begin{equation}\label{e6.78}
+U_{j\,k} = \langle n, j|\, H_1\,| n, k\rangle.
+\end{equation}
+Provided that the determinant of ${\bf U}$ is non-zero, Equation~(\ref{e6.77})  can always be solved to
+give $N_n$ eigenvalues $\lambda_{n\,l}$ (for $l=1$ to $N_n$), with
+$N_n$ corresponding eigenvectors ${\bf x}_{n\,l}$. The eigenvectors specify the
+weights of the new eigenstates in terms of the original eigenstates: {\rm i.e.},
+\begin{equation}
+({\bf x}_{n\,l})_k = \langle n, k|n, l^{(1)}\rangle,
+\end{equation}
+for $k=1$ to $N_n$. In our new scheme, Equations~(\ref{e6.68}) and (\ref{e6.69}) yield
+\begin{equation}
+E_{nl}' = E_n + \lambda_{n\,l} + \sum_{n'\neq n, l'}
+\frac{|e_{n'l'nl}|^{\,2}}{E_n - E_{n'}} + O(\epsilon^3),
+\end{equation}
+and
+\begin{equation}
+|n, l^{(1)}\rangle' = |n,l^{(1)}\rangle + \sum_{n'\neq n, l'}
+\frac{e_{n'l'nl}}{E_n-E_{n'}}\,|n',l'\rangle + O(\epsilon^2).
+\end{equation}
+There are no singular terms in these expressions, because the summations
+are over $n'\neq n$: {\rm i.e.}, they specifically exclude
+the problematic, 
+degenerate, unperturbed energy eigenstates corresponding to the eigenvalue $E_n$. 
+Note that the first-order energy-shifts are equivalent to the eigenvalues
+of the matrix equation, (\ref{e6.77}).
+
+\section{Linear Stark Effect}\label{s6.6}
+Let us examine the effect of an electric field on the excited  energy
+levels of a hydrogen atom. For instance, consider the $n=2$ states. 
+There is a single $l=0$ state, usually referred to as $2s$, and three $l=1$
+states (with $m=-1,0,1$), usually referred to as $2p$. All of these states
+possess the same energy, $E_{200} = -e^2/(32\pi\,\epsilon_0 \,a_0)$. As in Section~\ref{s6.4}, the
+perturbing Hamiltonian is 
+\begin{equation}
+H_1 = e \,|{\bf E}| \,z.
+\end{equation}
+In order to apply  perturbation theory, we have to solve
+the matrix eigenvalue equation
+\begin{equation}
+{\bf U} \,{\bf x} = \lambda\,{\bf x},
+\end{equation}
+where ${\bf U}$ is the array of the matrix elements of $H_1$ between the
+degenerate  $2s$ and
+$2p$ states. Thus,
+\begin{equation}
+{\bf U} = e \,|{\bf E}| \left(
+\begin{array}{cccc}
+0&\langle 2,0,0|\,z\,|2,1,0\rangle & 0&0\\
+\langle 2,1,0|\,z\,|2,0,0\rangle&0&0&0\\
+0&0&0&0\\
+0&0&0&0
+\end{array}\right),
+\end{equation}
+where the rows and columns correspond to the $|2,0,0\rangle$, $|2,1,0\rangle$,
+$|2,1,1\rangle$, and $|2,1,-1\rangle$ states, respectively. Here, we have made use
+of the selection rules, which tell us that the matrix element of $z$ between
+two hydrogen atom states  is zero unless the states 
+possess the same $m$ quantum number, 
+and $l$ quantum numbers that differ by unity. It is easily demonstrated,
+from the exact forms of the $2s$ and $2p$ wavefunctions, that
+\begin{equation}
+\langle 2,0,0|\,z\,|2,1,0\rangle = \langle 2,1,0|\,z\,|2,0,0\rangle = 3\,a_0.
+\end{equation}
+
+It can be seen, by inspection, that the eigenvalues of ${\bf U}$ are
+$\lambda_1= 3\,e\,a_0\,|{\bf E}|$, $\lambda_2 = -  3\,e\,a_0\,|{\bf E}|$, $\lambda_3=0$,
+and $\lambda_4 =0$. The corresponding eigenvectors are
+\begin{align}
+{\bf x}_1 &= \left( \begin{array}{c} 1/\sqrt{2} \\ 1/\sqrt{2} \\ 0 \\ 0 \end{array}
+\right),\\[0.5ex]
+{\bf x}_2 &= \left( \begin{array}{c} 1/\sqrt{2} \\- 1/\sqrt{2} \\ 0 \\ 0 \end{array}
+\right),\\[0.5ex]
+{\bf x}_3 &= \left( \begin{array}{c} 0 \\0 \\ 1 \\0 \end{array}
+\right),\\[0.5ex]
+{\bf x}_4 &= \left( \begin{array}{c} 0 \\ 0\\ 0 \\ 1\end{array}
+\right).
+\end{align}
+It follows from Section~\ref{s6.5} that the 
+simultaneous eigenstates of the unperturbed Hamiltonian and the
+perturbing Hamiltonian take the form
+\begin{align}
+|1\rangle &= \frac{|2,0,0\rangle + |2,1,0\rangle}{\sqrt{2}},\\[0.5ex]
+|2\rangle &= \frac{|2,0,0\rangle - |2,1,0\rangle}{\sqrt{2}},\\[0.5ex]
+|3\rangle &= |2,1,1\rangle,\\[0.5ex]
+|4\rangle &= |2,1,-1\rangle.
+\end{align}
+In the absence of an electric field, all of these states possess the
+same energy, $E_{200}$. 
+ The first-order energy-shifts induced by an electric field are
+given by
+\begin{align}
+{\mit\Delta} E_1 &= +3\,e\,a_0\, |{\bf E}|,\\[0.5ex]
+{\mit\Delta} E_2 &= -3\,e\,a_0 \,|{\bf E}|,\\[0.5ex]
+{\mit\Delta} E_3 &= 0,\\[0.5ex]
+{\mit\Delta} E_4 &= 0.
+\end{align}
+Thus, the energies of states 1 and 2 are shifted upwards and downwards, respectively, 
+by an amount $3\,e\,a_0\, |{\bf E}|$  in the presence of an electric field.
+States 1 and 2 are orthogonal linear combinations of the original
+$2s$ and $2p(m=0)$ states. 
+ Note that
+the energy-shifts are {\em linear}\/ in the electric field-strength, so this
+is a much larger effect that the quadratic  effect described in Section~\ref{s6.4}.
+The energies of states 3 and 4 (which are equivalent to the
+original  $2p(m=1)$  and $2p(m=-1)$ states, respectively) 
+are not affected to first order. Of course, to second order the energies of these states are shifted by an amount that depends on the
+square of the electric field-strength. 
+
+Note that the linear Stark effect depends crucially on the degeneracy of
+the $2s$ and
+$2p$ states. This degeneracy is a special property of
+a pure Coulomb potential, and, therefore, only applies to a hydrogen atom.
+Thus, alkali metal atoms do not exhibit the linear Stark effect. 
+ 
+\section{Fine Structure} \label{s7.7x}
+Let us now consider the energy levels of hydrogen-like atoms ({\rm i.e.}, alkali
+metal atoms) in more detail. The outermost electron moves in a spherically
+symmetric potential $V(r)$ due to the nuclear charge and the charges of the
+other electrons (which occupy spherically symmetric closed shells). The
+shielding effect of the inner electrons causes $V(r)$ to depart from
+the pure Coulomb form. This splits the degeneracy of states characterized by the
+same value of $n$, but different values of $l$. In fact, higher $l$ states 
+have higher energies. 
+
+Let us examine a phenomenon known as {\em fine structure}, which is due to
+interaction between the spin and orbital angular momenta of the outermost 
+electron. This electron experiences an electric field
+\begin{equation}
+{\bf E} = \frac{\nabla V}{e}.
+\end{equation}
+However, a non-relativistic charge moving in an electric field also experiences an effective
+magnetic field
+\begin{equation}
+{\bf B} = - \frac{{\bf v} \times {\bf E}}{c^2}.
+\end{equation}
+Now, an electron possesses a spin magnetic moment [see Equation~(\ref{e5.138})]
+\begin{equation}\label{e7.99d}
+{\bmu} = - \frac{e\, {\bf S}}{m_e}.
+\end{equation}
+We, therefore, expect a spin-orbit contribution to the Hamiltonian of
+the form
+\begin{equation}
+H_{LS} = - {\bmu}\cdot {\bf B} 
+= - \frac{e \,{\bf S}}{m_e\,c^2} \cdot {\bf v} \times \left(\frac{1}{e} \frac{\bf x}{r}
+\frac{d V}{dr}\right)
+= \frac{1}{m_e^{\,2}\,c^2\,r}  \frac{d V}{dr}\, {\bf L}\cdot {\bf S},\label{e6.101}
+\end{equation}
+where ${\bf  L} = m_e \,{\bf  x}\times{\bf v}$ is the orbital angular momentum.
+Actually, when the above expression is compared to the observed spin-orbit interaction,
+it is found to be too large by a factor of two. There is a classical explanation
+for this, due to spin precession, which we need not go into. The correct 
+quantum mechanical explanation requires a relativistically covariant
+treatment of electron dynamics (this is achieved  using the so-called {\em
+Dirac equation}---see Chapter~\ref{c11}). 
+
+Let us now apply perturbation theory to a hydrogen-like atom, using $H_{LS}$
+as the perturbation (with $H_{LS}$ taking one half of the value given above), and
+\begin{equation}
+H_0 = \frac{{p}^2}{2\,m_e} + V(r)
+\end{equation}
+as the unperturbed Hamiltonian. We have two choices for the energy
+eigenstates of $H_0$. We can adopt the simultaneous eigenstates of 
+$H_0, L^2, S^2, L_z$ and $S_z$, or the simultaneous eigenstates of
+$H_0, L^2, S^{\,2}, J^{\,2},$ and $J_z$, where ${\bf J} = {\bf L} + {\bf S}$ is
+the total angular momentum. Although the departure of $V(r)$ from a pure
+$1/r$ form splits the degeneracy of  same $n$, different $l$, states,
+those states characterized by the same values of $n$ and $l$, but different
+values of $m_l$, are still degenerate.
+(Here, $m_l, m_s,$ and $m_j$ are the quantum numbers
+corresponding to $L_z, S_z,$ and $J_z$, respectively.)
+ Moreover, with the addition of spin
+degrees of freedom, each state is doubly degenerate due to the two possible
+orientations of the electron spin ({\rm i.e.}, $m_s = \pm 1/2$). Thus, we are still
+dealing with a
+highly degenerate system. We know, from Section~\ref{s6.6}, that the application of
+perturbation theory to a degenerate system is greatly simplified if the
+basis eigenstates of the unperturbed Hamiltonian are also eigenstates
+of the perturbing Hamiltonian. Now, the perturbing Hamiltonian,
+$H_{LS}$, is proportional to ${\bf L}\cdot {\bf S}$, where
+\begin{equation}\label{e6.103}
+{\bf L} \cdot{\bf S} = \frac{J^{\,2} - L^2 - S^{\,2}}{2}.
+\end{equation}
+It is fairly obvious
+ that the first group of operators ($H_0, L^2, S^2, L_z$ and $S_z$)
+{\em does not}\/ commute with $H_{LS}$,  whereas the second group
+($H_0, L^2, S^{\,2}, J^{\,2},$ and $J_z$) does. In fact, ${\bf L} \cdot{\bf S}$
+is just a combination of operators appearing in the second group. Thus, it is
+advantageous to work in terms of the eigenstates of the second group of
+operators, rather than those of the first group.
+
+We now need to find the simultaneous eigenstates of $H_0, L^2, S^{\,2}, J^{\,2},$ and $J_z$.
+This is equivalent to finding the eigenstates of the total angular momentum
+resulting from the  addition of  two angular momenta: $j_1=l$, and $j_2 = s = 1/2$. 
+According to Equation~(\ref{e5.217}), the allowed values of the total angular
+momentum are $j=l+1/2$ and $j=l-1/2$. We can write
+\begin{align}
+|l+1/2, m\rangle &= \cos\alpha\, |m-1/2, 1/2\rangle + \sin\alpha\,
+|m+1/2, -1/2\rangle,~~\\[0.5ex]
+|l-1/2, m\rangle &= -\sin\alpha\, |m-1/2, 1/2\rangle + \cos\alpha\,
+|m+1/2, -1/2\rangle.~~~~
+\end{align}
+Here, the kets on the left-hand side are $|j,m_j\rangle $ kets, whereas
+those on the right-hand side are $|m_l, m_s\rangle$ kets
+(the $j_1, j_2$ labels have been dropped, for the sake of clarity). We have made use
+of the fact that the Clebsch-Gordon coefficients are automatically
+zero unless $m_j=m_l+m_s$. We have also made use of the fact that
+both the $|j,m_j\rangle $  and  $|m_l, m_s\rangle$ kets are orthonormal,
+and have unit lengths. We now need to determine 
+\begin{equation}
+\cos\alpha = \langle m-1/2,1/2|l+1/2, m\rangle,
+\end{equation}
+where the Clebsch-Gordon coefficient is written in $\langle m_l, m_s| j, m_j\rangle$
+form. 
+
+Let us now employ the recursion relation for Clebsch-Gordon coefficients, Equation~(\ref{e5.223}),
+with $j_1=l, j_2 = 1/2, j = l+1/2, m_1=m-1/2, m_2=1/2$ (lower sign). 
+We obtain 
+\begin{align}
+&[(l+1/2)\,(l+3/2)-m\,(m+1)]^{1/2} \,\langle m-1/2, 1/2|l+1/2, m\rangle\nonumber\\[0.5ex]
+&= [l\,(l+1)-(m-1/2)\,(m+1/2)]^{1/2}\, \langle m+1/2, 1/2|l+1/2, m+1\rangle,
+\end{align}
+which reduces to
+\begin{equation}
+\langle m-1/2, 1/2|l+1/2, m\rangle = \sqrt{\frac{l+m+1/2}{l+m+3/2}}\,
+ \langle m+1/2, 1/2|l+1/2, m+1\rangle.
+\end{equation}
+We can use this formula to successively increase the value of $m_l$. For
+instance,
+\begin{equation}
+\langle m-1/2, 1/2|l+1/2, m\rangle =\sqrt{\frac{l+m+1/2}{l+m+3/2}}
+\sqrt{\frac{l+m+3/2}{l+m+5/2}}  \langle m+3/2, 1/2|l+1/2, m+2\rangle.
+\end{equation}
+This procedure can be continued until $m_l$ attains its maximum possible value,
+$l$. Thus,
+\begin{equation}\label{e6.110}
+\langle m-1/2, 1/2|l+1/2, m\rangle = \sqrt{\frac{l+m+1/2}{2\,l+1}}\,
+ \langle l, 1/2|l+1/2, l+1/2\rangle.
+\end{equation}
+
+Consider the situation in which $m_l$ and $m$ both take their maximum values,
+$l$ and $1/2$, respectively. The corresponding value of $m_j$ is
+$l+1/2$. This value is possible when  $j=l+1/2$, but not when $j=l-1/2$. 
+Thus, the $|m_l, m_s\rangle$ ket $|l,1/2\rangle$ must be equal to
+the $|j,m_j\rangle$ ket $|l+1/2, l+1/2\rangle$, up to an arbitrary phase-factor.
+By convention, this factor is taken to be unity, giving
+\begin{equation}
+\langle l, 1/2|l+1/2, l+1/2\rangle = 1.
+\end{equation}
+It follows from Equation~(\ref{e6.110}) that
+\begin{equation}
+\cos\alpha=\langle m-1/2, 1/2|l+1/2, m\rangle = \sqrt{\frac{l+m+1/2}{2\,l+1}}.
+\end{equation}
+Hence, 
+\begin{equation}
+\sin^2\alpha = 1 - \frac{l+m+1/2}{2\,l+1} = \frac{l-m+1/2}{2\,l+1}.
+\end{equation}
+
+We now need to determine the sign of $\sin\alpha$. A careful examination 
+of the recursion relation, Equation~(\ref{e5.223}), shows that the plus sign is
+appropriate. Thus,
+\begin{align}
+|l+1/2, m\rangle &=\sqrt{\frac{l+m+1/2}{2\,l+1}}\,|m-1/2, 1/2\rangle+\sqrt{\frac{l-m+1/2}{2\,l+1}}\,|m+1/2, -1/2\rangle,\label{e6.114}\\[0.5ex]
+|l-1/2, m\rangle &= - \sqrt{\frac{l-m+1/2}{2\,l+1}} \,|m-1/2,1/2\rangle
++  \sqrt{\frac{l+m+1/2}{2\,l+1}} \,|m+1/2, -1/2\rangle.\label{e6.115}
+\end{align}
+It is convenient to define so called {\em spin-angular functions} using the
+Pauli two-component formalism:
+\begin{align}
+{\cal Y}_{l\,m}^{j=l\pm 1/2}\equiv {\cal Y}_{l\,m}^{\pm} &= \pm \sqrt{\frac{l\pm m+1/2}{2\,l+1}}\,
+Y_{l\,\,m-1/2}(\theta, \varphi) \,\chi_+ +\sqrt{\frac{l\mp m+1/2}{2\,l+1}} \,Y_{l\,\,m+1/2}(\theta,\varphi)\, \chi_-
+\nonumber\\[0.5ex]
+&= \frac{1}{\sqrt{2\,l+1}}\left( \begin{array}{c}
+\pm \sqrt{l\pm m +1/2}\,\,Y_{l\,\,m-1/2}(\theta,\varphi)\\[0.5ex]
+\sqrt{l\mp m+1/2}\,\,Y_{l\,\,m+1/2}(\theta, \varphi) \end{array}
+\right).
+\end{align}
+These functions are eigenfunctions of the total angular momentum for spin
+one-half particles, just as the spherical harmonics are  eigenfunctions
+of the orbital angular momentum. A general wavefunction for an energy
+eigenstate in a hydrogen-like atom is written
+\begin{equation}\label{e6.117}
+\psi_{nlm\pm} = R_{n\,l}(r)\, {\cal Y}_{l\,m}^\pm.
+\end{equation}
+The radial part of the wavefunction, $R_{n\,l}(r)$, depends on the radial
+quantum number $n$ and the angular quantum number $l$. The wavefunction 
+is also
+labeled by $m$, which is the quantum number associated with $J_z$. 
+For a given choice of $l$, the quantum number $j$
+({\rm i.e.}, the quantum number associated with $J^{\,2}$) can take the values
+ $l\pm 1/2$.  
+
+The $|l\pm 1/2, m\rangle$ kets are eigenstates of ${\bf L}\cdot{\bf S}$,
+according to Equation~(\ref{e6.103}).
+Thus,
+\begin{equation}
+{\bf L} \cdot{\bf S}\, |j=l\pm 1/2,m_j= m\rangle = \frac{\hbar^2}{2}
+\left[ j\,(j+1) - l\,(l+1) - 3/4\right]|j,m\rangle,
+\end{equation}
+giving
+\begin{align}
+{\bf L} \cdot{\bf S}\, |l+ 1/2, m\rangle&=
+\frac{l \,\hbar^2}{2}\, |l+ 1/2, m\rangle,\\[0.5ex]
+{\bf L} \cdot{\bf S}\, |l- 1/2, m\rangle&=
+-\frac{(l+1)\, \hbar^2}{2}\, |l- 1/2, m\rangle.
+\end{align}
+It follows that
+\begin{align}\label{e6.121}
+\oint  d{\mit\Omega}\,({\cal Y}_{l\,m}^+)^\dagger \,{\bf L} \cdot{\bf S}\,
+{\cal Y}_{l \,m}^+& = \frac{l \,\hbar^2}{2},\\[0.5ex]
+\oint d{\mit\Omega}\,({\cal Y}_{l \,m}^-)^\dagger \,{\bf L} \cdot{\bf S}\,
+{\cal Y}_{l\,m}^-& = -\frac{(l+1) \,\hbar^2}{2},\label{e6.122}
+\end{align}
+where the integrals are over all solid angle, $d{\mit\Omega} = \sin\theta\,d\theta\,d\varphi$. 
+
+Let us now apply degenerate perturbation theory to evaluate the
+ shift in energy  of a  state whose wavefunction is $\psi_{nlm\pm}$ 
+due to the spin-orbit Hamiltonian, $H_{LS}$. To first order, the energy-shift is given by
+\begin{equation}
+{\mit\Delta} E_{nlm\pm} = \int dV\,(\psi_{nlm\pm})^\dagger\, H_{LS}\,\psi_{nlm\pm},
+\end{equation}
+where the integral is over all space, $dV = r^2\,d{\mit\Omega}$.  Equations~(\ref{e6.101}) (remembering the
+factor of two), (\ref{e6.117}), and (\ref{e6.121})--(\ref{e6.122}) yield
+\begin{align}\label{e6.124}
+{\mit\Delta} E_{nlm+} &= +\frac{1}{2\,m_e^{\,2}\,c^2} \left\langle \frac{1}{r}\frac{dV}{dr}
+\right\rangle \frac{l\,\hbar^2}{2},\\[0.5ex]
+{\mit\Delta} E_{nlm-} &=- \frac{1}{2\,m_e^{\,2}\,c^2} \left\langle \frac{1}{r}\frac{dV}{dr}
+\right\rangle \frac{(l+1)\,\hbar^2}{2},\label{e6.125}
+\end{align}
+where
+\begin{equation}\label{e6.126}
+ \left\langle \frac{1}{r}\frac{dV}{dr}
+\right\rangle = \int_0^\infty dr\, r^2\,(R_{n\,l})^\ast \,\frac{1}{r}\frac{dV}{dr}\, R_{n\,l}.
+\end{equation}
+
+Let us now apply the above result to the case of a sodium atom. 
+In chemist's notation, the ground state is written
+\begin{equation}
+(1s)^2 (2s)^2(2p)^6(3s).
+\end{equation}
+The inner ten electrons effectively form a spherically symmetric electron
+cloud. We are interested in the excitation of the eleventh electron
+from $3s$ to some higher energy state. The closest (in energy) unoccupied
+state is $3p$. This state has a higher energy than $3s$ due to the deviations
+of the potential from the pure Coulomb form. In the absence of spin-orbit
+interaction, there are six degenerate $3p$ states. The spin-orbit
+interaction breaks the degeneracy of these states. The modified states are
+labeled $(3p)_{1/2}$ and $(3p)_{3/2}$, where the subscript refers to the
+value of $j$. The four $(3p)_{3/2}$ states lie at a slightly higher
+energy level than the two $(3p)_{1/2}$ states,
+because the radial integral (\ref{e6.126}) is positive.  The splitting of
+the $(3p)$ energy levels of the sodium atom can be observed
+using a  spectroscope.
+The well-known sodium D line is associated with transitions between 
+the $3p$ and $3s$ states. The fact that there are two  slightly different
+$3p$ energy levels (note that spin-orbit coupling does not split
+the $3s$ energy levels) means that the sodium D line actually consists
+of two very closely spaced spectroscopic lines. It is easily
+demonstrated that the ratio of the typical spacing of
+ Balmer lines to the splitting 
+brought about by spin-orbit interaction is about $1 : \alpha^2$,
+where
+\begin{equation}
+\alpha = \frac{e^2}{2\,\epsilon_0\, h\, c} = \frac{1}{137}
+\end{equation}
+is the  fine structure constant. Actually, Equations~(\ref{e6.124})--(\ref{e6.125}) are not
+entirely correct, because  we have neglected an effect (namely, the
+relativistic mass correction of the electron) that  is the same
+order of magnitude as spin-orbit coupling. (See Exercises~\ref{ex7.1} and \ref{ex7.2}.)
+
+\section{Zeeman Effect}
+Consider a hydrogen-like atom placed in a uniform $z$-directed
+magnetic field. The change in energy of the outermost electron is
+\begin{equation}
+H_B = -\bmu \cdot  {\bf B},
+\end{equation}
+where 
+\begin{equation}
+\bmu = - \frac{e}{2\,m_e}\, ({\bf L} + 2 \,{\bf S})
+\end{equation}
+is its magnetic moment, including both the spin  and
+orbital  contributions.
+Thus,
+\begin{equation}
+H_B = \frac{e\, B}{2\, m_e}\, (L_z + 2\, S_z).
+\end{equation}
+
+Suppose that the energy-shifts induced by  the magnetic field are much smaller
+than those  induced by spin-orbit interaction. In this situation,
+we can treat $H_B$ as a small perturbation acting on the 
+eigenstates of $H_0 + H_{LS}$. 
+Of course, these states are the 
+simultaneous eigenstates of $J^{\,2}$ and $J_z$. Let us consider one
+of these states, labeled by the quantum numbers $j$ and $m$, where $j=l\pm 1/2$.   
+From  standard perturbation theory, the first-order energy-shift 
+in the presence of a  magnetic field is
+\begin{equation}
+{\mit\Delta} E_{nlm\pm} = \langle l\pm 1/2, m|\, H_B\, | l\pm 1/2, m\rangle.
+\end{equation}
+Because 
+\begin{equation}
+L_z + 2 \,S_z = J_z + S_z,
+\end{equation}
+we find that
+\begin{equation}
+{\mit\Delta} E_{nlm\pm} = \frac{e\, B}{2 \,m_e}\, \left(m\,\hbar + \langle  
+l\pm 1/2, m|\, S_z\,| l\pm 1/2, m\rangle\,
+\right).
+\end{equation}
+Now, from Equations~(\ref{e6.114})--(\ref{e6.115}),
+\begin{equation}
+|l\pm 1/2, m\rangle = \pm \sqrt{\frac{l\pm m +1/2}{2\,l+1}}\,
+|m-1/2, 1/2\rangle+\sqrt{\frac{l\mp m+1/2}{2\,l+1}}\, |m+1/2, -1/2\rangle.
+\end{equation}
+It follows that
+\begin{equation}
+ \langle  
+l\pm 1/2, m|\, S_z\,| l\pm 1/2, m\rangle = \frac{\hbar}{2\,(2\,l+1)}
+\left[(l\pm m+1/2) - (l\mp m + 1/2) \right] = \pm \frac{m\,\hbar}{2\,l+1}.
+\end{equation}
+Thus, we obtain the so-called {\em Lande formula}\/ for the energy-shift induced by  a
+weak magnetic field:
+\begin{equation}\label{e6.137}
+{\mit\Delta} E_{nlm\pm} = \frac{e\, \hbar\, B}{2\, m_e}\,m \left( 1 \pm \frac{1}{2\,l+1}
+\right).
+\end{equation}
+
+Let us apply this theory to the sodium atom. We have already seen that
+the non-Coulomb potential splits the degeneracy of the $3s$ and $3p$ states,
+the latter states acquiring  a  higher energy. The spin-orbit interaction
+splits the six $3p$ states into two groups, with four $j=3/2$ states
+lying at a slightly higher energy than two $j=1/2$ states. According to
+Equation~(\ref{e6.137}), a magnetic field splits the $(3p)_{3/2}$ quadruplet of states,
+each state acquiring a different energy. In fact, the energy of  each state
+becomes  dependent  on the quantum number $m$, which measures the
+projection of the total angular momentum along the $z$-axis. States with
+higher $m$ values have higher energies. 
+A magnetic field also splits the $(3p)_{1/2}$ doublet of states. However,
+it is evident from Equation~(\ref{e6.137}) that these states are split by a lesser
+amount than the $j=3/2$ states. 
+
+Suppose that we increase the strength of the magnetic
+field, so that the energy-shift due to the magnetic field becomes
+comparable to the energy-shift induced by spin-orbit interaction. 
+Clearly, in this situation, it does not make much sense to think
+of $H_B$ as a small interaction term operating on the eigenstates
+of $H_0 + H_{LS}$. In fact, this intermediate case is very difficult
+to analyze. Let us, instead, consider the extreme limit in which the energy-shift
+due to the magnetic field greatly exceeds that induced by spin-orbit effects.
+This  is called the {\em Paschen-Back limit}. 
+
+In the Paschen-Back
+limit, we can think of the spin-orbit Hamiltonian, $H_{LS}$, as
+a small interaction term operating on the eigenstates of
+$H_0 + H_B$. Note that the magnetic Hamiltonian, $H_B$, commutes
+with $L^2, S^{\,2}, L_z, S_z$, but does not commute with $L^2, S^{\,2}, J^{\,2},
+J_z$. Thus, in an intense magnetic field, the energy eigenstates of
+a hydrogen-like atom are approximate eigenstates of the 
+spin and orbital angular momenta,  but are not eigenstates of the
+total angular momentum. We can label each state by the quantum
+numbers $n$ (the energy quantum number), $l$, $m_l$, and $m_s$. 
+Thus, our energy eigenkets are written $|n, l,m_l, m_s\rangle$. 
+The unperturbed Hamiltonian, $H_0$, causes states with different
+values of the quantum numbers $n$ and $l$ to have different energies. 
+However, states with the same value of $n$ and $l$, but different
+values of $m_l$ and $m_s$, are degenerate.
+The shift in energy due to the magnetic field is simply
+\begin{equation}
+{\mit\Delta} E_{n\,l\,m_l\, m_s}= \langle n,l,m_l, m_s|\, H_B\,| n,l,m_l, m_s\rangle
+= \frac{e\, \hbar \,B} {2 \,m_e} \,(m_l + 2 \,m_s).
+\end{equation}
+Thus, states with different values of $m_l + 2\, m_s$ acquire different
+energies. 
+
+Let us apply this result to a sodium atom. In the absence of
+a magnetic field, the six $3p$ states form two groups of four and
+two states, depending on the values of their total angular momentum.
+In the presence of an intense magnetic field, the $3p$  states are split
+into five groups. There is  a state with $m_l+2\,m_s = 2$,
+a state with $m_l+2\,m_s = 1$, two states with $m_l+2\,m_s = 0$,
+a state with $m_l+2\,m_s = -1$, and a state with
+$m_l+2\,m_s = -2$.  These groups are equally spaced in energy,
+the energy difference between adjacent groups being 
+$e \,\hbar\, B/ 2\,m_e$. 
+
+The energy-shift induced by the spin-orbit Hamiltonian is
 given by
 \begin{equation}
-G({\bf r}, {\bf r}') = -\frac{\exp(\pm {\rm i}\,k\,
-|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}.
-\end{equation}
-Thus, Eq.~(\ref{e7.10}) becomes
-\begin{equation}
-\psi^\pm({\bf r}) = \phi({\bf r}) - \frac{2\,m}{\hbar^2} \int\frac{\exp(\pm {\rm i}\,k\,
-|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}\, \langle {\bf r}' |H_1|\psi\rangle \,d^3{\bf r}'.\label{e7.13}
-\end{equation}
-A comparison of Eqs.~(\ref{e7.7}) and (\ref{e7.13}) suggests that the kernel to Eq.~(\ref{e7.7})
-takes the form
-\begin{equation}
- \left\langle{\bf r}\left|\frac{1}{E-H_0\pm {\rm i}\,\epsilon}
-\right| {\bf r}'\right\rangle  = - \frac{2\,m}{\hbar^2} \,
-\frac{\exp(\pm {\rm i}\,k\,
-|{\bf r} - {\bf r}'|\,)}{4\pi\,|{\bf r} - {\bf r}'|}   .
-\end{equation}
-It is not entirely clear that the $\pm$ signs correspond on both sides
-of this equation. In fact, they do, as is easily proved by a more rigorous
-derivation of this result. 
-
-Let us suppose that the scattering Hamiltonian, $H_1$, is only a function
-of the position operators. This implies that
-\begin{equation}\label{e7.15}
-\langle {\bf r}'|H_1|{\bf r}\rangle = V({\bf r})\, \delta({\bf r} -{\bf r}').
-\end{equation}
- We can write
-\begin{eqnarray}
-\langle {\bf r}'|H_1| \psi^\pm\rangle& =& \int \langle
-{\bf r}'|H_1|{\bf r}''\rangle \langle {\bf r}'' |\psi^\pm\rangle\,
-d^3{\bf r}''\nonumber\\[0.5ex]
-&=& V({\bf r}') \,\psi^\pm ({\bf r}').
-\end{eqnarray}
-Thus, the integral equation (\ref{e7.13}) simplifies to
-\begin{equation}\label{e7.17}
-\psi^\pm({\bf r}) = \phi({\bf r}) - \frac{2\,m}{\hbar^2} \int\frac{\exp(\pm {\rm i}\,k\,
-|{\bf r} - {\bf r}'|)}{4\pi\,|{\bf r} - {\bf r}'|}\, V({\bf r}')\,
-\psi^\pm({\bf r'})\,d^3{\bf r}'.
-\end{equation}
-
-Suppose that the initial state $|\phi\rangle$ is a plane-wave with  wave-vector  ${\bf k}$ ({\em i.e.}, a stream of particles of
-definite momentum ${\bf p} = \hbar \,{\bf k}$). The ket corresponding to
-this  state is denoted $|{\bf k}\rangle$. The associated wave-function 
-takes the form 
-\begin{equation}
-\langle {\bf r} | {\bf k}\rangle = \frac{
-\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r}) }{(2\pi)^{3/2}}.
-\end{equation}
-The wave-function is normalized such that
-\begin{eqnarray}
-\langle {\bf k}|{\bf k}'\rangle &=& \int \langle {\bf k}|{\bf r}\rangle
-\langle {\bf r} |{\bf k}'\rangle\,d^3{\bf r}\nonumber\\[0.5ex]
-&=& \int \frac{ \exp[-{\rm i}\, {\bf r}\!\cdot\!({\bf k} -{\bf k}')]}
-{(2\pi )^3}\, d^3{\bf r} = \delta ({\bf k} - {\bf k'}).
-\end{eqnarray}
-
-Suppose that the scattering potential $V({\bf r})$ is only non-zero in some
-relatively localized region centred on the origin (${\bf r} = 0$).
-Let us calculate the wave-function $\psi({\bf r})$ a long way from
-the scattering region. In other words, let us adopt the ordering
-$r\gg r'$. It is easily demonstrated that
-\begin{equation}
-|{\bf r} - {\bf r}'| \simeq r - \hat{{\bf r}}\!\cdot\!{\bf r}'
-\end{equation}
-to first-order in $r'/r$, where
-\begin{equation}
-\hat{{\bf r}} = \frac{\bf r}{r}
-\end{equation}
-is a unit vector which points from the scattering region to the
-observation point. Let us define
-\begin{equation}
-{\bf k}' = k\,\hat{{\bf r}}.
-\end{equation}
-Clearly, ${\bf k}'$ is the wave-vector for particles which possess the
-same energy as the incoming particles ({\em i.e.}, $k'=k$), but propagate
-from the scattering region to the observation point. Note that
-\begin{equation}
-\exp(\pm {\rm i}\, k\,|{\bf r} - {\bf r'} |\,) \simeq
-\exp(\pm {\rm i}\, k \,r) \exp(\mp {\rm i}\, {\bf k}'\!\cdot \!{\bf r}').
-\end{equation}
-
-In the large-$r$ limit, Eq.~(\ref{e7.17}) reduces to
-\begin{equation}
-\psi({\bf r})^\pm \simeq \frac{\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r})}{
-(2\pi)^{3/2}} -\frac{m}{2\pi\,\hbar^2} \frac{\exp(\pm{\rm i}\,k\,r)}{r}
-\int \exp(\mp {\rm i} \,{\bf k}'\! \cdot \!{\bf r}')\,
-V({\bf r}')\, \psi^\pm  ({\bf r}')\,d^3{\bf r}'.
-\end{equation}
-The first term on the right-hand side is the incident wave. The second term
-represents a spherical wave centred on the scattering region. The
-plus sign (on $\psi^\pm$) corresponds to a wave propagating away from the
-scattering region, whereas the minus sign corresponds to a
-wave propagating towards the scattering region. It is obvious that
-the former represents the physical solution. 
-Thus, the wave-function a long way from the scattering region can be
-written
-\begin{equation}
-\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \left[\exp(\,{\rm i}\,{\bf k}\!\cdot\!{\bf r}) + \frac{\exp(\,{\rm i}\,kr)}{r} f({\bf k}', {\bf k}) \right],
+{\mit\Delta} E_{n\,l\,m_l \,m_s} = \langle  n,l,m_l, m_s|\,H_{LS}\,| n,l,m_l, m_s\rangle,
 \end{equation}
 where
-\begin{eqnarray}
-f({\bf k}', {\bf k}) &= &- \frac{(2\pi)^2 \,m}{\hbar^2} \int
-\frac{\exp(-{\rm i}\,{\bf k}'\!\cdot \! {\bf r}'  ) }{(2\pi)^{3/2}}\, V({\bf r}')\,\psi({\bf r}') \,d^3{\bf r}'  \nonumber\\[0.5ex]
-&=& - \frac{(2\pi)^2 \,m}{\hbar^2}\, \langle {\bf k}'|H_1|\psi\rangle.
-\end{eqnarray}
-
-Let us define the differential cross-section $d\sigma/d\Omega$ as
-the number of particles per unit time scattered into an element of
-solid angle $d\Omega$, divided by the incident flux of particles. 
-Recall, from Sect.~\ref{s4}, that the probability flux 
-({\em i.e.}, the particle flux) associated with a
-wave-function $\psi$ is
 \begin{equation}
-{\bf j} = \frac{\hbar}{m} {\rm Im}(\psi^\ast\, \nabla \psi).
-\end{equation}
-Thus, the probability flux associated with the incident wave-function,
-\begin{equation}
-\frac{ \exp(\,{\rm i} \,{\bf k}\!\cdot\!{\bf r})}{(2\pi)^{3/2}},
-\end{equation}
-is
-\begin{equation}
-{\bf j}_{\rm inci} = \frac{\hbar}{(2\pi)^{3}\,m} \,{\bf k}.
-\end{equation}
-Likewise, the probability flux associated with the scattered wave-function,
-\begin{equation}
-\frac{ \exp(\,{\rm i} \,k\,r)}{(2\pi)^{3/2}}\frac{
- f({\bf k}', {\bf k})}{r},
-\end{equation}
- is
-\begin{equation}
-{\bf j}_{\rm scat}=\frac{\hbar}{(2\pi)^{3}\,m}
-\frac{|f( {\bf k}', {\bf k})|^2}{r^2} \, k\, \hat{\bf r}.
+H_{LS} = \frac{1}{2 \,m_e^{\,2}\,c^2} \frac{1}{r} \frac{dV}{dr} \,{\bf L}\cdot
+ {\bf S}.
 \end{equation}
 Now,
 \begin{equation}
-\frac{d\sigma}{d \Omega} \,d\Omega  = 
-\frac{ r^2\,d\Omega \, |{\bf j}_{\rm scat}|}{|{\bf j}_{\rm inci}|},
-\end{equation}
-giving
-\begin{equation}\label{e7.33}
-\frac{d\sigma}{d \Omega} = |f({\bf k}', {\bf k})|^2.
-\end{equation}
-Thus, $|f({\bf k}', {\bf k})|^2$ gives the differential cross-section for particles with incident momentum $\hbar\,{ \bf k}$ to be scattered
-into states whose momentum vectors are directed in a range of solid angles
-$d\Omega$ about $\hbar\,{ \bf k}'$. Note that the scattered particles possess
-the same energy as the incoming particles ({\em i.e.}, $k'=k$). This is always
-the case for scattering Hamiltonians of the form shown in Eq.~(\ref{e7.15}). 
-
-\section{Born Approximation}
-Equation~(\ref{e7.33}) is not particularly useful, as it stands, because the
-quantity $f({\bf k}', {\bf k})$ depends on the unknown ket $|\psi\rangle$.
-Recall that $\psi({\bf r})=\langle {\bf r}|\psi\rangle$
- is the solution of the integral equation
-\begin{equation}
-\psi({\bf r}) = \phi({\bf r})-\frac{m}{2\pi\,\hbar^2}
- \frac{\exp(\,{\rm i}\,k\,r)}{r}
-\int \exp(- {\rm i} \,{\bf k}'\! \cdot \!{\bf r}')\,
-V({\bf r}')\, \psi  ({\bf r}')\,d^3{\bf r}',
-\end{equation}
-where $\phi({\bf r})$ is the wave-function of the incident state. 
-According to the above equation the total wave-function is a superposition
-of the incident wave-function and lots of spherical-waves emitted from
-the scattering region. The strength of the spherical-wave emitted at
-a given point is proportional to the local value of the scattering
-potential, $V$, as well as the local value of the wave-function, $\psi$.
-
-Suppose that the scattering is not particularly  strong. In this case, it is
-reasonable to suppose that the total wave-function, $\psi({\bf r})$, does
-not differ substantially from the incident wave-function, $\phi({\bf r})$.
-Thus, we can obtain an expression for $f({\bf k}', {\bf k})$ by making
-the substitution
-\begin{equation}
-\psi({\bf r}) \rightarrow \phi({\bf r}) = 
-\frac{\exp(\,{\rm i}\,{\bf k}\!\cdot \! {\bf r}  ) }{(2\pi)^{3/2}}.
-\end{equation}
-This  is called the {\em Born approximation}.
-
-The Born approximation yields
-\begin{equation}
-f({\bf k}', {\bf k}) \simeq - \frac{m}{2\pi\, \hbar^2} \int \exp\left[\,
-{\rm i}\, ({\bf k} - {\bf k}')\!\cdot \!{\bf r}'\right] 
-V({\bf r}')\,d^3{\bf r}'.
-\end{equation}
-Thus, $f({\bf k}', {\bf k})$ is proportional to the Fourier transform
-of the scattering potential $V({\bf r})$ with respect to the wave-vector
-${\bf q} \equiv {\bf k} - {\bf k}'$.
-
-For a spherically symmetric potential, 
-\begin{equation}
-f({\bf k}', {\bf k}) \simeq  - \frac{m}{2\pi\, \hbar^2} \int\!\int\!\int
-\exp(\,{\rm i} \, q \,r'\cos\theta') \, V(r')\,r'^2 dr'\,\sin\theta'
- \,d\theta'\,d\phi',
-\end{equation}
-giving
-\begin{equation}\label{e7.38}
-f({\bf k}', {\bf k}) \simeq  - \frac{2\,m}{\hbar^2\,q}
-\int_0^\infty r' \,V(r') \sin(q \,r') \,dr'.
-\end{equation}
-Note that $f({\bf k}', {\bf k})$ is just a function of $q$ for a
-spherically symmetric potential.
-It is easily demonstrated that
-\begin{equation}
-q \equiv |{\bf k} - {\bf k}'| = 2\, k \,\sin (\theta/2),
-\end{equation}
-where $\theta$ is the angle subtended between the vectors
-${\bf k}$ and ${\bf k}'$. In other words, $\theta$ is the angle of
-scattering. Recall that the
-vectors ${\bf k}$ and ${\bf k}'$ have the same length by energy conservation.
-
-Consider scattering by a Yukawa potential
-\begin{equation}
-V(r) = \frac{V_0\,\exp(-\mu \,r)}{\mu \,r},
-\end{equation}
-where $V_0$ is a constant and $1/\mu$ measures the ``range'' of the
-potential. It follows from Eq.~(\ref{e7.38}) that
-\begin{equation}
-f(\theta) = - \frac{2\,m \,V_0}{\hbar^2\,\mu} \frac{1}{q^2 + \mu^2},
+\langle {\bf L}\cdot {\bf S}\rangle = \langle\, L_z \,S_z + (L^+\, S^- 
++ L^- \,S^+)/2\,
+\rangle= \hbar^2\, m_l\, m_s,
 \end{equation}
 since
 \begin{equation}
-\int_0^\infty \exp(-\mu \,r') \,\sin(q\,r') \, dr' = \frac{q}{\mu^2 + q^2}.
+\langle L^\pm \rangle = \langle S^\pm\rangle = 0
 \end{equation}
-Thus, in the Born approximation, the differential cross-section
-for scattering by a Yukawa potential is
-\begin{equation}
-\frac{d\sigma}{d \Omega} \simeq \left(\frac{2\,m \,V_0}{ \hbar^2\,\mu}\right)^2
-\frac{1}{[2\,k^2\, (1-\cos\theta) + \mu^2]^2},
-\end{equation}
-given that
-\begin{equation}
-q^2 = 4\,k^2\, \sin^2(\theta/2) = 2\,k^2\, (1-\cos\theta).
-\end{equation}
-
-The Yukawa potential reduces to the familiar Coulomb potential as
-$\mu \rightarrow 0$, provided that $V_0/\mu \rightarrow
-Z\,Z'\, e^2 / 4\pi\epsilon_0$. In this limit the Born differential cross-section becomes
-\begin{equation}
-\frac{d\sigma}{d\Omega} \simeq \left(\frac{2\,m \,Z\, Z'\, e^2}{4\pi\epsilon_0\,\hbar^2}\right)^2
-\frac{1}{ 16 \,k^4\, \sin^4( \theta/2)}.
-\end{equation}
-Recall that $\hbar\, k$ is equivalent to $|{\bf p}|$, so the above
-equation can be rewritten 
-\begin{equation}\label{e7.46}
- \frac{d\sigma}{d\Omega} \simeq\left(\frac{Z \,Z'\, e^2}{16\pi\epsilon_0\,E}\right)^2
-\frac{1}{\sin^4(\theta/2)},
-\end{equation}
-where $E= p^2/2\,m$ is the kinetic energy of the incident particles. 
-Equation~(\ref{e7.46}) is the classical Rutherford scattering cross-section formula.
-
-The Born approximation is valid provided that $\psi({\bf r})$ is
-not too different from $\phi({\bf r})$ in the scattering region. 
-It follows, from Eq.~(\ref{e7.17}), that the condition for  $\psi({\bf r})
-\simeq \phi({\bf r})$ in the vicinity of ${\bf r} = 0$ is 
-\begin{equation}\label{e7.47}
-\left| \frac{m}{2\pi\, \hbar^2} \int \frac{ \exp(\,{\rm i}\, k \,r')}{r'} 
-\,V({\bf r}')\,d^3{\bf r'} \right| \ll 1.
-\end{equation}
- Consider the special case of the Yukawa potential. At low energies,
-({\em i.e.}, $k\ll \mu$) we can replace $\exp(\,{\rm i}\,k\, r')$ by unity,
-giving
-\begin{equation}
-\frac{2\,m}{\hbar^2} \frac{|V_0|}{\mu^2} \ll 1
-\end{equation}
-as the condition for the validity of the Born approximation.
-The condition for the Yukawa potential to develop a bound state
-is
-\begin{equation}
-\frac{2\,m}{\hbar^2} \frac{|V_0|} {\mu^2} \geq 2.7,
-\end{equation}
-where $V_0$ is negative. Thus, if the potential is strong enough to
-form a bound state then the Born approximation is likely to break
-down. In the high-$k$ limit, Eq.~(\ref{e7.47}) yields
-\begin{equation}
-\frac{2\,m}{\hbar^2} \frac{|V_0|}{\mu \,k} \ll 1.
-\end{equation}
-This inequality becomes progressively easier to satisfy as $k$ increases,
-implying that the Born approximation is more accurate at high
-incident particle energies.
-
-\section{Partial Waves}
-We can assume, without loss of generality, that the incident wave-function
-is characterized by  a wave-vector ${\bf k}$ which is aligned parallel to the $z$-axis.
-The scattered wave-function is characterized by a wave-vector ${\bf k}'$
-which has the same magnitude as ${\bf k}$, but, in general, points
-in a different direction. The direction of ${\bf k}'$ is specified
-by the polar angle $\theta$ ({\em i.e.}, the angle subtended between the
-two wave-vectors), and an azimuthal angle $\varphi$ about the $z$-axis.
-Equation~(\ref{e7.38}) strongly suggests that for a spherically symmetric
-scattering potential [{\em i.e.}, $V({\bf r}) = V(r)$] the scattering amplitude
-is a function of $\theta$ only:
-\begin{equation}
-f(\theta, \varphi) = f(\theta).
-\end{equation}
-It follows that neither the incident wave-function,
-\begin{equation}\label{e7.52}
-\phi({\bf r}) = \frac{\exp(\,{\rm i}\,k\,z)}{(2\pi)^{3/2}}= \frac{\exp(\,{\rm i}\,k\,r\cos\theta)}{(2\pi)^{3/2}},
-\end{equation}
-nor the total wave-function,
-\begin{equation}\label{e7.53}
-\psi({\bf r})  = \frac{1}{(2\pi)^{3/2}}
-\left[ \exp(\,{\rm i}\,k\,r\cos\theta) + \frac{\exp(\,{\rm i}\,k\,r)\, f(\theta)}
-{r} \right],
-\end{equation}
-depend on the azimuthal angle $\varphi$. 
-
-Outside the range of the scattering potential, both $\phi({\bf r})$ and
-$\psi({\bf r})$ satisfy the free space Schr\"{o}dinger equation 
-\begin{equation}\label{e7.54}
-(\nabla^2 + k^2)\,\psi = 0.
-\end{equation}
-What is the most general solution to this equation in spherical polar
-coordinates which does not depend on the azimuthal angle $\varphi$?
-Separation of variables yields
-\begin{equation}\label{e7.55}
-\psi(r,\theta) = \sum_l R_l(r)\, P_l(\cos\theta),
-\end{equation}
-since the Legendre functions $P_l(\cos\theta)$ form a complete
-set in $\theta$-space. The Legendre functions are related to the
-spherical harmonics introduced in Sect.~\ref{s5} via
-\begin{equation}
-P_l(\cos\theta) = \sqrt{\frac{4\pi}{2\,l+1}}\, Y_l^0(\theta,\varphi).
-\end{equation}
-Equations~(\ref{e7.54}) and (\ref{e7.55}) can be combined to give
-\begin{equation}
-r^2\frac{d^2 R_l}{dr^2} + 2\,r \frac{dR_l}{dr} +  [k^2 \,r^2 -
-l\,(l+1)]R_l = 0.
-\end{equation}
-The two independent solutions to this equation are called a
-spherical Bessel function, $j_l(k\,r)$, and a Neumann function,
-$\eta_l(k\,r)$. 
-It is easily demonstrated that
-\begin{eqnarray}\label{e7.58a}
-j_l(y) &=& y^l\left(-\frac{1}{y}\frac{d}{dy}\right)^l \frac{\sin y}{y},
-\\[0.5ex]\label{e7.58b}
-\eta_l(y) &=& -y^l\left(-\frac{1}{y}\frac{d}{dy}\right)^l \frac{\cos y}{y}.
-\end{eqnarray}
-Note that  spherical Bessel functions are well-behaved in the limit
-$y\rightarrow 0$ , whereas  Neumann functions become singular.
-The asymptotic behaviour of these functions in the limit $y\rightarrow
-\infty$ is
-\begin{eqnarray}\label{e7.59a}
-j_l(y) &\rightarrow &\frac{\sin(y - l\,\pi/2)}{y},\\[0.5ex]
-\eta_l(y) &\rightarrow & - \frac{\cos(y-l\,\pi/2)}{y}.\label{e7.59b}
-\end{eqnarray}
-
-We can write
-\begin{equation}
-\exp(\,{\rm i}\,k\,r \cos\theta) = \sum_l a_l\, j_l(k\,r)\, P_l(\cos\theta),
-\end{equation}
-where the $a_l$ are constants. Note there are no  Neumann functions in
-this expansion, because they are not well-behaved  as $r \rightarrow 0$. 
-The Legendre functions are orthonormal,
-\begin{equation}\label{e7.61}
-\int_{-1}^1 P_n(\mu) \,P_m(\mu)\,d\mu = \frac{\delta_{nm}}{n+1/2},
-\end{equation}
-so we can invert the above expansion to give
-\begin{equation}
-a_l \,j_l(k\,r) = (l+1/2)\int_{-1}^1 \exp(\,{\rm i}\,k\,r \,\mu) \,P_l(\mu) \,d\mu.
-\end{equation}
-It is well-known that
-\begin{equation}
-j_l(y) = \frac{(-{\rm i})^l}{2} \int_{-1}^1 \exp(\,{\rm i}\, y\,\mu)
-\,P_l(\mu)\,d\mu,
-\end{equation}
-where $l=0, 1, 2, \cdots$ [see Abramowitz and Stegun (Dover, New York NY, 1965),
-Eq.~10.1.14]. Thus,
-\begin{equation}
-a_l = {\rm i}^l \,(2\,l+1),
-\end{equation}
-giving
-\begin{equation}
-\exp(\,{\rm i}\,k\,r \cos\theta) = \sum_l {\rm i}^l\,
-(2\,l+1)\, j_l(k\,r)\, P_l(\cos\theta).
-\end{equation}
-The above expression  tells us how to decompose
-a plane-wave  into
-a series of spherical-waves (or ``partial waves'').
-
-The most general solution for the total wave-function outside the
-scattering region is
-\begin{equation}
-\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \sum_l\left[
-A_l\,j_l(k\,r) + B_l\,\eta_l(k\,r)\right] P_l(\cos\theta),
-\end{equation}
-where the $A_l$ and $B_l$ are constants. 
-Note that the Neumann functions are allowed to appear 
-in this expansion, because
-its region of validity does not include the origin. In the large-$r$
-limit, the total wave-function reduces to
-\begin{equation}
-\psi ({\bf r} ) \simeq \frac{1}{(2\pi)^{3/2}} \sum_l\left[A_l\,
-\frac{\sin(k\,r - l\,\pi/2)}{k\,r} - B_l\,\frac{\cos(k\,r -l\,\pi/2)}{k\,r}
-\right] P_l(\cos\theta),
-\end{equation}
-where use has been made of Eqs.~(\ref{e7.59a})--(\ref{e7.59b}). The above expression can also
-be written
-\begin{equation}\label{e7.68}
-\psi ({\bf r} ) \simeq \frac{1}{(2\pi)^{3/2}} \sum_l C_l\,
-\frac{\sin(k\,r - l\,\pi/2+ \delta_l)}{k\,r}\, P_l(\cos\theta),
-\end{equation}
-where the sine and cosine functions have been combined to give a
-sine function which is phase-shifted by $\delta_l$. 
-
-Equation~(\ref{e7.68}) yields
-\begin{eqnarray}
-\psi({\bf r})& \simeq &\frac{1}{(2\pi)^{3/2}} \sum_l C_l\,
-\frac{\exp[\,{\rm i}\,(k\,r - l\,\pi/2+ \delta_l)]
--\exp[-{\rm i}\,(k\,r - l\,\pi/2+ \delta_l)] }{2\,{\rm i}\,k\,r}\nonumber\\[0.5ex]
-&&\mbox{\hspace{2cm}}\times  P_l(\cos\theta),\label{e7.69}
-\end{eqnarray}
-which contains both incoming and outgoing spherical-waves. What is the
-source of the incoming waves? Obviously, they must be part of
-the large-$r$ asymptotic expansion of the incident wave-function. In fact,
-it is easily seen that
-\begin{eqnarray}
-\phi({\bf r}) &\simeq& \frac{1}{(2\pi)^{3/2}} \sum_l {\rm i}^l\,
-(2l+1)\, \frac{
-\exp[\,{\rm i}\,(k\,r - l\,\pi/2)]
--\exp[-{\rm i}\,(k\,r - l\,\pi/2)]}{2\,{\rm i}\,k\,r} \nonumber\\[0.5ex]
-&&\mbox{\hspace{2cm}}\times P_l(\cos\theta)\label{e7.70}
-\end{eqnarray}
-in the large-$r$ limit. Now, Eqs.~(\ref{e7.52}) and (\ref{e7.53}) give
-\begin{equation}\label{e7.71}
-(2\pi)^{3/2}[\psi({\bf r} )- \phi({\bf r})  ] = 
-\frac{\exp(\,{\rm i}\,k\,r)}{r}\,
-f(\theta).
-\end{equation}
-Note that the right-hand side consists only of an outgoing spherical
-wave. This implies that the coefficients of the incoming spherical waves
-in the large-$r$  expansions of $\psi({\bf r})$ and $\phi({\bf r})$
-must be equal. It follows from Eqs.~(\ref{e7.69}) and (\ref{e7.70}) that
-\begin{equation}
-C_l = (2\,l+1)\,\exp[\,{\rm i}\,(\delta_l + l\,\pi/2)].
-\end{equation} 
-Thus, Eqs.~(\ref{e7.69})--(\ref{e7.71}) yield
-\begin{equation}\label{e7.73}
-f(\theta) = \sum_{l=0}^\infty (2\,l+1)\,\frac{\exp(\,{\rm i}\,\delta_l)}
-{k} \,\sin\delta_l\,P_l(\cos\theta).
-\end{equation}
-Clearly, determining the scattering amplitude
-$f(\theta)$  via  a decomposition into
-partial waves ({\em i.e.}, spherical-waves) is equivalent to determining
-the phase-shifts $\delta_l$.
-
-\section{Optical Theorem}
-The differential scattering cross-section $d\sigma/d\Omega$ is simply
-the modulus squared of the scattering amplitude $f(\theta)$. The
-total cross-section is given by
-\begin{eqnarray}
-\sigma_{\rm total}& = &\int |f(\theta)|^2\,d\Omega\nonumber\\[0.5ex]
-&=& \frac{1}{k^2} \oint d\varphi \int_{-1}^{1} d\mu
-\sum_l \sum_{l'} (2\,l+1)\,(2\,l'+1) 
-\exp[\,{\rm i}\,(\delta_l-\delta_{l'}]\nonumber\\[0.5ex]
-&&\mbox{\hspace{1cm}}\times  \sin\delta_l \,\sin\delta_{l'}\,
-P_l(\mu)\, P_{l'}(\mu),
-\end{eqnarray}
-where $\mu = \cos\theta$. It follows that
-\begin{equation}\label{e7.75}
-\sigma_{\rm total} = \frac{4\pi}{k^2} \sum_l (2\,l+1)\,\sin^2\delta_l,
-\end{equation}
-where use has been made of Eq.~(\ref{e7.61}). A comparison of this result with
-Eq.~(\ref{e7.73}) yields 
-\begin{equation}
-\sigma_{\rm total} = \frac{4\pi}{k}\, {\rm Im}\left[f(0)\right],
-\end{equation}
-since $P_l(1) = 1$. This result is known as the {\em optical theorem}.
-It is a reflection of the fact that the very existence of scattering
-requires scattering in the forward ($\theta=0$) direction
-in order to interfere with the incident wave, and thereby reduce the
-probability current in this direction.
-
-It is usual to write
-\begin{equation}
-\sigma_{\rm total} = \sum_{l=0}^\infty \sigma_l,
-\end{equation}
-where 
-\begin{equation}\label{e7.78}
-\sigma_l = \frac{4\pi}{k^2}\, (2\,l+1)\, \sin^2\delta_l
-\end{equation}
-is the $l$th partial cross-section: {\em  i.e.}, the contribution to the
-total cross-section from the $l$th partial wave. Note that the maximum 
-value for the $l$th partial cross-section occurs when the phase-shift  $\delta_l$ takes the value $\pi/2$.
-
-\section{Determination of Phase-Shifts}
-Let us now consider how the phase-shifts $\delta_l$ can be
- evaluated. Consider a spherically symmetric potential $V(r)$ which
-vanishes for $r>a$, where $a$ is termed the range of the potential.
-In the region $r>a$, the wave-function $\psi({\bf r})$ 
-satisfies the free-space Schr\"{o}dinger equation (\ref{e7.54}). The
-most general solution which is consistent with no incoming spherical-waves is
-\begin{equation}
-\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}} \sum_{l=0}^\infty
-{\rm i}^l\, (2\,l+1) \, A_l(r)\, P_l(\cos\theta),
-\end{equation}
-where
-\begin{equation}\label{e7.80}
-A_l(r) = \exp(\,{\rm i} \,\delta_l)\,
-\left[ \,\cos\delta_l \,j_l(k\,r) -\sin\delta_l\, \eta_l(k\,r)\,\right].
-\end{equation}
-Note that  Neumann functions are allowed to appear in the above
-expression, because its region of validity does not include the origin
-(where $V\neq 0$). The logarithmic derivative of the $l$th 
-radial wave-function
-$A_l(r)$ just outside the range of the potential is given by
-\begin{equation}
-\beta_{l+} = k\,a \left[\frac{ \cos\delta_l\,j_l'(k\,a) -
-\sin\delta_l\, \eta_l'(k\,a)}{\cos\delta_l \,
-j_l(k\,a) - \sin\delta_l\,\eta_l(k\,a)}\right],
-\end{equation}
-where $j_l'(x)$ denotes $dj_l(x)/dx$, {\em etc}. The above equation
-can be inverted to give
-\begin{equation}\label{e7.82}
-\tan \delta_l = \frac{ k\,a\,j_l'(k\,a) - \beta_{l+}\, j_l(k\,a)}
-{k\,a\,\eta_l'(k\,a) - \beta_{l+}\, \eta_l(k\,a)}.
-\end{equation}
-Thus, the problem of determining the phase-shift $\delta_l$ is equivalent
-to that of obtaining $\beta_{l+}$. 
-
-The most general solution to Schr\"{o}dinger's equation inside 
-the range of the potential ($r<a$) which does not depend on the
-azimuthal angle $\varphi$ is
-\begin{equation}
-\psi({\bf r}) = \frac{1}{(2\pi)^{3/2}}\sum_{l=0}^\infty
-{\rm i}^l \,(2\,l+1)\,R_l(r)\,P_l(\cos\theta),
-\end{equation}
-where
-\begin{equation}
-R_l (r) = \frac{u_l(r)}{r},
-\end{equation}
-and
-\begin{equation}\label{e7.85}
-\frac{d^2 u_l}{d r^2} +\left[k^2 - \frac{2m}{\hbar^2} \,V - \frac{l\,(l+1)}
-{r^2}\right] u_l = 0.
-\end{equation}
-The boundary condition 
-\begin{equation}\label{e7.86}
-u_l(0) = 0
-\end{equation}
- ensures that the radial wave-function is well-behaved at the
-origin. 
-We can launch a well-behaved solution of the above equation from 
-$r=0$, integrate out to $r=a$, and form the logarithmic derivative
-\begin{equation}
-\beta_{l-} = \left.\frac{1}{(u_l/r)} \frac{d(u_l/r)}{dr}\right|_{r=a}.
-\end{equation}
-Since $\psi({\bf r})$ and its first derivatives are necessarily continuous for
-physically acceptible wave-functions, it follows that
-\begin{equation}
-\beta_{l+} = \beta_{l-}.
-\end{equation}
-The phase-shift $\delta_l$ is obtainable from Eq.~(\ref{e7.82}).
-
-\section{Hard Sphere Scattering}
-Let us test out this scheme using a particularly simple example. Consider
-scattering by a hard sphere, for which  the potential is infinite 
-for $r<a$, and zero for $r>a$. It follows that $\psi({\bf r})$ is
-zero in the region $r<a$, which implies that  $u_l =0$ for all $l$. 
+for expectation values taken between the simultaneous eigenkets of
+$L_z$ and $S_z$. 
 Thus,
 \begin{equation}
-\beta_{l-} = \beta_{l+} = \infty,
-\end{equation}
-for all $l$. It follows from Eq.~(\ref{e7.82}) that
-\begin{equation}\label{e7.90}
-\tan \delta_l = \frac{j_l(k\,a)}{\eta_l(k\,a)}.
+{\mit\Delta} E_{n\,l\, m_l\, m_s} = \frac{\hbar^2\, m_l \,m_s}
+{2 \,m_e^{\,2}\,c^2} \left\langle \frac{1}{r} \frac{d V}{dr}\right\rangle.
 \end{equation}
 
-Consider the $l=0$ partial wave, which is usually referred to as the $s$-wave.
-Equation~(\ref{e7.90}) yields
-\begin{equation}
-\tan\delta_0 = \frac{\sin (k\,a)/k\,a}{-\cos (k\,a)/ka} = -\tan k\,a,
-\end{equation}
-where use has been made of Eqs.~(\ref{e7.58a})--(\ref{e7.58b}). It follows that
-\begin{equation}\label{e7.92}
-\delta_0 = -k\,a.
-\end{equation}
-The  $s$-wave radial wave function
-is
-\begin{eqnarray}
-A_0(r) &= &\exp(-{\rm i}\, k\,a) \frac{[\cos k\,a \,\sin k\,r
--\sin k\,a \,\cos k\,r]}{k\,r}\nonumber\\[0.5ex]
-&=& \exp(-{\rm i}\, k\,a)\, \frac{ \sin[k\,(r-a)]}{k\,r}.
-\end{eqnarray}
-The corresponding radial wave-function for the incident wave 
-takes the form
-\begin{equation}
-\tilde{A}_0(r) = \frac{ \sin k\,r}{k\,r}.
-\end{equation}
-It is clear that the actual $l=0$ radial wave-function is similar to the
-incident $l=0$ wave-function, except that it is phase-shifted by $k\,a$. 
+Let us apply the above result to a sodium atom. In the presence of
+an intense magnetic field, the $3p$ states are split into five
+groups with ($m_l,m_s$) quantum numbers $(1,1/2)$, $(0,1/2)$, $(1,-1/2)$
+or $(-1, 1/2)$, $(0,-1/2)$, and $(-1,-1/2)$, respectively, in order of
+decreasing energy. The spin-orbit term increases the energy of
+the highest energy state, does not affect the next highest energy state,
+decreases, but does not split, the energy of the doublet, does
+not affect the next lowest energy state, and increases 
+the energy of the lowest
+energy state. The net result is that the five groups of states are no
+longer equally spaced in energy. 
 
-Let us consider the low and high energy asymptotic limits of $\tan\delta_l$.
-Low energy means $k\,a\ll 1$. In this regime, the spherical Bessel functions
-and Neumann functions reduce to:
-\begin{eqnarray}
-j_l(k\,r) &\simeq & \frac{(k\,r)^l}{(2\,l+1)!!},\\[0.5ex]
-\eta_l(k\,r) &\simeq & -\frac{(2\,l-1)!!}{(k\,r)^{l+1}},
-\end{eqnarray}
-where $n!! = n\,(n-2)\,(n-4)\cdots 1$. It follows that
+The typical magnetic field-strength needed to access the Paschen-Bach limit
+is 
 \begin{equation}
-\tan\delta_l = \frac{-(k\,a)^{2\,l+1}}{(2\,l+1) \,[(2\,l-1)!!]^2}.
+B_{PB} \sim \alpha^2 \frac{e\, m_e}{\epsilon_0\, h \,a_0} 
+\simeq 25\,\,\,{\rm tesla}.
 \end{equation}
-It is clear that we can neglect  $\delta_l$, with $l>0$, with respect to
-$\delta_0$. In other words, at low energy only $s$-wave scattering
-({\em i.e.}, spherically symmetric scattering) is important. It follows
-from Eqs.~(\ref{e7.33}), (\ref{e7.73}), and (\ref{e7.92})  that 
-\begin{equation}
-\frac{d\sigma}{d\Omega} = \frac{\sin^2 k\,a}{k^2} \simeq a^2
-\end{equation}
-for $k\,a\ll 1$. Note that the total cross-section
-\begin{equation}
-\sigma_{\rm total} = \int\frac{d\sigma}{d\Omega}\,d\Omega = 4\pi \,a^2
-\end{equation}
-is {\em four times}\/ the {\em geometric cross-section}\/ $\pi \,a^2$
-({\em i.e.}, the cross-section for classical particles bouncing off a
-hard sphere of radius $a$). 
-However, 
-low energy scattering implies relatively long wave-lengths, so we do not
-expect to obtain the  classical result  in this limit. 
 
-Consider the high energy limit $k\,a\gg 1$. At high energies, all partial
-waves up to $l_{\rm max} = k\,a$ contribute significantly to
-the scattering cross-section. It follows from Eq.~(\ref{e7.75}) that
-\begin{equation}\label{e7.99}
-\sigma_{\rm total} = \frac{4\pi}{k^2} \sum_{l=0}^{l_{\rm max}}
-(2\,l+1)\,\sin^2\delta_l.
+\section{Hyperfine Structure}
+The proton in a hydrogen atom is a spin one-half charged particle, and therefore
+possesses a magnetic moment. By analogy with Equation~(\ref{e7.99d}),
+we can write
+\begin{equation}\label{e12.151}
+\bmu_p = \frac{g_p\,e}{2\,m_p}\,{\bf S}_p,
 \end{equation}
-With so many $l$ values contributing, it is legitimate to replace
-$\sin^2\delta_l$ by its average value $1/2$. Thus,
+where $\bmu_p$ is the proton magnetic
+moment, ${\bf S}_p$ is the proton spin, and the proton gyromagnetic ratio $g_p$ is found experimentally to take that value $5.59$. Note that the
+magnetic moment of a proton is much smaller (by a factor of order $m_e/m_p$)
+than that of an electron.
+ According
+to classical electromagnetism, the proton's magnetic moment generates a
+magnetic field of the form
 \begin{equation}
-\sigma_{\rm total} = \sum_{l=0}^{k\,a} \frac{2\pi}{k^2} \,(2\,l+1) \simeq 
-2\pi \,a^2.
+{\bf B} = \frac{\mu_0}{4\pi\,r^3}\,\left[3\,(\bmu_p\cdot{\bf e}_r)\,{\bf e}_r - \bmu_p\right] + \frac{2\,\mu_0}{3}\,\bmu_p\,\delta({\bf x}),
 \end{equation}
-This is {\em twice}\/ the classical result, which is  somewhat surprizing,
-since we might expect to obtain the classical result in the short
-wave-length limit. For hard sphere scattering, incident waves with
-impact parameters less than $a$ must be deflected. However, in order to
-produce a ``shadow'' behind the sphere, there must be scattering
-in the forward direction (recall the optical theorem) to produce
-destructive interference with the incident plane-wave. In fact, the
-interference is not completely destructive, and the shadow has a bright
-spot in the forward direction. The effective cross-section associated with
-this bright spot is $\pi \,a^2$ which, when combined with the
-cross-section for classical reflection, $\pi \,a^2$, gives the actual
-cross-section of $2\pi \,a^2$.
- 
-\section{Low Energy Scattering}
-At low energies ({\em i.e.}, when $1/k$ is much larger than the range
-of the potential) partial waves with $l>0$, in general, make a
-negligible contribution to the scattering cross-section. It follows
-that, at these energies, with a finite range potential, only $s$-wave
-scattering is important.
-
-As a specific example, let us consider scattering by  a finite
-potential well, characterized by $V=V_0$ for $r<a$, and
-$V=0$ for $r\geq a$. Here, $V_0$ is a constant. The potential
-is repulsive for $V_0>0$, and attractive for $V_0<0$. 
-The outside wave-function is given by [see Eq.~(\ref{e7.80})]
-\begin{eqnarray}
-A_0(r) &=& \exp(\,{\rm i}\, \delta_0)\,\left[
-j_0(k\,r) \cos\delta_0 - \eta_0(k\,r) \sin\delta_0\right]\nonumber\\[0.5ex]
-&=& \frac{ \exp(\,{\rm i} \,\delta_0)\, \sin(k\,r+\delta_0)}{k\,r},
-\end{eqnarray}
-where use has been made of Eqs.~(\ref{e7.58a})--(\ref{e7.58b}).
-The inside wave-function follows from Eq.~(\ref{e7.85}). We obtain
-\begin{equation}\label{e7.103}
-A_0(r) = B \,\frac{\sin k'r}{r},
-\end{equation}
-where use has been made of the boundary condition (\ref{e7.86}).
-Here, $B$ is a constant, and 
+where ${\bf e}_r = {\bf x}/r$, and $r=|{\bf x}|$. We can understand the origin of the delta-function term
+in the above expression by thinking of the proton as a tiny current loop centred on the origin.
+All magnetic field-lines generated by the loop must pass through the loop.
+Hence, if the size of the  loop goes to zero then the field will be infinite at the origin, and this contribution is what is reflected by the delta-function term. Now, the Hamiltonian of the electron in the magnetic
+field generated by the proton is simply
 \begin{equation}
-E - V_0 = \frac{\hbar^2 \,k'^2}{2\,m}.
-\end{equation}
-Note that Eq.~(\ref{e7.103}) only applies when $E>V_0$. For $E<V_0$, we have
-\begin{equation}
-A_0(r) = B \,\frac{\sinh\kappa\, r}{r},
+H_1 = - \bmu_e\cdot {\bf B},
 \end{equation}
 where
 \begin{equation}
-V_0 - E = \frac{\hbar^2 \kappa^2}{2\,m}.
+\bmu_e = - \frac{e}{m_e}\,{\bf S}_e.
 \end{equation}
-Matching $A_0(r)$, and its radial derivative at $r=a$, yields
-\begin{equation}\label{e7.107}
-\tan(k\,a+\delta_0) = \frac{k}{k'} \,\tan k'a
-\end{equation}
-for $E>V_0$, and
+Here, $\bmu_e$ is the electron  magnetic moment [see Equation~(\ref{e7.99d})], and ${\bf S}_e$ the electron spin. Thus, the
+perturbing Hamiltonian is written
 \begin{equation}
-\tan(k\,a+ \delta_0) = \frac{k}{\kappa} \,\tanh \kappa\, a
+H_1=\frac{\mu_0\,g_p\,e^2}{8\pi\,m_p\,m_e}\left(\frac{3\,({\bf S}_p\cdot{\bf e}_r)\,({\bf S}_e\cdot{\bf e}_r) - {\bf S}_p\cdot{\bf S}_e}{r^3}\right) + \frac{\mu_0\,g_p\,e^2}{3\,m_p\,m_e}\,{\bf S}_p\cdot{\bf S}_e\,\delta({\bf x}).
 \end{equation}
-for $E<V_0$.
+Note that, because we have neglected coupling between the proton
+spin and the magnetic field generated by the electron's orbital motion,
+the above expression is only valid for $l=0$ states.
 
-Consider an attractive potential, for which $E>V_0$. Suppose that 
-$|V_0|\gg E$ ({\em i.e.}, the depth of the potential well is much larger than
-the energy of the incident particles), so that $k' \gg k$. It follows
-from Eq.~(\ref{e7.107}) that, unless $\tan k'a$ becomes extremely large, the right-hand side is much less that unity, so replacing the tangent of a
-small quantity with the quantity itself, we obtain
+According to standard first-order perturbation theory, the energy-shift induced
+by spin-spin coupling between the proton and the electron is the expectation
+value of the perturbing Hamiltonian. Hence,
 \begin{equation}
-k\,a + \delta_0 \simeq \frac{k}{k'}\,\tan k'a.
+{\mit\Delta} E = \frac{\mu_0\,g_p\,e^2}{8\pi\,m_p\,m_e}\left\langle\frac{3\,({\bf S}_p\cdot{\bf e}_r)\,({\bf S}_e\cdot{\bf e}_r) - {\bf S}_p\cdot{\bf S}_e}{r^3}\right\rangle+ \frac{\mu_0\,g_p\,e^2}{3\,m_p\,m_e}\,\langle{\bf S}_p\cdot{\bf S}_e\rangle\,|\psi(0)|^{\,2}.
 \end{equation}
-This yields
+For the ground-state of hydrogen, which is spherically symmetric,
+the first term in the above expression vanishes by symmetry. 
+Moreover, it is easily demonstrated that $|\psi_{000}(0)|^{\,2}=
+1/(\pi\,a_0^{\,3})$. Thus, we obtain
 \begin{equation}
-\delta_0 \simeq k\,a \left( \frac{\tan k'a}{k'a} -1\right).
+{\mit\Delta} E_{000} = \frac{\mu_0\,g_p\,e^2}{3\pi\,m_p\,m_e\,a_0^{\,3}}\,\langle{\bf S}_p\cdot{\bf S}_e\rangle.
 \end{equation}
-According to Eq.~(\ref{e7.99}), the scattering cross-section is given by
-\begin{equation}\label{e7.111}
-\sigma_{\rm total} \simeq \frac{4\pi}{k^2} \sin^2\delta_0
-=4\pi \,a^2\left(\frac{\tan k'a}{k'a} -1\right)^2.
-\end{equation}
-Now
-\begin{equation}\label{e7.112}
-k'a = \sqrt{ k^2 \,a^2 + \frac{2 \,m \,|V_0|\, a^2}{\hbar^2}},
-\end{equation}
-so for sufficiently small values of $k\,a$,
-\begin{equation}
-k' a \simeq \sqrt{\frac{2\, m \,|V_0|\, a^2}{\hbar^2}}.
-\end{equation}
-It follows that the total ($s$-wave) scattering cross-section is independent
-of the energy of the incident particles (provided that this energy is
-sufficiently small). 
 
-Note that there are values of $k'a$ ({\em e.g.}, $k'a\simeq 4.49$) at which
-$\delta_0\rightarrow \pi$, and 
-the scattering cross-section (\ref{e7.111}) vanishes, despite the very strong
-attraction of the potential. In reality, the cross-section is not
-exactly zero, because of contributions from $l>0$ partial waves. But,
-at low incident energies, these contributions are small. It follows that
-there are certain values of $V_0$ and $k$ which give rise to almost perfect 
-transmission of the incident wave. This is called the {\em Ramsauer-Townsend
-effect}, and has been observed experimentally. 
+Let
+\begin{equation}
+{\bf S} = {\bf S}_e + {\bf S}_p
+\end{equation}
+be the total spin. We can show that
+\begin{equation}
+{\bf S}_p\cdot{\bf S}_e = \frac{1}{2}\,(S^2-S_e^{\,2}-S_p^{\,2}).
+\end{equation}
+Thus, the simultaneous eigenstates of the perturbing Hamiltonian
+and the main Hamiltonian are the simultaneous eigenstates of $S_e^{\,2}$,
+$S_p^{\,2}$, and $S^2$. However, both the proton and
+the electron are spin one-half particles. According to Chapter~\ref{c6},
+when two spin one-half particles are combined (in the absence of orbital
+angular momentum) the net state  has either spin 1 or spin 0.
+In fact, there are three spin 1 states, known as triplet states, and a single
+spin 0 state, known as the singlet state. For all states,
+the eigenvalues of $S_e^{\,2}$ and $S_p^{\,2}$ are $(3/4)\,\hbar^2$.
+The eigenvalue of $S^2$ is 0 for the singlet state, and $2\,\hbar^2$
+for the triplet states. Hence,
+\begin{equation}
+\langle {\bf S}_p\cdot{\bf S}_e\rangle = - \frac{3}{4}\,\hbar^2
+\end{equation}
+for the singlet state, and
+\begin{equation}
+\langle {\bf S}_p\cdot{\bf S}_e\rangle =  \frac{1}{4}\,\hbar^2
+\end{equation}
+for the triplet states. 
 
-\section{Resonances}
-There is a significant exception to the independence of the cross-section on energy. Suppose that the quantity $\sqrt{2\,m \,|V_0|\,a^2/\hbar^2}$
-is slightly less than $\pi/2$. As the incident energy increases, $k'a$,
-which is given by Eq.~(\ref{e7.112}), can reach the value $\pi/2$. In this case,
-$\tan k'a$ becomes infinite, so we can no longer assume that the right-hand side of Eq.~(\ref{e7.107}) is small. In fact,
-at the value of the incident energy
-when $k'a = \pi/2$, it follows from Eq.~(\ref{e7.107}) that $k\,a+\delta_0 = \pi/2$,
-or $\delta_0 \simeq \pi/2$ (since we are assuming that $k\,a\ll 1$). 
-This implies that
+It follows, from the above analysis, that spin-spin coupling breaks
+the degeneracy of the two $(1s)_{1/2}$ states of the hydrogen atom, lifting the
+energy of the triplet configuration, and lowering that of the singlet.
+This splitting is known as {\em hyperfine structure}.
+The net energy difference between the singlet and the triplet states
+is
 \begin{equation}
-\sigma_{\rm total} = \frac{4\pi}{k^2} \sin^2\delta_0 = 4\pi \,a^2
-\left(\frac{1}{k^2 \,a^2}\right).
+{\mit\Delta} E_{000} = \frac{8}{3}\,g_p\,\frac{m_e}{m_p}\,\alpha^2\,|E_0| = 5.88\times 10^{-6}\,{\rm eV},
 \end{equation}
-Note that the cross-section now depends on the energy. Furthermore, the
-magnitude of the cross-section is much larger than that given in Eq.~(\ref{e7.111})
-for $k'a\neq \pi/2$ (since $k\,a\ll 1$). 
+where $|E_0|=13.6\,{\rm eV}$ is the (magnitude of the) ground-state energy.
+Note that the hyperfine energy-shift is much smaller, by a factor $m_e/m_p$, than
+a typical fine structure energy-shift (see Exercise~\ref{ex7.2}).
+If we convert the above energy into a wavelength then we obtain
+\begin{equation}
+\lambda = 21.1\,{\rm cm}.
+\end{equation}
+This is the wavelength of the radiation emitted by a hydrogen atom
+that is collisionally excited from the singlet to the triplet
+state, and then decays back to the lower energy singlet state. 
+The 21\,cm line is famous in  radio astronomy because it was used to
+map out the spiral structure of our galaxy in the 1950's. 
 
-The origin of this rather strange behaviour is quite simple. The condition
-\begin{equation}
-\sqrt{\frac{2\,m\,|V_0 |\,a^2}{\hbar^2} } = \frac{\pi}{2}
-\end{equation}
-is equivalent to the condition that a spherical well of depth
-$V_0$ possesses a bound state at zero energy. Thus, for a potential
-well which satisfies the above equation, the energy of the scattering system
-is essentially the same as the energy of the bound state. In this situation,
-an incident particle would like to form a bound state in the potential
-well. However, the bound state is not stable, since the system has a small
-positive energy. Nevertheless, this sort of {\em resonance scattering}
-is best understood as the capture of an incident particle to form
-a metastable bound state, and the subsequent decay of the bound state
-and release of the particle. The cross-section for resonance scattering
-is generally far higher than that for non-resonance scattering.
+\subsection*{Exercises}
+\begin{enumerate}[label=\thechapter.\arabic*,leftmargin=*,widest=9.20]
+\item Calculate the energy-shift in the ground state of the one-dimensional harmonic
+oscillator when the perturbation
+$$
+V = \lambda\,x^4
+$$
+is added to
+$$
+H = \frac{p_x^{\,2}}{2\,m} + \frac{1}{2}\,m\,\omega^2\,x^2.
+$$
+The properly normalized ground-state wavefunction is 
+$$
+\psi(x) = \left(\frac{m\,\omega}{\pi\,\hbar}\right)^{1/4}\,\exp\left(-\frac{m\,\omega^2\,x^2}{2\,\hbar}\right).
+$$
 
-We have seen that there is a resonant effect when the phase-shift of
-the $s$-wave takes the value $\pi/2$.  There is nothing special about
-the $l=0$ partial wave, so it is reasonable to assume that there
-is a similar resonance when the phase-shift of the $l$th partial
-wave is $\pi/2$. Suppose that $\delta_l$ attains the value
-$\pi/2$ at the incident energy $E_0$, so that
-\begin{equation}
-\delta_l(E_0) = \frac{\pi}{2}.
-\end{equation}
-Let us expand $\cot \delta_l$ in the vicinity of the resonant energy:
-\begin{eqnarray}
-\cot \delta_l(E)& =& \cot \delta_l(E_0) +\left(
-\frac{ d \cot\delta_l}{d E}\right)_{E=E_0}(E-E_0) + \cdots\nonumber\\[0.5ex]
-&=& - \left(\frac{1}{\sin^2\delta_l}\frac{d\delta_l}{d E}\right)_{E=E_0}
-(E-E_0)+\cdots.
-\end{eqnarray}
-Defining
-\begin{equation}
-\left(\frac{d \delta_l(E)}{d E} \right)_{E=E_0} = \frac{2}{\Gamma},
-\end{equation}
-we obtain
-\begin{equation}
-\cot\delta_l(E) = - \frac{2}{\Gamma} \,(E-E_0) + \cdots.
-\end{equation}
-Recall, from Eq.~(\ref{e7.78}), that the contribution of the $l$th partial wave
-to the scattering cross-section is
-\begin{equation}
-\sigma_l = \frac{4\pi}{k^2} \,(2\,l+1)\,\sin^2\delta_l 
-= \frac{4\pi}{k^2} \,(2\,l+1)\,\frac{1}{1+\cot^2\delta_l}.
-\end{equation}
-Thus,
-\begin{equation}
-\sigma_l \simeq \frac{4\pi}{k^2} \,(2\,l+1)\,
-\frac{\Gamma^2/4}{(E-E_0)^2 + \Gamma^2/4}.
-\end{equation}
-This is the famous {\em Breit-Wigner} formula. The variation of
-the partial cross-section $\sigma_l$ with the incident energy has
-the form of a classical resonance curve. The quantity $\Gamma$ is
-the width of the resonance (in energy). We can interpret the
-Breit-Wigner formula as describing the absorption of an incident particle
-to form a metastable state, of energy $E_0$, and lifetime $\tau = \hbar/
-\Gamma$ (see Sect.~\ref{s6.18}).
+\item Calculate the energy-shifts due to the first-order Stark effect in the $n=3$ state of a hydrogen atom. You do not
+need to perform all of the integrals, but you should construct the correct linear combinations of states. 
+
+\item The Hamiltonian of the valence electron in a hydrogen-like atom can be written\label{ex7.1}
+$$
+H = \frac{p^2}{2\,m_e} + V(r) - \frac{p^4}{8\,m_e^{\,3}\,c^2}.
+$$
+Here, the final term on the right-hand side is the first-order correction due to the electron's relativistic mass
+increase. Treating this term as a small perturbation, deduce that it causes an energy-shift in the energy eigenstate
+characterized by the standard quantum numbers $n$, $l$, $m$ of
+$$
+{\mit\Delta}E_{nlm} = -\frac{1}{2\,m_e\,c^2}\left(E_n^{\,2} - 2\,E_n\,\langle V\rangle + \langle V^{\,2}\rangle\right),
+$$
+where $E_n$ is the unperturbed energy, and $\alpha$ the fine structure constant. 
+
+\item Consider an energy eigenstate of the hydrogen atom characterized by the standard quantum numbers $n$, $l$, and $m$. 
+Show that if the energy-shift due to spin-orbit coupling (see Section~\ref{s7.7x}) is added to that due to the electron's relativistic mass increase (see previous exercise) then the
+net fine structure energy-shift can be written\label{ex7.2}
+$$
+{\mit\Delta} E_{nlm} = \frac{\alpha^2\,E_n}{n^2}\left(\frac{n}{j+1/2}-\frac{3}{4}\right).
+$$
+Here,  $E_n$ is the unperturbed energy,  $\alpha$ the fine structure constant, and $j=l\pm 1/2$ the quantum number associated
+with the magnitude of the sum of the electron's orbital and spin angular momenta.  You will need to use the following standard results for a hydrogen atom:
+\begin{align}
+\left\langle \frac{a_0}{r}\right\rangle &= \frac{1}{n^2},\nonumber\\[0.5ex]
+\left\langle \frac{a_0^{\,2}}{r^2}\right\rangle &= \frac{1}{(l+1/2)\,n^3},\nonumber\\[0.5ex]
+\left\langle \frac{a_0^{\,3}}{r^3}\right\rangle &= \frac{1}{l\,(l+1/2)\,(l+1)\,n^3}.\nonumber
+\end{align}
+Here, $a_0$ is the Bohr radius. 
+Assuming that the above formula for the energy shift is valid for $l=0$ (which it is), show that fine structure causes the
+energy of the $(2p)_{3/2}$ states of a hydrogen atom to exceed those of the $(2p)_{1/2}$ and $(2s)_{1/2}$ states by
+$4.5\times 10^{-5}\,{\rm eV}$. 
+\end{enumerate}
+
+
